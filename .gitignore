@@ -1,0 +1,26 @@
+# ROMs / dumps / generated game content
+*.z64
+*.n64
+*.v64
+*.rom
+*.bin
+*.state
+*.State
+*.sav
+*.srm
+
+# Local Ghidra projects / archives
+*.gpr
+*.rep/
+*.gar
+.gar/
+.gpr/
+ghidra_project/
+local-project/
+project-local/
+
+# Script/export scratch
+exports/
+*.tmp
+*.bak
+.DS_Store
