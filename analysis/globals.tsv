@@ -1,0 +1,15 @@
+address	name	evidence	comment
+0x800A600C	g_live_inventory	Static-confirmed	Native ten-slot live inventory window.
+0x800A6048	g_inventory_boxes	Static-confirmed; Runtime-confirmed bounded	Authoritative four-box backing storage, 40 words total.
+0x800A60E8	g_mkmszr_settings	Implementation/CI-confirmed; controls Runtime-confirmed	MKMSZR native GAME SETTINGS state word used by production control options.
+0x800A63FC	g_xp_cap_table	Static-confirmed	Native XP cap/threshold-related table used by tier evaluator.
+0x800B1E20	g_native_font	Static/runtime-confirmed	Native font data used by text renderer/width helper.
+0x800BF308	g_special_action_lock	Static-confirmed	Native special-action lock/state used by action lifecycle proofs.
+0x80111C98	g_actor_list_head	Static-confirmed	Active actor-list head used by actor_list_insert.
+0x80111F98	g_ice_mode	Static-confirmed	Native Ice mode used by bounded Ice-Blast-to-pickup proof.
+0x8011200C	g_current_xp	Static-confirmed	Current native XP value.
+0x802C0D54	g_stage_acquired_bits	Static-confirmed	Stage progression/acquired-bit field; exact meanings are stage-context dependent.
+0x802C18F8	g_stage_selector	Static-confirmed	Live stage/checkpoint selector used for spawn/state routing.
+0x802C1AC0	g_player_controller	Static-confirmed	Pointer to player controller/process.
+0x802ECE20	g_current_controller	Static-confirmed	Pointer to current controller/process.
+0x802FCD44	g_retrace_ticks	Static-confirmed	Gameplay retrace/tick counter used by scheduler timing.
