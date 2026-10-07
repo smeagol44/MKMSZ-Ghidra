@@ -44,7 +44,7 @@ public class ApplyMkmszAnalysis extends GhidraScript {
     private int applyFunctions(File file) throws Exception {
         int count = 0;
         for (String[] row : readTsv(file)) {
-            Address address = toAddr(parseAddress(row[0]));
+            Address address = toAddr(parseHexAddress(row[0]));
             String name = row[1];
             String evidence = row[2];
             String comment = row[3];
@@ -65,7 +65,7 @@ public class ApplyMkmszAnalysis extends GhidraScript {
     private int applyGlobals(File file) throws Exception {
         int count = 0;
         for (String[] row : readTsv(file)) {
-            Address address = toAddr(parseAddress(row[0]));
+            Address address = toAddr(parseHexAddress(row[0]));
             String name = row[1];
             String evidence = row[2];
             String comment = row[3];
@@ -105,7 +105,7 @@ public class ApplyMkmszAnalysis extends GhidraScript {
         return rows;
     }
 
-    private long parseAddress(String text) {
+    private long parseHexAddress(String text) {
         String s = text.trim().toLowerCase();
         if (s.startsWith("0x")) {
             s = s.substring(2);
