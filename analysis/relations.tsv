@@ -1,1 +1,4 @@
 scope	from	to	kind	operand	evidence	note
+global	0x80030974	0x8001C528	NOTE		Static-confirmed	Animation token handler loads presentation resource before secondary actor publication
+global	0x8004CBC4	0x8002830C	NOTE		Static-confirmed	Projectile bridge uses controller/process allocator
+global	0x80073588	0x8002830C	NOTE		Static-confirmed	Inventory controller setup uses the generic process clone; see canonical Function Registry
