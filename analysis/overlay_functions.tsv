@@ -8,3 +8,8 @@ overlay_bridge	0x802EF178	bridge_icon_award	Static-confirmed	Bridge three-icons 
 overlay_bridge	0x802ED888	bridge_scene_trigger_dispatch	Static-confirmed	Bridge trigger dispatcher
 overlay_fortress	0x802EFDB0	fortress_assassin_reward_manager	Static-confirmed	Fortress assassin manager
 overlay_fortress	0x802EF30C	fortress_crystal_progression_dispatch	Static-confirmed	Crystal progression
+overlay_temple	0x802EEC54	temple_scripted_map_actor	Static-confirmed; known stage-owned scripted Map callback; exact function entry clean ROM	Temple scripted Map/special-check actor callback; maintains location-owned elevator/progression path separately from special reward/persistence; not an ordinary pickup.
+overlay_wind	0x802EE9FC	wind_spatial_trigger_dispatch	Static-confirmed; named Wind spatial-trigger controller	Wind 0x3C-stride stage spatial-trigger records at 0x801114F4, player-position/event dispatch; maintains stage/selector physical state, not a pure pickup helper.
+overlay_wind	0x802F2CB4	wind_mixed_icon_award	Static-confirmed; checkpoint suppression v01 rejected	Wind Circle/Triangle/Three Bars pickup callback; combines inventory award with required stage-local checkpoint/selector events; cannot globally suppress physical-state updates.
+overlay_water	0x802F2448	water_icon_award	Static-confirmed; function entry in stock Water overlay	Water Triangle/Three Bars/Moon icon award callback, stage-qualified; detailed full bounds unverified.
+overlay_fire	0x802F0EBC	fire_icon_award	Static-confirmed; bounded Fire checkpoint-free proof Runtime-confirmed	Fire three icon awards, parameters 0..2; stock stage selector/checkpoint presentation writes present, bounded v01 route isolated suppression; not a general override.
