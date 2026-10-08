@@ -14,6 +14,7 @@ import ghidra.program.model.address.*;
 import ghidra.program.model.data.Undefined;
 import ghidra.program.model.lang.Register;
 import ghidra.program.model.listing.*;
+import ghidra.program.model.mem.MemoryBlock;
 import ghidra.program.model.symbol.SourceType;
 
 public class ApplyMkmszOverlayFunctions extends GhidraScript {
