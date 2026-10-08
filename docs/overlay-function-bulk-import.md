@@ -1,6 +1,6 @@
 # Guarded overlay function bulk importer
 
-**Status:** First maintainer Ghidra 12.1.2 execution **passed on Prison's three previously manually defined functions**; automatic disassembly/function creation on an undefined stage entry is still Pending. This is a staged replacement for repeating F11, F, and manual renaming at every *known* entry. It does not infer unknown function identities.
+**Status:** **Ghidra/implementation-confirmed bounded for all nine cataloged function entries**, across four independently imported stage programs (2026-10-08). Prison verifies already-defined idempotence; Earth, Bridge and Fortress verify fresh MIPS32 disassembly/function creation. Complete body boundaries and exhaustive per-function semantics are not claimed. This is a staged replacement for repeating F11, F, and manual renaming at every *known* entry. It does not infer unknown function identities.
 
 ## Prerequisites (in order)
 
@@ -34,7 +34,7 @@
 | Fortress | `fortress_assassin_reward_manager` | `0x802EFDB0` |
 | Fortress | `fortress_crystal_progression_dispatch` | `0x802EF30C` |
 
-**Evidence classifications:** All nine stock prefixes, stage mappings, and previously researched identities are **Static-confirmed**. The three Prison entries were manually created, decompiled and named by the maintainer (**Ghidra/implementation-confirmed**). The bulk script's identity/guard recognition, conflict-free idempotent naming, and execution **passed on Prison**. Its new-entry MIPS32 disassembly and function-creation paths have now also **passed on Earth**; Bridge also **passed the fresh-creation path**; Fortress remains **Pending maintainer Ghidra validation**.
+**Evidence classifications:** All nine stock prefixes, stage mappings, and previously researched identities are **Static-confirmed**. The three Prison entries were manually created, decompiled and named by the maintainer (**Ghidra/implementation-confirmed**). The bulk script's identity/guard recognition, conflict-free idempotent naming, and execution **passed on Prison**. Its new-entry MIPS32 disassembly and function-creation paths have now also **passed on Earth**; Bridge and Fortress also **passed the fresh-creation path**; all nine known entry imports are maintainer-observed.
 
 ## First bulk importer execution — 2026-10-08
 
@@ -51,7 +51,7 @@ Run ApplyMkmszExtended.java afterward only for other scoped metadata.
 ApplyMkmszOverlayFunctions.java> Finished!
 ```
 
-**Ghidra/implementation-confirmed** for existing entry verification, stage matching and idempotence. Does not test creation or unknown-function discovery. The subsequent Earth test passed; Bridge subsequently passed; Fortress remains to test.
+**Ghidra/implementation-confirmed** for existing entry verification, stage matching and idempotence. Does not test creation or unknown-function discovery. The subsequent Earth test passed; Bridge subsequently passed; Fortress subsequently passed; this nine-entry migration is complete.
 
 ## Earth fresh-function creation test — 2026-10-08
 
@@ -67,7 +67,7 @@ Run ApplyMkmszExtended.java afterward only for other scoped metadata.
 ApplyMkmszOverlayFunctions.java> Finished!
 ```
 
-**Ghidra/implementation-confirmed:** both known Earth entries passed their scope/original-byte guards, were explicitly disassembled as MIPS32 and created/named by the script with no reported review conflicts. The console does not by itself establish full function-body boundaries or validate newly observed semantics. Bridge passed subsequently; next test: Fortress (2 entries) in its **separate** program.
+**Ghidra/implementation-confirmed:** both known Earth entries passed their scope/original-byte guards, were explicitly disassembled as MIPS32 and created/named by the script with no reported review conflicts. The console does not by itself establish full function-body boundaries or validate newly observed semantics. Bridge passed subsequently; Fortress subsequently passed in its **separate** program.
 
 ## Bridge fresh-function creation test — 2026-10-08
 
@@ -83,4 +83,20 @@ Run ApplyMkmszExtended.java afterward only for other scoped metadata.
 ApplyMkmszOverlayFunctions.java> Finished!
 ```
 
-**Ghidra/implementation-confirmed bounded:** the two known Bridge entries passed guards and were automatically disassembled, created and named without importer-reported conflicts. This does not validate their full decompilation/boundaries. Across Prison, Earth, and Bridge, **7 of 9** currently cataloged function entries are now imported. Fortress remains to test.
+**Ghidra/implementation-confirmed bounded:** the two known Bridge entries passed guards and were automatically disassembled, created and named without importer-reported conflicts. This does not validate their full decompilation/boundaries. Across Prison, Earth, and Bridge, **7 of 9** currently cataloged function entries are now imported. Fortress subsequently passed.
+
+## Fortress fresh-function creation test — 2026-10-08
+
+The maintainer's separately imported Fortress `0x9E` raw stage program successfully executed the bulk importer:
+
+```text
+ApplyMkmszOverlayFunctions.java> Running...
+MKMSZ overlay function import scope: overlay_fortress (Fortress), entries=2
+OK fortress_assassin_reward_manager at 802efdb0 (body instructions are bounded by decoded flow; inspect if truncated)
+OK fortress_crystal_progression_dispatch at 802ef30c (body instructions are bounded by decoded flow; inspect if truncated)
+MKMSZ overlay function import: created=2, renamed=2, unchanged=0, disassembled=2, review=0 (scope=overlay_fortress)
+Run ApplyMkmszExtended.java afterward only for other scoped metadata.
+ApplyMkmszOverlayFunctions.java> Finished!
+```
+
+**Ghidra/implementation-confirmed bounded:** Two Fortress functions were automatically created, decoded and named with no importer-reported review items. Combined with the preceding runs: **9/9** cataloged stage-qualified function entries (Prison 3, Earth 2, Bridge 2, Fortress 2) have been imported. The importer has passed both preexisting-function idempotence and fresh disassembly/creation tests. Distinct overlay scope and source hash are retained. This is not exhaustive overlay function discovery, nor proof of full function-end boundaries or game runtime behavior.
