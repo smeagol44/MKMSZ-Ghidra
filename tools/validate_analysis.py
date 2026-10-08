@@ -18,6 +18,12 @@ HEADERS = {
     "comments.tsv": "scope address kind evidence text",
     "bookmarks.tsv": "scope address category evidence note",
     "relations.tsv": "scope from to kind operand evidence note",
+    "overlays.tsv": "scope stage file_id rom_start rom_end_exclusive runtime_base sha256 evidence",
+    "overlay_functions.tsv": "scope address name evidence comment",
+    "overlay_pending.tsv": "stage address description evidence note source status",
+    "rom_patch_sites.tsv": "record_id section rom_or_location va owner_or_purpose guard_or_existing change_or_note source",
+    "rom_pickups.tsv": "stage native_stage_id ordinal identity rom_base rdram_base type parameter callback resource_slot presentation collected token requires source",
+    "stage_resource_slots.tsv": "stage slot name outer_offset format frames pickup_users source",
 }
 HEX = re.compile(r"^0[xX][0-9a-fA-F]+$")
 SIGNED_HEX = re.compile(r"^-?0[xX][0-9a-fA-F]+$")
@@ -49,11 +55,11 @@ for path, fields in HEADERS.items():
             if not HEX.fullmatch(row[0]):
                 errors.append(f"{path}:{n}: invalid address")
         else:
-            if not SCOPE.fullmatch(row[0]):
+            if path not in ("overlay_pending.tsv", "rom_patch_sites.tsv", "rom_pickups.tsv", "stage_resource_slots.tsv") and not SCOPE.fullmatch(row[0]):
                 errors.append(f"{path}:{n}: invalid scope")
             for idx in {
                 "signatures.tsv": (1,), "locals.tsv": (1, 4),
-                "data.tsv": (1,), "comments.tsv": (1,),
+                "data.tsv": (1,), "comments.tsv": (1,), "overlay_functions.tsv": (1,),
                 "bookmarks.tsv": (1,), "relations.tsv": (1, 2)
             }.get(path, ()):
                 if not (SIGNED_HEX if path == "locals.tsv" and idx == 4 else HEX).fullmatch(row[idx]):
@@ -67,7 +73,7 @@ expected = "9c18254abf6722b95aa782fcd310bd95f6bcf147da66beb77ce32ca90673ffc6"
 if not any(len(r)==3 and r[0] == "global" and r[2].lower() == expected for r in tables.get("scopes.tsv", [])):
     errors.append("global scope must be pinned to clean USA Rev.0 SHA")
 for file, rows in tables.items():
-    if file in ("scopes.tsv", "functions.tsv", "globals.tsv"):
+    if file in ("scopes.tsv", "functions.tsv", "globals.tsv", "overlay_pending.tsv", "rom_patch_sites.tsv", "rom_pickups.tsv", "stage_resource_slots.tsv"):
         continue
     for n, r in enumerate(rows, 2):
         if r and not r[0].startswith("#") and r[0] not in scopes:
@@ -76,3 +82,14 @@ if errors:
     print("\n".join("ERROR " + x for x in errors))
     sys.exit(1)
 print("OK: headers, row widths, address formats, scope identities")
+
+# Exactly 84 researched ordinary records; prevent silent catalog truncation.
+if len(tables.get("rom_pickups.tsv", [])) != 84:
+    errors.append("expected 84 ordinary pickup records")
+# Overlay source scopes must have manifest provenance.
+for row in tables.get("overlays.tsv", []):
+    if len(row) == 8 and (not SHA.fullmatch(row[6]) or row[0] not in scopes):
+        errors.append("invalid overlay hash/scope")
+if errors:
+    print("\\n".join("ERROR " + x for x in errors))
+    sys.exit(1)
