@@ -20,6 +20,7 @@ HEADERS = {
     "relations.tsv": "scope from to kind operand evidence note",
     "overlays.tsv": "scope stage file_id rom_start rom_end_exclusive runtime_base sha256 evidence",
     "overlay_functions.tsv": "scope address name evidence comment",
+    "code_labels.tsv": "scope address name evidence comment",
     "overlay_pending.tsv": "stage address description evidence note source status",
     "rom_patch_sites.tsv": "record_id section rom_or_location va owner_or_purpose guard_or_existing change_or_note source",
     "rom_pickups.tsv": "stage native_stage_id ordinal identity rom_base rdram_base type parameter callback resource_slot presentation collected token requires source",
@@ -59,7 +60,7 @@ for path, fields in HEADERS.items():
                 errors.append(f"{path}:{n}: invalid scope")
             for idx in {
                 "signatures.tsv": (1,), "locals.tsv": (1, 4),
-                "data.tsv": (1,), "comments.tsv": (1,), "overlay_functions.tsv": (1,),
+                "data.tsv": (1,), "comments.tsv": (1,), "overlay_functions.tsv": (1,), "code_labels.tsv": (1,),
                 "bookmarks.tsv": (1,), "relations.tsv": (1, 2)
             }.get(path, ()):
                 if not (SIGNED_HEX if path == "locals.tsv" and idx == 4 else HEX).fullmatch(row[idx]):
