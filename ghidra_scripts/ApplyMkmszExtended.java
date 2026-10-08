@@ -40,6 +40,7 @@ public class ApplyMkmszExtended extends GhidraScript {
         if (!scope.equals("global")) applyOverlayFunctions();
         // Define types first, then code/data consumers.
         applyTypes();
+        applyCodeLabels();
         applySignatures();
         applyLocals();
         applyData();
@@ -217,6 +218,35 @@ public class ApplyMkmszExtended extends GhidraScript {
             else {
                 manager.addDataType(entry.getValue(), DataTypeConflictHandler.KEEP_HANDLER);
                 applied++;
+            }
+        }
+    }
+
+    private void applyCodeLabels() throws Exception {
+        // scope,address,name,evidence,comment. Never split a function at a switch arm.
+        for (String[] row : rows("code_labels.tsv", 5)) {
+            Address at = addr(row[1]);
+            if (!mapped(at)) continue;
+            Function owner = getFunctionContaining(at);
+            if (owner == null || owner.getEntryPoint().equals(at) ||
+                    currentProgram.getListing().getInstructionAt(at) == null) {
+                println("No verified inner-function instruction at " + at +
+                    "; skipped code label " + row[2]);
+                skipped++;
+                continue;
+            }
+            boolean already = false;
+            for (Symbol symbol : currentProgram.getSymbolTable().getSymbols(at)) {
+                if (row[2].equals(symbol.getName())) { already = true; break; }
+            }
+            if (already) continue;
+            try {
+                // Preserve Ghidra's original switch-case label as primary.
+                createLabel(at, row[2], false, SourceType.USER_DEFINED);
+                applied++;
+            } catch (Exception e) {
+                println("Code label " + row[2] + " skipped: " + e);
+                skipped++;
             }
         }
     }
