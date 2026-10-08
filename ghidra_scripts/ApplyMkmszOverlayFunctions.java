@@ -75,7 +75,7 @@ public class ApplyMkmszOverlayFunctions extends GhidraScript {
     private boolean identifyExactOverlay() throws Exception {
         if (!currentProgram.getLanguage().isBigEndian() ||
             !currentProgram.getLanguage().getProcessor().toString().equalsIgnoreCase("MIPS") ||
-            currentProgram.getLanguage().getDefaultSpace().getSize() != 32)
+            currentProgram.getAddressFactory().getDefaultAddressSpace().getSize() != 32)
             return false;
         String sha = currentProgram.getExecutableSHA256();
         String name = currentProgram.getName();
