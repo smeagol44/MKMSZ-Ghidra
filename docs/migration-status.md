@@ -40,6 +40,10 @@ Unknown overlay mappings (including other stages) are intentionally not guessed.
 
 The former misses were resolved as follows: `0x80003314` and `0x80030974` are internal switch-case arms, not functions; `0x8000C6D8`, `0x80015088`, `0x8004B82C`, and `0x80066420` were separately disassembled/created as functions and the rename importer subsequently succeeded. The screenshot for the last function shows `arena_remaining_capacity` at `0x80066420` with instruction sequence `lui/lw/lui/addiu/subu/jr/sra`; the delay-slot `sra` divides the remaining byte count by eight. The global importer and local Ghidra recognition are confirmed; extracted-stage-overlay imports remain Pending.
 
+## Prison stage-function importer — maintainer confirmation, 2026-10-08
+
+**Ghidra/implementation-confirmed bounded:** With separately imported Prison raw overlay `0x9F`, the maintainer manually verified/disassembled and created the `0x802F1E44` MIPS32 function. The decompiler shows trigger-table iteration and callback dispatch plus `process_sleep(2)` in the repeating process. After pulling the overlay-qualified metadata, `ApplyMkmszExtended.java` reported `scope=overlay_prison`, `applied 3, skipped 2`, and renamed that function to `prison_trigger_dispatch`, while creating bookmarks for `0x802EE320` (`prison_scene_actor_update`) and `0x802F0754` (`prison_capture_grunt_present`). Screenshot confirms the renamed decompiler function and retained body. The two bookmarks are not code/function import failures: code at those addresses has not yet been disassembled/created in the local Prison program. Next bounded static inspection is `0x802EE320`. No runtime/emulator validation is implied.
+
 ## Future work
 
 Populate grounded full signatures/locals and expanded data types during focused RE; map and import remaining stage overlays independently; add safe ROM-space navigation for patch sites and stage catalogs; consider a direct cross-referenced ROM offset view rather than conflating RAM and ROM.
