@@ -35,3 +35,5 @@ Unknown overlay mappings (including other stages) are intentionally not guessed.
 ## Future work
 
 Populate grounded full signatures/locals and expanded data types during focused RE; map and import remaining stage overlays independently; add safe ROM-space navigation for patch sites and stage catalogs; consider a direct cross-referenced ROM offset view rather than conflating RAM and ROM.
+
+**Additional maintainer Ghidra inspection:** `0x8000C6D8` and `0x80015088` were manually disassembled and made into separate functions. At `0x80015088`, the decompiler confirms one shared dispatcher for Pause (process state `2`) and stage reconstruction (`0x18`); `analysis/functions.tsv` now uses `pause_stage_event_dispatch`, correcting the overly narrow `stage_transition_handler`. Exact full boundaries remain to be exhaustively checked; `0x8004B82C` and `0x80066420` remain to inspect.
