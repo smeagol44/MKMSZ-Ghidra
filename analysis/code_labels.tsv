@@ -1,0 +1,2 @@
+scope	address	name	evidence	comment
+global	0x80003314	image_dispatch_type5_case	Static-confirmed; Ghidra listing-confirmed	Switch case 5 within the existing image decode dispatcher. Native Type-5 decoder call at 0x8000332C targets 0x80065E00; not a separate function.
