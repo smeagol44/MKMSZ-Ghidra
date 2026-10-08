@@ -20,6 +20,7 @@ HEADERS = {
     "relations.tsv": "scope from to kind operand evidence note",
 }
 HEX = re.compile(r"^0[xX][0-9a-fA-F]+$")
+SIGNED_HEX = re.compile(r"^-?0[xX][0-9a-fA-F]+$")
 SHA = re.compile(r"^[0-9a-fA-F]{64}$")
 SCOPE = re.compile(r"^[a-z][a-z0-9_-]*$")
 errors = []
@@ -55,7 +56,7 @@ for path, fields in HEADERS.items():
                 "data.tsv": (1,), "comments.tsv": (1,),
                 "bookmarks.tsv": (1,), "relations.tsv": (1, 2)
             }.get(path, ()):
-                if not HEX.fullmatch(row[idx]):
+                if not (SIGNED_HEX if path == "locals.tsv" and idx == 4 else HEX).fullmatch(row[idx]):
                     errors.append(f"{path}:{n}: invalid address in column {idx}")
             if path == "types.tsv" and row[1] not in ("struct", "field", "enum", "member"):
                 errors.append(f"{path}:{n}: invalid type kind")
