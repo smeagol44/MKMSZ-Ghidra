@@ -51,6 +51,7 @@ config/
 ghidra_scripts/
     ApplyMkmszAnalysis.java
     ExportMkmszNames.java
+    ExportMkmszExtended.java
 ```
 
 The TSV files are intentionally human-readable and diffable in Git.
@@ -61,7 +62,7 @@ The TSV files are intentionally human-readable and diffable in Git.
 
 The `analysis/` directory now has scoped record formats for types/structures/enums, function signatures, verified locals, typed data, comments, bookmarks and explicit relations. After pulling new commits, run **ApplyMkmszAnalysis.java**, then **ApplyMkmszExtended.java** from Script Manager. Save your Ghidra project first.
 
-Read [Extended analysis schemas and safeguards](docs/extended-analysis.md) before populating them. The extended importer rejects unrecognized program identities and does not overwrite existing local types, typed data, variable bindings or non-MKMSZ comments. Stage overlays need a separate authenticated imported program; a stage VA is not a globally unique symbol.
+Read [Extended analysis schemas and safeguards](docs/extended-analysis.md) before populating them. The extended importer rejects unrecognized program identities and does not overwrite existing local types, typed data, variable bindings or non-MKMSZ comments. Run **ExportMkmszExtended.java** optionally to produce a read-only review snapshot; it does not update the curated TSV files. Stage overlays need a separate authenticated imported program; a stage VA is not a globally unique symbol.
 
 These new TSVs deliberately start as empty schemas rather than manufactured analysis. Future investigations should add verified entries alongside the canonical Wiki owner. This currently requires an explicit research update/commit; discovery does not automatically trigger GitHub synchronization.
 
