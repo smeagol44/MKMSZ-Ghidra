@@ -64,6 +64,10 @@ The bulk importer on the separately imported Bridge `0x9B` program returned **`c
 
 The new, stock-SHA-guarded Fire raw program `0x9D` at `0x802ECE30` passed three importer runs: `ApplyMkmszOverlayPickups.java` reported **`expected=16, typed=16, already typed=0, conflicts=0`**; `ApplyMkmszOverlayFunctions.java` reported **`created=1, renamed=1, unchanged=0, disassembled=1, review=0`** for `fire_icon_award` at `0x802F0EBC`; `ApplyMkmszExtended.java` reported **`applied 0, skipped 0`** for `overlay_fire`, with no additional applicable metadata. **Ghidra/implementation-confirmed bounded.** Cumulative import status **65/84 pickups, 10/14 cataloged overlay-function entries**, five stage programs. Water (9 + 1), Wind (6 + 2) and Temple (4 + 1) remain to validate. All four newly mapped stage source identities are Static-confirmed; this single success does not promote other stage Ghidra imports or function-end/semantic coverage. Exact logs in `docs/remaining-four-stage-overlays.md`.
 
+## Eight-stage extension — Water maintainer confirmation, 2026-10-08
+
+The separate raw Water overlay `0xA1` passed all three guarded Ghidra importers. Pickup import reported `expected=9, typed=9, already typed=0, conflicts=0`; function import recognized `overlay_water`, created/disassembled/named `water_icon_award` at `0x802F2448` (`created=1, renamed=1, unchanged=0, disassembled=1, review=0`); extended importer reported `applied 0, skipped 0`. **Ghidra/implementation-confirmed bounded** for Water's known entries. Cumulative counts are **74/84 ordinary pickup records, 11/14 cataloged overlay functions, six stage programs**. Wind (6 + 2) and Temple (4 + 1) are the remaining Ghidra import gates. No end-to-end function semantics, runtime coverage or full function boundary claims follow from this test; exact logs in `docs/remaining-four-stage-overlays.md`.
+
 ## Future work
 
 Populate grounded full signatures/locals and expanded data types during focused RE; map and import remaining stage overlays independently; add safe ROM-space navigation for patch sites and stage catalogs; consider a direct cross-referenced ROM offset view rather than conflating RAM and ROM.
