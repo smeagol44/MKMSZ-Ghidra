@@ -37,7 +37,6 @@ address	name	evidence	comment
 0x80030178	forward_locomotion_setup	Static-confirmed	Initializes forward locomotion and selects primary animation slot 1.
 0x80030208	backward_locomotion_setup	Static-confirmed	Initializes backward locomotion and selects primary animation slot 2.
 0x800304C0	animation_advance	Static-confirmed	Advances the current animation script/cursor.
-0x80030974	anim_token_0b_handler	Static-confirmed	Handles animation control token 0x0B and creates/stages resource-backed secondary actors.
 0x80031208	actor_adjust_local_xy	Static-confirmed	Applies facing-aware local X/Y offset to actor world position.
 0x80031394	actor_align_to_owner	Static-confirmed; unsafe proof usage Runtime-confirmed	Aligns child actor origin/facing/render anchor to owner; requires valid descriptor state.
 0x80031724	animation_rate_init	Static-confirmed	Stores animation period and primes countdown.
