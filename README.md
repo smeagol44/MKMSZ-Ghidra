@@ -56,9 +56,15 @@ ghidra_scripts/
 
 The TSV files are intentionally human-readable and diffable in Git.
 
+## Stage-overlay function automation (Ghidra-validated)
+
+The verified Earth, Prison, Bridge and Fortress **raw overlay programs** can now use `ApplyMkmszOverlayFunctions.java` to bulk-disassemble **known** function entries explicitly as MIPS32, create function objects, and apply stage-qualified names and managed comments. The script checks the imported program SHA/name, full overlay mapping and original 16-byte function-entry guards. Existing custom analysis and mismatches are preserved/reported for review. It does not discover new unknown routines. Both repository CI and maintainer Ghidra 12.1.2 execution have passed: all **nine** currently cataloged function entries were imported across four independently scoped programs (Prison 3, Earth 2, Bridge 2, Fortress 2). This validates known-entry import, not full boundary discovery or unknown-code coverage.
+
+See [overlay function bulk-import procedure](docs/overlay-function-bulk-import.md). Stage pickup structure typing remains a separate script.
+
 ## Extended analysis (new)
 
-**Global extended import has now been verified in the maintainer's Ghidra installation (2026-10-07).** The first larger import applied 132 entries, with 2 existing type records skipped; the separate raw-overlay import workflow is still pending its first local test.
+**Global extended import has been verified in the maintainer's Ghidra installation (2026-10-07).** The first larger import applied 132 entries, with 2 existing type records skipped. The separate overlay workflow has now also been validated for 49 pickup records and nine stage-qualified function entries (2026-10-08).
 
 The `analysis/` directory now has scoped record formats for types/structures/enums, function signatures, verified locals, typed data, internal code labels, comments, bookmarks and explicit relations. After pulling new commits, run **ApplyMkmszAnalysis.java**, then **ApplyMkmszExtended.java** from Script Manager. Save your Ghidra project first.
 
