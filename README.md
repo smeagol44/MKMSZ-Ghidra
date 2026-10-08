@@ -56,6 +56,12 @@ ghidra_scripts/
 
 The TSV files are intentionally human-readable and diffable in Git.
 
+## Stage-overlay function automation (draft)
+
+The verified Earth, Prison, Bridge and Fortress **raw overlay programs** can now use `ApplyMkmszOverlayFunctions.java` to bulk-disassemble **known** function entries explicitly as MIPS32, create function objects, and apply stage-qualified names and managed comments. The script checks the imported program SHA/name, full overlay mapping and original 16-byte function-entry guards. Existing custom analysis and mismatches are preserved/reported for review. It does not discover new unknown routines. The **repository/CI checks have passed**, but first maintainer Ghidra script execution is **Pending**; try an already validated Prison program first.
+
+See [overlay function bulk-import procedure](docs/overlay-function-bulk-import.md). Stage pickup structure typing remains a separate script.
+
 ## Extended analysis (new)
 
 **Global extended import has now been verified in the maintainer's Ghidra installation (2026-10-07).** The first larger import applied 132 entries, with 2 existing type records skipped; the separate raw-overlay import workflow is still pending its first local test.
