@@ -15,3 +15,75 @@ global	field	MKMSZ_BoxBacking		box2	0x50	u32[10]		Static-confirmed	Inventory box
 global	field	MKMSZ_BoxBacking		box3	0x78	u32[10]		Static-confirmed	Inventory box 3 at 0x800A60C0
 global	field	MKMSZ_BoxBacking		settings	0xA0	u32		Static-confirmed	Persistent settings and active box at 0x800A60E8
 global	field	MKMSZ_BoxBacking		magic	0xA4	u32		Static-confirmed	MKBX state sentinel at 0x800A60EC
+global	struct	MKMSZ_PickupRecord	0x30					Static-confirmed	Stage-Catalogs and Data-Structures-and-Encodings; ordinary 0x30-byte record
+global	field	MKMSZ_PickupRecord		x_fixed8	0x00	s32		Static-confirmed	X world position
+global	field	MKMSZ_PickupRecord		y_fixed8	0x04	s32		Static-confirmed	Y world position
+global	field	MKMSZ_PickupRecord		z_fixed8	0x08	s32		Static-confirmed	Z world position
+global	field	MKMSZ_PickupRecord		location_metadata	0x0C	u32		Static-confirmed	Location-owned data; preserved by randomizer
+global	field	MKMSZ_PickupRecord		type_behavior	0x10	u32		Static-confirmed	Logical reward type
+global	field	MKMSZ_PickupRecord		callback_flags	0x14	u32		Static-confirmed	Low 15 bits callback param; bit 15 is physical record activation
+global	field	MKMSZ_PickupRecord		award_callback	0x18	ptr32		Static-confirmed	Native award callback pointer
+global	field	MKMSZ_PickupRecord		collision_extent_a	0x1C	u32		Static-confirmed	Collision extent A
+global	field	MKMSZ_PickupRecord		collision_extent_b	0x20	u32		Static-confirmed	Collision extent B
+global	field	MKMSZ_PickupRecord		resource_selector	0x24	u32		Static-confirmed	Stage-local selector, never global file ID
+global	field	MKMSZ_PickupRecord		presentation_descriptor	0x28	ptr32		Static-confirmed	Presentation descriptor reference
+global	field	MKMSZ_PickupRecord		collected_flag	0x2C	u32		Static-confirmed	Stock native collected state
+global	struct	MKMSZ_PersistenceV2	0x50					Static-confirmed; production lifecycle Runtime-confirmed bounded	MKMSZR production state; not vanilla ROM structure
+global	field	MKMSZ_PersistenceV2		magic_mksv	0x00	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	MKSV magic 0x4D4B5356
+global	field	MKMSZ_PersistenceV2		version	0x04	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Version 2
+global	field	MKMSZ_PersistenceV2		state_size	0x08	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	0x50 bytes
+global	field	MKMSZ_PersistenceV2		header_size	0x0C	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	0x20 bytes
+global	field	MKMSZ_PersistenceV2		flags	0x10	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Bit 0 Temple scripted special check
+global	field	MKMSZ_PersistenceV2		lifecycle_v06_bytes	0x14	u8[12]		Static-confirmed; production lifecycle Runtime-confirmed bounded	Previously reserved; v06 now uses lifecycle snapshots
+global	field	MKMSZ_PersistenceV2		temple_pickups	0x20	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Ordinary pickup bits
+global	field	MKMSZ_PersistenceV2		wind_pickups	0x24	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Ordinary pickup bits
+global	field	MKMSZ_PersistenceV2		water_pickups	0x28	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Ordinary pickup bits
+global	field	MKMSZ_PersistenceV2		earth_pickups	0x2C	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Ordinary pickup bits
+global	field	MKMSZ_PersistenceV2		prison_pickups	0x30	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Ordinary pickup bits
+global	field	MKMSZ_PersistenceV2		fire_pickups	0x34	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Ordinary pickup bits
+global	field	MKMSZ_PersistenceV2		bridge_pickups	0x38	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Ordinary pickup bits
+global	field	MKMSZ_PersistenceV2		fortress_pickups	0x3C	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Ordinary pickup bits
+global	field	MKMSZ_PersistenceV2		progression_count	0x40	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Progression rewards acquired
+global	field	MKMSZ_PersistenceV2		persistent_xp	0x44	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Current persistent XP
+global	field	MKMSZ_PersistenceV2		rainbow_phase	0x48	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Rainbow option state
+global	field	MKMSZ_PersistenceV2		reserved_tail	0x4C	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Reserved word
+global	struct	MKMSZ_EnemySpawnRecord	0x1C					Static-confirmed	Only common opcodes 0/1/9; opcode 6 uses different 0x20 grammar
+global	field	MKMSZ_EnemySpawnRecord		opcode	0x00	u32		Static-confirmed	Stream opcode 0/1/9 common record
+global	field	MKMSZ_EnemySpawnRecord		raw_x	0x04	s32		Static-confirmed	Stored transformed at process +0x714
+global	field	MKMSZ_EnemySpawnRecord		raw_y	0x08	s32		Static-confirmed	Stored transformed at process +0x718
+global	field	MKMSZ_EnemySpawnRecord		raw_z	0x0C	s32		Static-confirmed	Stored transformed at process +0x6F4
+global	field	MKMSZ_EnemySpawnRecord		fighter_type	0x10	u32		Static-confirmed	Low 16 bits fighter type
+global	field	MKMSZ_EnemySpawnRecord		spawn_quota	0x14	u32		Static-confirmed	Low 16 bits remaining count
+global	field	MKMSZ_EnemySpawnRecord		activation_mode	0x18	s32		Static-confirmed	Low signed 16-bit mode
+global	struct	MKMSZ_AuxTriggerRecord	0x3C					Static-confirmed	Only 0x00..0x18 identified; remaining subtype arguments are context-specific
+global	field	MKMSZ_AuxTriggerRecord		center_x	0x00	s32		Static-confirmed	Activation volume center
+global	field	MKMSZ_AuxTriggerRecord		center_y	0x04	s32		Static-confirmed	Activation volume center
+global	field	MKMSZ_AuxTriggerRecord		center_z	0x08	s32		Static-confirmed	Activation volume center
+global	field	MKMSZ_AuxTriggerRecord		extent_x	0x0C	u32		Static-confirmed	Activation volume extent
+global	field	MKMSZ_AuxTriggerRecord		extent_y	0x10	u32		Static-confirmed	Activation volume extent
+global	field	MKMSZ_AuxTriggerRecord		state	0x14	u32		Static-confirmed	Trigger state
+global	field	MKMSZ_AuxTriggerRecord		flags_opcode	0x18	u32		Static-confirmed	Flags and subtype opcode
+global	struct	MKMSZ_RenderNode	0x58					Static-confirmed	Partial field layout from Native UI owner; other bytes deliberately undefined
+global	field	MKMSZ_RenderNode		v0_x	0x08	u16		Static-confirmed	First vertex X
+global	field	MKMSZ_RenderNode		v0_y	0x0A	u16		Static-confirmed	First vertex Y
+global	field	MKMSZ_RenderNode		v0_rgba	0x14	u32		Static-confirmed	First vertex color
+global	field	MKMSZ_RenderNode		v1_x	0x18	u16		Static-confirmed	Second vertex X
+global	field	MKMSZ_RenderNode		v1_y	0x1A	u16		Static-confirmed	Second vertex Y
+global	field	MKMSZ_RenderNode		v1_rgba	0x24	u32		Static-confirmed	Second vertex color
+global	field	MKMSZ_RenderNode		v2_x	0x28	u16		Static-confirmed	Third vertex X
+global	field	MKMSZ_RenderNode		v2_y	0x2A	u16		Static-confirmed	Third vertex Y
+global	field	MKMSZ_RenderNode		v2_rgba	0x34	u32		Static-confirmed	Third vertex color
+global	field	MKMSZ_RenderNode		v3_x	0x38	u16		Static-confirmed	Fourth vertex X
+global	field	MKMSZ_RenderNode		v3_y	0x3A	u16		Static-confirmed	Fourth vertex Y
+global	field	MKMSZ_RenderNode		v3_rgba	0x44	u32		Static-confirmed	Fourth vertex color
+global	struct	MKMSZ_DynamicTextureSlot	0x10					Static-confirmed	Native gameplay allocator record; sparse fields
+global	field	MKMSZ_DynamicTextureSlot		format_flags	0x00	u32		Static-confirmed	Texture upload format flags
+global	field	MKMSZ_DynamicTextureSlot		capacity_width	0x04	u16		Static-confirmed	Width reuse-fit check
+global	field	MKMSZ_DynamicTextureSlot		capacity_height	0x06	u16		Static-confirmed	Height reuse-fit check
+global	field	MKMSZ_DynamicTextureSlot		source_image_width	0x08	u16		Static-confirmed	Current DRAM source-image width
+global	field	MKMSZ_DynamicTextureSlot		reuse_lifecycle_field	0x0C	u16		Static-confirmed	Semantic interpretation remains pending
+global	field	MKMSZ_DynamicTextureSlot		active_flag	0x0E	u16		Static-confirmed	One means active
+global	struct	MKMSZ_Type5ImageHeader	0x0C					Static-confirmed	Compressed bitstream begins at +0x0C; variable length follows fixed header
+global	field	MKMSZ_Type5ImageHeader		header	0x00	u32		Static-confirmed	Exact 0x05000000
+global	field	MKMSZ_Type5ImageHeader		model_offset_relative	0x04	s32		Static-confirmed	Signed image-relative model pointer
+global	field	MKMSZ_Type5ImageHeader		packed_dimensions	0x08	u32		Static-confirmed	Upper 16 height lower 16 width
