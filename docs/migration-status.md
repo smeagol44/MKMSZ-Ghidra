@@ -1,5 +1,7 @@
 # Canonical research knowledge migration — 2026-10-07
 
+**2026-10-08 upstream Inventory/audio additions: Static-confirmed; local Ghidra import Pending.** Added 17 native scheduler/audio functions, 21 globals, focused ownership/comments and six relations from exact clean-ROM disassembly plus paired diagnostic state decoding. The maintainer-confirmed earlier 122/122 import does not cover these additions. No causal Inventory-operation name, ROM/RAM/PCM payload, backend hypothesis or guest diagnostic overlay is imported. Re-run the guarded name/extended importers after pulling and preserve local conflicts. Canonical evidence: [upstream investigation](https://github.com/smeagol44/MKMSZ-Randomizer/blob/main/wiki/Production-Rich-Inventory-Music-Static-Investigation.md).
+
 **Source:** Current versioned `wiki/` in `smeagol44/MKMSZ-Randomizer` at migration time. This is not a second authoritative manual. Wiki owns semantics and evidence state.
 
 ## Imported, or recorded with correct coordinate provenance

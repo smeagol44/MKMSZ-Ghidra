@@ -13,3 +13,24 @@ address	name	evidence	comment
 0x802C1AC0	g_player_controller	Static-confirmed	Pointer to player controller/process.
 0x802ECE20	g_current_controller	Static-confirmed	Pointer to current controller/process.
 0x802FCD44	g_retrace_ticks	Static-confirmed	Gameplay retrace/tick counter used by scheduler timing.
+0x800A7F60	g_audio_frame_count	Static-confirmed	Native frame counter advanced by sample DMA cleanup.
+0x800A7F68	g_audio_command_index	Static-confirmed	Alternating audio command-list index.
+0x800A7F6C	g_audio_info_index	Static-confirmed	Three-way AudioInfo producer index.
+0x800A7F70	g_audio_last_info	Static-confirmed	Previous output AudioInfo submitted on next service; advances despite rejection.
+0x800A8004	g_audio_extra_samples	Static-confirmed	Native synthesis reserve; captured value 320.
+0x800A8038	g_wess_tick_count	Static-confirmed	Native WESS callback count; paired states preserve exact sample-clock relation.
+0x800A803C	g_wess_milliseconds	Static-confirmed	Integer half of native fixed-point millisecond clock.
+0x800A8044	g_wess_millisecond_fraction	Static-confirmed	Fractional WESS clock component; tick increment 0x85555 in 16.16.
+0x800A8210	g_audio_synth	Static-confirmed	ALSynth pointer. Signed-low address reconstruction yields 0x800A8210, not 0x800B8210.
+0x8009A530	g_audio_work_enabled	Static-confirmed	VI-side gate for native audio_frame_work.
+0x8009A534	g_audio_task_fresh	Static-confirmed	Task generated during previous VI service, promoted next VI.
+0x8009A538	g_audio_task_queued	Static-confirmed	Single pending audio task pointer; generation replacement under delay is conditional.
+0x8009A53C	g_audio_task_active	Static-confirmed	Active audio task ownership; dispatcher defers while nonzero.
+0x800BA3E0	g_audio_command_lists	Static-confirmed	Two native audio command-list pointers.
+0x800BA3E8	g_audio_info_buffers	Static-confirmed	Three native AudioInfo pointers; snapshot records have stride 0xB50, PCM at +0x50.
+0x800BA450	g_audio_min_samples	Static-confirmed	Native frame minimum, captured 352 stereo sample frames.
+0x800BA454	g_audio_target_samples	Static-confirmed	Native per-service target, captured 368 stereo sample frames.
+0x800BA458	g_audio_max_samples	Static-confirmed	Configured PCM frame capacity, captured 704 sample frames.
+0x800BA4D0	g_audio_player_sample_time	Static-confirmed	Player callback sample time; paired snapshots equal WESS ticks times 184.
+0x802C1970	g_scheduler_message_queue	Static-confirmed	OSMesgQueue capacity 32, buffer 0x801AE4C8; no endpoint backlog in paired states.
+0x802E7DC0	g_vi_callback_count	Static-confirmed	Native input/VI callback counter; do not equate endpoint difference with wall time.

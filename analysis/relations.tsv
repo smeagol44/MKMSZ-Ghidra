@@ -3,3 +3,9 @@ global	0x80030974	0x8001C528	NOTE		Static-confirmed	Animation token handler load
 global	0x8004CBC4	0x8002830C	NOTE		Static-confirmed	Projectile bridge uses controller/process allocator
 global	0x80073588	0x8002830C	NOTE		Static-confirmed	Inventory controller setup uses the generic process clone; see canonical Function Registry
 global	0x80030584	0x80030974	NOTE		Static-confirmed; clean ROM	Animation dispatcher jr v0 targets internal case through jump-table entry 0x800AD478 pointing to 0x80030974.
+global	0x80000EF4	0x8007D3FC	NOTE		Static-confirmed	VI handler builds one next native audio task when enabled.
+global	0x8007D4E8	0x8008A500	NOTE		Static-confirmed	Previous lastInfo PCM attempt; next instruction path ignores failure.
+global	0x8007D55C	0x8008910C	NOTE		Static-confirmed	Continues synthesis after failed prior output submission.
+global	0x8007DA34	0x80083D38	NOTE		Static-confirmed	Native synthesis player callback services WESS.
+global	0x80073CEC	0x8001C528	NOTE		Static-confirmed	Per-glyph native palette acquisition; hits do not upload.
+global	0x80073DB8	0x8001E578	NOTE		Static-confirmed	Glyph builds native textured render nodes.

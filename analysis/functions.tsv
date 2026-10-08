@@ -12,7 +12,7 @@ address	name	evidence	comment
 0x8001BDA0	actor_render_descriptor_bind	Static-confirmed	Writes `+0x74/+0x7C` descriptor geometry; initialized `+0x8C bit 0x40` path marks `+0xFA` dirty and resolves `+0x68/+0x80` from texture slot `+0x9C` and palette selector `+0x9E`; both relevant zero-preword entries mark dirty even on same-shape binds
 0x8001BF70	texture_slot_init_sync	Static-confirmed; Runtime-confirmed bounded	Initializes fixed texture-slot metadata, queues source pixels, and synchronously drains upload.
 0x8001C2B4	dynamic_texture_alloc	Static-confirmed	Allocates/reuses dynamic texture records in slot range 0x200..0x2FF.
-0x8001C528	presentation_resource_load	Static/runtime-confirmed at known callers	Loads presentation resource/palette state; semantics are bounded to traced callers.
+0x8001C528	presentation_resource_load	Static/runtime-confirmed at known callers	Loads presentation resource/palette state; semantics are bounded to traced callers. Traced glyph path acquires by source pointer; active cache hit increments u16 refs and returns handle without conversion/upload. Miss allocates/converts/uploads; no audio causation established.
 0x8001D520	sprite_node_build	Static-confirmed	Consumes an ID-indexed sprite/resource entry, allocates a `0x58` render node through `0x8002018C`, stores the sprite ID at node `+0x4A`, and submits through `0x8001EAE4`. Shared rendering machinery; not a key-only patch seam.
 0x8001E578	context_render_family	Static-confirmed	Not a universal gameplay-HUD API
 0x8001EAE4	render_node_submit	Runtime-confirmed	Submits a gameplay render node to the HUD/render queue.
@@ -105,7 +105,7 @@ address	name	evidence	comment
 0x80071FE8	bridge_three_icon_use_check	Static-confirmed; four-box correction Runtime-confirmed bounded	Bridge three-icon native use/completion handler.
 0x8007206C	fire_three_icon_use_check	Static-confirmed; four-box correction Runtime-confirmed bounded	Fire three-icon native use/completion handler.
 0x80073588	inventory_open_main	Static-confirmed	Native Inventory owner; suspends/restores gameplay lists around inventory UI.
-0x80073CEC	alternate_render_family	Static-confirmed	Calls `0x8001E578`; not universal HUD path
+0x80073CEC	native_glyph_draw	Static-confirmed	Per non-space glyph: acquires font+4 palette with count 0x100/mode zero through 0x8001C528, then builds nodes through 0x8001E578. Cached hits do not convert/upload; not a universal HUD API.
 0x80073E74	native_text_draw	Runtime-confirmed	Native text drawing routine used by custom HUD text.
 0x80074084	text_width	Static/runtime-confirmed	Computes native font text width.
 0x800741B4	inventory_item_count	Static-confirmed	Counts items in the native ten-slot live inventory.
@@ -121,3 +121,20 @@ address	name	evidence	comment
 0x8007AD4C	stock_default_inventory_loader	Runtime-confirmed/replaced	Production live-to-backing filtered save wrapper. Clean-ROM implementation; production randomizer replaces it.
 0x8007EC4C	sound_voice_alloc	Static-confirmed	Consumes resolved runtime sound definition and allocates/starts native audio voices
 0x80080A88	raw_sound_id_play	Static-confirmed	Selects a 16-byte runtime sound definition by raw ID and dispatches through `0x8007EC4C
+0x80000A70	scheduler_message_loop	Static-confirmed	Queue 0x802C1970 receives SP=1, DP=2, VI=3, software dispatch=4, pre-NMI=5. Scheduler priority 90; VI event rate one. No causal Inventory attribution.
+0x80000B6C	scheduler_sp_complete	Static-confirmed	SP completion/yield handler distinguishes active audio and yielding graphics; uses osSpTaskYielded at 0x8008A800.
+0x80000C5C	scheduler_dp_complete	Static-confirmed	DP-completion graphics bookkeeping and subsequent dispatch.
+0x80000E24	scheduler_vi_service	Static-confirmed	Promotes fresh audio to queued at 0x80000E3C, attempts dispatch, calls audio_frame_work at 0x80000EF4, publishes next fresh; invokes input callback afterward in configured mode.
+0x80000F4C	scheduler_task_dispatch	Static-confirmed	Audio-first dispatch; defers while active audio pointer exists, transfers queued to active and requests graphics yield when necessary. Single queued slot; replacement under delay is conditional, not observed.
+0x800011F0	rsp_task_submit	Static-confirmed	Writes back cache, calls native task load 0x8008A5A0 and task start 0x8008A7AC.
+0x80015950	vi_input_callback	Static-confirmed	Native VI/input callback increments 0x802E7DC0 at 0x80015998. Captured configuration calls it on scheduler after audio service.
+0x8001C64C	palette_handle_release	Static-confirmed	Decrements u16 reference for the original acquired handle; zero calls palette free 0x8001C898. Native glyph draw does not invoke this release.
+0x8007D3FC	audio_frame_work	Static-confirmed	Calls builder for current AudioInfo, publishes lastInfo, rotates three output records and alternates two command lists. Prior AI failure does not prevent producer advance.
+0x8007D4A8	audio_frame_build	Static-confirmed	Submits previous PCM at 0x8007D4E8, ignores return at 0x8007D4F0, reads head AI_LEN, calculates new samples and constructs synthesis commands. Recurrent failures measured; upstream trigger Pending.
+0x8007D860	audio_sample_dma_cleanup	Static-confirmed	Services native sample DMA bookkeeping; advances frame counter 0x800A7F60 at 0x8007D98C.
+0x8007DA34	audio_wess_player_callback	Static-confirmed	Calls WESS tick 0x80083D38 and requests another callback after 8333 microseconds, corresponding to 184 player sample frames in inspected configuration.
+0x80083D38	wess_tick_service	Static-confirmed	Advances tick 0x800A8038 and 16.16 ms clock by 0x85555; services native sequence engine when enabled.
+0x8008910C	audio_synthesis_commands	Static-confirmed	Builds native audio command list; advances ALSynth sample clock +0x20 at 0x80089270 before RSP completion or AI acceptance.
+0x8008A3C0	ai_remaining_bytes	Static-confirmed	Reads AI_LEN remaining DMA bytes; emulator backend may deliver host fragments during this existing register read.
+0x8008A500	ai_pcm_enqueue	Static-confirmed	Full predicate 0x80092E90; full returns -1 without AI writes; success writes AI_DRAM/AI_LEN at 0x8008A57C/580. Caller ignores error. Enqueue retry remains untested and rejected for upstream investigation.
+0x80092E90	ai_fifo_full	Static-confirmed	Reads AI_STATUS FIFO-full predicate used by native enqueue.
