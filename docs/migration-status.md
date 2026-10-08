@@ -52,6 +52,10 @@ The new `ApplyMkmszOverlayFunctions.java` script successfully ran in the previou
 
 The same guarded bulk importer ran on the separately imported Earth `0x9C` program, reporting **`created=2, renamed=2, unchanged=0, disassembled=2, review=0`** for `earth_key_award` at `0x802F52B0` and `earth_boss_construct` at `0x802EDF50`. This moves automatic MIPS32 entry disassembly and function creation from Pending to **Ghidra/implementation-confirmed bounded for Earth**. Together with the Prison idempotent test, **5/9** cataloged overlay function entries are now imported in two separate stage programs. Bridge and Fortress (2 entries each) remain Pending. Full function boundaries/semantics outside the verified evidence are not claimed.
 
+## Bulk overlay function creation — Bridge maintainer confirmation, 2026-10-08
+
+The bulk importer on the separately imported Bridge `0x9B` program returned **`created=2, renamed=2, unchanged=0, disassembled=2, review=0`**, for `bridge_icon_award` (`0x802EF178`) and `bridge_scene_trigger_dispatch` (`0x802ED888`). **Ghidra/implementation-confirmed bounded** for these two entries and automated MIPS32 function creation. Overall status is now **7/9** in Prison, Earth and Bridge; Fortress (two functions) still Pending. The function bodies have not been exhaustively audited.
+
 ## Future work
 
 Populate grounded full signatures/locals and expanded data types during focused RE; map and import remaining stage overlays independently; add safe ROM-space navigation for patch sites and stage catalogs; consider a direct cross-referenced ROM offset view rather than conflating RAM and ROM.
