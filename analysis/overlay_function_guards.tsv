@@ -8,3 +8,8 @@ overlay_bridge	0x802EF178	27bdffe814800007afbf00100c01d512	Clean USA Rev0 overla
 overlay_bridge	0x802ED888	27bdffc8afb0003000808021afbf0034	Clean USA Rev0 overlay 0x9B entry; exact byte guard
 overlay_fortress	0x802EFDB0	27bdffc824020007afbf0034afbe0030	Clean USA Rev0 overlay 0x9E entry; exact byte guard
 overlay_fortress	0x802EF30C	27bdffc8afb1001c24110002afb5002c	Clean USA Rev0 overlay 0x9E entry; exact byte guard
+overlay_temple	0x802EEC54	3c0280118c4214f427bdffd8afbf0024	Clean USA Rev0 original 16-byte source; loader/pickup/callback cross-check
+overlay_wind	0x802EE9FC	27bdffc0afb1003400808821afbf0038	Clean USA Rev0 original 16-byte source; loader/pickup/callback cross-check
+overlay_wind	0x802F2CB4	27bdffe0afb1001400808821afb00010	Clean USA Rev0 original 16-byte source; loader/pickup/callback cross-check
+overlay_water	0x802F2448	27bdffe8afb0001000a080211480001f	Clean USA Rev0 original 16-byte source; loader/pickup/callback cross-check
+overlay_fire	0x802F0EBC	27bdffe8afb0001000a0802114800015	Clean USA Rev0 original 16-byte source; loader/pickup/callback cross-check
