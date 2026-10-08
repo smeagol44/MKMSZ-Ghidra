@@ -1,0 +1,37 @@
+# Canonical research knowledge migration — 2026-10-07
+
+**Source:** Current versioned `wiki/` in `smeagol44/MKMSZ-Randomizer` at migration time. This is not a second authoritative manual. Wiki owns semantics and evidence state.
+
+## Imported, or recorded with correct coordinate provenance
+
+- Global Function Registry: existing 67 + 57 conservative names = **124** named global functions; 125 unique function semantics records available as scoped comments.
+- Function names at stage-overlay addresses are never stored in the global function TSV.
+- All **84** ordinary pickup records (4 Temple, 6 Wind, 9 Water, 20 Earth, 10 Prison, 16 Fire, 10 Bridge, 9 Fortress) in `rom_pickups.tsv`; addresses there are explicitly **ROM offsets**.
+- Stage outer-slot catalogs in `stage_resource_slots.tsv` (150 entries); these are stage-relative selectors, not global identities.
+- The guarded patch and proof registry in `rom_patch_sites.tsv` (151 location/evidence rows). Not blindly imported as disassembly edits.
+- Verified raw overlay mappings: Earth 0x9C, Prison 0x9F, Bridge 0x9B, Fortress 0x9E. `overlays.tsv` records exact stock ROM spans, destination VA 0x802ECE30, and independently verified original bytes SHA-256.
+- Nine stage-qualified named overlay functions in `overlay_functions.tsv`; other unresolved functions remain in `overlay_pending.tsv`.
+- Nine total /MKMSZ analysis types: the existing item enum and four-box structure, plus seven additional evidence-backed structures.
+- Existing verified bookmarks and relationships retained. New metadata should be checked against the current Wiki owner.
+
+## Not yet fully represented by importable Ghidra objects
+
+This migration is substantial but not exhaustive. Stage catalogs and guarded patch sites are searchable TSV provenance, not fully materialized Ghidra data objects. Many function signatures, custom calling conventions, locals, per-record cross-references and stage-specific code remain untyped or unresolved. The complete Memory Map, patch guards and every proof-history paragraph are not copied into Ghidra: the Wiki remains the owner of those facts.
+
+Unknown overlay mappings (including other stages) are intentionally not guessed. PS1 program addresses remain separate, not part of the N64 global project. There are no new retroactively claimed runtime confirmations.
+
+## User application order
+
+1. Save or back up the existing Ghidra project.
+2. `git pull` the analysis repository.
+3. Run `ApplyMkmszAnalysis.java` in the clean N64 program, selecting the repo root.
+4. Run `ApplyMkmszExtended.java` in that same program.
+5. Save the analysis project.
+6. **Optional separately staged overlay setup:** run `python tools/extract_overlays.py /path/to/clean.z64 /path/to/local/output` locally. Import each extracted binary into its own Ghidra program using **Raw Binary, MIPS big-endian 32-bit**, with a **loaded base at 0x802ECE30**, not the N64 cartridge loader. Check language variant/processor option in Ghidra, run analysis, then run the **extended script only** in each hash-verified overlay program. It applies names only to already recognized functions and leaves bookmarks when they are missing. The overlay programs are separate from the 16 MiB imported cartridge image.
+7. Do not commit extracted overlay files, project databases, or copyrighted bytes.
+
+The new overlay and extended import paths still require first-run Ghidra validation. Do not assume static TSV CI means Java API compatibility. Note that imported raw-overlay program names must match `analysis/scopes.tsv` (excluding extensions where Ghidra drops them); if identity checks refuse a program, do **not** bypass them—inspect exact program name, source SHA and loader configuration.
+
+## Future work
+
+Populate grounded full signatures/locals and expanded data types during focused RE; map and import remaining stage overlays independently; add safe ROM-space navigation for patch sites and stage catalogs; consider a direct cross-referenced ROM offset view rather than conflating RAM and ROM.
