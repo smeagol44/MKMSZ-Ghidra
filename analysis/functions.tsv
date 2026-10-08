@@ -1,10 +1,23 @@
 address	name	evidence	comment
+0x80002588	stage_scene_data_parse	Static-confirmed	Parses stage data and publishes the first 60-byte spatial trigger record at `0x801114F4` plus its record count at `0x802F8228`. The exact Wind source-record catalog remains Pending, but the runtime table ownership and stride are statically established.
+0x8000322C	embedded_image_decode_dispatch	Static-confirmed	Ordinary types come from header byte `+3`; exact header `0x05000000` is special-cased to fighter codec type 5. Type 4 dispatches to `0x80003428`; type 5 dispatches through `0x80003314
+0x80003314	fighter_image_type5_wrapper	Static-confirmed	Resolves image-relative model/dictionary pointer, compressed stream at image `+0x0C`, packed dimensions, output arena pointer; calls `0x80065E00`; advances output by `align4(width) * align2(height)
+0x80003428	embedded_image_type4_decode	Static-confirmed	Separate control/token streams with a 1024-byte ring buffer; exact decode reproduced Water embedded Potion frames byte-for-byte against Fire external Potion payloads
+0x8000C6D8	pris_grunt_ranged_aim_select	Static-confirmed	Shared permanent-code AI action for types `0x15/0x16/0x17`; bounds horizontal separation to 450, derives target slope, and installs one of the common aim callbacks that enter `0x80043B18`. Types `0x16/0x17` use this action exclusively across all four traced distance bands; `0x15` mixes it with two common-code alternatives in the two nearer bands.
+0x8000D0B8	debug_stage_select_menu	Runtime-confirmed	Production A-button title route
+0x80015088	stage_transition_handler	Static-confirmed	Copies selection to current-stage state
 0x80016008	rand_per_thousand	Static-confirmed	Native random gate: returns true-like 0x8000 when random modulo 1000 is below unsigned argument, else 0x4000.
+0x80016080	stage_callback_reconstruct	Static-confirmed: class teardown, stage dispatch, stage-specific resource/player reconstruction; not a life reload owner	Stage callback reconstruction dispatcher
+0x80016B10	frontend_resource_init	Static-confirmed: configured continues/lives -> current at `0x80016BC0/8`, lives minus one; called from `0x8000D260	Frontend/fresh-flow current-resource initialization
 0x80017F80	actor_motion_integrate	Static-confirmed	Normal actor motion/update integrator; rotates local velocity and updates fixed8 world position.
+0x8001BDA0	actor_render_descriptor_bind	Static-confirmed	Writes `+0x74/+0x7C` descriptor geometry; initialized `+0x8C bit 0x40` path marks `+0xFA` dirty and resolves `+0x68/+0x80` from texture slot `+0x9C` and palette selector `+0x9E`; both relevant zero-preword entries mark dirty even on same-shape binds
 0x8001BF70	texture_slot_init_sync	Static-confirmed; Runtime-confirmed bounded	Initializes fixed texture-slot metadata, queues source pixels, and synchronously drains upload.
 0x8001C2B4	dynamic_texture_alloc	Static-confirmed	Allocates/reuses dynamic texture records in slot range 0x200..0x2FF.
 0x8001C528	presentation_resource_load	Static/runtime-confirmed at known callers	Loads presentation resource/palette state; semantics are bounded to traced callers.
+0x8001D520	sprite_node_build	Static-confirmed	Consumes an ID-indexed sprite/resource entry, allocates a `0x58` render node through `0x8002018C`, stores the sprite ID at node `+0x4A`, and submits through `0x8001EAE4`. Shared rendering machinery; not a key-only patch seam.
+0x8001E578	context_render_family	Static-confirmed	Not a universal gameplay-HUD API
 0x8001EAE4	render_node_submit	Runtime-confirmed	Submits a gameplay render node to the HUD/render queue.
+0x8001F7A8	gameplay_textured_node_render	Static/runtime-confirmed	Used by the gameplay HUD queue. Node `+0x4A` is texture-slot ID; node `+0x4C` is palette selector. For the CI8 path the renderer reads slot-record `+0x08` and emits it as the RDP `SetTextureImage` DRAM image width, then loads the node's `+0x10/+0x12 .. +0x20/+0x22` source rectangle through load tile 7 and renders through tile 0. The stock Toasty-hook source node supplies S/T `0,0`, step `1,1`, and point-filter mode. Palette selector resolves through `0x80290A00 + id*8` and `0x802E73E0 + index*4` to a hardware-ready CI8 RGBA5551 TLUT.
 0x8002018C	render_node_alloc	Runtime-confirmed	Allocates a 0x58-byte render node.
 0x80024650	actor_list_insert	Static-confirmed	Inserts an already-constructed actor into the active actor list; does not initialize actor content.
 0x80028128	resource_actor_construct	Static-confirmed	Constructs an actor from a direct resource descriptor pointer.
@@ -16,6 +29,8 @@ address	name	evidence	comment
 0x8002B1EC	player_set_horizontal_velocity	Static-confirmed	Writes player actor horizontal velocity and related movement field.
 0x8002E078	victim_reaction_install	Static-confirmed	Installs an already-resolved reaction callback on the victim controller and marks it reacting.
 0x8002E104	award_xp	Static-confirmed	Central XP award routine.
+0x8002E978	type_combat_record_select	Static-confirmed; complete GRUNT action closure Pending	Selects a type-specific pointer at `0x800AF340 + type*4` and indexes its four-byte records with the **sixth** caller stack argument loaded into `$s5` (`new_sp+0x46` low halfword after `-0x30`) before `0x8002BA04`. `$a3` is separately saved in `$s0` for animation selection. GRUNT1's table pointer is `0x800B0430`, GRUNT2's `0x800B0508`. The controller-only `0xE/0xF` sites at `0x8004D2C4/0x8004D420` do not establish ordinary-grunt reachability.
+0x8002EB38	run_setup	Static-confirmed	Selects primary animation slot `0x2B` through `0x8002FE54`, installs animation rate `2` through `0x80031724`, then applies facing-aware horizontal velocity. Run loop caller at `0x800296B0` sleeps one process tick and invokes `0x8003174C` once per active iteration.
 0x8002EC78	player_construct_wrapper	Static-confirmed	Player construction wrapper.
 0x8002ECF4	player_construct	Static-confirmed	Player constructor; includes HP initialization path.
 0x8002FCDC	fighter_alloc	Static-confirmed	Lower-level fighter allocator; stores fighter type in actor state.
@@ -33,6 +48,10 @@ address	name	evidence	comment
 0x80031EF0	face_opponent	Static-confirmed	Resolves desired side and flips actor only when needed.
 0x80032CD4	special_action_install	Static-confirmed	Installs top-level special-action callback; installed callback has nonstandard return/lifecycle constraints.
 0x80034510	anim_resource_actor_create	Static-confirmed	Creates resource-backed secondary actor from animation stream resource entry.
+0x80035578	life_continue_terminal_owner	Static-confirmed: remaining-life branch bypasses configured reload; stock decrement store `0x80035CA0`; accepted Continue reload `0x80035C8C	Life/Continue/terminal presentation owner
+0x80035D34	failure_reconstruction	Static-confirmed: states `0x16/0x1B` preserve carrier-valid; other paths decrement at `0x80035F04` or enter life/Continue owner	Alternate failure or valid-preserving reconstruction
+0x80035F38	valid_state_reconstruction	Static-confirmed consumer flow; callback references indirect; stock HP-carrier producer not closed	Valid-preserving reconstruction owner
+0x80035FC0	stage_completion_teardown	Static-confirmed: capture candidate before teardown and live-pointer clear, not after	Stage completion teardown/next-stage owner
 0x80038770	stage_key_crystal_award	Static-confirmed	Generic stock stage-key/crystal award callback with stage-specific behavior.
 0x800388FC	pickup_potion	Runtime-confirmed	Potion pickup callback; inserts inventory item ID 0x01.
 0x8003892C	pickup_shield	Runtime-confirmed	Shield pickup callback; inserts inventory item ID 0x06.
@@ -44,18 +63,51 @@ address	name	evidence	comment
 0x80038A58	pickup_mana	Static-confirmed	Mana pickup callback.
 0x80038A90	pickup_strength	Static-confirmed	Strength urn pickup callback; inserts item ID 0x0B.
 0x80038ACC	pickup_manager	Static/runtime-confirmed	Ordinary pickup manager; production persistence restore hook owner.
+0x8003BF4C	stage_spawn_position_init	Static-confirmed	Reads `0x802C18F8` at `0x8003BF54` / ROM `0x3CB54`, selects a 20-byte stage spawn record through the stage table, and writes actor X/Y/Z plus initial coordinates. Player construction reaches it through `0x8002EC78 -> 0x8002ECF4 -> 0x8002EDFC`; another actor-construction path calls it at `0x8002EF08`, so any proof must guard player scope.
+0x8003D86C	stock_turn_action	Static-confirmed	Selects **secondary table-1 slot `0x03`** (`file 0x87 +0xE84`) and runs the stock turn-action sequence through the current controller; the older primary-`0x03` description was incorrect. Not intrinsically player-only.
+0x80043B18	armed_grunt_ranged_action	Static-confirmed	Indexes a `0x28`-byte shot-parameter record by `type-0x15`, advances the parent attack animation, allocates class `0x806` with callback `0x80043EB0`, copies shot fields, and continues parent recovery.
+0x80043EB0	armed_grunt_projectile_process	Static-confirmed	Owns type-specific SFX/offsets, starts common helpers `0x80060E68/0x80061220`, constructs the visible shot through `0x80047160`, applies velocity/aim fields, and loops through `0x8004CF3C` collision until impact/range exit.
+0x800490CC	shinnok_amulet_pickup	Static-confirmed	Adds ID `0x23`; outside ordinary tables
 0x8004A6E8	controller_face_policy_scan	Static-confirmed	Scans controller classes and returns 0x8000/0x4000 face-policy result; higher-level name unresolved.
 0x8004AA4C	scheduler_context_transfer	Static-confirmed	Transfers scheduler context through stock selector table; not a generic action initializer.
+0x8004AB0C	ice_screen_tint_process	Static-confirmed	Calls `0x80044964(0x80,0x80,0xC0,0x80,6)` then native process exit `0x80028564`. Separate from companion actor and projectile child processes.
+0x8004AB84	ice_projectile_action_root	Static-confirmed	Includes special lock behavior
+0x8004B524	ice_parent_action_exit	Static-confirmed	Clears special lock `0x800BF308` and invokes `0x800328FC` on the current owner actor after parent recovery.
+0x8004B584	ice_parent_preflight_check	Static-confirmed	Makes `+0x714` current and calls stock `0x800304C0`, consuming Ice entry `+0xDC4` before child flight on normal mode zero; restores owner before strike/handoff
+0x8004B82C	ice_projectile_flight	Static-confirmed	On straight mode zero loads file-`0x87 +0xFD0 = +0xD90` rocket cursor, calls one-time `0x8004CC14`, then v75 injects initial velocity and flight callback; the parent wrapper is bypassed
 0x8004CBC4	projectile_child_process_create	Static-confirmed	Creates projectile child process/controller from current parent context.
+0x8004CC14	projectile_velocity_rate_setup	Static-confirmed	Writes facing-aware projectile actor `+0x14`, then calls `0x80031724` with the supplied rate; suitable as a setup primitive, not player propulsion and not yet established as the generic per-tick acceleration primitive
 0x8004CC50	projectile_loop	Static-confirmed	Generic projectile process loop.
+0x8004CDF8	projectile_actor_child_exit	Static-confirmed	Removes actor through `0x80028408/0x80024B00`, then terminates the active projectile process through `0x80028564`; reached on generic flight offscreen/lifetime paths.
 0x8004CE6C	projectile_resolve_strike	Static-confirmed	Resolves fighter-local strike record from projectile strike selector.
 0x8004CF3C	projectile_collision_dispatch	Static-confirmed	Dispatches projectile collision/strike to normal collision core.
+0x80053DA8	fighter_terminal_presentation	Static-confirmed for Water stage ID `2	Binds current stage resource base `0x802E82B8` to actor `+0x98`, resolves selector word `+0x28` (selector `10`) into the animation cursor, advances six frames, then decrements encounter count and releases/despawns. Dispatcher `0x80056F80..0x80057060` reaches this for Water MONK5/MONK6 and imported GRUNT2; Water cross-stage GRUNT2 runtime remains untested.
+0x80053E8C	fighter_file_terminal_cleanup	Static-confirmed for GRUNT1 and PRIS armed/base terminal routing	Type `0x0E` reads file-`0x22 +0x2555C` and root `0x32` before cleanup. Types `0x15/0x16/0x17` reach this function but, while still armed, take its direct cleanup/despawn branch rather than a stage-selector presentation. If first disarmed by `0x80057478`, they become type `0x14`; the `0x14` path uses file-`0x8E` palette `+0x1FB84` and root `0x32` at `+0x134`, a six-frame file-internal list, before encounter-count decrement/release. This closes selector-10 as unnecessary for the normal PRIS armed-family terminal route; it does not generalize every other type branch.
+0x80057478	fighter_morph_disarm	Static-confirmed for GRUNT2 and PRIS armed family	Existing `0x0F -> 0x0E` morph remains valid. For `0x15/0x16/0x17`, rebinds the fighter to base file `0x8E`, changes type to `0x14`, selects the base animation, and starts detached-weapon process `0x8005E1FC` using the armed variant's original primary file.
+0x8005BFB0	gameplay_hud	Static/runtime-confirmed for normal production; Stage-7 scheduling Static-confirmed	Contains 13 submit calls. Both normal Fire and Stage 7 schedule it as class `0x15`; its frame loop reads player controller/health and checks a vertical position before render-node submissions. Stage-7 render visibility is not Runtime-confirmed.
+0x8005E1FC	detached_weapon_present	Static-confirmed for PRIS armed family	Acquires the palette from the supplied primary-file-relative record, constructs the primary file's secondary slot 0, positions it at the owner, runs the detached-object animation/physics, then removes/releases it. Decoded `0x8F` slot-0 art is the long staff; `0x90` is the large cannon/launcher; `0x91` is a distinct Bridge weapon.
+0x800615D8	frontend_fade_normalize	Static/runtime-confirmed	Preserved after logo bypass with argument `0x80
 0x80062D60	pickup_presentation_spawn	Static-confirmed	Generic pickup/checkpoint presentation spawn call used by multiple stage callbacks.
+0x8006352C	auxiliary_trigger_spawn	Static-confirmed	Hardcodes fighter type `7
+0x80064C18	gameplay_sfx_wrapper	Static-confirmed	Indexes 10-byte descriptor table at `0x800A1730`; resolves raw sound ID and variation parameters, then calls `0x80080A88
 0x80065D64	raw_file_load	Static-confirmed	Synchronous raw-file loader used by MKMSZR runtime bootstrap.
 0x80065E00	type5_decode	Static-confirmed	Native fighter image Type-5 decoder.
-0x8007206C	fire_three_icon_use_check	Static-confirmed; four-box correction Runtime-confirmed bounded	Fire three-icon native use/completion handler.
+0x80066360	arena_cold_init	Static-confirmed	Initializes both arena base/floor `0x800EECD0` and live bump cursor `0x80111ECC` to the stock hardcoded arena start, with initial boundary bookkeeping
+0x80066390	arena_cursor_reset	Static-confirmed	Copies persistent/reset arena base `0x800EECD0` into live bump cursor `0x80111ECC`; production bootstrap uses this after relocating the arena floor
+0x800663A8	arena_base_advance	Static-confirmed	Advances/sets the persistent arena base and then resets the live cursor to it; lifecycle/base management rather than a general allocator
+0x800663E0	arena_hard_reset	Static-confirmed	Restores the arena base to the hardcoded initial floor, then resets the live cursor; fresh stage setup reaches this family
+0x80066410	arena_next_payload_peek	Static-confirmed	Returns `cursor + 8` without allocating; usable as a checkpoint compatible with `0x80066478` rewind semantics
+0x80066420	arena_remaining_capacity	Static-confirmed	Computes `(0x80290990 - cursor) >> 3`, i.e. remaining 8-byte units below the bump boundary
+0x8006643C	arena_bump_alloc	Static-confirmed	Aligns request to 8 bytes, returns `old_cursor + 8`, advances the live cursor, and writes 8-byte allocation bookkeeping at the new cursor. No bounds check is performed internally.
+0x80066478	arena_rewind	Static-confirmed	Sets live cursor to `pointer - 8`; rewinds the arena to the state before the referenced allocation/checkpoint
+0x8006648C	arena_top_reallocate	Static-confirmed	Rewinds with `0x80066478` and immediately allocates again through `0x8006643C`; no copy is performed
+0x80071500	enemy_command_interpret	Static-confirmed	Stream pointer from `0x800C11E4
+0x800719F0	enemy_spawn_parameters	Static-confirmed	Receives spawn index and type
+0x80071B20	enemy_fighter_construct	Static/runtime-confirmed	Uses resource slot table `0x800B14C0
 0x80071FE8	bridge_three_icon_use_check	Static-confirmed; four-box correction Runtime-confirmed bounded	Bridge three-icon native use/completion handler.
+0x8007206C	fire_three_icon_use_check	Static-confirmed; four-box correction Runtime-confirmed bounded	Fire three-icon native use/completion handler.
 0x80073588	inventory_open_main	Static-confirmed	Native Inventory owner; suspends/restores gameplay lists around inventory UI.
+0x80073CEC	alternate_render_family	Static-confirmed	Calls `0x8001E578`; not universal HUD path
 0x80073E74	native_text_draw	Runtime-confirmed	Native text drawing routine used by custom HUD text.
 0x80074084	text_width	Static/runtime-confirmed	Computes native font text width.
 0x800741B4	inventory_item_count	Static-confirmed	Counts items in the native ten-slot live inventory.
@@ -64,5 +116,10 @@ address	name	evidence	comment
 0x80075320	inventory_find_first	Static-confirmed	Finds first occupied live inventory item.
 0x80075448	inventory_insert	Runtime-confirmed	Inserts item ID into first free slot of ten-slot live inventory.
 0x80078A18	save_restore_xp	Static-confirmed	Restores XP from save record.
-0x8007AD00	inventory_stage_mask_copy	Runtime-confirmed/replaced	Production stage-key masking copy replacing stock sanitizer.
-0x8007AD4C	inventory_filtered_save	Runtime-confirmed/replaced	Production live-to-backing filtered save wrapper.
+0x80078C40	frontend_title_handoff	Static-confirmed	Called after fade normalization
+0x80079510	frontend_legal_logo_title	Static-confirmed	Contains two logo presentations
+0x800798A8	automatic_stage_save	Static/runtime-confirmed	Generic routine remains intact
+0x8007AD00	stock_inventory_sanitizer	Runtime-confirmed/replaced	Production stage-key masking copy replacing stock sanitizer. Clean-ROM implementation; production randomizer replaces it.
+0x8007AD4C	stock_default_inventory_loader	Runtime-confirmed/replaced	Production live-to-backing filtered save wrapper. Clean-ROM implementation; production randomizer replaces it.
+0x8007EC4C	sound_voice_alloc	Static-confirmed	Consumes resolved runtime sound definition and allocates/starts native audio voices
+0x80080A88	raw_sound_id_play	Static-confirmed	Selects a 16-byte runtime sound definition by raw ID and dispatches through `0x8007EC4C

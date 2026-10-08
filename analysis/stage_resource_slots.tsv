@@ -1,0 +1,151 @@
+stage	slot	name	outer_offset	format	frames	pickup_users	source
+Temple	0	Non-pickup/unknown resource	0xD1C4	embedded-data-bundle	12	0	Stage-Catalog-Temple.md
+Temple	1	Unused logical slot	0	empty	—	0	Stage-Catalog-Temple.md
+Temple	2	Unused logical slot	0	empty	—	0	Stage-Catalog-Temple.md
+Temple	3	Non-pickup/unknown resource	0x44	zero-terminated-record-list	13	0	Stage-Catalog-Temple.md
+Temple	4	Non-pickup/unknown resource	0x7C	zero-terminated-record-list	15	0	Stage-Catalog-Temple.md
+Temple	5	Non-pickup/unknown resource	0xBC	zero-terminated-record-list	13	0	Stage-Catalog-Temple.md
+Temple	6	Non-pickup/unknown resource	0xCE74	single-record-pointer	1	0	Stage-Catalog-Temple.md
+Temple	7	Non-pickup/unknown resource	0x74BC	zero-terminated-record-list	5	0	Stage-Catalog-Temple.md
+Temple	8	Non-pickup/unknown resource	0x8C7C	embedded-data-bundle-loop-selector	18	0	Stage-Catalog-Temple.md
+Temple	9	Non-pickup/unknown resource	0x8CD0	zero-terminated-record-list	5	0	Stage-Catalog-Temple.md
+Temple	10	MONK2 terminal presentation in bounded Fire import	0xADF4	zero-terminated-record-list	6	0	Stage-Catalog-Temple.md
+Temple	11	Unused logical slot	0	empty	—	0	Stage-Catalog-Temple.md
+Temple	12	Unused logical slot	0	empty	—	0	Stage-Catalog-Temple.md
+Temple	13	Unused logical slot	0	empty	—	0	Stage-Catalog-Temple.md
+Temple	14	Non-pickup/unknown resource	0xDF38	embedded-data-bundle	8	0	Stage-Catalog-Temple.md
+Temple	15	Herbs	0xF130	embedded-data-bundle	8	4	Stage-Catalog-Temple.md
+Temple	16	Non-pickup/unknown resource	0xCD60	external-resource-id-bundle	10	0	Stage-Catalog-Temple.md
+Wind	0	Wind icon, circle	0x30	embedded-data-bundle	8	1	Stage-Catalog-Wind.md
+Wind	1	Wind icon, three bars	0x58	embedded-data-bundle	8	1	Stage-Catalog-Wind.md
+Wind	2	Wind icon, triangle	0x80	embedded-data-bundle	8	1	Stage-Catalog-Wind.md
+Wind	3	Non-pickup/unknown resource	0xA8	zero-terminated-external-list	14	0	Stage-Catalog-Wind.md
+Wind	4	Extra-life urn	0xE4	embedded-data-bundle	8	1	Stage-Catalog-Wind.md
+Wind	5	Herbs	0x10C	embedded-data-bundle	8	2	Stage-Catalog-Wind.md
+Wind	6	Unused logical slot	0	empty	—	0	Stage-Catalog-Wind.md
+Wind	7	Unused logical slot	0	empty	—	0	Stage-Catalog-Wind.md
+Wind	8	Unused logical slot	0	empty	—	0	Stage-Catalog-Wind.md
+Wind	9	Unused logical slot	0	empty	—	0	Stage-Catalog-Wind.md
+Wind	10	Six-frame external sequence matching Temple/Water selector-10 geometry; pixels/callback pending	0x56C	zero-terminated-external-list	6	0	Stage-Catalog-Wind.md
+Wind	11	Animated resource bundle	0x600	external-resource-id-bundle	10	0	Stage-Catalog-Wind.md
+Water	0	Animated resource bundle	0x74	embedded-data-bundle-mode0-selector	7	0	Stage-Catalog-Water.md
+Water	1	Animated resource bundle	0x94	zero-terminated-record-list	1	0	Stage-Catalog-Water.md
+Water	2	Animated resource bundle	0x9C	external-resource-id-bundle	5	0	Stage-Catalog-Water.md
+Water	3	Animated resource bundle	0x134	zero-terminated-external-list	14	0	Stage-Catalog-Water.md
+Water	4	Water icon, triangle	0xBC	embedded-data-bundle	8	1	Stage-Catalog-Water.md
+Water	5	Water icon, three bars	0xE4	embedded-data-bundle	8	1	Stage-Catalog-Water.md
+Water	6	Water icon, moon	0x10C	embedded-data-bundle	8	1	Stage-Catalog-Water.md
+Water	7	Animated resource bundle	0x10C	embedded-data-bundle	8	0	Stage-Catalog-Water.md
+Water	8	Unused logical slot	0	empty	—	0	Stage-Catalog-Water.md
+Water	9	Unused logical slot	0	empty	—	0	Stage-Catalog-Water.md
+Water	10	Shared normal terminal resource for native MONK5/MONK6 and imported GRUNT2 on Water stage ID `2`; Temple payload byte match	0x4508	zero-terminated-record-list	6	0	Stage-Catalog-Water.md
+Water	11	Unused logical slot	0	empty	—	0	Stage-Catalog-Water.md
+Water	12	Unused logical slot	0	empty	—	0	Stage-Catalog-Water.md
+Water	13	Unused logical slot	0	empty	—	0	Stage-Catalog-Water.md
+Water	14	Unused logical slot	0	empty	—	0	Stage-Catalog-Water.md
+Water	15	Unused logical slot	0	empty	—	0	Stage-Catalog-Water.md
+Water	16	Unused logical slot	0	empty	—	0	Stage-Catalog-Water.md
+Water	17	Unused logical slot	0	empty	—	0	Stage-Catalog-Water.md
+Water	18	Unused logical slot	0	empty	—	0	Stage-Catalog-Water.md
+Water	19	Unused logical slot	0	empty	—	0	Stage-Catalog-Water.md
+Water	20	Animated resource bundle	0x170	zero-terminated-external-list	5	0	Stage-Catalog-Water.md
+Water	21	Animated resource bundle	0x190	zero-terminated-external-list	5	0	Stage-Catalog-Water.md
+Water	22	Animated resource bundle	0x1B0	external-resource-id-bundle	5	0	Stage-Catalog-Water.md
+Water	23	Animated resource bundle	0x1CC	external-resource-id-bundle	3	0	Stage-Catalog-Water.md
+Water	24	Extra-life urn	0x1E0	embedded-data-bundle	8	1	Stage-Catalog-Water.md
+Water	25	Herbs	0x208	embedded-data-bundle	8	1	Stage-Catalog-Water.md
+Water	26	Mana urn (Lua substitutes Herbs)	0x230	embedded-data-bundle	8	1	Stage-Catalog-Water.md
+Water	27	Potion	0x258	embedded-data-bundle	8	1	Stage-Catalog-Water.md
+Water	28	Health urn	0x6474	external-resource-id-bundle	4	2	Stage-Catalog-Water.md
+Earth	0	Earth icon, square	0x3A4	embedded-data-bundle	8	1	Stage-Catalog-Earth.md
+Earth	1	Earth icon, four squares	0x3CC	embedded-data-bundle	8	1	Stage-Catalog-Earth.md
+Earth	2	Earth icon, triangle	0x3F4	embedded-data-bundle	8	1	Stage-Catalog-Earth.md
+Earth	3	Non-pickup/unknown resource	0x4DE0	nonstandard/list	—	0	Stage-Catalog-Earth.md
+Earth	4	Unused logical slot	0	empty	—	0	Stage-Catalog-Earth.md
+Earth	5	Unused logical slot	0	empty	—	0	Stage-Catalog-Earth.md
+Earth	6	Non-pickup/unknown resource	0x1088	nonstandard/list	—	0	Stage-Catalog-Earth.md
+Earth	7	Unused logical slot	0	empty	—	0	Stage-Catalog-Earth.md
+Earth	8	Non-pickup/unknown resource	0x46FC	nonstandard/list	—	0	Stage-Catalog-Earth.md
+Earth	9	Unused logical slot	0	empty	—	0	Stage-Catalog-Earth.md
+Earth	10	Non-pickup/unknown resource	0x4F34	nonstandard/list	—	0	Stage-Catalog-Earth.md
+Earth	11	Non-pickup/unknown resource	0x19BC	external-resource-id-bundle	10	0	Stage-Catalog-Earth.md
+Earth	12	Non-pickup/unknown resource	0x19EC	nonstandard/list	—	0	Stage-Catalog-Earth.md
+Earth	13	Extra-life urn	0x1BCC	embedded-data-bundle	8	5	Stage-Catalog-Earth.md
+Earth	14	Herbs	0x22F0	embedded-data-bundle	8	7	Stage-Catalog-Earth.md
+Earth	15	Mana pickup	0x2C00	embedded-data-bundle	8	2	Stage-Catalog-Earth.md
+Earth	16	Non-pickup/unknown resource	0x3C3C	embedded-data-bundle	8	0	Stage-Catalog-Earth.md
+Earth	17	Non-pickup/unknown resource	0x54	external-resource-id-bundle	10	0	Stage-Catalog-Earth.md
+Earth	18	Eye	0x14C	external-resource-id-bundle	8	1	Stage-Catalog-Earth.md
+Earth	19	Shield	0x214	external-resource-id-bundle	8	1	Stage-Catalog-Earth.md
+Earth	20	Formula	0x2DC	external-resource-id-bundle	8	1	Stage-Catalog-Earth.md
+Prison	0	Prison Level 1 key	0x30	embedded-data-bundle	8	1	Stage-Catalog-Prison.md
+Prison	1	Prison Level 2 key	0x58	embedded-data-bundle	8	1	Stage-Catalog-Prison.md
+Prison	2	Prison Level 3 key	0x80	embedded-data-bundle	8	1	Stage-Catalog-Prison.md
+Prison	3	Non-pickup/unknown resource	0x483C	zero-terminated-external-list	7	0	Stage-Catalog-Prison.md
+Prison	4	Non-pickup/unknown resource	0xA8	zero-terminated-record-list	1	0	Stage-Catalog-Prison.md
+Prison	5	Non-pickup/unknown resource	0xB0	zero-terminated-record-list	1	0	Stage-Catalog-Prison.md
+Prison	6	Non-pickup/unknown resource	0xB8	zero-terminated-record-list	1	0	Stage-Catalog-Prison.md
+Prison	7	Non-pickup/unknown resource	0xC0	zero-terminated-record-list	1	0	Stage-Catalog-Prison.md
+Prison	8	Herbs	0x255C	embedded-data-bundle	8	6	Stage-Catalog-Prison.md
+Prison	9	Non-pickup/unknown resource	0x36B4	embedded-data-bundle	8	0	Stage-Catalog-Prison.md
+Prison	10	Non-pickup/unknown resource	0x2E6C	embedded-data-bundle	8	0	Stage-Catalog-Prison.md
+Prison	11	Strength urn	0x1C68	embedded-data-bundle	8	1	Stage-Catalog-Prison.md
+Fire	0	Fire icon, parameter 0	0x6C	embedded-data-bundle	8	1	Stage-Catalog-Fire.md
+Fire	1	Fire icon, parameter 1	0x94	embedded-data-bundle	8	1	Stage-Catalog-Fire.md
+Fire	2	Fire icon, parameter 2	0xBC	embedded-data-bundle	8	1	Stage-Catalog-Fire.md
+Fire	3	Non-pickup/unknown resource	0x128	zero-terminated-external-list	7	0	Stage-Catalog-Fire.md
+Fire	4	Non-pickup/unknown resource	0xE4	embedded-data-bundle-mode0-selector	8	0	Stage-Catalog-Fire.md
+Fire	5	Unused logical slot	0	empty	—	0	Stage-Catalog-Fire.md
+Fire	6	Unused logical slot	0	empty	—	0	Stage-Catalog-Fire.md
+Fire	7	Unused logical slot	0	empty	—	0	Stage-Catalog-Fire.md
+Fire	8	Unused logical slot	0	empty	—	0	Stage-Catalog-Fire.md
+Fire	9	Unused logical slot	0	empty	—	0	Stage-Catalog-Fire.md
+Fire	10	Unused logical slot	0	empty	—	0	Stage-Catalog-Fire.md
+Fire	11	Unused logical slot	0	empty	—	0	Stage-Catalog-Fire.md
+Fire	12	Unused logical slot	0	empty	—	0	Stage-Catalog-Fire.md
+Fire	13	Unused logical slot	0	empty	—	0	Stage-Catalog-Fire.md
+Fire	14	Unused logical slot	0	empty	—	0	Stage-Catalog-Fire.md
+Fire	15	Unused logical slot	0	empty	—	0	Stage-Catalog-Fire.md
+Fire	16	Unused logical slot	0	empty	—	0	Stage-Catalog-Fire.md
+Fire	17	Unused logical slot	0	empty	—	0	Stage-Catalog-Fire.md
+Fire	18	Unused logical slot	0	empty	—	0	Stage-Catalog-Fire.md
+Fire	19	Unused logical slot	0	empty	—	0	Stage-Catalog-Fire.md
+Fire	20	Extra-life urn	0x83C	external-resource-id-bundle	8	2	Stage-Catalog-Fire.md
+Fire	21	Herbs	0x148	embedded-data-bundle	8	4	Stage-Catalog-Fire.md
+Fire	22	Shield	0x6AC	external-resource-id-bundle	8	1	Stage-Catalog-Fire.md
+Fire	23	Eye	0x5E4	external-resource-id-bundle	8	1	Stage-Catalog-Fire.md
+Fire	24	Potion	0x774	external-resource-id-bundle	8	2	Stage-Catalog-Fire.md
+Fire	25	Formula	0x51C	external-resource-id-bundle	8	1	Stage-Catalog-Fire.md
+Fire	26	Health urn	0x904	external-resource-id-bundle	4	2	Stage-Catalog-Fire.md
+Bridge	0	Fortress icon, omega	0x64	embedded-data-bundle	8	1	Stage-Catalog-Bridge.md
+Bridge	1	Fortress icon, rings	0x8C	embedded-data-bundle	8	1	Stage-Catalog-Bridge.md
+Bridge	2	Fortress icon, arrow	0xB4	embedded-data-bundle	8	1	Stage-Catalog-Bridge.md
+Bridge	3	Non-pickup/unknown resource	0xDC	zero-terminated-record-list	14	0	Stage-Catalog-Bridge.md
+Bridge	4	Unused logical slot	0	empty	—	0	Stage-Catalog-Bridge.md
+Bridge	5	Unused logical slot	0	empty	—	0	Stage-Catalog-Bridge.md
+Bridge	6	Unused logical slot	0	empty	—	0	Stage-Catalog-Bridge.md
+Bridge	7	Unused logical slot	0	empty	—	0	Stage-Catalog-Bridge.md
+Bridge	8	Unused logical slot	0	empty	—	0	Stage-Catalog-Bridge.md
+Bridge	9	Unused logical slot	0	empty	—	0	Stage-Catalog-Bridge.md
+Bridge	10	Unused logical slot	0	empty	—	0	Stage-Catalog-Bridge.md
+Bridge	11	Unused logical slot	0	empty	—	0	Stage-Catalog-Bridge.md
+Bridge	12	Unused logical slot	0	empty	—	0	Stage-Catalog-Bridge.md
+Bridge	13	Unused logical slot	0	empty	—	0	Stage-Catalog-Bridge.md
+Bridge	14	Unused logical slot	0	empty	—	0	Stage-Catalog-Bridge.md
+Bridge	15	Unused logical slot	0	empty	—	0	Stage-Catalog-Bridge.md
+Bridge	16	Unused logical slot	0	empty	—	0	Stage-Catalog-Bridge.md
+Bridge	17	Unused logical slot	0	empty	—	0	Stage-Catalog-Bridge.md
+Bridge	18	Unused logical slot	0	empty	—	0	Stage-Catalog-Bridge.md
+Bridge	19	Unused logical slot	0	empty	—	0	Stage-Catalog-Bridge.md
+Bridge	20	Unused logical slot	0	empty	—	0	Stage-Catalog-Bridge.md
+Bridge	21	Herbs	0x118	embedded-data-bundle	8	1	Stage-Catalog-Bridge.md
+Bridge	22	Extra-life urn	0x140	embedded-data-bundle	8	1	Stage-Catalog-Bridge.md
+Bridge	23	Potion	0x57C	external-resource-id-bundle	8	1	Stage-Catalog-Bridge.md
+Bridge	24	Health urn	0x514	external-resource-id-bundle	4	4	Stage-Catalog-Bridge.md
+Fortress	0	Crystal (Jataaka)	0x48	embedded-data-bundle	8	1	Stage-Catalog-Fortress.md
+Fortress	1	Crystal (Kia)	0x1C	embedded-data-bundle	8	1	Stage-Catalog-Fortress.md
+Fortress	2	Crystal (Sareena)	0x74	embedded-data-bundle	8	1	Stage-Catalog-Fortress.md
+Fortress	3	Herbs	0x1338	embedded-data-bundle	8	6	Stage-Catalog-Fortress.md
+Fortress	4	Non-pickup/unknown resource	0x2490	embedded-data-bundle	8	0	Stage-Catalog-Fortress.md
+Fortress	5	Non-pickup/unknown resource (aliases Herbs descriptor)	0x1338	embedded-data-bundle	8	0	Stage-Catalog-Fortress.md
+Fortress	6	Non-pickup/unknown resource	0x1C48	embedded-data-bundle	8	0	Stage-Catalog-Fortress.md
