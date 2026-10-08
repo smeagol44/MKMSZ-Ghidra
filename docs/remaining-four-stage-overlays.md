@@ -23,7 +23,7 @@ The mapped stage record counts are **Temple 4, Wind 6, Water 9, Fire 16** (35 to
 ## Boundaries and risks
 
 - **Static-confirmed:** file IDs/ranges/hashes, loader call operands, original entry bytes, stage catalog pickup containment, and stage-qualified names already documented in the canonical Function Registry.
-- **Implementation/CI-confirmed:** shared manifests and extractor changes have repository checks; **Fire's new Ghidra program passed both guarded importers on 2026-10-08**. Water, Wind and Temple local Ghidra validation remain Pending.
+- **Implementation/CI-confirmed:** shared manifests and extractor changes have repository checks; **Fire and Water have now passed their guarded Ghidra importer runs (2026-10-08)**. Wind and Temple local Ghidra validation remain Pending.
 - **No emulator test or ROM patch.** This is a ROM-free manifest/script update; no extracted binary is stored in Git.
 - Stage 7/TEST LAB may load Fire file `0x9D` as an extra diagnostic resource; its normal owner remains the Fire stage.
 - An importer success means the known entry was defined, not that every instruction, function endpoint, or unknown callback in the overlay was reconstructed. Additional function discovery is a separate investigation.
@@ -48,4 +48,26 @@ MKMSZ extended analysis: applied 0, skipped 0 (scope=overlay_fire)
 ApplyMkmszExtended.java> Finished!
 ```
 
-**Ghidra/implementation-confirmed, bounded:** all 16 Fire ordinary pickup records were typed with six original-word guard checks each; the existing Fire icon award entry was automatically decoded and named with no importer review items; no additional extended metadata was applicable. Overall imports now **65/84** ordinary records and **10/14** currently cataloged stage-overlay function entries across five programs. This is not exhaustive function discovery, proof of the full function body, or emulator validation. Next bounded test: Water `0xA1` (9 pickups, one known function).
+**Ghidra/implementation-confirmed, bounded:** all 16 Fire ordinary pickup records were typed with six original-word guard checks each; the existing Fire icon award entry was automatically decoded and named with no importer review items; no additional extended metadata was applicable. Overall imports now **65/84** ordinary records and **10/14** currently cataloged stage-overlay function entries across five programs. This is not exhaustive function discovery, proof of the full function body, or emulator validation. Water subsequently passed. Next bounded test: Wind `0xA2` (6 pickups, two known functions).
+
+## Water importer validation — maintainer Ghidra console, 2026-10-08
+
+The maintainer's separate Water `0xA1` raw MIPS32 Ghidra program at `0x802ECE30` successfully executed all three importers:
+
+```text
+ApplyMkmszOverlayPickups.java> Running...
+Overlay Water pickup records: expected=9, typed=9, already typed=0, conflicts=0
+ApplyMkmszOverlayPickups.java> Finished!
+ApplyMkmszOverlayFunctions.java> Running...
+MKMSZ overlay function import scope: overlay_water (Water), entries=1
+OK water_icon_award at 802f2448 (body instructions are bounded by decoded flow; inspect if truncated)
+MKMSZ overlay function import: created=1, renamed=1, unchanged=0, disassembled=1, review=0 (scope=overlay_water)
+Run ApplyMkmszExtended.java afterward only for other scoped metadata.
+ApplyMkmszOverlayFunctions.java> Finished!
+ApplyMkmszExtended.java> Running...
+MKMSZ extended analysis scope: overlay_water
+MKMSZ extended analysis: applied 0, skipped 0 (scope=overlay_water)
+ApplyMkmszExtended.java> Finished!
+```
+
+**Ghidra/implementation-confirmed bounded:** Water 9/9 ordinary pickup structures typed, one known stock Water callback function created, named, and disassembled, with no reported review items. Extended importer found no further scoped entries to apply. Across six imported programs, overall confirmed totals are **74/84 ordinary records** and **11/14 cataloged overlay function entries**. This does not verify entire function bodies or previously undocumented procedures. Remaining: Wind (6 pickup records and two function entries), then Temple (four ordinary pickup records and one scripted Map entry).
