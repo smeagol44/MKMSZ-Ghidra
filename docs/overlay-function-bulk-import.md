@@ -1,13 +1,13 @@
 # Guarded overlay function bulk importer
 
-**Status:** Implemented on the draft overlay-migration branch; **maintainer Ghidra 12.1.2 execution pending**. This is a staged replacement for repeating F11, F, and manual renaming at every *known* entry. It does not infer unknown function identities.
+**Status:** First maintainer Ghidra 12.1.2 execution **passed on Prison's three previously manually defined functions**; automatic disassembly/function creation on an undefined stage entry is still Pending. This is a staged replacement for repeating F11, F, and manual renaming at every *known* entry. It does not infer unknown function identities.
 
 ## Prerequisites (in order)
 
 1. Save all open Ghidra programs. Remain on `research/overlay-pickup-migration` and run `git pull`.
 2. Use your existing separately imported raw programs (Earth 0x9C, Prison 0x9F, Bridge 0x9B, Fortress 0x9E), each imported as **Raw Binary, MIPS big-endian 32-bit, load base `0x802ECE30`**. Do **not** run the importer on the global N64 cartridge program.
-3. In one overlay program, open Script Manager and run **`ApplyMkmszOverlayFunctions.java`**, selecting the repository root. You can safely test **Prison first** because its three entries were already individually confirmed.
-4. Inspect its final counters. For an already-named Prison program, expect **`created=0, renamed=0, unchanged=3, review=0`** if none of the existing entries changed. `disassembled` counts newly decoded entries. Do not assume exact counters if you manually changed an entry.
+3. In one overlay program, open Script Manager and run **`ApplyMkmszOverlayFunctions.java`**, selecting the repository root. The completed baseline test used **Prison first** because its three entries were already individually confirmed.
+4. Inspect its final counters. The maintainer-observed Prison run returned **`created=0, renamed=0, unchanged=3, disassembled=0, review=0`**, matching the expected no-recreation behavior. `disassembled` counts newly decoded entries. Do not assume exact counters if you manually changed an entry.
 5. Once Prison passes, run the same script individually in Earth, Bridge, and Fortress. These six previously unverified local Ghidra entries may require review. Report any `REVIEW` lines before forcing a function.
 6. Run **`ApplyMkmszExtended.java`** afterward in each overlay to apply other qualified metadata; **`ApplyMkmszOverlayPickups.java`** is only needed for new pickup-record imports. Save the project afterward.
 
@@ -34,4 +34,21 @@
 | Fortress | `fortress_assassin_reward_manager` | `0x802EFDB0` |
 | Fortress | `fortress_crystal_progression_dispatch` | `0x802EF30C` |
 
-**Evidence classifications:** All nine stock prefixes, stage mappings, and previously researched identities are **Static-confirmed**. The three Prison entries were manually created, decompiled and named by the maintainer (**Ghidra/implementation-confirmed**). The automated script itself and its behavior on Earth/Bridge/Fortress remain **Pending maintainer Ghidra validation**.
+**Evidence classifications:** All nine stock prefixes, stage mappings, and previously researched identities are **Static-confirmed**. The three Prison entries were manually created, decompiled and named by the maintainer (**Ghidra/implementation-confirmed**). The bulk script's identity/guard recognition, conflict-free idempotent naming, and execution **passed on Prison**. Its new-entry MIPS32 disassembly and function-creation paths and Earth/Bridge/Fortress behavior remain **Pending maintainer Ghidra validation**.
+
+## First bulk importer execution — 2026-10-08
+
+Maintainer's already populated Prison program, original 0x9F raw stage image:
+
+```text
+ApplyMkmszOverlayFunctions.java> Running...
+MKMSZ overlay function import scope: overlay_prison (Prison), entries=3
+OK prison_trigger_dispatch at 802f1e44 (body instructions are bounded by decoded flow; inspect if truncated)
+OK prison_scene_actor_update at 802ee320 (body instructions are bounded by decoded flow; inspect if truncated)
+OK prison_capture_grunt_present at 802f0754 (body instructions are bounded by decoded flow; inspect if truncated)
+MKMSZ overlay function import: created=0, renamed=0, unchanged=3, disassembled=0, review=0 (scope=overlay_prison)
+Run ApplyMkmszExtended.java afterward only for other scoped metadata.
+ApplyMkmszOverlayFunctions.java> Finished!
+```
+
+**Ghidra/implementation-confirmed** for existing entry verification, stage matching and idempotence. Does not test creation or unknown-function discovery. Next bounded test: the two Earth entries in the separately imported Earth program.
