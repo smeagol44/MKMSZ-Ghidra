@@ -1,0 +1,29 @@
+# Remaining four native stage overlay mappings — static evidence (2026-10-08)
+
+**Static-confirmed on the supported clean N64 USA Rev.0 ROM; new local Ghidra import remains Pending.** The file table at ROM `0xA5010` contains 12-byte records (start, end-exclusive, raw flag). The permanent MIPS routine calls `0x80065D64` with stage file ID and destination `0x802ECE30`. Each new mapping was independently verified from its table entry, native-stage loader call and all of that stage's cataloged ordinary pickup records. Five preexisting stage-specific function identities were also mapped to exact 16-byte entry guards.
+
+| Stage | File | ROM interval | Native loader call (ROM/VA) | SHA-256 |
+|---|---|---|---|---|
+| Temple | `0xA0` | `[0xCA510,0xCF160)` | `0xEE0C / 0x8000E20C` | `eab72de2e8a9104bcb050807bff3cb0ae3ce1640b76857c90d30ec66346b89ce` |
+| Wind | `0xA2` | `[0xCF160,0xD8B90)` | `0xFD64 / 0x8000F164` | `f7339eebe4f44efcafdf6da994f7709e9e21ac3895650f59ad194537c508164b` |
+| Water | `0xA1` | `[0xB4FC0,0xBAF60)` | `0x104C4 / 0x8000F8C4` | `9e1c1491b8665822ade09697abb6dd53f62c7950a4eadbabf34fa6536e3cfac4` |
+| Fire | `0x9D` | `[0xE1B80,0xE6610)` | `0x115F0 / 0x800109F0` | `ee65b26e06694ff36412fdcbb30e20b4ba15ab6fe76e96c1a7c689cac20e36a4` |
+
+The mapped stage record counts are **Temple 4, Wind 6, Water 9, Fire 16** (35 total). All record spans and their native callback pointers were checked in the original ROM. Temple's scripted Map special actor is separate from the four ordinary Temple records.
+
+## Local workflow — no ROM files committed
+
+1. Save the current Ghidra project and run `git pull` on branch `research/remaining-four-stage-overlays` after checkout (do not switch away with uncommitted work).
+2. Run `python3 tools/extract_overlays.py "/path/to/clean/Mortal Kombat Mythologies - Sub-Zero (USA).z64" ~/mkmsz-overlays` on your own supported clean file. The extractor refuses an unexpected SHA and checks each of the eight exact output hashes before writing that overlay. Do not commit extracted files.
+3. Import each **new** `mkmsz_overlay_temple_a0.bin`, `mkmsz_overlay_wind_a2.bin`, `mkmsz_overlay_water_a1.bin`, `mkmsz_overlay_fire_9d.bin` as a **distinct raw binary program**. Choose MIPS big-endian 32-bit, loaded at `0x802ECE30`; do not flatten their overlapping virtual addresses. Disable automatic analysis when prompted if using the previously accepted raw overlay workflow. Preserve existing four programs.
+4. Save program. Run `ApplyMkmszOverlayPickups.java` in each new program and check that expected counts are **4, 6, 9, 16**, all conflict-free. Do not force conflicted entries.
+5. Run `ApplyMkmszOverlayFunctions.java` in each program; entries: Temple `temple_scripted_map_actor` at `0x802EEC54`; Wind `wind_spatial_trigger_dispatch` at `0x802EE9FC` and `wind_mixed_icon_award` at `0x802F2CB4`; Water `water_icon_award` at `0x802F2448`; Fire `fire_icon_award` at `0x802F0EBC`. The existing importer enforces imported-source SHA, mapping, byte guards and bounded MIPS32 decoding; report any `REVIEW` line before forcing code creation.
+6. Run `ApplyMkmszExtended.java` for other stage-scoped metadata after the named function import. Save each program and send the console output. Review function bodies/boundaries separately when needed; no source-level semantic confirmation follows automatically from successful import.
+
+## Boundaries and risks
+
+- **Static-confirmed:** file IDs/ranges/hashes, loader call operands, original entry bytes, stage catalog pickup containment, and stage-qualified names already documented in the canonical Function Registry.
+- **Implementation/CI-confirmed:** shared manifests and extractor changes only after repository checks; **Ghidra/implementation validation of newly imported four stages is Pending**.
+- **No emulator test or ROM patch.** This is a ROM-free manifest/script update; no extracted binary is stored in Git.
+- Stage 7/TEST LAB may load Fire file `0x9D` as an extra diagnostic resource; its normal owner remains the Fire stage.
+- An importer success means the known entry was defined, not that every instruction, function endpoint, or unknown callback in the overlay was reconstructed. Additional function discovery is a separate investigation.
