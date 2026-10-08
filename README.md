@@ -103,3 +103,11 @@ The current MKMSZR Wiki remains the owner of project conclusions and evidence sc
 - Do not assume a function name is globally valid merely because one stage overlay uses that virtual address.
 - Global functions are seeded first. Overlay-specific symbols will be added with explicit overlay/stage ownership rather than flattened into one address namespace.
 - Generated Ghidra databases are local working state. The durable source of shared names/comments/types should remain reviewable text plus scripts.
+
+## Canonical Wiki migration
+
+The current [migration status](docs/migration-status.md) documents the one-time transfer of reviewed Wiki information into global function metadata, native structures, stage catalog records, patch-site provenance, and verified overlay-source manifests. Not every ROM offset can be annotated as a runtime VA. The direct import scripts act only on matching Ghidra program spaces.
+
+For the four verified raw overlays, use the exact-hash [local overlay extractor](tools/extract_overlays.py) with your own clean ROM, then import each as a **separate** MIPS big-endian Ghidra program at the established runtime base. Never add extracted ROM bytes to Git. Remaining stages are pending source mapping. **The expanded importer and overlay setup require local first-run validation.**
+
+The repository's `validate-analysis` CI validates manifest syntax/consistency; it does **not** verify Ghidra decompiler output or run an emulator.
