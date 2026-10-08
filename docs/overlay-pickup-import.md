@@ -1,4 +1,4 @@
-# Separate overlay pickup import (Prison importer execution confirmed)
+# Separate overlay pickup import (Prison visual and Earth execution confirmed)
 
 The four previously verified raw overlays (Earth 0x9C, Prison 0x9F, Bridge 0x9B, Fortress 0x9E) have independently SHA-256-matched byte ranges in the clean N64 USA Rev.0 ROM. No ROM bytes are distributed.
 
@@ -17,4 +17,6 @@ Overlay Prison pickup records: expected=10, typed=10, already typed=0, conflicts
 ApplyMkmszOverlayPickups.java> Finished!
 ```
 
-**Ghidra/implementation-confirmed for Prison only:** compilation/execution, imported program identity acceptance, all six per-record byte guards, and ten data creations succeeded without importer-reported conflicts. **Visual inspection confirmed:** the maintainer's Ghidra screenshot at `0x802F21F0` shows the expanded `pickup_prison_01` structure (`MKMSZ_PickupRecord`, 0x30 bytes), its 12 named fields, stock callback `0x80038770`, presentation `0x800B1D18`, and adjacent typed records `pickup_prison_02` (`0x802F2220`) and `pickup_prison_03` (`0x802F2250`). This is a targeted visual confirmation of structure layout, not manual inspection of all ten fields in every record.  the same workflow for Earth, Bridge and Fortress is **Pending**. Do not generalize Prison's successful result to all 49 records or to exhaustive overlay function analysis. The branch remains draft until the remaining local checks are reviewed.
+**Ghidra/implementation-confirmed for Prison:** compilation/execution, imported program identity acceptance, all six per-record byte guards, and ten data creations succeeded without importer-reported conflicts. **Visual inspection confirmed:** the maintainer's Ghidra screenshot at `0x802F21F0` shows the expanded `pickup_prison_01` structure (`MKMSZ_PickupRecord`, 0x30 bytes), its 12 named fields, stock callback `0x80038770`, presentation `0x800B1D18`, and adjacent typed records `pickup_prison_02` (`0x802F2220`) and `pickup_prison_03` (`0x802F2250`). This is a targeted visual confirmation of structure layout, not manual inspection of all ten fields in every record.
+
+**Maintainer Ghidra validation — Earth (2026-10-08):** `ApplyMkmszOverlayPickups.java` completed with `expected=20, typed=20, already typed=0, conflicts=0`, and no reported error. This confirms successful creation of all 20 Earth record structures and passing original-data guards in the imported Earth program. Targeted visual inspection of the first Earth record at `0x802F5524` is **Pending**. Bridge and Fortress importer execution is **Pending**. Do not generalize successful Prison/Earth imports to Bridge, Fortress, or exhaustive overlay function analysis. The branch remains draft until the remaining local checks are reviewed.
