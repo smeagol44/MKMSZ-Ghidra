@@ -35,6 +35,9 @@ public class ApplyMkmszExtended extends GhidraScript {
             return;
         }
         println("MKMSZ extended analysis scope: " + scope);
+        // Overlay functions are resolved only inside an exact hash-verified
+        // separately imported stage program. Never globally flatten overlay VAs.
+        if (!scope.equals("global")) applyOverlayFunctions();
         // Define types first, then code/data consumers.
         applyTypes();
         applySignatures();
@@ -66,6 +69,44 @@ public class ApplyMkmszExtended extends GhidraScript {
         }
         println("Program: " + name + " sha256=" + hash);
         return null;
+    }
+
+    private void applyOverlayFunctions() throws Exception {
+        // scope,address,name,evidence,comment
+        BookmarkManager bookmarks = currentProgram.getBookmarkManager();
+        for (String[] row : rows("overlay_functions.tsv", 5)) {
+            Address at = addr(row[1]);
+            if (!mapped(at)) continue;
+            Function function = getFunctionAt(at);
+            if (function == null) {
+                // A known address is not permission to force undefined bytes
+                // to code. Leave an actionable bookmark and require disassembly.
+                String category = "MKMSZ/overlay-function";
+                if (bookmarks.getBookmark(at, "Info", category) == null) {
+                    bookmarks.setBookmark(at, "Info", category,
+                        row[2] + " — " + row[3] + ": " + row[4] +
+                        " (disassemble and create function only after verifying bytes)");
+                    applied++;
+                }
+                println("Overlay function at " + at + " not defined; bookmark only: " + row[2]);
+                skipped++;
+                continue;
+            }
+            String previous = function.getName();
+            if (function.getSymbol().getSource() == SourceType.USER_DEFINED &&
+                !previous.equals(row[2])) {
+                println("Existing user function " + previous + " at " + at + "; skipped");
+                skipped++; continue;
+            }
+            if (!previous.equals(row[2])) {
+                function.setName(row[2], SourceType.USER_DEFINED);
+                applied++;
+            }
+            String prior = getPlateComment(at);
+            if (prior == null || prior.startsWith("[MKMSZ]")) {
+                setPlateComment(at, "[MKMSZ] " + row[3] + "\\n" + row[4]);
+            }
+        }
     }
 
     private List<String[]> rows(String file, int columns) throws Exception {
