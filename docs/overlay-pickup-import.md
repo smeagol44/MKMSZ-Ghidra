@@ -1,4 +1,4 @@
-# Separate overlay pickup import (staged; not Ghidra-runtime validated)
+# Separate overlay pickup import (Prison importer execution confirmed)
 
 The four previously verified raw overlays (Earth 0x9C, Prison 0x9F, Bridge 0x9B, Fortress 0x9E) have independently SHA-256-matched byte ranges in the clean N64 USA Rev.0 ROM. No ROM bytes are distributed.
 
@@ -9,4 +9,12 @@ This staged branch introduces:
 
 **Import procedure, when ready to validate manually:** save the current project. Extract your own verified raw binaries locally using `tools/extract_overlays.py`, import each *separately* as raw big-endian MIPS at `0x802ECE30`, and run `ApplyMkmszOverlayPickups.java` for that active raw-overlay program. It prompts for the repository root. Do not use the separate pickup script on the clean 16 MiB cartridge program.
 
-**Status:** Implementation/repository only. Java/Ghidra runtime import remains **Pending**, including raw binary source SHA identity behavior and data-type creation. Do not claim this as already applied in the user's Ghidra project. On first validation, inspect the exact console results and Ghidra Data Type Manager, and report missing functions/typed records without forcing overlapping definitions.
+**Maintainer Ghidra validation (2026-10-08):** Running `ApplyMkmszOverlayPickups.java` on the imported Prison raw overlay completed without a reported error:
+
+```
+ApplyMkmszOverlayPickups.java> Running...
+Overlay Prison pickup records: expected=10, typed=10, already typed=0, conflicts=0
+ApplyMkmszOverlayPickups.java> Finished!
+```
+
+**Ghidra/implementation-confirmed for Prison only:** compilation/execution, imported program identity acceptance, all six per-record byte guards, and ten data creations succeeded without importer-reported conflicts. Direct visual inspection of individual record fields is **Pending**; the same workflow for Earth, Bridge and Fortress is **Pending**. Do not generalize Prison's successful result to all 49 records or to exhaustive overlay function analysis. The branch remains draft until the remaining local checks are reviewed.
