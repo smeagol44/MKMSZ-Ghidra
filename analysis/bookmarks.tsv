@@ -1,1 +1,5 @@
 scope	address	category	evidence	note
+global	0x80028F3C	locomotion	Static-confirmed	Main player process; Ghidra auto-analysis may require manually defining function before applying name
+global	0x80030974	animation	Static-confirmed	Animation token 0x0B handler; Ghidra auto-analysis may require manually defining function before applying name
+global	0x80073588	inventory	Static-confirmed	Inventory open owner suspends and restores gameplay lists
+global	0x8002830C	lifecycle	Static-confirmed	Controller/process allocator clones inherited context; do not conflate with inventory current-controller ownership
