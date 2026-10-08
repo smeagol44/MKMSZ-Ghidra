@@ -20,6 +20,7 @@ public class ApplyMkmszExtended extends GhidraScript {
     private File root;
     private String scope;
     private int applied = 0, skipped = 0;
+    private Map<String, DataType> pendingTypes = Collections.emptyMap();
 
     @Override
     public void run() throws Exception {
@@ -117,6 +118,8 @@ public class ApplyMkmszExtended extends GhidraScript {
         if (s.equals("s32")) return IntegerDataType.dataType;
         if (s.equals("void")) return VoidDataType.dataType;
         if (s.equals("ptr32")) return new PointerDataType(Undefined1DataType.dataType, 4);
+        DataType staged = pendingTypes.get(s);
+        if (staged != null) return staged;
         DataType custom = currentProgram.getDataTypeManager().getDataType(
             new DataTypePath(CATEGORY, s));
         if (custom == null) throw new IllegalArgumentException("Unknown type: " + s);
@@ -136,6 +139,7 @@ public class ApplyMkmszExtended extends GhidraScript {
             else pending.put(r[2], new EnumDataType(CATEGORY, r[2], size));
         }
         DataTypeManager manager = currentProgram.getDataTypeManager();
+        pendingTypes = pending;
         for (String[] r : records) {
             if (!r[1].equals("field") && !r[1].equals("member")) continue;
             DataType parent = pending.get(r[2]);
@@ -161,6 +165,7 @@ public class ApplyMkmszExtended extends GhidraScript {
                 ((ghidra.program.model.data.Enum) parent).add(r[4], number(r[7]), r[9]);
             }
         }
+        pendingTypes = Collections.emptyMap();
         for (Map.Entry<String, DataType> entry : pending.entrySet()) {
             DataType existing = manager.getDataType(new DataTypePath(CATEGORY, entry.getKey()));
             if (existing != null) {
