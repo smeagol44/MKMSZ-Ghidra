@@ -58,13 +58,13 @@ The TSV files are intentionally human-readable and diffable in Git.
 
 ## Extended analysis (new)
 
-**Extended import support is implemented but not yet validated in a live Ghidra 12.1.2 session.** The established naming script remains usable on its own.
+**Global extended import has now been verified in the maintainer's Ghidra installation (2026-10-07).** The first larger import applied 132 entries, with 2 existing type records skipped; the separate raw-overlay import workflow is still pending its first local test.
 
 The `analysis/` directory now has scoped record formats for types/structures/enums, function signatures, verified locals, typed data, comments, bookmarks and explicit relations. After pulling new commits, run **ApplyMkmszAnalysis.java**, then **ApplyMkmszExtended.java** from Script Manager. Save your Ghidra project first.
 
 Read [Extended analysis schemas and safeguards](docs/extended-analysis.md) before populating them. The extended importer rejects unrecognized program identities and does not overwrite existing local types, typed data, variable bindings or non-MKMSZ comments. Run **ExportMkmszExtended.java** optionally to produce a read-only review snapshot; it does not update the curated TSV files. Stage overlays need a separate authenticated imported program; a stage VA is not a globally unique symbol.
 
-These new TSVs deliberately start as empty schemas rather than manufactured analysis. Future investigations should add verified entries alongside the canonical Wiki owner. This currently requires an explicit research update/commit; discovery does not automatically trigger GitHub synchronization.
+Verified historical research has been migrated into the extended TSVs; remaining signature, local-variable and certain data schemas are intentionally empty rather than filled with guesses. Future investigations should add verified entries alongside the canonical Wiki owner. This currently requires an explicit research update/commit; discovery does not automatically trigger GitHub synchronization.
 
 ## Analysis workflow
 
@@ -108,6 +108,6 @@ The current MKMSZR Wiki remains the owner of project conclusions and evidence sc
 
 The current [migration status](docs/migration-status.md) documents the one-time transfer of reviewed Wiki information into global function metadata, native structures, stage catalog records, patch-site provenance, and verified overlay-source manifests. Not every ROM offset can be annotated as a runtime VA. The direct import scripts act only on matching Ghidra program spaces.
 
-For the four verified raw overlays, use the exact-hash [local overlay extractor](tools/extract_overlays.py) with your own clean ROM, then import each as a **separate** MIPS big-endian Ghidra program at the established runtime base. Never add extracted ROM bytes to Git. Remaining stages are pending source mapping. **The expanded importer and overlay setup require local first-run validation.**
+For the four verified raw overlays, use the exact-hash [local overlay extractor](tools/extract_overlays.py) with your own clean ROM, then import each as a **separate** MIPS big-endian Ghidra program at the established runtime base. Never add extracted ROM bytes to Git. Remaining stages are pending source mapping. **The global extended importer passed a local test; stage-overlay import/extraction still requires local validation.**
 
 The repository's `validate-analysis` CI validates manifest syntax/consistency; it does **not** verify Ghidra decompiler output or run an emulator.
