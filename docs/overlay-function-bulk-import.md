@@ -34,7 +34,7 @@
 | Fortress | `fortress_assassin_reward_manager` | `0x802EFDB0` |
 | Fortress | `fortress_crystal_progression_dispatch` | `0x802EF30C` |
 
-**Evidence classifications:** All nine stock prefixes, stage mappings, and previously researched identities are **Static-confirmed**. The three Prison entries were manually created, decompiled and named by the maintainer (**Ghidra/implementation-confirmed**). The bulk script's identity/guard recognition, conflict-free idempotent naming, and execution **passed on Prison**. Its new-entry MIPS32 disassembly and function-creation paths and Earth/Bridge/Fortress behavior remain **Pending maintainer Ghidra validation**.
+**Evidence classifications:** All nine stock prefixes, stage mappings, and previously researched identities are **Static-confirmed**. The three Prison entries were manually created, decompiled and named by the maintainer (**Ghidra/implementation-confirmed**). The bulk script's identity/guard recognition, conflict-free idempotent naming, and execution **passed on Prison**. Its new-entry MIPS32 disassembly and function-creation paths have now also **passed on Earth**; Bridge/Fortress remain **Pending maintainer Ghidra validation**.
 
 ## First bulk importer execution — 2026-10-08
 
@@ -51,4 +51,20 @@ Run ApplyMkmszExtended.java afterward only for other scoped metadata.
 ApplyMkmszOverlayFunctions.java> Finished!
 ```
 
-**Ghidra/implementation-confirmed** for existing entry verification, stage matching and idempotence. Does not test creation or unknown-function discovery. Next bounded test: the two Earth entries in the separately imported Earth program.
+**Ghidra/implementation-confirmed** for existing entry verification, stage matching and idempotence. Does not test creation or unknown-function discovery. The subsequent Earth test passed; Bridge and Fortress remain to test.
+
+## Earth fresh-function creation test — 2026-10-08
+
+The maintainer's previously imported Earth `0x9C` raw stage program successfully executed the bulk function importer:
+
+```text
+ApplyMkmszOverlayFunctions.java> Running...
+MKMSZ overlay function import scope: overlay_earth (Earth), entries=2
+OK earth_key_award at 802f52b0 (body instructions are bounded by decoded flow; inspect if truncated)
+OK earth_boss_construct at 802edf50 (body instructions are bounded by decoded flow; inspect if truncated)
+MKMSZ overlay function import: created=2, renamed=2, unchanged=0, disassembled=2, review=0 (scope=overlay_earth)
+Run ApplyMkmszExtended.java afterward only for other scoped metadata.
+ApplyMkmszOverlayFunctions.java> Finished!
+```
+
+**Ghidra/implementation-confirmed:** both known Earth entries passed their scope/original-byte guards, were explicitly disassembled as MIPS32 and created/named by the script with no reported review conflicts. The console does not by itself establish full function-body boundaries or validate newly observed semantics. Next test: Bridge (2 entries) and Fortress (2 entries) in their **separate** programs.
