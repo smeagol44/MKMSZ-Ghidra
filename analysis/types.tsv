@@ -87,3 +87,15 @@ global	struct	MKMSZ_Type5ImageHeader	0x0C					Static-confirmed	Compressed bitstr
 global	field	MKMSZ_Type5ImageHeader		header	0x00	u32		Static-confirmed	Exact 0x05000000
 global	field	MKMSZ_Type5ImageHeader		model_offset_relative	0x04	s32		Static-confirmed	Signed image-relative model pointer
 global	field	MKMSZ_Type5ImageHeader		packed_dimensions	0x08	u32		Static-confirmed	Upper 16 height lower 16 width
+global	struct	MKMSZ_EnemySpawnConditionalRecord	0x20					Static-confirmed	Data-Structures-and-Encodings.md
+global	field	MKMSZ_EnemySpawnConditionalRecord		opcode	0x00	u32		Static-confirmed	Conditional opcode 6
+global	field	MKMSZ_EnemySpawnConditionalRecord		required_mask	0x04	u32		Static-confirmed	Compared against 0x802C1140
+global	field	MKMSZ_EnemySpawnConditionalRecord		raw_x	0x08	s32		Static-confirmed	Spawn X
+global	field	MKMSZ_EnemySpawnConditionalRecord		raw_y	0x0C	s32		Static-confirmed	Spawn Y
+global	field	MKMSZ_EnemySpawnConditionalRecord		raw_z	0x10	s32		Static-confirmed	Spawn Z
+global	field	MKMSZ_EnemySpawnConditionalRecord		fighter_type	0x14	u32		Static-confirmed	Low 16 bits
+global	field	MKMSZ_EnemySpawnConditionalRecord		spawn_quota	0x18	u32		Static-confirmed	Low 16 bits
+global	field	MKMSZ_EnemySpawnConditionalRecord		activation_mode	0x1C	s32		Static-confirmed	Low signed 16 bits
+global	struct	MKMSZ_Type5ModelTableHeader	0x04					Static-confirmed	Data-Structures-and-Encodings.md
+global	field	MKMSZ_Type5ModelTableHeader		rows_per_block	0x00	u16		Static-confirmed	Stock Sub-Zero value 2
+global	field	MKMSZ_Type5ModelTableHeader		model_count	0x02	u16		Static-confirmed	Stock Sub-Zero value 4
