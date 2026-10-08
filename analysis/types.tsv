@@ -1,1 +1,10 @@
 scope	kind	name	size	field	offset	datatype	value	evidence	note
+global	enum	MKMSZ_ItemId	4					Static-confirmed	Native inventory item identifiers (partial)
+global	member	MKMSZ_ItemId		POTION			0x01	Runtime-confirmed	Native Potion callback inserts item ID 1
+global	member	MKMSZ_ItemId		FORMULA			0x02	Static-confirmed	Native Formula callback inserts item ID 2
+global	member	MKMSZ_ItemId		EYE			0x03	Static-confirmed	Native Eye callback inserts item ID 3
+global	member	MKMSZ_ItemId		HERBS			0x04	Runtime-confirmed	Native Herbs callback inserts item ID 4
+global	member	MKMSZ_ItemId		HEALTH_URN			0x05	Static-confirmed	Native Health urn callback inserts item ID 5
+global	member	MKMSZ_ItemId		SHIELD			0x06	Runtime-confirmed	Native Shield callback inserts item ID 6
+global	member	MKMSZ_ItemId		GLASS_SEALED_INTERNAL			0x08	Static-confirmed	Stock Glass ID repurposed as LIVE-only SEALED placeholder in production
+global	member	MKMSZ_ItemId		STRENGTH			0x0B	Static-confirmed	Native Strength callback inserts item ID 0x0B
