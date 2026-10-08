@@ -1,7 +1,6 @@
 address	name	evidence	comment
 0x80002588	stage_scene_data_parse	Static-confirmed	Parses stage data and publishes the first 60-byte spatial trigger record at `0x801114F4` plus its record count at `0x802F8228`. The exact Wind source-record catalog remains Pending, but the runtime table ownership and stride are statically established.
 0x8000322C	embedded_image_decode_dispatch	Static-confirmed	Ordinary types come from header byte `+3`; exact header `0x05000000` is special-cased to fighter codec type 5. Type 4 dispatches to `0x80003428`; type 5 dispatches through `0x80003314
-0x80003314	fighter_image_type5_wrapper	Static-confirmed	Resolves image-relative model/dictionary pointer, compressed stream at image `+0x0C`, packed dimensions, output arena pointer; calls `0x80065E00`; advances output by `align4(width) * align2(height)
 0x80003428	embedded_image_type4_decode	Static-confirmed	Separate control/token streams with a 1024-byte ring buffer; exact decode reproduced Water embedded Potion frames byte-for-byte against Fire external Potion payloads
 0x8000C6D8	pris_grunt_ranged_aim_select	Static-confirmed	Shared permanent-code AI action for types `0x15/0x16/0x17`; bounds horizontal separation to 450, derives target slope, and installs one of the common aim callbacks that enter `0x80043B18`. Types `0x16/0x17` use this action exclusively across all four traced distance bands; `0x15` mixes it with two common-code alternatives in the two nearer bands.
 0x8000D0B8	debug_stage_select_menu	Runtime-confirmed	Production A-button title route
