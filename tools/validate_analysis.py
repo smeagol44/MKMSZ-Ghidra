@@ -20,6 +20,7 @@ HEADERS = {
     "relations.tsv": "scope from to kind operand evidence note",
     "overlays.tsv": "scope stage file_id rom_start rom_end_exclusive runtime_base sha256 evidence",
     "overlay_functions.tsv": "scope address name evidence comment",
+    "overlay_function_guards.tsv": "scope address first16_be_hex evidence",
     "code_labels.tsv": "scope address name evidence comment",
     "overlay_pending.tsv": "stage address description evidence note source status",
     "rom_patch_sites.tsv": "record_id section rom_or_location va owner_or_purpose guard_or_existing change_or_note source",
@@ -27,6 +28,7 @@ HEADERS = {
     "stage_resource_slots.tsv": "stage slot name outer_offset format frames pickup_users source",
 }
 HEX = re.compile(r"^0[xX][0-9a-fA-F]+$")
+ENTRY_BYTES = re.compile(r"^[0-9a-fA-F]{32}$")
 SIGNED_HEX = re.compile(r"^-?0[xX][0-9a-fA-F]+$")
 SHA = re.compile(r"^[0-9a-fA-F]{64}$")
 SCOPE = re.compile(r"^[a-z][a-z0-9_-]*$")
@@ -79,6 +81,33 @@ for file, rows in tables.items():
     for n, r in enumerate(rows, 2):
         if r and not r[0].startswith("#") and r[0] not in scopes:
             errors.append(f"{file}:{n}: unknown scope {r[0]}")
+# Every candidate function requires one scoped, exact stock 16-byte signature.
+function_keys = {(row[0], row[1]) for row in tables.get("overlay_functions.tsv", [])
+                 if len(row) == 5}
+guards = tables.get("overlay_function_guards.tsv", [])
+guard_keys = set()
+for row in guards:
+    if len(row) != 4: continue
+    key = (row[0], row[1])
+    if key in guard_keys:
+        errors.append(f"duplicate overlay function guard: {key}")
+    guard_keys.add(key)
+    if not HEX.fullmatch(row[1]) or not ENTRY_BYTES.fullmatch(row[2]):
+        errors.append(f"invalid overlay function guard: {key}")
+    if key not in function_keys:
+        errors.append(f"guard for unknown overlay function: {key}")
+    overlay = next((x for x in tables.get("overlays.tsv", []) if x[0] == row[0]), None)
+    if overlay is None:
+        errors.append(f"guard has no mapped overlay: {key}")
+    else:
+        base = int(overlay[5], 16)
+        end = base + int(overlay[4], 16) - int(overlay[3], 16)
+        addr = int(row[1], 16)
+        if not (base <= addr and addr + 16 <= end and addr % 4 == 0):
+            errors.append(f"guard outside mapped overlay: {key}")
+for key in sorted(function_keys - guard_keys):
+    errors.append(f"missing overlay function entry guard: {key}")
+
 if errors:
     print("\n".join("ERROR " + x for x in errors))
     sys.exit(1)
