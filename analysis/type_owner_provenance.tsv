@@ -1,0 +1,12 @@
+type_name	type_kind	type_size	owner_section_anchor	source_line	source_blob_sha	local_confirmation
+MKMSZ_ItemId	enum	4	## Key-to-stage mapping	73	2ec0caca5014dc6dbd788bc656fc86e3d4b3f30f	Previously user confirmed exact 11 curated type definitions; not a new import
+MKMSZ_BoxBacking	struct	0xA8	## Four-box inventory layout	59	2ec0caca5014dc6dbd788bc656fc86e3d4b3f30f	Previously user confirmed exact 11 curated type definitions; not a new import
+MKMSZ_PickupRecord	struct	0x30	## Ordinary pickup record	5	2ec0caca5014dc6dbd788bc656fc86e3d4b3f30f	Previously user confirmed exact 11 curated type definitions; not a new import
+MKMSZ_PersistenceV2	struct	0x50	## Persistence state V2	26	2ec0caca5014dc6dbd788bc656fc86e3d4b3f30f	Previously user confirmed exact 11 curated type definitions; not a new import
+MKMSZ_EnemySpawnRecord	struct	0x1C	## Ordinary-enemy stream	108	2ec0caca5014dc6dbd788bc656fc86e3d4b3f30f	Previously user confirmed exact 11 curated type definitions; not a new import
+MKMSZ_AuxTriggerRecord	struct	0x3C	## Auxiliary trigger record	124	2ec0caca5014dc6dbd788bc656fc86e3d4b3f30f	Previously user confirmed exact 11 curated type definitions; not a new import
+MKMSZ_RenderNode	struct	0x58	## Native UI render node	128	2ec0caca5014dc6dbd788bc656fc86e3d4b3f30f	Previously user confirmed exact 11 curated type definitions; not a new import
+MKMSZ_DynamicTextureSlot	struct	0x10	## Dynamic gameplay texture-slot record	182	2ec0caca5014dc6dbd788bc656fc86e3d4b3f30f	Previously user confirmed exact 11 curated type definitions; not a new import
+MKMSZ_Type5ImageHeader	struct	0x0C	## Native fighter image type 5	146	2ec0caca5014dc6dbd788bc656fc86e3d4b3f30f	Previously user confirmed exact 11 curated type definitions; not a new import
+MKMSZ_EnemySpawnConditionalRecord	struct	0x20	Opcode `6` is `0x20` bytes	122	2ec0caca5014dc6dbd788bc656fc86e3d4b3f30f	Previously user confirmed exact 11 curated type definitions; not a new import
+MKMSZ_Type5ModelTableHeader	struct	0x04	## Native fighter image type 5	146	2ec0caca5014dc6dbd788bc656fc86e3d4b3f30f	Previously user confirmed exact 11 curated type definitions; not a new import

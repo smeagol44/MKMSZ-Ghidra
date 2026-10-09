@@ -1,0 +1,243 @@
+section_id	owner_page	section_line	end_line_exclusive	depth	heading	heading_ordinal	source_blob_sha	review_status
+SECTION-01-001	Web-Patcher-and-Product.md	3	13	2	Shared core	1	03a1736a7cee2d0f777ec13ed64a8657d14972fd	indexed-heading-not-fully-audited
+SECTION-01-002	Web-Patcher-and-Product.md	13	36	2	Inputs and output guarantees	2	03a1736a7cee2d0f777ec13ed64a8657d14972fd	indexed-heading-not-fully-audited
+SECTION-01-003	Web-Patcher-and-Product.md	36	60	2	Current configuration surface	3	03a1736a7cee2d0f777ec13ed64a8657d14972fd	indexed-heading-not-fully-audited
+SECTION-01-004	Web-Patcher-and-Product.md	60	74	2	Enemy Randomization option	4	03a1736a7cee2d0f777ec13ed64a8657d14972fd	indexed-heading-not-fully-audited
+SECTION-01-005	Web-Patcher-and-Product.md	74	81	2	Deployment	5	03a1736a7cee2d0f777ec13ed64a8657d14972fd	indexed-heading-not-fully-audited
+SECTION-01-006	Web-Patcher-and-Product.md	81	87	2	1.0 release boundary	6	03a1736a7cee2d0f777ec13ed64a8657d14972fd	indexed-heading-not-fully-audited
+SECTION-02-001	Sub-Zero-to-Sektor-Animation-Mapping.md	6	16	2	Evidence boundary	1	11b0cfc4680c8d31935cfd4816f229b8eaa3efcb	indexed-heading-not-fully-audited
+SECTION-02-002	Sub-Zero-to-Sektor-Animation-Mapping.md	16	22	2	Main conclusion	2	11b0cfc4680c8d31935cfd4816f229b8eaa3efcb	indexed-heading-not-fully-audited
+SECTION-02-003	Sub-Zero-to-Sektor-Animation-Mapping.md	22	70	2	Direct core mapping	3	11b0cfc4680c8d31935cfd4816f229b8eaa3efcb	indexed-heading-not-fully-audited
+SECTION-02-004	Sub-Zero-to-Sektor-Animation-Mapping.md	70	142	2	MKMSZ Sub-Zero primary table — all 65 slots	4	11b0cfc4680c8d31935cfd4816f229b8eaa3efcb	indexed-heading-not-fully-audited
+SECTION-02-005	Sub-Zero-to-Sektor-Animation-Mapping.md	142	192	2	MKMSZ Sub-Zero secondary table — all 43 raw slots	5	11b0cfc4680c8d31935cfd4816f229b8eaa3efcb	indexed-heading-not-fully-audited
+SECTION-02-006	Sub-Zero-to-Sektor-Animation-Mapping.md	192	289	2	MKT Sektor / robot primary table — all 90 slots	6	11b0cfc4680c8d31935cfd4816f229b8eaa3efcb	indexed-heading-not-fully-audited
+SECTION-02-007	Sub-Zero-to-Sektor-Animation-Mapping.md	289	323	2	MKT robot-family secondary table — all 27 slots	7	11b0cfc4680c8d31935cfd4816f229b8eaa3efcb	indexed-heading-not-fully-audited
+SECTION-02-008	Sub-Zero-to-Sektor-Animation-Mapping.md	323	337	2	Mapping policy	8	11b0cfc4680c8d31935cfd4816f229b8eaa3efcb	indexed-heading-not-fully-audited
+SECTION-02-009	Sub-Zero-to-Sektor-Animation-Mapping.md	337	354	2	MKMSZ player-state reachability audit — 2026-09-25	9	11b0cfc4680c8d31935cfd4816f229b8eaa3efcb	indexed-heading-not-fully-audited
+SECTION-02-010	Sub-Zero-to-Sektor-Animation-Mapping.md	354	373	3	Current player/importer classification	10	11b0cfc4680c8d31935cfd4816f229b8eaa3efcb	indexed-heading-not-fully-audited
+SECTION-02-011	Sub-Zero-to-Sektor-Animation-Mapping.md	373	387	3	Secondary-table result	11	11b0cfc4680c8d31935cfd4816f229b8eaa3efcb	indexed-heading-not-fully-audited
+SECTION-02-012	Sub-Zero-to-Sektor-Animation-Mapping.md	387	391	3	Immediate consequence	12	11b0cfc4680c8d31935cfd4816f229b8eaa3efcb	indexed-heading-not-fully-audited
+SECTION-02-013	Sub-Zero-to-Sektor-Animation-Mapping.md	391	418	3	Five live player states — semantic trace (2026-09-25)	13	11b0cfc4680c8d31935cfd4816f229b8eaa3efcb	indexed-heading-not-fully-audited
+SECTION-02-014	Sub-Zero-to-Sektor-Animation-Mapping.md	418	435	2	Current mapping coverage	14	11b0cfc4680c8d31935cfd4816f229b8eaa3efcb	indexed-heading-not-fully-audited
+SECTION-02-015	Sub-Zero-to-Sektor-Animation-Mapping.md	435	464	3	Accepted six-pose Run integration and cadence	15	11b0cfc4680c8d31935cfd4816f229b8eaa3efcb	indexed-heading-not-fully-audited
+SECTION-02-016	Sub-Zero-to-Sektor-Animation-Mapping.md	464	477	2	Current remaining gaps	16	11b0cfc4680c8d31935cfd4816f229b8eaa3efcb	indexed-heading-not-fully-audited
+SECTION-02-017	Sub-Zero-to-Sektor-Animation-Mapping.md	477	483	2	Evidence and production boundary	17	11b0cfc4680c8d31935cfd4816f229b8eaa3efcb	indexed-heading-not-fully-audited
+SECTION-02-018	Sub-Zero-to-Sektor-Animation-Mapping.md	483	491	2	Related pages	18	11b0cfc4680c8d31935cfd4816f229b8eaa3efcb	indexed-heading-not-fully-audited
+SECTION-03-001	Sektor-Takeover-Proof-History.md	7	17	2	Current conclusion	1	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-002	Sektor-Takeover-Proof-History.md	17	31	2	Six-pose Run branch and cadence reconciliation	2	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-003	Sektor-Takeover-Proof-History.md	31	35	3	P28/P29 attachment owner-probe — 2026-09-25	3	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-004	Sektor-Takeover-Proof-History.md	35	57	2	Reconciled status rules	4	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-005	Sektor-Takeover-Proof-History.md	57	124	2	Final-status index	5	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-006	Sektor-Takeover-Proof-History.md	124	128	2	Detailed chronology — v01-v27	6	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-007	Sektor-Takeover-Proof-History.md	128	154	2	v01 — genuine Sektor rendering confirmed, transition cleanup failed	7	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-008	Sektor-Takeover-Proof-History.md	154	181	2	v02 — active-handle restoration fix	8	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-009	Sektor-Takeover-Proof-History.md	181	209	2	v03 — restore the stock resource table; redirect only the idle cursor	9	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-010	Sektor-Takeover-Proof-History.md	209	250	2	v04 — native cursor location with foreign frame pointers + diagnostic HUD	10	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-011	Sektor-Takeover-Proof-History.md	250	276	2	v05 — v04 cursor experiment with diagnostic HUD removed	11	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-012	Sektor-Takeover-Proof-History.md	276	297	2	v06 — remove only the donor animation-rate hook	12	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-013	Sektor-Takeover-Proof-History.md	297	320	2	v07 — remove dynamic donor palette handling entirely	13	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-014	Sektor-Takeover-Proof-History.md	320	345	3	Corrected false-cave finding	14	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-015	Sektor-Takeover-Proof-History.md	345	376	2	v08 — restore the false cave to exact stock data	15	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-016	Sektor-Takeover-Proof-History.md	376	408	2	v09 — re-home palette helper into owned reserved runtime memory	16	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-017	Sektor-Takeover-Proof-History.md	408	448	2	v10 — bind palette atomically inside native frame setup	17	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-018	Sektor-Takeover-Proof-History.md	448	467	2	v11 — destructive idle replacement proof	18	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-019	Sektor-Takeover-Proof-History.md	467	523	2	v12 — destructive idle + locomotion replacement	19	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-020	Sektor-Takeover-Proof-History.md	523	561	2	v13 — compact native type-4 locomotion materialization	20	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-021	Sektor-Takeover-Proof-History.md	561	602	2	v14 — raw/type-0 single-animation size isolation: Turn	21	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-022	Sektor-Takeover-Proof-History.md	602	639	2	v15 — raw/type-0 shared walk-frame proof	22	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-023	Sektor-Takeover-Proof-History.md	639	670	2	v16 — compose confirmed Idle + Walk + Turn	23	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-024	Sektor-Takeover-Proof-History.md	670	707	2	v17 — isolate raw/type-0 Crouch	24	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-025	Sektor-Takeover-Proof-History.md	707	738	2	v18 — crouch-family direct-core batch	25	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-026	Sektor-Takeover-Proof-History.md	738	777	2	v19 — Crouch Punch direct replacement	26	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-027	Sektor-Takeover-Proof-History.md	777	825	2	v20 — Crouch Low Kick	27	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-028	Sektor-Takeover-Proof-History.md	825	868	2	v21 — isolated Crouch Low Kick below the raw-size boundary	28	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-029	Sektor-Takeover-Proof-History.md	868	917	2	v22 — isolated Crouch High Kick composed with confirmed Low Kick	29	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-030	Sektor-Takeover-Proof-History.md	917	965	2	v23 — isolated Uppercut	30	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-031	Sektor-Takeover-Proof-History.md	965	995	2	v24 — isolated Standing Block	31	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-032	Sektor-Takeover-Proof-History.md	995	1022	2	v25 — isolated High Punch core + post-legal logo skip	32	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-033	Sektor-Takeover-Proof-History.md	1022	1037	2	v26 — isolated Low Punch	33	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-034	Sektor-Takeover-Proof-History.md	1037	1050	2	v27 — isolated Standing Low Kick	34	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-035	Sektor-Takeover-Proof-History.md	1050	1054	2	Detailed chronology — v28 onward	35	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-036	Sektor-Takeover-Proof-History.md	1054	1086	2	v28 — Standing High Kick	36	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-037	Sektor-Takeover-Proof-History.md	1086	1100	2	v29 — Knee	37	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-038	Sektor-Takeover-Proof-History.md	1100	1114	2	v30 — Sweep	38	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-039	Sektor-Takeover-Proof-History.md	1114	1128	2	v31 — Roundhouse	39	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-040	Sektor-Takeover-Proof-History.md	1128	1142	2	v32 — Jump	40	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-041	Sektor-Takeover-Proof-History.md	1142	1163	2	v33 — Aerial attacks	41	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-042	Sektor-Takeover-Proof-History.md	1163	1180	2	v34 — Flips and hit reactions	42	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-043	Sektor-Takeover-Proof-History.md	1180	1195	2	v35 — Sweep Fall + Sweep Getup	43	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-044	Sektor-Takeover-Proof-History.md	1195	1197	2	v36-v37 — Knockdown and normal Getup	44	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-045	Sektor-Takeover-Proof-History.md	1197	1211	3	v36 Knockdown	45	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-046	Sektor-Takeover-Proof-History.md	1211	1226	3	v37 normal Getup	46	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-047	Sektor-Takeover-Proof-History.md	1226	1243	2	v39 — Stumble + Stage Select	47	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-048	Sektor-Takeover-Proof-History.md	1243	1257	2	v40 — Prison allocation control	48	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-049	Sektor-Takeover-Proof-History.md	1257	1272	2	v41 — Prison exact-size allocation control	49	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-050	Sektor-Takeover-Proof-History.md	1272	1289	2	v42 — Native Type-5 single-frame proof	50	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-051	Sektor-Takeover-Proof-History.md	1289	1308	2	v43 — Native Type-5 full-idle compaction	51	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-052	Sektor-Takeover-Proof-History.md	1308	1327	2	v44 — Native Type-5 locomotion composition	52	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-053	Sektor-Takeover-Proof-History.md	1327	1344	2	v45 — Corrected native Type-5 locomotion composition	53	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-054	Sektor-Takeover-Proof-History.md	1344	1365	2	v46 — Native Type-5 crouch-combat composition	54	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-055	Sektor-Takeover-Proof-History.md	1365	1386	2	v47 — Dead-stock reclamation / Prison-Inventory control	55	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-056	Sektor-Takeover-Proof-History.md	1386	1403	2	v48 — Fortress exact-size allocation control	56	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-057	Sektor-Takeover-Proof-History.md	1403	1424	2	v49-v50 — Compact locomotion Fortress controls	57	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-058	Sektor-Takeover-Proof-History.md	1424	1445	2	v51 — Full crouch-combat merged reclamation	58	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-059	Sektor-Takeover-Proof-History.md	1445	1462	2	v51-v52 — Later Fortress allocation boundary	59	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-060	Sektor-Takeover-Proof-History.md	1462	1477	2	v53 — common-animation Sektor takeover / native palette	60	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-061	Sektor-Takeover-Proof-History.md	1477	1483	3	Common mapped scope	61	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-062	Sektor-Takeover-Proof-History.md	1483	1493	3	Native palette; helper removed	62	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-063	Sektor-Takeover-Proof-History.md	1493	1510	3	Full stock Type-5 reclamation	63	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-064	Sektor-Takeover-Proof-History.md	1510	1524	2	v54 — Run + Elbow/Combo + Throw/Grab	64	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-065	Sektor-Takeover-Proof-History.md	1524	1528	3	Running	65	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-066	Sektor-Takeover-Proof-History.md	1528	1536	3	Elbow / full combo	66	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-067	Sektor-Takeover-Proof-History.md	1536	1552	3	Grab / throw	67	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-068	Sektor-Takeover-Proof-History.md	1552	1576	3	Storage / Type-5 packing	68	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-069	Sektor-Takeover-Proof-History.md	1576	1588	2	v55 — true 12-frame Run + Sweep-Fall decoder guard + Throw repair	69	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-070	Sektor-Takeover-Proof-History.md	1588	1600	3	Run / Push ownership correction	70	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-071	Sektor-Takeover-Proof-History.md	1600	1604	3	Sweep Fall	71	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-072	Sektor-Takeover-Proof-History.md	1604	1616	3	Throw color and timing	72	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-073	Sektor-Takeover-Proof-History.md	1616	1627	3	v55 storage and verification	73	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-074	Sektor-Takeover-Proof-History.md	1627	1658	2	v56 — corrected full-body PS1 Run decode	74	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-075	Sektor-Takeover-Proof-History.md	1658	1662	2	v57 — Full-Run reconstruction and row-pitch failure (2026-09-21)	75	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-076	Sektor-Takeover-Proof-History.md	1662	1669	3	Baseline and rejected path	76	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-077	Sektor-Takeover-Proof-History.md	1669	1675	3	Clean Midway source for the cut even Run poses	77	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-078	Sektor-Takeover-Proof-History.md	1675	1686	3	N64 conversion calibration	78	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-079	Sektor-Takeover-Proof-History.md	1686	1701	3	Derived even-frame target descriptors	79	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-080	Sektor-Takeover-Proof-History.md	1701	1705	3	Role of PS1 MKT	80	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-081	Sektor-Takeover-Proof-History.md	1705	1730	3	v57 static build checkpoint	81	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-082	Sektor-Takeover-Proof-History.md	1730	1745	3	v57 runtime correction — ROBO8 source row pitch	82	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-083	Sektor-Takeover-Proof-History.md	1745	1770	2	v58 — stride-corrected full Run	83	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-084	Sektor-Takeover-Proof-History.md	1770	1803	2	v59 — complete middle Combo visuals	84	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-085	Sektor-Takeover-Proof-History.md	1803	1821	2	v60 — First Scorpion alternate palette	85	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-086	Sektor-Takeover-Proof-History.md	1821	1825	2	v61/v62 — Sektor MKT combo-string transplant	86	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-087	Sektor-Takeover-Proof-History.md	1825	1844	3	v61 — direct donor reaction-selector transplant	87	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-088	Sektor-Takeover-Proof-History.md	1844	1865	3	v62 — MKMSZ-safe reaction translation	88	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-089	Sektor-Takeover-Proof-History.md	1865	1884	2	v75-v85 — calibrated flight and first-render reconciliation	89	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-090	Sektor-Takeover-Proof-History.md	1884	1892	3	Post-v78 static composition findings	90	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-091	Sektor-Takeover-Proof-History.md	1892	1900	3	Post-v80 ownership reconciliation	91	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-092	Sektor-Takeover-Proof-History.md	1900	1904	2	v63-v70 — Sektor straight-missile proof line	92	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-093	Sektor-Takeover-Proof-History.md	1904	1921	3	Pre-v63 donor/storage audit	93	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-094	Sektor-Takeover-Proof-History.md	1921	1938	3	v63 — four-frame in-place-bank experiment	94	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-095	Sektor-Takeover-Proof-History.md	1938	1965	3	v64 — compact one-chest/one-missile expansion	95	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-096	Sektor-Takeover-Proof-History.md	1965	1980	3	v65 — direct player chest wrapper + suppressed Ice helper processes	96	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-097	Sektor-Takeover-Proof-History.md	1980	1995	3	v66 — lifecycle-wrapper correction attempt	97	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-098	Sektor-Takeover-Proof-History.md	1995	2010	3	v67 — restore first Ice helper process only	98	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-099	Sektor-Takeover-Proof-History.md	2010	2032	3	v68 — stock-lifecycle chest-only negative control	99	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-100	Sektor-Takeover-Proof-History.md	2032	2055	3	v69 — post-helper resolved-cursor chest proof	100	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-101	Sektor-Takeover-Proof-History.md	2055	2080	3	v70 — first genuine missile-flight presentation proof	101	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-102	Sektor-Takeover-Proof-History.md	2080	2103	3	v71 — native-placement / setup-helper acceleration experiment	102	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-103	Sektor-Takeover-Proof-History.md	2103	2123	3	v72 — placement-only proof	103	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-104	Sektor-Takeover-Proof-History.md	2123	2162	3	v73 — movement-only acceleration proof	104	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-105	Sektor-Takeover-Proof-History.md	2162	2200	3	v74 — cadence-resampled movement proof + donor-video comparison	105	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-03-106	Sektor-Takeover-Proof-History.md	2200	2210	2	Canonical ownership and remaining limits	106	68d1288a94b7011fabf3b4ab96cfa76bf36905a4	indexed-heading-not-fully-audited
+SECTION-04-001	Toasty-Audio-Research.md	7	25	2	Current accepted conclusion	1	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-002	Toasty-Audio-Research.md	25	37	2	Current status	2	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-003	Toasty-Audio-Research.md	37	49	2	Accepted source-to-retail anchor	3	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-004	Toasty-Audio-Research.md	49	51	2	Production-integration boundary	4	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-005	Toasty-Audio-Research.md	51	66	3	Trigger-source correction: comment family, not uppercut-only	5	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-006	Toasty-Audio-Research.md	66	77	2	Preserved v01 proof-host details	6	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-007	Toasty-Audio-Research.md	77	82	2	Rejected and superseded investigation chronology	7	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-008	Toasty-Audio-Research.md	82	103	2	MKT donor evidence relevant to Toasty	8	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-009	Toasty-Audio-Research.md	103	145	3	Retail MKT Toasty CTL/TBL trace	9	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-010	Toasty-Audio-Research.md	145	147	2	Detailed proof and identification chronology	10	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-011	Toasty-Audio-Research.md	147	178	3	Toasty sound proof v01 — rejected routing assumption	11	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-012	Toasty-Audio-Research.md	178	227	3	Clean Toasty pickup proof v02 design	12	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-013	Toasty-Audio-Research.md	227	234	3	Toasty sound proof v02 — runtime result	13	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-014	Toasty-Audio-Research.md	234	293	3	Corrected retail Toasty event trace	14	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-015	Toasty-Audio-Research.md	293	304	3	Second Toasty donor candidate — rejected	15	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-016	Toasty-Audio-Research.md	304	370	3	Retail MKT `triple_sound` ABI	16	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-017	Toasty-Audio-Research.md	370	477	3	Runtime definition-array ownership	17	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-018	Toasty-Audio-Research.md	477	561	3	Definition 580 retail command execution	18	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-019	Toasty-Audio-Research.md	561	684	3	Retail Toasty voice-start transform	19	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-020	Toasty-Audio-Research.md	684	759	3	Source-to-retail selector anchor map	20	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-021	Toasty-Audio-Research.md	759	795	3	Audibly confirmed retail Toasty voice	21	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-022	Toasty-Audio-Research.md	795	819	3	Toasty sound proof v03 — runtime confirmed	22	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-023	Toasty-Audio-Research.md	819	828	2	Related canonical owners	23	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-024	Toasty-Audio-Research.md	828	837	3	v41 feature-core composition	24	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-025	Toasty-Audio-Research.md	837	849	3	Toasty dedicated-audio proof v46 — runtime confirmed	25	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-026	Toasty-Audio-Research.md	849	854	3	v47 production-composition audio gate	26	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-04-027	Toasty-Audio-Research.md	854	858	3	Browser donor extraction	27	f4028403920c877b201baf74262beb9219bbfa2c	indexed-heading-not-fully-audited
+SECTION-05-001	Toasty-Visual-Research.md	7	15	2	Current unresolved boundary	1	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-002	Toasty-Visual-Research.md	15	37	2	Final evidence status by proof	2	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-003	Toasty-Visual-Research.md	37	50	2	Generic renderer conclusions produced by this investigation	3	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-004	Toasty-Visual-Research.md	50	58	2	Accepted CI4 production composition (2026-09-27)	4	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-005	Toasty-Visual-Research.md	58	68	2	Rejected or superseded Toasty visual approaches	5	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-006	Toasty-Visual-Research.md	68	70	2	Complete visual chronology	6	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-007	Toasty-Visual-Research.md	70	81	2	Toasty presentation target	7	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-008	Toasty-Visual-Research.md	81	129	3	Toasty visual-only proof v01 — build intent before manual test	8	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-009	Toasty-Visual-Research.md	129	159	3	Toasty visual proof v01 — no visible output	9	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-010	Toasty-Visual-Research.md	159	178	3	Toasty visual diagnostic v02 — wrapper confirmed	10	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-011	Toasty-Visual-Research.md	178	195	3	Toasty visual diagnostic v03 — intrusive / rejected diagnostic	11	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-012	Toasty-Visual-Research.md	195	209	3	Toasty visual diagnostic v04 — test harness confirmed	12	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-013	Toasty-Visual-Research.md	209	218	3	Toasty visual diagnostic v05 — allocator return confirmed	13	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-014	Toasty-Visual-Research.md	218	229	3	Toasty visual diagnostic v06 — rejected loader-wrapper diagnostic	14	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-015	Toasty-Visual-Research.md	229	240	3	Toasty visual diagnostic v07 — rejected post-load helper	15	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-016	Toasty-Visual-Research.md	240	256	3	Renderer correction from preserved UI evidence	16	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-017	Toasty-Visual-Research.md	256	267	3	Toasty visual diagnostic v08 — stock textured HUD clone confirmed	17	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-018	Toasty-Visual-Research.md	267	280	3	Toasty visual diagnostic v09 — stock texture-slot binding confirmed	18	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-019	Toasty-Visual-Research.md	280	291	3	Toasty visual diagnostic v10 — clone-local texture binding confirmed	19	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-020	Toasty-Visual-Research.md	291	304	3	Toasty visual diagnostic v11 — rejected independent fixed-slot allocation	20	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-021	Toasty-Visual-Research.md	304	323	3	Toasty visual diagnostic v12 — rejected alias implementation	21	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-022	Toasty-Visual-Research.md	323	341	3	Toasty visual diagnostic v13 — rejected alias implementation, second signed-address bug	22	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-023	Toasty-Visual-Research.md	341	359	3	Toasty visual diagnostic v14 — fully corrected fixed-slot alias	23	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-024	Toasty-Visual-Research.md	359	374	3	Toasty visual diagnostic v15 — actual Toasty pixels confirmed	24	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-025	Toasty-Visual-Research.md	374	386	3	Toasty visual diagnostic v16 — selector live, TLUT representation wrong	25	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-026	Toasty-Visual-Research.md	386	411	3	Toasty visual diagnostic v17 — hardware-ready TLUT	26	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-027	Toasty-Visual-Research.md	411	420	3	Toasty visual diagnostic v17 — hardware-ready TLUT confirmed	27	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-028	Toasty-Visual-Research.md	420	429	3	Toasty visual diagnostic v18 — 64x64 single-node crop	28	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-029	Toasty-Visual-Research.md	429	438	3	Toasty visual diagnostic v19 — two 64x32 slices	29	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-030	Toasty-Visual-Research.md	438	447	3	Toasty visual diagnostic v20 — three vertical slices, full 85px height	30	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-031	Toasty-Visual-Research.md	447	456	3	Toasty visual diagnostic v21 — direct full-width 78px slices rejected	31	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-032	Toasty-Visual-Research.md	456	465	3	Toasty visual diagnostic v22 — full-width side-column corruption	32	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-033	Toasty-Visual-Research.md	465	475	3	Toasty visual diagnostic v23 — narrow-column stride correction	33	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-034	Toasty-Visual-Research.md	475	486	2	Related canonical owners	34	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-035	Toasty-Visual-Research.md	486	497	3	Toasty visual diagnostic v24 — secondary-rectangle normalization	35	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-036	Toasty-Visual-Research.md	497	521	3	Toasty visual diagnostics v25-v31 — allocation-order sensitivity	36	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-037	Toasty-Visual-Research.md	521	534	3	Toasty visual diagnostic v32 — saved-slot state-address alias correction	37	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-038	Toasty-Visual-Research.md	534	548	3	Toasty visual diagnostic v33 — dynamic-slot lifecycle marker	38	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-039	Toasty-Visual-Research.md	548	556	3	Toasty visual diagnostic v33 — slot-record lifecycle check	39	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-040	Toasty-Visual-Research.md	556	571	3	Toasty visual diagnostic v34 — backing-pointer identity check	40	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-041	Toasty-Visual-Research.md	571	584	3	Toasty visual diagnostic v35 — narrow-buffer pixel-integrity check	41	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-042	Toasty-Visual-Research.md	584	592	3	Toasty visual diagnostic v35 — narrow-buffer pixel-integrity check	42	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-043	Toasty-Visual-Research.md	592	605	3	Toasty visual diagnostic v36 — 32-pixel logical side nodes	43	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-044	Toasty-Visual-Research.md	605	613	3	Toasty visual diagnostic v36 — 32-pixel logical side nodes	44	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-045	Toasty-Visual-Research.md	613	626	3	Toasty visual diagnostic v37 — 8-pixel logical side nodes	45	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-046	Toasty-Visual-Research.md	626	691	3	Post-v37 static renderer trace — dynamic-slot source-width ownership	46	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-047	Toasty-Visual-Research.md	691	708	3	Toasty visual diagnostic v38 — source-image width normalization	47	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-048	Toasty-Visual-Research.md	708	727	3	v38 runtime result — stage-stable full image	48	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-049	Toasty-Visual-Research.md	727	768	3	Toasty visual production-layout proof v39	49	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-050	Toasty-Visual-Research.md	768	802	3	Toasty visual production-layout proof v40	50	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-051	Toasty-Visual-Research.md	802	827	3	Toasty feature-core composition proof v41	51	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-052	Toasty-Visual-Research.md	827	852	3	Toasty feature-core presentation adjustment v42	52	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-053	Toasty-Visual-Research.md	852	919	3	Gameplay-trigger reconciliation and proof v43	53	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-054	Toasty-Visual-Research.md	919	932	3	v44 trigger validation and v47 production-composition gate	54	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-05-055	Toasty-Visual-Research.md	932	936	3	Browser donor extraction	55	6248c7784824198e3f2d79c5ed69aec21289565b	indexed-heading-not-fully-audited
+SECTION-06-001	PS1-Research.md	7	19	2	Executable and memory layout	1	ccbfa10263daf0be202c65377f52c2b4d10bea7a	indexed-heading-not-fully-audited
+SECTION-06-002	PS1-Research.md	19	35	2	Resource directory	2	ccbfa10263daf0be202c65377f52c2b4d10bea7a	indexed-heading-not-fully-audited
+SECTION-06-003	PS1-Research.md	35	48	2	Stage selector	3	ccbfa10263daf0be202c65377f52c2b4d10bea7a	indexed-heading-not-fully-audited
+SECTION-06-004	PS1-Research.md	48	66	2	Pickups and inventory	4	ccbfa10263daf0be202c65377f52c2b4d10bea7a	indexed-heading-not-fully-audited
+SECTION-06-005	PS1-Research.md	66	87	2	Enemy streams and resources	5	ccbfa10263daf0be202c65377f52c2b4d10bea7a	indexed-heading-not-fully-audited
+SECTION-06-006	PS1-Research.md	87	115	2	Test Scorpion, Undead Scorpion, and shared AI/control data	6	ccbfa10263daf0be202c65377f52c2b4d10bea7a	indexed-heading-not-fully-audited
+SECTION-06-007	PS1-Research.md	115	133	2	Save format	7	ccbfa10263daf0be202c65377f52c2b4d10bea7a	indexed-heading-not-fully-audited
+SECTION-06-008	PS1-Research.md	133	141	2	UI and test-character findings	8	ccbfa10263daf0be202c65377f52c2b4d10bea7a	indexed-heading-not-fully-audited
+SECTION-07-001	N64-PS1-Comparison.md	23	36	2	Shared type-specific AI/control data	1	2c3f86a5051d88e2e07721d94a485b4fd9f91371	indexed-heading-not-fully-audited
+SECTION-07-002	N64-PS1-Comparison.md	36	42	2	Safe conclusions	2	2c3f86a5051d88e2e07721d94a485b4fd9f91371	indexed-heading-not-fully-audited
+SECTION-07-003	N64-PS1-Comparison.md	42	50	2	Unsafe conclusions	3	2c3f86a5051d88e2e07721d94a485b4fd9f91371	indexed-heading-not-fully-audited
+SECTION-07-004	N64-PS1-Comparison.md	50	54	2	First PS1 runtime sequence	4	2c3f86a5051d88e2e07721d94a485b4fd9f91371	indexed-heading-not-fully-audited
+SECTION-08-001	Lifecycle-Static-Closure-v05.md	5	16	2	Evidence and scope	1	012e2d13f1dd25872ac61f3ac781fbf55d3b157c	indexed-heading-not-fully-audited
+SECTION-08-002	Lifecycle-Static-Closure-v05.md	16	44	2	Ordinary death and remaining-life reconstruction	2	012e2d13f1dd25872ac61f3ac781fbf55d3b157c	indexed-heading-not-fully-audited
+SECTION-08-003	Lifecycle-Static-Closure-v05.md	44	72	2	Continue, fresh frontend entry, and route distinction	3	012e2d13f1dd25872ac61f3ac781fbf55d3b157c	indexed-heading-not-fully-audited
+SECTION-08-004	Lifecycle-Static-Closure-v05.md	72	89	2	Inventory writer and reconstructor	4	012e2d13f1dd25872ac61f3ac781fbf55d3b157c	indexed-heading-not-fully-audited
+SECTION-08-005	Lifecycle-Static-Closure-v05.md	89	110	2	HP construction and carrier consumption	5	012e2d13f1dd25872ac61f3ac781fbf55d3b157c	indexed-heading-not-fully-audited
+SECTION-08-006	Lifecycle-Static-Closure-v05.md	110	129	2	Real terminal discriminator and reset	6	012e2d13f1dd25872ac61f3ac781fbf55d3b157c	indexed-heading-not-fully-audited
+SECTION-08-007	Lifecycle-Static-Closure-v05.md	129	153	2	Single v05 design — no build authorization implied	7	012e2d13f1dd25872ac61f3ac781fbf55d3b157c	indexed-heading-not-fully-audited
+SECTION-09-001	Experiments-Failures-and-Superseded-Findings.md	15	47	2	Address, action, and lifecycle corrections	1	9bea08b7f4851440ab143bf6da0b891affe2ca6c	indexed-heading-not-fully-audited
+SECTION-09-002	Experiments-Failures-and-Superseded-Findings.md	47	69	2	Pickup, resource, and materialization failures	2	9bea08b7f4851440ab143bf6da0b891affe2ca6c	indexed-heading-not-fully-audited
+SECTION-09-003	Experiments-Failures-and-Superseded-Findings.md	69	86	3	TEST LAB / cross-stage materialization failures (2026-09-28)	3	9bea08b7f4851440ab143bf6da0b891affe2ca6c	indexed-heading-not-fully-audited
+SECTION-09-004	Experiments-Failures-and-Superseded-Findings.md	86	97	2	Enemy-randomization failures	4	9bea08b7f4851440ab143bf6da0b891affe2ca6c	indexed-heading-not-fully-audited
+SECTION-09-005	Experiments-Failures-and-Superseded-Findings.md	97	114	2	UI and Toasty diagnostic failures	5	9bea08b7f4851440ab143bf6da0b891affe2ca6c	indexed-heading-not-fully-audited
+SECTION-09-006	Experiments-Failures-and-Superseded-Findings.md	114	127	2	Reverse Elbow and MKT-adapter failures	6	9bea08b7f4851440ab143bf6da0b891affe2ca6c	indexed-heading-not-fully-audited
+SECTION-09-007	Experiments-Failures-and-Superseded-Findings.md	127	148	2	Fighter-asset and Sektor proof failures	7	9bea08b7f4851440ab143bf6da0b891affe2ca6c	indexed-heading-not-fully-audited
+SECTION-09-008	Experiments-Failures-and-Superseded-Findings.md	148	165	2	Flow, inventory, and run-lifecycle rejections	8	9bea08b7f4851440ab143bf6da0b891affe2ca6c	indexed-heading-not-fully-audited
+SECTION-09-009	Experiments-Failures-and-Superseded-Findings.md	165	174	2	XP productionization failure	9	9bea08b7f4851440ab143bf6da0b891affe2ca6c	indexed-heading-not-fully-audited
+SECTION-09-010	Experiments-Failures-and-Superseded-Findings.md	174	181	2	Allocation rule	10	9bea08b7f4851440ab143bf6da0b891affe2ca6c	indexed-heading-not-fully-audited
+SECTION-09-011	Experiments-Failures-and-Superseded-Findings.md	181	191	2	Temple intro audio corrections	11	9bea08b7f4851440ab143bf6da0b891affe2ca6c	indexed-heading-not-fully-audited

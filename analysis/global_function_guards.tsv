@@ -1,0 +1,2 @@
+address	name	first16_be_hex	preceding8_be_hex	registration_address	registration8_be_hex	evidence
+0x80015950	vi_input_callback	3c02802f9442cd443c03802f8463ce2c	03e0000800000000	0x800147AC	3c04800124845950	Static-confirmed: ROM 0x16550 distinct callback; 0x800147AC loads address and registers callback; writes VI counter 0x802E7DC0 at 0x80015998

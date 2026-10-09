@@ -46,7 +46,7 @@ global	field	MKMSZ_PersistenceV2		fortress_pickups	0x3C	u32		Static-confirmed; p
 global	field	MKMSZ_PersistenceV2		progression_count	0x40	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Progression rewards acquired
 global	field	MKMSZ_PersistenceV2		persistent_xp	0x44	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Current persistent XP
 global	field	MKMSZ_PersistenceV2		rainbow_phase	0x48	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Rainbow option state
-global	field	MKMSZ_PersistenceV2		reserved_tail	0x4C	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Reserved word
+global	field	MKMSZ_PersistenceV2		reserved_tail	0x4C	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Reserved persistent-state word temporarily used by GAME SETTINGS editor at 0x801AF81C; not free
 global	struct	MKMSZ_EnemySpawnRecord	0x1C					Static-confirmed	Only common opcodes 0/1/9; opcode 6 uses different 0x20 grammar
 global	field	MKMSZ_EnemySpawnRecord		opcode	0x00	u32		Static-confirmed	Stream opcode 0/1/9 common record
 global	field	MKMSZ_EnemySpawnRecord		raw_x	0x04	s32		Static-confirmed	Stored transformed at process +0x714
@@ -99,3 +99,11 @@ global	field	MKMSZ_EnemySpawnConditionalRecord		activation_mode	0x1C	s32		Static
 global	struct	MKMSZ_Type5ModelTableHeader	0x04					Static-confirmed	Data-Structures-and-Encodings.md
 global	field	MKMSZ_Type5ModelTableHeader		rows_per_block	0x00	u16		Static-confirmed	Stock Sub-Zero value 2
 global	field	MKMSZ_Type5ModelTableHeader		model_count	0x02	u16		Static-confirmed	Stock Sub-Zero value 4
+global	struct	MKMSZ_SpecialActionDescriptor	0x2C					Static-confirmed	Stock special-action descriptor, one Low Kick record at VA0x800B0F68 before 0x800B0F94 sentinel; Player-Actions-and-Special-Moves.md
+global	field	MKMSZ_SpecialActionDescriptor		legal_button_masks	0x00	u16[2]		Static-confirmed	Two semantic button masks
+global	field	MKMSZ_SpecialActionDescriptor		transfer_selector	0x04	u32		Static-confirmed	Stock selectors 0 and 1; selector 3 is only proof extension
+global	field	MKMSZ_SpecialActionDescriptor		condition_callback	0x08	ptr32		Static-confirmed	Optional no-argument condition callback
+global	field	MKMSZ_SpecialActionDescriptor		action_callback	0x0C	ptr32		Static-confirmed	No-argument action/process callback
+global	field	MKMSZ_SpecialActionDescriptor		history_window	0x10	u16		Static-confirmed	Input history window
+global	field	MKMSZ_SpecialActionDescriptor		facing_right_tokens	0x12	u16[6]		Static-confirmed	Zero-terminated command tokens facing right
+global	field	MKMSZ_SpecialActionDescriptor		facing_left_tokens	0x1E	u16[7]		Static-confirmed	Zero-terminated command tokens facing left

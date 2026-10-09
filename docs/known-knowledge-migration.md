@@ -1,0 +1,232 @@
+# Migration of established MKMSZR knowledge — living ledger
+
+**Current counts:** [Migration dashboard](current-known-knowledge-dashboard.md) supersedes older numeric checkpoints within this cumulative research log. Current curated total: **1,626** (379 prior locally confirmed Ghidra + 1,247 companion/staged); **927** selected claims, 263 links to preexisting Ghidra objects plus 2 new staged type/data destinations, 40/40 partial owners.
+
+## Why this exists
+
+**Goal:** avoid paying for the same reverse engineering twice. The source-of-truth for known behavior is current `MKMSZ-Randomizer/wiki/`; the living Ghidra repository mirrors verified names, shapes, code comments, addresses, scoped relationships, and reusable ROM/stage catalogs. A future research chat should consult **Project-Status first, then the appropriate current Wiki owner, then these manifests**, and re-trace only when a documented gap or contradiction justifies it. We are **not** trying to measure how much of the unknown retail ROM has been solved.
+
+A 'known finding' is an evidence-qualified, bounded assertion in an authoritative Wiki owner. It may be a function contract, data layout, stage identity, lifecycle rule, negative control, known failure, or production-only behavior. Copying a long Wiki paragraph to a stock ROM address is not automatically appropriate: ROM offsets, production wrappers, donor platforms and overlapping overlay VAs must retain their scope.
+
+## Current confirmed structured knowledge
+
+| Knowledge family | Curated known records | Reusable destination | Local validation |
+|---|---:|---|---|
+| Global function identities | 139 | Ghidra names | Ghidra-confirmed |
+| Global symbols | 35 | Ghidra names | Ghidra-confirmed |
+| Stage function identities | 14 | Eight separate Ghidra overlay programs | Ghidra-confirmed |
+| Ordinary pickup records | 84 | Typed Ghidra stage records | Ghidra-confirmed |
+| Named type definitions | 11 | Ghidra struct/enum types | Ghidra-confirmed exact 11/11 definitions |
+| Trace-category bookmarks | 92 | Ghidra comments/bookmarks | 86 newly reconciled trace locations plus 6 supplemental previously indexed sites |
+| Internal branch labels | 2 | Ghidra code labels | Prior import confirmed; not function entries |
+| Retail global table navigation | 2 | Ghidra bookmarks | Fifth batch Ghidra-confirmed |
+| Stage resource slot descriptions | 150 | Versioned `stage_resource_slots.tsv` | Conserved as sidecar; not all independently typed in Ghidra |
+| Eight stage ordinary resource-file mappings | 8 | Versioned `stage_resource_files.tsv` | File identity separate from code overlays; Earth base left unverified |
+| Source-qualified project decisions/constraints | 63 | Versioned `known_knowledge_decisions.tsv` | Bounded proofs, requirements and rejected/historical conclusions; source owner remains canonical |
+| Classified ROM/RDRAM ownership intervals | 89 | Versioned `memory_ownership_intervals.tsv` | Original owned ranges, classes, scopes and negative controls; not free-space claims |
+| Guarded ROM patch/proof locations | 151 | Versioned `rom_patch_sites.tsv` | Conserved as sidecar; ROM offsets are NOT stock VA labels |
+| Established persistence/lifecycle contracts | 22 | Versioned `lifecycle_contracts.tsv` | Source-anchored bounded ownership and proof/failure limits |
+| Stage-specific resource caveats | 8 | Versioned `stage_resource_caveats.tsv` | Preserves negative controls and stage-scope warnings |
+| **Total registered structured records** | **1071** | **379 locally imported Ghidra + 692 sidecar/staged** | **All recorded; doesn't exhaust narrative findings** |
+
+These rows have different granularity and are **not** a percentage of all Wiki knowledge. Do not count 81 type fields as new 81 structures or confuse 150 resource-slot entries with 150 loaded functions. Latest local extended import result: **`applied=12, skipped=12`**, all 12 skips explained (11 existing types; one preserved animation note). No additional Ghidra action for this batch.
+
+## Audit of known behavioral / semantic findings
+
+There are **40** current technical/focused Wiki owner pages in `analysis/known_knowledge_owners.tsv`, based on the current Home routing plus the three focused active evidence topics and failure index. **20 pages have had partial owner-to-metadata reconciliation (50.0%)**. The remaining **20** are not yet systematically audited. **Zero are recorded as fully reconciled**, including the partially examined pages. That means a page can contain already-mirrored facts *and* unmigrated details; it is never counted completed just because some addresses have been bookmarked.
+
+**This 50.0% is an 'owner topics touched' workflow figure, NOT a percentage of known facts captured.** It is useful for avoiding duplicate work and for prioritizing the unfinished crosswalk. The exact percentage of **all already-documented findings** is currently *unmeasured*, rather than the previous unrelated 44.24% direct-address visibility proxy. We will replace that unmeasured field with a legitimate numerator/denominator once every current owner has been broken into source-qualified, deduplicated verified claim units.
+
+## How to use this before a new investigation
+
+1. **Find the canonical owner**, current Project Status, and the exact implementation/proof scope. The Wiki stays authoritative when an old Library report differs.
+2. **Search the living metadata** for the address, name, stage and owner; check `functions.tsv`, `globals.tsv`, `types.tsv`, `comments.tsv`, `bookmarks.tsv`, `relations.tsv`, overlay manifests, ROM catalog sidecars, and owner notes as applicable. Do not assume a Wiki fact absent from Ghidra is unknown.
+3. **Classify an existing finding** as `ghidra-confirmed`, `versioned-sidecar`, `known-in-wiki-unlinked`, `historical/rejected`, `scope-ambiguous`, or `pending`. Only the third category is a migration gap; do not re-trace it just to rediscover what its canonical Wiki page already proved.
+4. **Reconcile the unlinked finding** by adding the smallest accurate first-class metadata and its source/evidence, or a deliberate Wiki-sidecar cross-reference when the fact cannot safely live in stock Ghidra. Preserve overlay scope, false caves, original-byte guards and ownership.
+5. **Record local importer evidence** separately from GitHub CI. After the maintainer confirms the exact operation count, update the ledger; do not falsely infer runtime confirmation or full decompiler correctness.
+6. **Track owner reconciliation to completion only after reviewing ALL its established findings and known negative controls**, not when a subset of addresses has visible bookmarks. Historical records are preserved as provenance, not promoted as current facts.
+
+## Repeatable progress report
+
+```bash
+python3 tools/report_known_knowledge.py --json /tmp/mkmsz-known-knowledge.json
+# optional: validate that all owners exist in a local current Wiki checkout
+python3 tools/report_known_knowledge.py --wiki-dir ../MKMSZ-Randomizer/wiki
+```
+
+The tool validates that the recorded structured counts still match versioned manifests (failing if they drift) and reports separate structured-Ghidra, sidecar and owner-crosswalk results. These are **knowledge reuse / migration statuses**, not a reverse-engineering completion score. The old `tools/audit_wiki_coverage.py` and 44.24% baseline remain useful for *prioritizing navigation gaps* only.
+
+## Next accounting step
+
+For each current owner, generate a claim-level crosswalk with `owner + section + stable fact ID + evidence + N64 scope + current Wiki conclusion + Ghidra/sidecar representation + import proof + review status`. Deduplicate repeated facts across multiple Wiki pages by canonical owner. Don't invent missing signatures/locals or try to type production-only code into a clean-ROM program. Only then calculate **verified facts represented / total current verified facts**, with *unknown ROM knowledge explicitly excluded*. This is the user's desired whole-known-knowledge percentage, and it can grow as claims are reviewed without causing repeated RE.
+
+
+## Known-finding claim crosswalk v01 — Native HUD rendering (2026-10-09)
+
+**First fully enumerated *bounded subsection*, not an entire-page review.** Audited all established findings in current `Native-HUD-and-UI.md` from `Confirmed gameplay HUD path` through `Rejected or bounded renderer approaches`, retaining source anchors and unique `HUD-RENDER-001..022` IDs in `analysis/known_knowledge_claims.tsv`. Source revision for this pass: Wiki blob `d285ce6554ef77e4036f71fe08c224a3b9f1ccb1`. Historical/production-only facts are routed to their existing Wiki or guarded patch-site sidecar, never invented as retail native functions.
+
+**Measured audited-scope reuse:** 22 known facts, **12** mapped to locally confirmed Ghidra metadata, **6** correctly routed to existing Wiki or versioned sidecars, **4** known but lacking direct reusable navigation metadata. Thus **18/22 = 81.82%** of *this explicit established-finding set* is already appropriately represented; **4/22 = 18.18%** is migration work remaining for this set. The four gaps are original pickup presentation descriptors `0x800B1BAC`, `0x800B1BD0`, `0x800B1D18`, and `0x800B1D38`. All four already have confirmed meanings in the Wiki; **do not re-trace the ROM to rediscover them**. A future batched safe stock-data bookmark import can make them navigable.
+
+Other sections of `Native-HUD-and-UI.md` (including rich Inventory, controls frontend, and full proof chronology) are **not counted** in this denominator and the owner stays `partial-crosswalk`. The 40-owner global research percentage remains Pending until the rest of the established findings have an atomic crosswalk. **No ROM, emulator or new Ghidra annotations** in this pass; no user import action needed. PR #3 stays draft.
+
+
+## Second source-to-knowledge audit — Native HUD inventory, requirements, frontend (2026-10-09)
+
+This batch enumerates **43 additional already-established findings** using current `Native-HUD-and-UI.md` anchors: top-level rich Inventory/current runtime evidence, accepted Inventory legend/switch/wording, HUD requirements and source/safety routing, and the production GAME SETTINGS + rejected/fixed frontend proofs. No new retail-ROM analysis was needed. Historical wrong-menu and wrong-audio assertions stay clearly **rejected/superseded**, not production guidance; pending audio causation and Water portrait runtime remain pending.
+
+**Cumulative explicitly audited claims:** **65 total**, **16 Ghidra-indexed**, **45 appropriately routed to Wiki/sidecar sources**, **4 documented but lacking direct navigation metadata**, giving **61/65 = 93.85%** reusable *of the enumerated claims only*. The four remaining known navigation gaps are unchanged: original pickup portrait/presentation descriptor addresses `0x800B1BAC`, `0x800B1BD0`, `0x800B1D18`, `0x800B1D38`. None requires redoing the original finding. Coverage of the full 40-owner known corpus remains **unknown**; an audited subset may have a different reuse rate and can expand/shift as further owner sections are reviewed.
+
+**Validation improvement:** `tools/report_known_knowledge.py` now checks stable IDs, owner membership, nonempty source anchors, expected destination availability, and optional current-Wiki anchor matches, and computes the audited numerator and denominator directly from `analysis/known_knowledge_claims.tsv`. No source code or Ghidra metadata changes; no importer run required. PR #3 remains draft/unmerged.
+
+## Resource loading and eight-stage overlay crosswalk (2026-10-09)
+
+Audited the **current canonical** `ROM-Overlay-and-Resource-Map.md` (Wiki blob `5572c7225d9f8123d42fb1c8d2da61a4ddbc8687`) for **42 established, source-anchored claims**, now `RES-001..RES-042`. These include the 12-byte retail global file table; bootstrap raw-file loader; global file-ID versus stage selector; +0x24 pickup field and the base+selector*4 ordinary pickup lookup; embedded/external resource storage, Type-4 image codec, title LZW packaging, eight independently scoped main-stage overlays, and the negative allocation/scope rules. All eight canonical overlay rows were checked against existing `analysis/overlays.tsv` by **scope**, including stage-specific file ID, ROM boundaries, source hash and runtime base; no overlay VA was flattened or created as global code. No ROM read, generated build or emulator run occurred: this is knowledge reconciliation against previously proven owner facts.
+
+**New knowledge gaps only (no new RE needed):** `0x802E82B8` loaded resource-file base slot, exact selector reads `0x80038BE4` and index addition `0x80038BFC`, and title palette data at ROM `0x000B3360`/ `0x000B3364` are established in the Wiki but lack direct first-class navigation entries in the checked manifests. They should be staged as exact-scope bookmarks/labels only after confirming source-map boundaries and avoiding inferred types. Preserve the four older HUD presentation descriptor gaps. Current known facts are not missing knowledge.
+
+**Cumulative source-anchored audited subset:** 107 claims, 35 mapped to existing Ghidra objects, 64 routed to Wiki/sidecars, and 8 unlinked: **99/107 (92.52%) discoverable/reusable**. A more demanding and more useful **first-class migration** measure explicitly excludes self-routes to the canonical Wiki: **37/107 (34.58%)** have a confirmed Ghidra object or *independent versioned sidecar target*; **62** are currently only Wiki-routed, and **8** have no direct reusable target. These are audited-subset percentages; do not extrapolate to all 40 technical owners. The earlier 93.85% figure measured broad existing-source accessibility, **not** successful transfer to the Ghidra repository. Full-owner knowledge coverage stays unmeasured.
+
+`tools/report_known_knowledge.py` now verifies `analysis/overlays.tsv` scope keys and `analysis/types.tsv` exact name+field keys, and reports both percentages directly from the claim ledger. **No Ghidra metadata/import scripts were edited, so the maintainer needs no local Ghidra action.** PR #3 remains draft/unmerged.
+
+
+## Canonical eight-stage resource-file sidecar and claim crosswalk (2026-10-09)
+
+Added `analysis/stage_resource_files.tsv` containing **8 already established ordinary-pickup resource-file mappings**, separate from the eight code overlays in `analysis/overlays.tsv`. Each row retains the stage's native selector identity, retail table entry, ROM range (converted to end-exclusive, arithmetic checked), size, runtime-base confirmation only where known, picker/outer-slot counts, stage Wiki owner and SHA revision. **Earth's publication slot at `0x802E82B8` is not a verified numerical runtime allocation base**; Temple/Wind file IDs stay blank where the canonical stage file does not name them. Prison file `0x49` is its *resource file*; the code overlay remains `0x9F`. The source remains the current stage Wiki; the sidecar is a searchable, versioned research index, not newly reverse-engineered data.
+
+**43 source-anchored known-finding claims**: for each stage, resource file, pickup count, selector table, code overlay scope and one notable stage-specific limit; three shared stage-index rules. The existing 84 pickup and 150 selector records are counted as preserved structured data, not recounted as 234 new discoveries. A new CI validator checks all eight resource-file intervals, selector IDs/counts, distinct stage overlay scopes, and Earth/Prison identity. `tools/report_known_knowledge.py` now checks composite stage|count and scoped callback targets. No ROM/emulator run or new Ghidra importer required; draft PR #3 is unchanged in state.
+
+**Current auditable total after stage-resource batch:** 150 known findings; 73 first-class represented in verified Ghidra or an independent sidecar (48.67%), 69 still Wiki-only, 8 unlinked. Structured totals updated to 688 including 8 separately versioned resource-file identities. See the live report script; no new Ghidra import.
+
+## Persistence and lifecycle contract crosswalk (2026-10-09)
+
+Transferred **22 source-anchored established lifecycle contracts** from current `Persistence-Inventory-and-Lifecycle.md` blob `54a70762796dc0970510ae6e1cd28220173e711a` into `analysis/lifecycle_contracts.tsv`. These cover MKSV state ownership and capture/restore, Fire's 19-to-16 mapping, XP under Powers-OFF, four-box authority and credential gate exceptions, foreign-key masking, lifecycle v05 rejection and v06 accepted HP path, guarded final reset, and the independent Temple scripted check. Each record includes its exact current Wiki anchor, evidence qualifier, stock/production/historical scope, and limitation. This is independent versioned research metadata, **not retail ROM function labeling**, and no runtime behavior was changed.
+
+Source anchors were explicitly checked against the canonical Wiki before promotion. The report verifies contract IDs resolve from the claim ledger and counts the new 22 sidecar records. The audited (still incomplete) corpus now contains **172** established facts with **95** first-class migrated (55.23%), **69** Wiki-only and **8** without direct navigation metadata. The structured known inventory is **710 records = 379 Ghidra imported + 331 versioned sidecar**. Avoid extrapolating this audited subset to every finding in the 40 owners. No user Ghidra importer action needed; PR #3 remains draft.
+
+## Stage-specific research caveats promoted to independent metadata (2026-10-09)
+
+The eight existing `STAGE-*-BOUND` facts are now source-anchored in `analysis/stage_resource_caveats.tsv` beside their stage identity, evidence, and proof/negative-control limitation. This **does not claim eight new discoveries** or transform stage overlays into global code. Six had only Wiki routes and now gain independently versioned metadata; two were already linked to Water/Fortress scoped callback functions, so those are *relinked*, not newly counted as migrated. **Audited first-class transfer now 101/172 (58.72%)**; 63 Wiki-only, 8 unlinked. The curated structured inventory now counts 8 additional caveat sidecar records: **718 = 379 Ghidra + 339 sidecar**. No Ghidra importer action.
+
+## Verified Function Registry known-contract crosswalk — 2026-10-09
+
+A full **166-row source-anchored** reconciliation of the current N64 function/dispatch tables in `Function-Registry.md` (Wiki blob `0a808dd6cc840b47ac6d61fe26ecb56c9c4590bd`) now lives at `analysis/function_registry_crosswalk.tsv`. Each row retains the **existing Wiki semantics and evidence text**, owner section, native code/address expression, scope, individually indexed and nonindexed addresses, and direct navigation status. This is a *transfer of established explanations* into a durable, searchable sidecar, **not** 166 newly discovered functions.
+
+- **144/166 (86.75%) registry rows** have every named address present in the existing global function, internal-code-label, or appropriately scoped overlay-function manifest.
+- **4** are partially indexed multi-address families; **18** do not have an exact address index for their literal listed sites. These **22** are *navigation/reconciliation review*, not proof that 22 functions are missing. Some entries are **instruction interior seams or ranges** (for example the ordinary-pickup `0x800393BC..0x800393D0` dispatch and `0x8002DF28` reaction seam), and multi-routine handlers; investigate function boundaries before creating any new function metadata.
+- The internal `0x80030974` animation switch case is mapped to its **existing code label**, not a standalone function. Wind/Prison addresses within the main registry and all six overlay-table entries preserve their stage-specific `overlay_*` scope. PS1 counterparts are **not imported into N64 global metadata**.
+
+The new `tools/validate_function_registry_crosswalk.py` checks each row against the current exact manifests, including overlay identity, and ensures the separate claims ledger agrees. **All 166 facts are now independently recorded**, with 144 also directly navigable through imported scoped Ghidra metadata and 22 preserved as verified Wiki-sourced contracts awaiting careful navigation resolution. CI validates the crosswalk; **no local Ghidra import** and no ROM tracing occurred.
+
+**Cumulative audited-scope first-class knowledge transfer:** **267/338 (78.99%)** source-anchored facts; **63** remain Wiki-only and **8** unlinked. The curated structured inventory is now **884 records = 379 previously Ghidra-confirmed entries + 505 independent sidecar entries**. The 166 contracts overlap the existing function-name records semantically, so the structured inventory is **not** a total of unique research discoveries; do not sum heterogeneous rows to claim game-wide RE completion. Audit of additional Wiki owner facts still remains incomplete.
+
+## Canonical memory ownership interval migration (2026-10-09)
+
+Migrated **all 89 explicit row-identified intervals** in the bounded Memory Map tables into independent `analysis/memory_ownership_intervals.tsv` metadata: **54 ROM-side records (including proof footprints)** and **35 physically addressed RDRAM records**. Each retains its exact Wiki region ID, one-or-more original half-open segments, ownership class, original wording on scope/lifecycle/evidence, documented production-safety field, reference, negative-control notes and source provenance. Aliases are kept as display-only; they are NOT additional allocations. The one three-segment proof-only artifact is represented with multiple segments and **no fabricated single encompassing interval**. One Toasty record omits a separate lifecycle table column, so no lifecycle was inferred.
+
+**Zero intervals are promoted to confirmed-free**; this sidecar does not prove new space, compose overlapping proof allocations, or change runtime behavior. `tools/validate_memory_ownership.py` verifies segment bounds, physical 4 MiB RDRAM limits, alias starts, source linkage, and no confirmed-free promotion. Remaining dynamic/unbounded allocator observations in the Wiki are **not** incorrectly folded into this interval catalog; that is a separate audit.
+
+Cumulative audited established-finding coverage **356/427 (83.37%)** first-class via existing Ghidra objects or independent sidecars, with **63 Wiki-only and 8 unlinked**. This tracks only enumerated known facts, not the unknown game. Curated structured records now total **973 = 379 Ghidra + 594 sidecar**; those heterogeneous records are not unique discoveries. No Ghidra importer change.
+
+## Non-authorizing patch-site to bounded-Memory-Map audit (2026-10-09)
+
+Reproducible read-only `tools/audit_patch_site_ownership.py` compares all **151** existing guarded patch/proof registry records to the known bounded **ROM interval** entries without editing either source. It accepts only an unambiguous literal offset or one explicitly stated ROM point; ranges, multi-offset and file/overlay coordinate expressions are withheld pending source review. The optional `--csv /tmp/mkmsz-patch-map-audit.csv` writes ID-qualified observations.
+
+**No-match does not imply a free interval.** The Memory Map is intentionally **not** a complete ROM partition; a patch-site may be covered by stock code not cataloged as a standalone continuous interval. Overlaps can be parent/child reservations or mutually exclusive proof artifacts; neither implies that two features can compose. This audit does not verify guards, bytes, allocations, runtime behavior, or generate permissions. No new claim records or Ghidra importer operations are introduced.
+
+## 63 canonical Wiki-only decisions indexed without inventing stock ROM behavior (2026-10-09)
+
+Every previously source-only claim in the **currently audited 427-claim subset** now has an independent `analysis/known_knowledge_decisions.tsv` record. It carries the stable claim ID, original owner and exact checked Wiki text anchor, source blob revision, selected target canonical Wiki owner, evidence/scope, decision and nonpromotion caveat. All 63 original-owner anchors were checked against the current live versioned Wiki before committing. The sidecar is a **research navigation index and bounded claim digest**, *not* a new source of authority, new runtime proof, or native Ghidra code.
+
+**419/427 (98.13%) currently audited claims have first-class source-linked metadata** after this promotion, **8 retain no first-class navigation**. However, only **187 claims point directly to existing imported Ghidra manifest objects**; this is not 98% Ghidra program annotation coverage, and the 40-page owner corpus is not yet completely enumerated. Structured catalog rows rise to **1,036 = 379 curated Ghidra-confirmed + 657 independent companion rows**, which are **not** a count of unique discoveries. The importer needs no new run for this particular sidecar batch. Canonical Wikis remain up-to-date sources for statuses, especially the open rich-Inventory audio failure.
+
+
+## Eight existing stock navigation gaps closed in repository metadata, local import still pending (2026-10-09)
+
+Added **seven source-qualified global navigation bookmarks** to `analysis/bookmarks.tsv` in category `known-stock-navigation`: four preexisting stock pickup presentation descriptor addresses, the dynamic stage resource-base slot `0x802E82B8`, and two exact pickup-selector lookup instructions. These are **navigation markers only**, not new functions, structure data declarations or verified writable storage. They are staged and protected by the existing scope/hash-guarded non-destructive importer; **local application is not yet confirmed**. A separate one-row `analysis/stock_rom_navigation.tsv` preserves the last gap's palette ROM descriptor `0x000B3360` and following palette `0x000B3364` without inventing a global Ghidra VA.
+
+The 427 audited-known claims now have source-qualified first-class destinations (**427/427 in this explicitly enumerated subset**); this is **not a claim that Ghidra contains all those facts or that all current Wiki owners have been exhausted**. Exactly **7 newly staged bookmarks** require a future maintainer pull + importer run and confirmation. Locally confirmed baseline remains the previous 379 curated Ghidra catalog records. The new seven staged bookmarks and one ROM-coordinate record are counted as **versioned-sidecar/pending** until actual import logs are supplied. Curated heterogeneous structured totals: **1,044 = 379 locally Ghidra-confirmed + 665 versioned-sidecar/pending**.
+
+The next pass must audit additional previously unenumerated known behavior in the other canonical owners; otherwise the high audited-subset percentage is misleading.
+
+
+## Canonical Core Runtime invariants and XP tier table (2026-10-09)
+
+After correcting the canonical `Core-Runtime-and-Address-Database.md` and `Data-Structures-and-Encodings.md` in production source PR #158, **18 exact-anchored runtime invariants** now live in `analysis/core_runtime_invariants.tsv` and **nine exact native tier thresholds** in `analysis/xp_thresholds.tsv` (tier 9 = **7354**, not superseded 7345). Source blob hashes and verified owner anchors are retained. This preserves arena floor/cursor distinctions, no-bounds-check warning, 16 KiB reservation, file-1B bootstrap, pickup manager ABI, correct current-controller slot, and the rejected stage-init tier-evaluator call. No Ghidra signatures or ROM bytes changed. The existing `MKMSZ_PersistenceV2.reserved_tail` type note now describes the established transient GAME SETTINGS editor usage; width/offset remain unchanged.
+
+**The audited subset is now 454 source-anchored findings**, all with a versioned target. That numerator deliberately says only that selected findings are **discoverable**, not that Ghidra imported every fact. Only 187 source-anchored claims currently point to locally/manifest-known Ghidra identities, with 7 new bookmark locations staged for later local importer validation; the rest are canonical proof/ROM/behavior sidecars. Total heterogeneous structured inventory: **1071 = 379 confirmed Ghidra catalog entries + 692 companion/staged records**. Core Runtime and XP owners move from unreviewed to **partial-crosswalk**; not claimed exhaustive, and other owners remain unreviewed.
+
+
+## Corrected Function Registry navigation census — 2026-10-09
+
+A second manifest-inclusive audit **supersedes** the earlier `144 fully indexed / 4 partially indexed / 18 missing` count. That earlier check mistakenly restricted visibility to `functions.tsv`, `overlay_functions.tsv`, and `code_labels.tsv` while **omitting already recorded Ghidra code bookmarks and comments**. The 22 perceived navigation gaps are already covered by those separately imported/curated annotation manifests. The corrected `analysis/function_registry_crosswalk.tsv` includes **per-address navigation source** (`function`, `overlay-function`, `internal-label`, `bookmark`, `comment`) and validates every source-defined address against those manifests.
+
+**Result: 166/166 currently documented N64 Function Registry rows have complete scoped address navigation in versioned Ghidra manifests.** Some entries are internal instructions, multi-routine families, or annotated call sites, not standalone functions. This is not a binary-wide function count. This correction adds **no Ghidra metadata or importer operations** and prevents redundant future ROM traces. The first-class versioned-claim numerator is unchanged; the number of audited claims **directly linked to Ghidra manifests rises from 187 to 209**, purely by fixing previously misclassified references (454 claims currently audited).
+
+The final local application procedure is maintained in [`docs/local-migration-handoff.md`](local-migration-handoff.md). Its seven new Ghidra bookmarks are staged only; the canonical Wiki and companion records are versioned immediately without local Ghidra code changes.
+
+## Concurrent-safe enemy, host-action and donor-translation owner audit (2026-10-09)
+
+Added **40 independently retrievable, owner-hashed Wiki findings** across the five canonical owners `Enemy-Randomization.md`, `Player-Actions-and-Special-Moves.md`, `MKT-to-MKMSZ-Compatibility-Layer.md`, `MKT-Adapter-Primitives.md`, and `MKT-Fighter-Asset-Translation.md`. Eight precise source anchors per owner are preserved in `analysis/owner_research_findings.tsv` with the source paragraph excerpt, section, Git blob identity and target/donor/research category. Metadata is indexed in the reproducible audited claims ledger and checked by `tools/validate_owner_research_findings.py`; an optional `--wiki-dir` checks current Git blob SHA and source excerpts before reuse.
+
+**Coverage boundary:** this is a **focused partial** known-knowledge pass, not an exhaustive 598-line enemy or 669-line adapter teardown. These five pages become `partial-crosswalk`, not `fully-reconciled`. Existing bounded runtime and negative findings are not promoted to complete product behavior. MKT donor and PS1 reference facts are never automatically relabeled as stock MKMSZ N64 functions. No local importer run is needed.
+
+**Audio investigation coordination:** current Ghidra `main` also advanced to `ef0010f61b3199f2d36b1fa0701f0d94798474d1` with changes to `analysis/functions.tsv`, from the separate upstream rich-Inventory audio investigation. This migration pass intentionally did **not touch** that file, audio metadata, or the audio Wiki owner. At final PR integration compare/reconcile the then-current `main`; do not lose or overwrite parallel newer evidence. Upstream first cause remains Pending.
+
+Now **494 individually source-indexed audited findings** (up from 454), spanning a larger but still non-exhaustive set of owners. The heterogeneous curated record total becomes **1111=379 locally confirmed Ghidra catalog entries+732 sidecar/staged entries**. Native Function Registry still has 166/166 scoped address navigability in its *known* table, and the seven later staged stock bookmarks remain pending maintainer import. Do not claim 494/494 as a percentage of **all** already documented Wiki findings.
+
+## Four product and global-item knowledge owners partially crosswalked (2026-10-09)
+
+Added **32 existing source-anchored findings** in `analysis/owner_product_findings.tsv`, eight per current owner: `Pickups-and-Item-Randomization.md` (historical stage-local semantics and Wind physical-state trap), `Global-Item-Materialization-and-Solvability.md` (85-check pool, Map exclusion, destination visuals, namespaced retries, fixed-point solver, Temple special state), `Presentation-and-Branding.md` (title CI8/data-only packaging, accepted proof vs new runtime-pending composition), and `Palette-and-Recoloring.md` (BGR555 clothing ownership, runtime-TLUT nonportability, 64-phase rainbow). The source SHA and section/excerpt are retained; neither new runtime confirmation nor new stock code definition was claimed.
+
+**These are partial reviews.** The 1.0 global model cannot be replaced by the superseded stage-local tuple shuffle, a bounded Fortress/title proof does not establish universal storage safety, and no user-set source palettes should be conflated with MKT donor-specific palette conversions. No change to the ongoing audio investigation or its Ghidra function manifest.
+
+Current audited source-anchored subset has **526 metadata-indexed claims**, not an exhaustive Wiki denominator. **31 of 40 tracked current owners** now have at least a partial crosswalk; 9 remain unreviewed; none is certified exhaustive. Locally imported Ghidra catalog baseline remains 379, with seven additional stock navigation bookmarks still staged only. Heterogeneous stored records **1,143 = 379 locally confirmed + 764 companion/staged**.
+
+**Concurrent-source reconciliation (2026-10-09):** the canonical Enemy Randomization owner and Web Patcher owner were corrected and published in MKMSZR documentation PR #159 (merge `a42dd98b8614ae0e6b1da7152c38ddd362d7a4db`). The eight Enemy source blob hashes now point to `2eeb8c913d93220fcba826fcfa462522daeabcff`, and ENM-001 no longer says the feature is proof-only: it distinguishes the current selectable guarded browser/CLI feature from bounded runtime coverage and older proof chronology. No new stock game behavior, runtime validation, or Ghidra function metadata was introduced. The concurrent audio investigator's changes are still outside this migration commit.
+
+## All 40 tracked canonical owner pages have a first-pass navigation (2026-10-09)
+
+Previously unreviewed nine canonical owners now have a **six-finding, evidence-scoped first-pass record each** in `analysis/remaining_owner_facts.tsv`: Web Patcher, Sektor mapping, Sektor proof chronology, Toasty audio, Toasty visual, PS1 technical findings, N64/PS1 comparison, historical unbuilt lifecycle v05, and durable rejected/superseded lessons. An independent **242-heading navigational index** in `analysis/remaining_owner_sections.tsv` captures every level-2/3 heading across those nine pages, with exact line interval and pinned Git source blob hash. This is intentionally navigation-first: the Sektor proof page alone is 2,209 lines and has 106 indexed headings. These documents and their original evidence remain in their authoritative Wiki owners.
+
+**Audit maturity**: **40/40 tracked owners now have at least partial crosswalks**, **0 fully evidence-exhaustive owner certifications**. This is 100% *owner initial-pass coverage*, not full migration of all existing knowledge. **580 selected individually source-indexed findings** are in the claim ledger, with no remaining unreviewed owner *under this tracked 40-owner census*. Only **209 existing Ghidra-linked claims** are directly Ghidra navigable in the claim ledger; **7 more known stock bookmarks remain staged for future local import**. The scoped Function Registry navigation remains 166/166. The heterogeneous structured catalog contains **1439 records = 379 previously locally imported Ghidra catalog entries + 1060 versioned sidecar/staged rows**; heading rows are navigation only and must not be equated with discoveries.
+
+The `tools/validate_remaining_owners.py` CI check verifies source hash/linkage, document owner identities, section numbering, the 54 stable claim IDs and explicit partial-review labels. With an optional local `--wiki-dir` it rejects changed Wiki blobs and stale original line locations. This makes future full-owner audits navigable without rereading 2,209-line proof diaries blindly.
+
+**Safety:** PS1 addresses, MKT donor/Toasty reference addresses, old v05 design hooks, and rejected proof caves are historical/port-specific records, not globally valid stock N64 function entries or production allocations. Toasty donor audio remains distinct from the ongoing upstream rich-Inventory accelerated music investigation. This PR does not touch audio `analysis/functions.tsv`, ROM, patched outputs or emulator state. The separate audio investigator's latest `main` additions must be preserved when finally reconciling the draft PR.
+
+## Full Patch Registry + curated type source attribution (2026-10-09)
+
+The previously owner-unattributed **151** registered guarded ROM edit/proof records are now individually claimed against their current canonical **Address-and-Patch-Site-Registry.md** owner and exact registry ID (`PATCH-001..151`), reusing `analysis/rom_patch_sites.tsv` instead of copying the guarded edit payloads or authorizing any write. `analysis/patch_registry_provenance.tsv` retains the source Git blob SHA, exact 1-based source line and the count of repeated literal address strings. All **151/151** resolve to a unique source table line when the original owner/purpose text distinguishes the nine repeated offset cases. Historic/diagnostic overlap is not conflated with production-compatible patching.
+
+The **11/11 previously imported, locally equivalence-validated types** now have source attribution to `Data-Structures-and-Encodings.md`, linking directly to existing `analysis/types.tsv` definitions and preserving structure size, owner heading and Git blob SHA in `analysis/type_owner_provenance.tsv`. No new Ghidra type or importer operation was added. Corresponding 162 stable claim IDs were added to the *selected known-finding subset*; these are **not 162 new RE discoveries or structured object records**, because both registries were already migrated. The independent provenance manifests are auxiliary crosswalks, deliberately **not added to the heterogeneous structured record totals** to avoid double counting existing patch/type entities.
+
+The claim ledger grows to **742 source-indexed selected findings**, with **220 Ghidra-direct claims** (previously 209, plus 11 existing type definitions); all remain evidence-bound, current Wiki owner-controlled. The expected next step is further source-owned *Stage Flow* semantic contracts and real section-level evidence reconciliation, not rediscovery of these 162 already-known items.
+
+## Stage Flow behavior reconciled with existing protected patch sites (2026-10-09)
+
+Added **17 source-anchored behavioral contracts** from `Stage-Flow-and-Selector.md` with current SHA `05894eed8a2bb656a112f12cceac39a6e2f9fe9d`, exact line/heading references and explicit evidence/scope/negative-control fields. All substantive Stage Flow headings now have at least one representative supported fact, including title A entry, the precise eight safe native stage IDs, v03a cursor/audio edge behavior, deferred/rejected confirmation chime, selector-specific one-shot save bypass, preserved logo/fade, mapper relocation, Stage-7 late-gate failure and unbuilt positive control, and disposable TEST LAB boundaries. These source-owned domain rules are **not new Ghidra function declarations** or additional ROM patch locations; the exact guarded edits already live in `rom_patch_sites.tsv`.
+
+New selected known-claim subtotal **759** = previous 580 + 151 already-indexed guarded sites + 11 already-imported types + 17 Stage Flow behavior contracts. These are a *larger explicitly audited subset*, not an exhaustive denominator of all knowledge. Heterogeneous structured inventory is **1456** (= 379 locally Ghidra-confirmed catalog records + 1077 sidecar/staged records): only the 17 genuinely new flow records add to the previous total, while the 151/11 owner source-pointer records are auxiliary metadata over existing manifest objects. Exactly **220 claim entries** now directly reference Ghidra manifests (previous 209 plus 11 imported type definitions), and the seven new bookmark locations remain staged pending the final local import.
+
+
+## First full 40-owner live section-navigation baseline (2026-10-09)
+
+Read all 40 current tracked canonical owner files from GitHub `main`, compared them with the **759 currently indexed claim anchors**, and pinned each owner's exact Git blob SHA in `analysis/owner_section_audit_snapshot.tsv`. The raw, deliberately strict unique-substring scan counted:
+
+- **713** current level-2/3 Wiki headings in those 40 owners; **160** headings have one or more *uniquely located* audited fact anchors (**22.44% heading source-navigation coverage**), leaving 553 without a unique anchored claim.
+- **0** missing literal anchors; **30** ambiguous repeated strings (including 9 previously disambiguated guarded-site owner rows with explicit line references); **32** claim anchors in page introductions before any level-2 heading.
+- 40/40 owners have an initial partial crosswalk; **0** owners can be called evidence-exhaustively migrated from this scan. Prior source-summary sidecars and the 242-heading targeted navigation index remain valuable but do not automatically count as verified per-section semantic transfers.
+
+**Interpretation:** 22.44% is not a knowledge-quantity or source-completeness percentage. A page such as `Sektor-Takeover-Proof-History.md` has 106 versioned proof sections, already preserved in canonical Wiki and indexed by heading; cloning each diary paragraph into Ghidra would create duplicate, sometimes obsolete knowledge. Conversely `Sounds-and-Music.md`, `Test-Lab-Inventory-Hang-Static-Diagnosis.md` and the independently active `Production-Rich-Inventory-Music-Static-Investigation.md` have no attributable claim IDs yet, although some of their native facts are represented under other owners; avoid treating this as no RE knowledge. Current audio owner changes are **parallel active research**, not a target for unsolicited source rewrites or new claimed causation.
+
+**Next qualitative triage:** link existing stock audio/glyph findings to their canonical `Sounds-and-Music.md` owner, close TEST LAB existing-finding provenance from the diagnosis owner, and classify historical proof-only section groups as Wiki-retrievable versus material reusable Ghidra semantics. Rerun the live `tools/audit_wiki_section_coverage.py` on the current local Wiki after future edits. The snapshot's raw-anchor limitations and revision pins must be preserved; it makes no new ROM/Ghidra assumptions.
+
+## Native SFX and TEST LAB Inventory failure: two previously unattributed owner domains (2026-10-09)
+
+Added **36 carefully bounded, exact-source-anchored research contracts** in `analysis/audio_testlab_known_contracts.tsv`: 18 established native `Sounds-and-Music.md` results and 18 established `Test-Lab-Inventory-Hang-Static-Diagnosis.md` results. Both source blob SHA identities and literal owner anchors are pinned. The three already-named native audio functions `0x80064C18`, `0x80080A88`, and `0x8007EC4C` link directly to existing `functions.tsv` entries; the other 33 findings remain source-qualified companion metadata, not fabricated native function entries.
+
+**Audio reusable boundaries:** the exact 10-byte stock descriptor format, raw/event/voice chain, 683/740/598 parsed bank counts, 0x3B stock pickup example, event-vs-patch namespace ownership, bounded MKT N64-ADPCM proof, Temple audio donor seed scope, stock-live **rejected** carrier `0x220`, bounded accepted `0x20A` production carrier, and presently incomplete music/control mapping. **No AI enqueue retry, Inventory-audio root-cause attribution, or newly asserted runtime success** was added; newer concurrent audio research remains canonical in its own Wiki owner.
+
+**TEST LAB reusable boundaries:** first-load `a0` initialization regression introduced by v14 compaction, v16 evidence preceding v18/v19 manager changes, KSEG1 alias routing, the signed resource-base address `0x802E82B8`, null-branch size `0x1200` correction at ROM `0x74F08` in the exact v20 proof, Runtime-confirmed bounded fix, and the **separate** fifth font/palette argument path not addressed by v20. No exact runtime crash address or broader production corruption cause is claimed.
+
+The currently enumerated knowledge ledger grows to **795 source-anchored claims** (759 + 36), of which **223** directly link to already known/validated Ghidra objects. Heterogeneous structured catalog rows rise to **1,492 = 379 earlier locally validated Ghidra objects + 1,113 versioned companion/staged entries**. This includes 36 *new source-qualified contracts*, not 36 new Ghidra functions or undocumented ROM discoveries. All 40 tracked owners are still marked partial, none fully evidence-exhaustive.

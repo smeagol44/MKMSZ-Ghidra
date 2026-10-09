@@ -25,6 +25,6 @@ The text metadata is not the full Ghidra database. Ghidra's inferred references,
 
 ## Limits and validation
 
-This is the **initial implementation**, not a Ghidra-runtime-confirmed end-to-end test. Save your current local Ghidra project before running the extended importer; try the initial empty tables first. Refuse/skip reports are expected with incomplete metadata. Check all new changes manually before trusting them. The original names importer was user-confirmed; the new extended importer has not yet been run in the user's Flatpak installation.
+The extended importer is **Ghidra/implementation-confirmed** on the maintainer's supported clean-ROM program (including the fifth batch: `applied=12, skipped=12`, where 11 type conflicts and one protected bookmark were already understood). The source-hash and local-conflict safeguards remain mandatory. Additional analysis files staged on the current draft PR have **not** been imported locally yet. Save the existing Ghidra project before running scripts, inspect skip diagnostics, and check new annotations manually; see [local migration handoff](local-migration-handoff.md).
 
 Before committing rows, cross-check the canonical Wiki owner, exact address space and stage scope, confidence label, collision-free bytes and relevant negative evidence. For local discoveries, export with `ExportMkmszNames.java` and review a diff rather than overwriting the curated TSV files.

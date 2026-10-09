@@ -12,3 +12,101 @@ jobs:
           python-version: "3.12"
       - name: Validate analysis manifests
         run: python tools/validate_analysis.py
+      - name: Syntax-check Wiki coverage audit
+        run: python -m py_compile tools/audit_wiki_coverage.py
+      - name: Verify known-knowledge inventory and code
+        run: |
+          python -m py_compile tools/report_known_knowledge.py
+          python tools/report_known_knowledge.py
+      - name: Validate stage resource file index
+        run: |
+          python -m py_compile tools/validate_stage_resource_files.py
+          python tools/validate_stage_resource_files.py
+      - name: Validate lifecycle knowledge contracts
+        run: |
+          python -m py_compile tools/validate_lifecycle_contracts.py
+          python tools/validate_lifecycle_contracts.py
+      - name: Validate stage-specific caveat crosswalk
+        run: |
+          python -m py_compile tools/validate_stage_resource_caveats.py
+          python tools/validate_stage_resource_caveats.py
+      - name: Validate Function Registry knowledge crosswalk
+        run: |
+          python -m py_compile tools/validate_function_registry_crosswalk.py
+          python tools/validate_function_registry_crosswalk.py
+      - name: Validate Memory Map ownership intervals
+        run: |
+          python -m py_compile tools/validate_memory_ownership.py
+          python tools/validate_memory_ownership.py
+      - name: Audit patch-site coordinates against bounded memory intervals
+        run: |
+          python -m py_compile tools/audit_patch_site_ownership.py
+          python tools/audit_patch_site_ownership.py
+      - name: Validate canonical project decisions
+        run: |
+          python -m py_compile tools/validate_known_knowledge_decisions.py
+          python tools/validate_known_knowledge_decisions.py
+      - name: Validate staged stock navigation
+        run: |
+          python -m py_compile tools/validate_stock_navigation.py
+          python tools/validate_stock_navigation.py
+      - name: Validate core runtime and XP tier invariants
+        run: |
+          python -m py_compile tools/validate_core_xp_knowledge.py
+          python tools/validate_core_xp_knowledge.py
+      - name: Validate additional known-research owner facts
+        run: |
+          python -m py_compile tools/validate_owner_research_findings.py
+          python tools/validate_owner_research_findings.py
+      - name: Validate product-owner source findings
+        run: |
+          python -m py_compile tools/validate_owner_product_findings.py
+          python tools/validate_owner_product_findings.py
+      - name: Validate remaining owner index and sections
+        run: |
+          python -m py_compile tools/validate_remaining_owners.py
+          python tools/validate_remaining_owners.py
+      - name: Test live Wiki section coverage auditor
+        run: |
+          python -m py_compile tools/audit_wiki_section_coverage.py
+          python tools/audit_wiki_section_coverage.py --self-test
+      - name: Validate canonical patch and type provenance
+        run: |
+          python -m py_compile tools/validate_patch_type_provenance.py
+          python tools/validate_patch_type_provenance.py
+      - name: Verify stage-flow contracts
+        run: |
+          python -m py_compile tools/validate_stage_flow_contracts.py
+          python tools/validate_stage_flow_contracts.py
+      - name: Validate 40-owner source-navigation snapshot
+        run: |
+          python -m py_compile tools/validate_owner_section_snapshot.py
+          python tools/validate_owner_section_snapshot.py
+      - name: Validate known audio and TEST LAB source contracts
+        run: |
+          python -m py_compile tools/validate_audio_testlab_contracts.py
+          python tools/validate_audio_testlab_contracts.py
+      - name: Validate native XP and power-order knowledge
+        run: |
+          python -m py_compile tools/validate_xp_progression_contracts.py
+          python tools/validate_xp_progression_contracts.py
+      - name: Validate Memory Map interpretation contracts
+        run: |
+          python -m py_compile tools/validate_memory_semantics.py
+          python tools/validate_memory_semantics.py
+      - name: Validate global item knowledge and pickup callback ABI
+        run: |
+          python -m py_compile tools/validate_global_item_semantics.py
+          python tools/validate_global_item_semantics.py
+      - name: Validate enemy constructor and lifetime semantics
+        run: |
+          python -m py_compile tools/validate_enemy_semantics.py
+          python tools/validate_enemy_semantics.py
+      - name: Validate native action and special descriptor contracts
+        run: |
+          python -m py_compile tools/validate_host_action_semantics.py
+          python tools/validate_host_action_semantics.py
+      - name: Check final importer handoff safety
+        run: |
+          python -m py_compile tools/validate_importer_readiness.py
+          python tools/validate_importer_readiness.py

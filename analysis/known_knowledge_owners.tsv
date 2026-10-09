@@ -1,0 +1,41 @@
+owner_page	domain	reconciliation	evidence_note
+Core-Runtime-and-Address-Database.md	core	partial-crosswalk	Current authoritative known knowledge still needs systematic finding-level reconciliation
+Memory-and-Allocation-Map.md	core	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
+Function-Registry.md	core	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
+Address-and-Patch-Site-Registry.md	core	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
+Data-Structures-and-Encodings.md	core	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
+ROM-Overlay-and-Resource-Map.md	core	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
+Stage-Flow-and-Selector.md	randomizer	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
+Pickups-and-Item-Randomization.md	randomizer	partial-crosswalk	Eight verified current-owner excerpts independently indexed, not chapter/claim exhaustive
+Global-Item-Materialization-and-Solvability.md	randomizer	partial-crosswalk	Eight verified current-owner excerpts independently indexed, not chapter/claim exhaustive
+Persistence-Inventory-and-Lifecycle.md	randomizer	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
+XP-and-Progression.md	randomizer	partial-crosswalk	Current authoritative known knowledge still needs systematic finding-level reconciliation
+Native-HUD-and-UI.md	randomizer	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
+Presentation-and-Branding.md	randomizer	partial-crosswalk	Eight verified current-owner excerpts independently indexed, not chapter/claim exhaustive
+Sounds-and-Music.md	randomizer	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
+Palette-and-Recoloring.md	randomizer	partial-crosswalk	Eight verified current-owner excerpts independently indexed, not chapter/claim exhaustive
+Web-Patcher-and-Product.md	randomizer	partial-crosswalk	Six source-anchored representative findings + exact all-heading index; full evidence prose NOT exhaustively reconciled
+Stage-Catalogs.md	stage	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
+Stage-Catalog-Temple.md	stage	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
+Stage-Catalog-Wind.md	stage	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
+Stage-Catalog-Water.md	stage	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
+Stage-Catalog-Earth.md	stage	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
+Stage-Catalog-Prison.md	stage	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
+Stage-Catalog-Fire.md	stage	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
+Stage-Catalog-Bridge.md	stage	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
+Stage-Catalog-Fortress.md	stage	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
+Enemy-Randomization.md	enemy-donor	partial-crosswalk	Eight source-verified existing findings indexed; additional sections/evidence remain; NOT exhaustive
+Player-Actions-and-Special-Moves.md	enemy-donor	partial-crosswalk	Eight source-verified existing findings indexed; additional sections/evidence remain; NOT exhaustive
+MKT-to-MKMSZ-Compatibility-Layer.md	enemy-donor	partial-crosswalk	Eight source-verified existing findings indexed; additional sections/evidence remain; NOT exhaustive
+MKT-Adapter-Primitives.md	enemy-donor	partial-crosswalk	Eight source-verified existing findings indexed; additional sections/evidence remain; NOT exhaustive
+MKT-Fighter-Asset-Translation.md	enemy-donor	partial-crosswalk	Eight source-verified existing findings indexed; additional sections/evidence remain; NOT exhaustive
+Sub-Zero-to-Sektor-Animation-Mapping.md	enemy-donor	partial-crosswalk	Six source-anchored representative findings + exact all-heading index; full evidence prose NOT exhaustively reconciled
+Sektor-Takeover-Proof-History.md	enemy-donor	partial-crosswalk	Six source-anchored representative findings + exact all-heading index; full evidence prose NOT exhaustively reconciled
+Toasty-Audio-Research.md	enemy-donor	partial-crosswalk	Six source-anchored representative findings + exact all-heading index; full evidence prose NOT exhaustively reconciled
+Toasty-Visual-Research.md	enemy-donor	partial-crosswalk	Six source-anchored representative findings + exact all-heading index; full evidence prose NOT exhaustively reconciled
+PS1-Research.md	enemy-donor	partial-crosswalk	Six source-anchored representative findings + exact all-heading index; full evidence prose NOT exhaustively reconciled
+N64-PS1-Comparison.md	enemy-donor	partial-crosswalk	Six source-anchored representative findings + exact all-heading index; full evidence prose NOT exhaustively reconciled
+Production-Rich-Inventory-Music-Static-Investigation.md	focused-evidence	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
+Test-Lab-Inventory-Hang-Static-Diagnosis.md	focused-evidence	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
+Lifecycle-Static-Closure-v05.md	focused-evidence	partial-crosswalk	Six source-anchored representative findings + exact all-heading index; full evidence prose NOT exhaustively reconciled
+Experiments-Failures-and-Superseded-Findings.md	focused-evidence	partial-crosswalk	Six source-anchored representative findings + exact all-heading index; full evidence prose NOT exhaustively reconciled

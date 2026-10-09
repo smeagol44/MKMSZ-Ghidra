@@ -9,3 +9,8 @@ global	0x8007D55C	0x8008910C	NOTE		Static-confirmed	Continues synthesis after fa
 global	0x8007DA34	0x80083D38	NOTE		Static-confirmed	Native synthesis player callback services WESS.
 global	0x80073CEC	0x8001C528	NOTE		Static-confirmed	Per-glyph native palette acquisition; hits do not upload.
 global	0x80073DB8	0x8001E578	NOTE		Static-confirmed	Glyph builds native textured render nodes.
+global	0x80000F24	0x80015950	NOTE		Static-confirmed	Configured indirect VI/input callback runs after audio service through 0x800B43C0 when 0x80000300 is enabled; this is not an added operand reference. Source: Production-Rich-Inventory-Music-Static-Investigation.md.
+global	0x80073688	0x80028870	NOTE		Static-confirmed	Inventory open suspends gameplay process lists via this original stock jal; restoration uses a distinct exit seam. Source: native rendering/Inventory canonical Wiki owners.
+global	0x80073BC8	0x800288A8	NOTE		Static-confirmed	Inventory exit restores saved gameplay process links via this original stock jal; no per-frame reinitialization. Source: native rendering/Inventory canonical Wiki owners.
+global	0x8001C64C	0x8001C898	NOTE		Static-confirmed	Conditional native palette free on original handle reference count reaching zero. NOT evidence of a failing rich glyph release. Source: native rendering/Inventory canonical Wiki owners.
+global	0x8001EC20	0x8001ED00	NOTE		Static-confirmed	Native render-bucket builder dispatches kind-2 textured/glyph nodes; not a measured audio stall. Source: native rendering/Inventory canonical Wiki owners.
