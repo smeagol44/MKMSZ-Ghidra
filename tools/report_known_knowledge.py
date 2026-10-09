@@ -94,7 +94,9 @@ def main():
             if not target.is_file() or not key:
                 raise ValueError(f"Missing analysis target: {claim['fact_id']}")
             rows = records(target)
-            if path.endswith("stage_resource_caveats.tsv"):
+            if path.endswith("function_registry_crosswalk.tsv"):
+                matched = any(r.get("registry_id") == key for r in rows)
+            elif path.endswith("stage_resource_caveats.tsv"):
                 matched = any(r.get("stage") == key for r in rows)
             elif path.endswith("lifecycle_contracts.tsv"):
                 matched = any(r.get("fact_id") == key for r in rows)
@@ -112,6 +114,11 @@ def main():
                 matched = (len(parts) == 2 and
                            any(r.get("scope", "").lower() == parts[0].lower() and
                                r.get("address", "").lower() == parts[1].lower() for r in rows))
+            elif path.endswith("overlay_functions.tsv"):
+                parts = key.split("|")
+                matched = len(parts) == 2 and any(
+                    r.get("scope") == parts[0] and r.get("address", "").lower() == parts[1].lower()
+                    for r in rows)
             elif path.endswith("overlays.tsv"):
                 matched = any(r.get("scope", "").lower() == key.lower() for r in rows)
             elif path.endswith("types.tsv"):

@@ -30,3 +30,7 @@ jobs:
         run: |
           python -m py_compile tools/validate_stage_resource_caveats.py
           python tools/validate_stage_resource_caveats.py
+      - name: Validate Function Registry knowledge crosswalk
+        run: |
+          python -m py_compile tools/validate_function_registry_crosswalk.py
+          python tools/validate_function_registry_crosswalk.py
