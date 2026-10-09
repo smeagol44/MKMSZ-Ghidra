@@ -21,6 +21,7 @@ HEADERS = {
     "overlays.tsv": "scope stage file_id rom_start rom_end_exclusive runtime_base sha256 evidence",
     "overlay_functions.tsv": "scope address name evidence comment",
     "overlay_function_guards.tsv": "scope address first16_be_hex evidence",
+    "global_function_guards.tsv": "address name first16_be_hex preceding8_be_hex registration_address registration8_be_hex evidence",
     "code_labels.tsv": "scope address name evidence comment",
     "overlay_pending.tsv": "stage address description evidence note source status",
     "rom_patch_sites.tsv": "record_id section rom_or_location va owner_or_purpose guard_or_existing change_or_note source",
@@ -81,6 +82,19 @@ for file, rows in tables.items():
     for n, r in enumerate(rows, 2):
         if r and not r[0].startswith("#") and r[0] not in scopes:
             errors.append(f"{file}:{n}: unknown scope {r[0]}")
+# Global function creation is limited to exact source and contextual-byte guards.
+for row in tables.get("global_function_guards.tsv", []):
+    if len(row) != 7:
+        continue
+    if not HEX.fullmatch(row[0]) or not HEX.fullmatch(row[4]) or (
+        not ENTRY_BYTES.fullmatch(row[2]) or
+        not re.fullmatch(r"[0-9a-fA-F]{16}", row[3]) or
+        not re.fullmatch(r"[0-9a-fA-F]{16}", row[5])
+    ):
+        errors.append(f"invalid global function entry/context guard: {row[:2]}")
+    elif (row[0], row[1]) not in {(r[0], r[1]) for r in tables.get("functions.tsv", []) if len(r) == 4}:
+        errors.append(f"global function guard lacks function manifest identity: {row[:2]}")
+
 # Every candidate function requires one scoped, exact stock 16-byte signature.
 function_keys = {(row[0], row[1]) for row in tables.get("overlay_functions.tsv", [])
                  if len(row) == 5}
