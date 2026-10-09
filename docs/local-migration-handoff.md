@@ -71,3 +71,7 @@ The nine formerly unreviewed owners already have an immutable 242-heading source
 - The **40 tracked Wiki owners now all have a partial first-pass crosswalk**. Complete the deeper section-by-section semantic review and explicitly certify evidence-exhaustive owners before claiming an all-known-facts migration denominator. Use the read-only section census above to find unlinked, ambiguous and stale areas.
 - Apply/verify seven staged navigation bookmarks in the maintainer's local Ghidra program.
 - Review PR #3, merge when approved, then pull and run the importers once. There is **no new ROM, emulator, or production-integration gate** created by this metadata handoff.
+
+## Local import completeness correction (after PR #3)
+
+The maintainer's first pass confirmed the descriptor structure but exposed a missing curated **primary data label** at `0x800B0F68`. The expected primary name is `stock_low_kick_special_descriptor`; Ghidra showed the generated `MKMSZ_SpecialActionDescriptor_800b0f68`. The original importer counted created data but skipped naming when `getSymbolAt` saw that default symbol. Do **not** hand-rename as the fix. After the corrective importer update is merged and pulled, back up the project, rerun `ApplyMkmszExtended.java`, then run the **read-only** `AuditMkmszImportedState.java` and inspect every mismatch. Different manually edited `MKMSZ_PersistenceV2` type / bookmark entries are intentional skip-report candidates and must not be forcibly overwritten. Static CI cannot substitute for this local check.

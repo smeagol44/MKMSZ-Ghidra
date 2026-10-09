@@ -313,18 +313,58 @@ public class ApplyMkmszExtended extends GhidraScript {
             DataType wanted = resolveType(r[2]);
             Data existing = getDataAt(at);
             if (existing != null && !Undefined.isUndefined(existing.getDataType())) {
-                if (!existing.getDataType().isEquivalent(wanted))
-                    println("Existing different data at " + at + "; skipped");
-                skipped++; continue;
+                if (!existing.getDataType().isEquivalent(wanted)) {
+                    println("Existing different data at " + at + "; skipped type/label " + r[3]);
+                    skipped++;
+                    continue;
+                }
+                // An equivalent typed instance may have been created during an
+                // earlier run without its manifest label; reconcile it below.
             }
-            // Ghidra rejects overlaps: do not clear instructions or existing data.
-            try {
-                createData(at, wanted);
-                if (!r[3].isEmpty() && getSymbolAt(at) == null)
-                    createLabel(at, r[3], true, SourceType.USER_DEFINED);
-                applied++;
+            else {
+                // Never clear/retype stock code or a conflicting existing structure.
+                try {
+                    createData(at, wanted);
+                    applied++;
+                }
+                catch (Exception ex) {
+                    println("Data at " + at + " skipped: " + ex);
+                    skipped++;
+                    continue;
+                }
             }
-            catch (Exception ex) { println("Data at " + at + " skipped: " + ex); skipped++; }
+            applyCuratedDataLabel(at, r[3]);
+        }
+    }
+
+    private void applyCuratedDataLabel(Address at, String wantedName) {
+        if (wantedName.isEmpty()) return;
+        Symbol primary = currentProgram.getSymbolTable().getPrimarySymbol(at);
+        if (primary != null && wantedName.equals(primary.getName())) return;
+        if (primary != null && primary.getSource() == SourceType.USER_DEFINED) {
+            println("SKIP data label at " + at + ": preserving USER_DEFINED " +
+                primary.getName() + "; expected " + wantedName);
+            skipped++;
+            return;
+        }
+        try {
+            // Ghidra often creates a DEFAULT/dynamic type-based label on
+            // createData(). It must not suppress the curated manifest label.
+            // createLabel(..., true, ...) also promotes an existing secondary
+            // matching label to primary; it does not clear the typed bytes.
+            createLabel(at, wantedName, true, SourceType.USER_DEFINED);
+            Symbol updated = currentProgram.getSymbolTable().getPrimarySymbol(at);
+            if (updated == null || !wantedName.equals(updated.getName())) {
+                println("DATA LABEL UNRESOLVED at " + at + ": expected " + wantedName);
+                skipped++;
+                return;
+            }
+            println("DATA LABEL APPLIED at " + at + ": " + wantedName);
+            applied++;
+        }
+        catch (Exception ex) {
+            println("DATA LABEL SKIPPED at " + at + ": " + wantedName + " (" + ex + ")");
+            skipped++;
         }
     }
 
