@@ -78,3 +78,7 @@ jobs:
         run: |
           python -m py_compile tools/validate_stage_flow_contracts.py
           python tools/validate_stage_flow_contracts.py
+      - name: Validate 40-owner source-navigation snapshot
+        run: |
+          python -m py_compile tools/validate_owner_section_snapshot.py
+          python tools/validate_owner_section_snapshot.py

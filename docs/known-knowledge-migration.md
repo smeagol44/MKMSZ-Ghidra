@@ -206,3 +206,16 @@ Added **17 source-anchored behavioral contracts** from `Stage-Flow-and-Selector.
 
 New selected known-claim subtotal **759** = previous 580 + 151 already-indexed guarded sites + 11 already-imported types + 17 Stage Flow behavior contracts. These are a *larger explicitly audited subset*, not an exhaustive denominator of all knowledge. Heterogeneous structured inventory is **1456** (= 379 locally Ghidra-confirmed catalog records + 1077 sidecar/staged records): only the 17 genuinely new flow records add to the previous total, while the 151/11 owner source-pointer records are auxiliary metadata over existing manifest objects. Exactly **220 claim entries** now directly reference Ghidra manifests (previous 209 plus 11 imported type definitions), and the seven new bookmark locations remain staged pending the final local import.
 
+
+## First full 40-owner live section-navigation baseline (2026-10-09)
+
+Read all 40 current tracked canonical owner files from GitHub `main`, compared them with the **759 currently indexed claim anchors**, and pinned each owner's exact Git blob SHA in `analysis/owner_section_audit_snapshot.tsv`. The raw, deliberately strict unique-substring scan counted:
+
+- **713** current level-2/3 Wiki headings in those 40 owners; **160** headings have one or more *uniquely located* audited fact anchors (**22.44% heading source-navigation coverage**), leaving 553 without a unique anchored claim.
+- **0** missing literal anchors; **30** ambiguous repeated strings (including 9 previously disambiguated guarded-site owner rows with explicit line references); **32** claim anchors in page introductions before any level-2 heading.
+- 40/40 owners have an initial partial crosswalk; **0** owners can be called evidence-exhaustively migrated from this scan. Prior source-summary sidecars and the 242-heading targeted navigation index remain valuable but do not automatically count as verified per-section semantic transfers.
+
+**Interpretation:** 22.44% is not a knowledge-quantity or source-completeness percentage. A page such as `Sektor-Takeover-Proof-History.md` has 106 versioned proof sections, already preserved in canonical Wiki and indexed by heading; cloning each diary paragraph into Ghidra would create duplicate, sometimes obsolete knowledge. Conversely `Sounds-and-Music.md`, `Test-Lab-Inventory-Hang-Static-Diagnosis.md` and the independently active `Production-Rich-Inventory-Music-Static-Investigation.md` have no attributable claim IDs yet, although some of their native facts are represented under other owners; avoid treating this as no RE knowledge. Current audio owner changes are **parallel active research**, not a target for unsolicited source rewrites or new claimed causation.
+
+**Next qualitative triage:** link existing stock audio/glyph findings to their canonical `Sounds-and-Music.md` owner, close TEST LAB existing-finding provenance from the diagnosis owner, and classify historical proof-only section groups as Wiki-retrievable versus material reusable Ghidra semantics. Rerun the live `tools/audit_wiki_section_coverage.py` on the current local Wiki after future edits. The snapshot's raw-anchor limitations and revision pins must be preserved; it makes no new ROM/Ghidra assumptions.
+

@@ -153,3 +153,7 @@ Added `tools/audit_wiki_section_coverage.py` with a self-test in CI. Given a cur
 ## Existing owner attribution and Stage Flow contracts (2026-10-09)
 
 Crosslinked 151 existing guarded edit/proof records and 11 already imported types to their canonical Wiki owners without double counting those records, and added 17 source-line anchored Stage Flow behavior entries (including narrow save suppression, v03a selector evidence, unbuilt Stage-7 experiment). Audited 759 known claim IDs, all first-class; no globally exhaustive known-denominator assertion. 1456 heterogeneous records, 40/40 owners still partial, seven staged Ghidra bookmarks pending local validation.
+
+## All-40 owner literal-heading audit baseline (2026-10-09)
+
+40 pinned source revisions, **713** headings, **160** with uniquely located claim anchors (22.44% heading navigation ONLY); **30** repeated/ambiguous raw anchors, zero stale anchors, 32 preamble claim anchors. Machine-readable source snapshot at `analysis/owner_section_audit_snapshot.tsv`; CI checks reproducible arithmetic against the existing 759 claims. This is not semantic research migration % and does not require importing every historical proof heading into Ghidra.
