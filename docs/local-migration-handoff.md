@@ -58,6 +58,8 @@ The nine formerly unreviewed owners already have an immutable 242-heading source
 
 **Memory ownership interpretation:** `analysis/memory_semantic_contracts.tsv` provides 24 additional source-pinned safety contracts and three links to already-imported stock allocator functions. These are companion facts, not new code/data import items; the seven staged bookmarks and one-pass local handoff remain unchanged.
 
+**Global-item follow-on:** `analysis/global_item_semantic_contracts.tsv` records 28 new source-linked native/materialization/solver facts, six linked to already-imported MKMSZ functions. The function and repeatable comments for **existing** stock `0x80038ACC` gain the verified callback ABI limitation; those *revised comments* are repository-staged pending the eventual importer run and must not be described as locally confirmed. No extra symbol, new function, or bookmark is required; the seven bookmark handoff remains unchanged. Temple/Fortress overlay coordinates remain scoped to their stage programs, not the global executable.
+
 ## 5. Sign-off gates still open
 
 - The **40 tracked Wiki owners now all have a partial first-pass crosswalk**. Complete the deeper section-by-section semantic review and explicitly certify evidence-exhaustive owners before claiming an all-known-facts migration denominator. Use the read-only section census above to find unlinked, ambiguous and stale areas.

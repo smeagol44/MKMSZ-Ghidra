@@ -94,3 +94,7 @@ jobs:
         run: |
           python -m py_compile tools/validate_memory_semantics.py
           python tools/validate_memory_semantics.py
+      - name: Validate global item knowledge and pickup callback ABI
+        run: |
+          python -m py_compile tools/validate_global_item_semantics.py
+          python tools/validate_global_item_semantics.py

@@ -60,7 +60,7 @@ address	name	evidence	comment
 0x80038A1C	pickup_extra_life	Static-confirmed	Extra-life urn pickup callback.
 0x80038A58	pickup_mana	Static-confirmed	Mana pickup callback.
 0x80038A90	pickup_strength	Static-confirmed	Strength urn pickup callback; inserts item ID 0x0B.
-0x80038ACC	pickup_manager	Static/runtime-confirmed	Ordinary pickup manager; production persistence restore hook owner.
+0x80038ACC	pickup_manager	Static/runtime-confirmed	Ordinary pickup manager and persistence-restore owner. Static callback ABI at 0x800393BC..0x800393D0 passes record type and bit15-masked parameter to callback at record +0x18; it does not pass destination ordinal (Global-Item-Materialization-and-Solvability.md, Wind location/reward ownership trace). No new function signature inferred.
 0x8003BF4C	stage_spawn_position_init	Static-confirmed	Reads `0x802C18F8` at `0x8003BF54` / ROM `0x3CB54`, selects a 20-byte stage spawn record through the stage table, and writes actor X/Y/Z plus initial coordinates. Player construction reaches it through `0x8002EC78 -> 0x8002ECF4 -> 0x8002EDFC`; another actor-construction path calls it at `0x8002EF08`, so any proof must guard player scope.
 0x8003D86C	stock_turn_action	Static-confirmed	Selects **secondary table-1 slot `0x03`** (`file 0x87 +0xE84`) and runs the stock turn-action sequence through the current controller; the older primary-`0x03` description was incorrect. Not intrinsically player-only.
 0x80043B18	armed_grunt_ranged_action	Static-confirmed	Indexes a `0x28`-byte shot-parameter record by `type-0x15`, advances the parent attack animation, allocates class `0x806` with callback `0x80043EB0`, copies shot fields, and continues parent recovery.
