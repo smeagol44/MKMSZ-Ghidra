@@ -445,11 +445,19 @@ public class ApplyMkmszExtended extends GhidraScript {
             String category = "MKMSZ/" + r[2];
             String content = r[3] + ": " + r[4];
             Bookmark old = manager.getBookmark(at, "Info", category);
-            if (old != null && !old.getComment().equals(content)) {
-                println("SKIP bookmark " + at + " category " + category + ": preserving locally owned note");
-                skipped++; continue; // Do not replace someone's local note.
+            if (old == null) {
+                manager.setBookmark(at, "Info", category, content);
+                applied++;
             }
-            if (old == null) { manager.setBookmark(at, "Info", category, content); applied++; }
+            else if (!content.equals(old.getComment())) {
+                // All categories emitted here are MKMSZ/<manifest-category>.
+                // They belong to this versioned manifest. This refreshes old
+                // known research corrections without touching unrelated local
+                // bookmark types/categories at the same instruction.
+                old.set(category, content);
+                println("BOOKMARK REFRESHED at " + at + " category " + category);
+                applied++;
+            }
         }
     }
 

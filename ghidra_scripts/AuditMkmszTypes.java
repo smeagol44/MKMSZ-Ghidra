@@ -87,7 +87,7 @@ public class AuditMkmszTypes extends GhidraScript {
         println("MKMSZ read-only type audit: match=" + pass + ", mismatch=" + mismatch +
             ", missing=" + missing + ", checked=" + expected.size() +
             ", fields=" + observedFields + ", enum_members=" + observedMembers);
-        println("NO CHANGES MADE: differences require separate review; do not automatically overwrite types.");
+        println("NO CHANGES MADE: checked field names/types/lengths/notes; differences require review.");
     }
 
     private void compareStructure(Expected want, Structure have, List<String> differences) {
@@ -100,7 +100,7 @@ public class AuditMkmszTypes extends GhidraScript {
         for (Map.Entry<Integer, String[]> e : want.fields.entrySet()) {
             int offset = e.getKey();
             String[] value = e.getValue();
-            String fieldName = value[0], datatype = value[1];
+            String fieldName = value[0], datatype = value[1], fieldNote = value[2];
             DataTypeComponent component = actual.remove(offset);
             observedFields++;
             if (component == null) {
@@ -119,6 +119,12 @@ public class AuditMkmszTypes extends GhidraScript {
             if (component.getLength() != fieldType.getLength()) {
                 differences.add("field " + fieldName + " length expected " + fieldType.getLength() +
                     " found " + component.getLength());
+            }
+            String actualComment = component.getComment();
+            if (!fieldNote.equals(actualComment == null ? "" : actualComment)) {
+                differences.add("field " + fieldName + " note differs: expected " +
+                    fieldNote + " found " +
+                    (actualComment == null ? "(empty)" : actualComment));
             }
         }
         for (DataTypeComponent extra : actual.values()) {
@@ -198,7 +204,7 @@ public class AuditMkmszTypes extends GhidraScript {
             if (kind.equals("field")) {
                 if (!type.kind.equals("struct")) throw new IOException("Field on non-struct " + type.name);
                 int offset = (int) Long.decode(row[5]).longValue();
-                if (type.fields.putIfAbsent(offset, new String[] {row[4], row[6]}) != null)
+                if (type.fields.putIfAbsent(offset, new String[] {row[4], row[6], row[9]}) != null)
                     throw new IOException("Duplicate field offset " + type.name + "+" + offset);
             }
             else {
