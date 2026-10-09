@@ -46,3 +46,7 @@ jobs:
         run: |
           python -m py_compile tools/validate_known_knowledge_decisions.py
           python tools/validate_known_knowledge_decisions.py
+      - name: Validate staged stock navigation
+        run: |
+          python -m py_compile tools/validate_stock_navigation.py
+          python tools/validate_stock_navigation.py

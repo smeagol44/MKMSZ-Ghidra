@@ -158,3 +158,7 @@ Added 89 exact current source-anchored interval records (54 ROM-side, 35 physica
 ## Canonical decisions/limitations source index (2026-10-09)
 
 Added 63 source-verified Wiki-only research findings as independent `analysis/known_knowledge_decisions.tsv` entries, retaining source SHA, evidence, rejected and Pending cautions. No new Ghidra functions or validations are claimed. **419/427** source-indexed audited findings (98.13%), **8** missing navigation, **187** of the audited claims directly anchored in Ghidra manifests. The remaining canonical research corpus still requires exhaustive owner/claim enumeration. Curated structured rows **1,036 = 379 Ghidra + 657 sidecar**. PR #3 draft.
+
+## Ghidra navigation batch staged, not imported (2026-10-09)
+
+Added seven exact known stock navigation bookmarks in manifest without new function/typed data definitions; local import **Pending** until maintainer pulls and reruns `ApplyMkmszExtended.java`. Title palette remains ROM-only sidecar due unproven global VA. Current 427 audited-known claims all have a versioned target; still **not** complete census of 40 Wiki owners. Previously confirmed 379 Ghidra catalog entries unchanged; **7 additional staged**, one additional ROM-only catalog, 1,044 total heterogeneous records. PR #3 still draft.

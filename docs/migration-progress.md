@@ -123,3 +123,7 @@ The 151 existing patch/proof locations now have an optional read-only coordinate
 ## 63 source-only claims made versioned and searchable (2026-10-09)
 
 The 427-claim audited subset now has **419 first-class Ghidra-or-sidecar records (98.13%)**, eight known stock-address gaps, **zero Wiki-only unversioned claims in this enumerated subset**. Of these, **187/427 (43.79%) are directly Ghidra-manifest-indexed**. This is not whole-project research completion. Curated heterogeneous structured inventory: **1,036 = 379 Ghidra + 657 sidecar**.
+
+## Eight previously unlinked source-qualified targets mapped (2026-10-09)
+
+Seven known stock code/data addresses are now Ghidra-bookmark-manifest entries **pending a future local run**; the stock title palette is indexed by **ROM coordinate only**. The 427 current audited findings all have first-class repository destinations. This is not entire-corpus coverage or local Ghidra confirmation; 7 staged bookmarks still need local import observation. Heterogeneous structured records: **1,044 = 379 local confirmed Ghidra + 665 versioned sidecar/staged**.

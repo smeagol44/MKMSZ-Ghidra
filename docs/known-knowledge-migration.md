@@ -25,7 +25,7 @@ A 'known finding' is an evidence-qualified, bounded assertion in an authoritativ
 | Guarded ROM patch/proof locations | 151 | Versioned `rom_patch_sites.tsv` | Conserved as sidecar; ROM offsets are NOT stock VA labels |
 | Established persistence/lifecycle contracts | 22 | Versioned `lifecycle_contracts.tsv` | Source-anchored bounded ownership and proof/failure limits |
 | Stage-specific resource caveats | 8 | Versioned `stage_resource_caveats.tsv` | Preserves negative controls and stage-scope warnings |
-| **Total registered structured records** | **1036** | **379 Ghidra + 657 intentional sidecar** | **All recorded; doesn't exhaust narrative findings** |
+| **Total registered structured records** | **1044** | **379 locally imported Ghidra + 665 sidecar/staged** | **All recorded; doesn't exhaust narrative findings** |
 
 These rows have different granularity and are **not** a percentage of all Wiki knowledge. Do not count 81 type fields as new 81 structures or confuse 150 resource-slot entries with 150 loaded functions. Latest local extended import result: **`applied=12, skipped=12`**, all 12 skips explained (11 existing types; one preserved animation note). No additional Ghidra action for this batch.
 
@@ -136,3 +136,12 @@ Reproducible read-only `tools/audit_patch_site_ownership.py` compares all **151*
 Every previously source-only claim in the **currently audited 427-claim subset** now has an independent `analysis/known_knowledge_decisions.tsv` record. It carries the stable claim ID, original owner and exact checked Wiki text anchor, source blob revision, selected target canonical Wiki owner, evidence/scope, decision and nonpromotion caveat. All 63 original-owner anchors were checked against the current live versioned Wiki before committing. The sidecar is a **research navigation index and bounded claim digest**, *not* a new source of authority, new runtime proof, or native Ghidra code.
 
 **419/427 (98.13%) currently audited claims have first-class source-linked metadata** after this promotion, **8 retain no first-class navigation**. However, only **187 claims point directly to existing imported Ghidra manifest objects**; this is not 98% Ghidra program annotation coverage, and the 40-page owner corpus is not yet completely enumerated. Structured catalog rows rise to **1,036 = 379 curated Ghidra-confirmed + 657 independent companion rows**, which are **not** a count of unique discoveries. The importer needs no new run for this particular sidecar batch. Canonical Wikis remain up-to-date sources for statuses, especially the open rich-Inventory audio failure.
+
+
+## Eight existing stock navigation gaps closed in repository metadata, local import still pending (2026-10-09)
+
+Added **seven source-qualified global navigation bookmarks** to `analysis/bookmarks.tsv` in category `known-stock-navigation`: four preexisting stock pickup presentation descriptor addresses, the dynamic stage resource-base slot `0x802E82B8`, and two exact pickup-selector lookup instructions. These are **navigation markers only**, not new functions, structure data declarations or verified writable storage. They are staged and protected by the existing scope/hash-guarded non-destructive importer; **local application is not yet confirmed**. A separate one-row `analysis/stock_rom_navigation.tsv` preserves the last gap's palette ROM descriptor `0x000B3360` and following palette `0x000B3364` without inventing a global Ghidra VA.
+
+The 427 audited-known claims now have source-qualified first-class destinations (**427/427 in this explicitly enumerated subset**); this is **not a claim that Ghidra contains all those facts or that all current Wiki owners have been exhausted**. Exactly **7 newly staged bookmarks** require a future maintainer pull + importer run and confirmation. Locally confirmed baseline remains the previous 379 curated Ghidra catalog records. The new seven staged bookmarks and one ROM-coordinate record are counted as **versioned-sidecar/pending** until actual import logs are supplied. Curated heterogeneous structured totals: **1,044 = 379 locally Ghidra-confirmed + 665 versioned-sidecar/pending**.
+
+The next pass must audit additional previously unenumerated known behavior in the other canonical owners; otherwise the high audited-subset percentage is misleading.

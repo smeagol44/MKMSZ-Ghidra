@@ -29,6 +29,9 @@ def count_rule(path, rule):
         # Counts trace-category bookmark sites: 86 new trace locations plus 6 supplemental existing-site bookmarks.
         return len({(r["scope"], r["address"].lower()) for r in entries
                     if r["category"].startswith("trace-")})
+    if rule == "staged-navigation":
+        return len({(r["scope"], r["address"].lower()) for r in entries
+                    if r["category"] == "known-stock-navigation"})
     if rule == "retail-data":
         return len({(r["scope"], r["address"].lower()) for r in entries
                     if r["category"] == "stock-data-navigation"})
@@ -94,7 +97,9 @@ def main():
             if not target.is_file() or not key:
                 raise ValueError(f"Missing analysis target: {claim['fact_id']}")
             rows = records(target)
-            if path.endswith("known_knowledge_decisions.tsv"):
+            if path.endswith("stock_rom_navigation.tsv"):
+                matched = any(r.get("fact_id") == key for r in rows)
+            elif path.endswith("known_knowledge_decisions.tsv"):
                 matched = any(r.get("fact_id") == key for r in rows)
             elif path.endswith("memory_ownership_intervals.tsv"):
                 matched = any(r.get("region_id") == key for r in rows)

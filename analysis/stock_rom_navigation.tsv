@@ -1,0 +1,2 @@
+fact_id	coordinate_space	stock_rom_offset	related_rom_offset	record_role	data_interpretation	evidence	canonical_owner	source_blob_sha	ghidra_va_status
+RES-027	rom-clean-usa-rev0	0x000B3360	0x000B3364	Title palette count descriptor and following 256-entry palette	Stock title BGR555; interpretation from current canonical source; no global Ghidra VA mapping asserted	Static-confirmed	ROM-Overlay-and-Resource-Map.md	5572c7225d9f8123d42fb1c8d2da61a4ddbc8687	not-mapped-to-global-VA
