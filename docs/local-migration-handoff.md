@@ -38,8 +38,22 @@ If stage overlays need refreshing, follow `docs/overlay-function-bulk-import.md`
 - Run `python tools/report_known_knowledge.py` from this repository for reproducible audited-scope counts; optionally `--wiki-dir /path/to/MKMSZ-Randomizer/wiki` to catch stale source anchors against a current local Wiki checkout.
 - A high first-class coverage percentage is only for **the enumerated audited subset**. More canonical owner facts remain unenumerated. Do not claim all Wiki research finished merely because every currently enumerated claim has a target.
 
+
+
+### Section-level migration census (all 40 tracked Wiki owners)
+
+After checking out/updating the current `MKMSZ-Randomizer` Wiki locally, run this **read-only** census in the Ghidra repository:
+
+```bash
+python tools/audit_wiki_section_coverage.py --wiki-dir ../MKMSZ-Randomizer/wiki --csv /tmp/mkmsz-section-coverage.tsv --json /tmp/mkmsz-section-coverage.json
+```
+
+It reads only the current Wiki, `analysis/known_knowledge_owners.tsv`, and the first-class known-claims ledger. It counts all level-2/3 headings in **all 40 tracked owner pages**, marks a section as *source-navigable* only when at least one uniquely identifiable, nonstale known claim points inside it, and prints stale, ambiguous and preamble claims separately. A heading with one linked claim is **not** an exhausted section: the percentage is a bounded source-navigation metric, not a measure of complete reverse engineering or even all Wiki facts. Nothing is committed, patched, or imported by running this audit; the CSV/JSON paths are optional outputs.
+
+The nine formerly unreviewed owners already have an immutable 242-heading source snapshot in `analysis/remaining_owner_sections.tsv`. The live census deliberately reconstructs **all** owner headings from the current source rather than copying/versioning the full Wiki again. If the current Wiki changes, update it first, rerun the census, and distinguish stale anchors from newly established findings.
+
 ## 5. Sign-off gates still open
 
-- Finish review of unexamined known Wiki owner sections and correct contradictions before declaring a complete known-knowledge denominator.
+- The **40 tracked Wiki owners now all have a partial first-pass crosswalk**. Complete the deeper section-by-section semantic review and explicitly certify evidence-exhaustive owners before claiming an all-known-facts migration denominator. Use the read-only section census above to find unlinked, ambiguous and stale areas.
 - Apply/verify seven staged navigation bookmarks in the maintainer's local Ghidra program.
 - Review PR #3, merge when approved, then pull and run the importers once. There is **no new ROM, emulator, or production-integration gate** created by this metadata handoff.
