@@ -77,7 +77,7 @@ expected = "9c18254abf6722b95aa782fcd310bd95f6bcf147da66beb77ce32ca90673ffc6"
 if not any(len(r)==3 and r[0] == "global" and r[2].lower() == expected for r in tables.get("scopes.tsv", [])):
     errors.append("global scope must be pinned to clean USA Rev.0 SHA")
 for file, rows in tables.items():
-    if file in ("scopes.tsv", "functions.tsv", "globals.tsv", "overlay_pending.tsv", "rom_patch_sites.tsv", "rom_pickups.tsv", "stage_resource_slots.tsv"):
+    if file in ("scopes.tsv", "functions.tsv", "globals.tsv", "global_function_guards.tsv", "overlay_pending.tsv", "rom_patch_sites.tsv", "rom_pickups.tsv", "stage_resource_slots.tsv"):
         continue
     for n, r in enumerate(rows, 2):
         if r and not r[0].startswith("#") and r[0] not in scopes:
