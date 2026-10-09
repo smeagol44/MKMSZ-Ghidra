@@ -17,7 +17,18 @@ claims={r["fact_id"]:r for r in table("known_knowledge_claims.tsv")}
 patch={r["record_id"]:r for r in table("rom_patch_sites.tsv")}
 types={(r["name"],r["kind"]):r for r in table("types.tsv") if r["kind"] in ("struct","enum")}
 assert len(provenance)==len(patch)==151
-assert len(typemap)==len(types)==11
+# The first 11 types were already imported and remain provenance-pinned.
+# The new host special descriptor is separately staged, not yet imported.
+baseline_types={k:r for k,r in types.items() if k[0]!="MKMSZ_SpecialActionDescriptor"}
+assert len(typemap)==len(baseline_types)==11
+assert ("MKMSZ_SpecialActionDescriptor","struct") in types
+new=claims["HAC-12"]
+assert new["owner_page"]=="Player-Actions-and-Special-Moves.md"
+assert new["migration_status"]=="wiki-or-sidecar-routed"
+assert new["target_path"]=="analysis/types.tsv" and new["target_key"]=="MKMSZ_SpecialActionDescriptor|"
+instance=claims["HAC-01"]
+assert instance["target_path"]=="analysis/data.tsv" and instance["target_key"]=="0x800B0F68"
+assert instance["migration_status"]=="wiki-or-sidecar-routed"
 assert len({r["record_id"] for r in provenance})==151
 assert len({r["type_name"] for r in typemap})==11
 for r in provenance:
@@ -38,4 +49,4 @@ for r in typemap:
     assert (r["type_name"],r["type_kind"]) in types
     assert types[(r["type_name"],r["type_kind"])]["size"]==r["type_size"]
     assert len(r["source_blob_sha"])==40
-print("151 guarded sites source-linked; 11 already imported curated types owner-linked.")
+print("151 guarded sites, 11 imported baseline types plus one separately staged host descriptor linked.")
