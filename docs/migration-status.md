@@ -178,3 +178,7 @@ Added 32 checked facts across stage-local pickup history, accepted global item m
 ## Complete 40-owner first-pass routing (2026-10-09)
 
 Last nine currently tracked canonical Wiki owners now partially indexed with six source-based research facts each and full 242-heading navigation within that nine-page subset. 40/40 owner first passes done, 0 owner declared fully reconciled. Source claim count 580 and heterogeneous catalog 1439; no universal known-knowledge completion percentage yet. Historical v05, PS1, MKT/Toasty reference and rejected proof records remain source-qualified, not automatic global Ghidra annotations. 7 staged bookmarks remain Pending local import. Concurrent upstream audio evidence is deliberately not overwritten.
+
+## Concurrent audio function metadata synchronization (2026-10-09)
+
+The latest verified Ghidra `main` added the audio-frame-build FIFO phase-fork clarification to function `0x8007D4A8` (commit `ef0010f61b3199f2d36b1fa0701f0d94798474d1`). This migration branch has now imported **that exact newer function-row note** and preserved its `Static-confirmed` evidence class, with the upstream root trigger explicitly **Pending**. No independent reinterpretation, audio workaround, Ghidra local import, new name, or source-ROM change. Further concurrent audio commits must still be checked again before the final merge.
