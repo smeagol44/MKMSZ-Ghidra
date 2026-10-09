@@ -7,16 +7,16 @@
 | Independent axis | Current | What it means |
 |---|---:|---|
 | Tracked canonical Wiki owners with an initial research crosswalk | **40/40** | All forty are **partial**, none certified exhaustive |
-| Individually enumerated, already-known findings with an explicit versioned destination | **865/865 currently enumerated** | No remaining unlinked **enumerated** facts. The full Wiki fact denominator remains uncounted |
-| Audited claims directly targeting established Ghidra objects | **235/865** | Curated native function, scoped code and type metadata. Not every knowledge claim belongs in Ghidra |
-| Level-2/3 sections with at least one uniquely located fact anchor | **219/713 (30.7%)** | Source navigation, **not** semantic completion of the section or research |
+| Individually enumerated, already-known findings with an explicit versioned destination | **895/895 currently enumerated** | No remaining unlinked **enumerated** facts. The full Wiki fact denominator remains uncounted |
+| Audited claims directly targeting established Ghidra objects | **246/895** | Curated native function, scoped code and type metadata. Not every knowledge claim belongs in Ghidra |
+| Level-2/3 sections with at least one uniquely located fact anchor | **237/713 (33.2%)** | Source navigation, **not** semantic completion of the section or research |
 | Locally confirmed curated Ghidra catalog records | **379** | Prior maintainer-import baseline, not newly proved today |
-| Companion / versioned / Ghidra-pending catalog records | **1,183** | Source-owned semantics and catalog rows, including 242 heading-only navigators |
-| Total heterogeneous structured catalog records | **1,562** | Not distinct discoveries; the types of entries vary and can overlap |
+| Companion / versioned / Ghidra-pending catalog records | **1,213** | Source-owned semantics and catalog rows, including 242 heading-only navigators |
+| Total heterogeneous structured catalog records | **1,592** | Not distinct discoveries; the types of entries vary and can overlap |
 | Additional global Ghidra bookmarks awaiting maintainer local import | **7** | Explicitly **Pending** until user observes importer results |
 | Known N64 Function Registry records with scoped address navigation | **166/166** | A row may be an interior instruction or dispatch family rather than a standalone function |
 
-**Do not average these axes.** The requested percentage of *all established facts*, as opposed to selected audited facts or reviewed pages, still requires a certified semantic census. The 219/713 heading metric is a transparent triage proxy; it does **not** mean 75.6% of the known game remains to be researched or migrated.
+**Do not average these axes.** The requested percentage of *all established facts*, as opposed to selected audited facts or reviewed pages, still requires a certified semantic census. The 237/713 heading metric is a transparent triage proxy; it does **not** mean 75.6% of the known game remains to be researched or migrated.
 
 ## Latest scoped evidence index (no new ROM discoveries)
 
@@ -39,6 +39,10 @@ Exact Git blob SHAs, source lines, evidence classifications and nonpromotion cau
 `analysis/global_item_semantic_contracts.tsv` adds 28 source-pinned established global-item, destination-materialization, checkpoint ownership, RNG, Temple special-check and failure-boundary facts. Six link directly to **existing** MKMSZ native functions; the stock pickup manager `0x80038ACC` gains its documented callback argument limitation in both function plate and repeatable metadata (new annotation not yet locally imported). The other facts deliberately remain companion metadata, including Temple/Fortress overlay addresses with distinct stage identity. Global-item source navigation rises to 26/50 headings, but much of the remainder is versioned proof history; neither the owner nor the wider Wiki is certified exhaustive.
 
 **Donor compatibility boundary:** MKT game-specific commands/assets/port strategies remain source-linked companion catalogs unless an independently scoped, correctly verified donor program is added in the future. Only verified **MKMSZ** code/data facts belong in the existing global and eight stage-overlay Ghidra programs. No MKT addresses are treated as MKMSZ symbols.
+
+### Enemy resource/lifetime native metadata crosswalk
+
+`analysis/enemy_semantic_contracts.tsv` adds 30 source-pinned enemy facts, including **11 references to existing Ghidra objects** (eight global functions, two typed spawn fields, one file-0x9F Prison overlay function). Four existing function plates and repeatable comments are augmented in repository manifests (`0x80071500`, `0x800719F0`, `0x80071B20`, `0x8002FCDC`); their revised local Ghidra import remains **Pending**. Source navigation for `Enemy-Randomization.md` increases to **23/40** headings; this is not exhaustive. The companion evidence preserves native file/slot bundles, special singleton exclusions, rewind/lifecycle and fixed Prison capture auxiliary, bounded Water proofs and rejected uncontrolled materialization. No new stock function, ROM patch or merged donor address.
 
 ## Prevent duplicated future investigations
 

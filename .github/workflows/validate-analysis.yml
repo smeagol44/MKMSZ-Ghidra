@@ -98,3 +98,7 @@ jobs:
         run: |
           python -m py_compile tools/validate_global_item_semantics.py
           python tools/validate_global_item_semantics.py
+      - name: Validate enemy constructor and lifetime semantics
+        run: |
+          python -m py_compile tools/validate_enemy_semantics.py
+          python tools/validate_enemy_semantics.py

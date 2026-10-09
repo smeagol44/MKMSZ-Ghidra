@@ -32,7 +32,7 @@ address	name	evidence	comment
 0x8002EB38	run_setup	Static-confirmed	Selects primary animation slot `0x2B` through `0x8002FE54`, installs animation rate `2` through `0x80031724`, then applies facing-aware horizontal velocity. Run loop caller at `0x800296B0` sleeps one process tick and invokes `0x8003174C` once per active iteration.
 0x8002EC78	player_construct_wrapper	Static-confirmed	Player construction wrapper.
 0x8002ECF4	player_construct	Static-confirmed	Player constructor; includes HP initialization path.
-0x8002FCDC	fighter_alloc	Static-confirmed	Lower-level fighter allocator; stores fighter type in actor state.
+0x8002FCDC	fighter_alloc	Static-confirmed	Lower fighter allocator indexes type descriptor offsets at 0x800B13D0 and writes type to actor +0x78. Separate slot lookup occurs at 0x80071B20/0x800B14C0 (Enemy-Randomization.md).
 0x8002FE54	fighter_select_animation	Static-confirmed	Selects fighter animation-table entry and stores current animation cursor.
 0x80030178	forward_locomotion_setup	Static-confirmed	Initializes forward locomotion and selects primary animation slot 1.
 0x80030208	backward_locomotion_setup	Static-confirmed	Initializes backward locomotion and selects primary animation slot 2.
@@ -99,9 +99,9 @@ address	name	evidence	comment
 0x8006643C	arena_bump_alloc	Static-confirmed	Aligns request to 8 bytes, returns `old_cursor + 8`, advances the live cursor, and writes 8-byte allocation bookkeeping at the new cursor. No bounds check is performed internally.
 0x80066478	arena_rewind	Static-confirmed	Sets live cursor to `pointer - 8`; rewinds the arena to the state before the referenced allocation/checkpoint
 0x8006648C	arena_top_reallocate	Static-confirmed	Rewinds with `0x80066478` and immediately allocates again through `0x8006643C`; no copy is performed
-0x80071500	enemy_command_interpret	Static-confirmed	Stream pointer from `0x800C11E4
-0x800719F0	enemy_spawn_parameters	Static-confirmed	Receives spawn index and type
-0x80071B20	enemy_fighter_construct	Static/runtime-confirmed	Uses resource slot table `0x800B14C0
+0x80071500	enemy_command_interpret	Static-confirmed	Stock ordinary-enemy command interpreter for process 0x70. Reads current stage stream from 0x800C11E4; shared path 0x80071500 -> 0x800719F0 -> 0x80071B20. Boss/scripted encounters remain separate (Enemy-Randomization.md).
+0x800719F0	enemy_spawn_parameters	Static-confirmed	Native spawn parameter helper accepts stream index/type and proceeds toward shared fighter construction; location-owned stream record supplies coordinates, quota, activation mode (Enemy-Randomization.md).
+0x80071B20	enemy_fighter_construct	Static/runtime-confirmed	Native fighter constructor uses the four-byte type-indexed resource-pointer-slot table 0x800B14C0. Require correct slot and secondary base-file residency; construction does not establish stage-local terminal/presentation compatibility (Enemy-Randomization.md).
 0x80071FE8	bridge_three_icon_use_check	Static-confirmed; four-box correction Runtime-confirmed bounded	Bridge three-icon native use/completion handler.
 0x8007206C	fire_three_icon_use_check	Static-confirmed; four-box correction Runtime-confirmed bounded	Fire three-icon native use/completion handler.
 0x80073588	inventory_open_main	Static-confirmed	Native Inventory owner; suspends/restores gameplay lists around inventory UI.
