@@ -1,0 +1,152 @@
+record_id	registry_section	source_line	source_match_count	source_blob_sha	rom_or_location	registry_scope_caution
+reg_001	Production guarded edits	21	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x0000DD60	Guarded edit record; recheck current pipeline composition before use
+reg_002	Production guarded edits	22	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x0000DD64	Guarded edit record; recheck current pipeline composition before use
+reg_003	Production guarded edits	23	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x0000DD70	Guarded edit record; recheck current pipeline composition before use
+reg_004	Production guarded edits	24	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x0000E028	Guarded edit record; recheck current pipeline composition before use
+reg_005	Production guarded edits	25	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00015CD0	Guarded edit record; recheck current pipeline composition before use
+reg_006	Production guarded edits	26	2	ee5f3d64f27981faa94d87927925895d920e89b0	0x0001674C	Guarded edit record; recheck current pipeline composition before use
+reg_007	Production guarded edits	27	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x0001C9A0..0x0001C9AF	Guarded edit record; recheck current pipeline composition before use
+reg_008	Production guarded edits	28	2	ee5f3d64f27981faa94d87927925895d920e89b0	0x0002EB28	Guarded edit record; recheck current pipeline composition before use
+reg_009	Production guarded edits	29	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x0005CCE0	Guarded edit record; recheck current pipeline composition before use
+reg_010	Production guarded edits	30	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x0005D2E0	Guarded edit record; recheck current pipeline composition before use
+reg_011	Production guarded edits	31	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x000396CC	Guarded edit record; recheck current pipeline composition before use
+reg_012	Production guarded edits	32	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x000172CC..0x000172DB	Guarded edit record; recheck current pipeline composition before use
+reg_013	Production guarded edits	33	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00036178..0x00036187	Guarded edit record; recheck current pipeline composition before use
+reg_014	Production guarded edits	34	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00036934..0x00036943	Guarded edit record; recheck current pipeline composition before use
+reg_015	Production guarded edits	35	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00036B38..0x00036B47	Guarded edit record; recheck current pipeline composition before use
+reg_016	Production guarded edits	36	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00036BC0..0x00036BCF	Guarded edit record; recheck current pipeline composition before use
+reg_017	Production guarded edits	37	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x0002F984..0x0002F993	Guarded edit record; recheck current pipeline composition before use
+reg_018	Production guarded edits	38	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x0002FA44	Guarded edit record; recheck current pipeline composition before use
+reg_019	Production guarded edits	39	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x000367B4..0x000367C3	Guarded edit record; recheck current pipeline composition before use
+reg_020	Production guarded edits	40	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x000A6BA8..0x000A6BAD	Guarded edit record; recheck current pipeline composition before use
+reg_021	Production guarded edits	41	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00016354	Guarded edit record; recheck current pipeline composition before use
+reg_022	Production guarded edits	42	2	ee5f3d64f27981faa94d87927925895d920e89b0	0x00029FB0	Guarded edit record; recheck current pipeline composition before use
+reg_023	Production guarded edits	43	2	ee5f3d64f27981faa94d87927925895d920e89b0	0x0002A0DC	Guarded edit record; recheck current pipeline composition before use
+reg_024	Production guarded edits	44	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x000770B8	Guarded edit record; recheck current pipeline composition before use
+reg_025	Production guarded edits	45	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00077480..0x000775DB	Guarded edit record; recheck current pipeline composition before use
+reg_026	Production guarded edits	46	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00077600..0x0007769B	Guarded edit record; recheck current pipeline composition before use
+reg_027	Production guarded edits	47	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00077888..0x0007790F	Guarded edit record; recheck current pipeline composition before use
+reg_028	Production guarded edits	48	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00077910..0x0007791B	Guarded edit record; recheck current pipeline composition before use
+reg_029	Production guarded edits	49	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x000AF824..0x000AF833	Guarded edit record; recheck current pipeline composition before use
+reg_030	Production guarded edits	50	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x0003A018	Guarded edit record; recheck current pipeline composition before use
+reg_031	Production guarded edits	51	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00039FD4..0x00039FDB	Guarded edit record; recheck current pipeline composition before use
+reg_032	Production guarded edits	52	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x0005D9CC	Guarded edit record; recheck current pipeline composition before use
+reg_033	Production guarded edits	53	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00066F60..0x00066F67	Guarded edit record; recheck current pipeline composition before use
+reg_034	Production guarded edits	54	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00066FE0	Guarded edit record; recheck current pipeline composition before use
+reg_035	Production guarded edits	55	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00066FE4..0x00066FEB	Guarded edit record; recheck current pipeline composition before use
+reg_036	Production guarded edits	56	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x0007A3F4	Guarded edit record; recheck current pipeline composition before use
+reg_037	Production guarded edits	57	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00072C10	Guarded edit record; recheck current pipeline composition before use
+reg_038	Production guarded edits	58	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00072C28	Guarded edit record; recheck current pipeline composition before use
+reg_039	Production guarded edits	59	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00072C94	Guarded edit record; recheck current pipeline composition before use
+reg_040	Production guarded edits	60	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00072CAC	Guarded edit record; recheck current pipeline composition before use
+reg_041	Production guarded edits	61	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x0007B900..0x0007B94B	Guarded edit record; recheck current pipeline composition before use
+reg_042	Production guarded edits	62	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x0007B94C..0x0007B97F	Guarded edit record; recheck current pipeline composition before use
+reg_043	Production guarded edits	63	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x0009B7DC	Guarded edit record; recheck current pipeline composition before use
+reg_044	Production guarded edits	64	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x000B21D8..0x000B2211	Guarded edit record; recheck current pipeline composition before use
+reg_045	Production guarded edits	65	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x0001645C`, `0x00029DDC`, `0x0002BDF8`, `0x0002BA5C	Guarded edit record; recheck current pipeline composition before use
+reg_046	Production guarded edits	66	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x0001674C`, `0x00029FD8`, `0x0002A0A0`, `0x0002A738`, `0x0002A7C4`, `0x0002A378	Guarded edit record; recheck current pipeline composition before use
+reg_047	Production guarded edits	67	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00015738`, `0x0002A848`, `0x00033410`, `0x0004E3AC	Guarded edit record; recheck current pipeline composition before use
+reg_048	Production guarded edits	68	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00074324..0x00074333	Guarded edit record; recheck current pipeline composition before use
+reg_049	Production guarded edits	69	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x0007372C..0x000737EF	Guarded edit record; recheck current pipeline composition before use
+reg_050	Production guarded edits	70	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00074748	Guarded edit record; recheck current pipeline composition before use
+reg_051	Production guarded edits	71	2	ee5f3d64f27981faa94d87927925895d920e89b0	0x000A5148	Guarded edit record; recheck current pipeline composition before use
+reg_052	Production guarded edits	72	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x000A5154	Guarded edit record; recheck current pipeline composition before use
+reg_053	Production guarded edits	73	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x000A6BE4..0x000A6C0B	Guarded edit record; recheck current pipeline composition before use
+reg_054	Production guarded edits	74	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x000A6C48..0x000A6CEF	Guarded edit record; recheck current pipeline composition before use
+reg_055	Production guarded edits	75	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x000A6E88	Guarded edit record; recheck current pipeline composition before use
+reg_056	Production guarded edits	76	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x000AE40C..0x000AE413	Guarded edit record; recheck current pipeline composition before use
+reg_057	Production guarded edits	77	1	ee5f3d64f27981faa94d87927925895d920e89b0	generated progression records `+0x28	Guarded edit record; recheck current pipeline composition before use
+reg_058	Production guarded edits	78	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x000B2A68..0x000B2A8B` / VA `0x800B1E68	Guarded edit record; recheck current pipeline composition before use
+reg_059	Production guarded edits	79	1	ee5f3d64f27981faa94d87927925895d920e89b0	generated progression records `+0x18	Guarded edit record; recheck current pipeline composition before use
+reg_060	Production guarded edits	80	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00615A14..0x00615A93	Guarded edit record; recheck current pipeline composition before use
+reg_061	Production guarded edits	81	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00F6A940..0x00F6AAEF` / runtime `0x801B2160..0x801B230F	Guarded edit record; recheck current pipeline composition before use
+reg_062	Production guarded edits	82	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x000AF998..0x000AFA23	Guarded edit record; recheck current pipeline composition before use
+reg_063	Production guarded edits	83	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x000AFA24..0x000AFA97	Guarded edit record; recheck current pipeline composition before use
+reg_064	Production guarded edits	84	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x000AFA98..0x000AFABB	Guarded edit record; recheck current pipeline composition before use
+reg_065	Production guarded edits	85	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x0078E16C..	Guarded edit record; recheck current pipeline composition before use
+reg_066	Production guarded edits	86	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x0002EDA8	Guarded edit record; recheck current pipeline composition before use
+reg_067	Production guarded edits	87	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00054CE8	Guarded edit record; recheck current pipeline composition before use
+reg_068	Production guarded edits	88	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00057D60	Guarded edit record; recheck current pipeline composition before use
+reg_069	Production guarded edits	89	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00057E2C	Guarded edit record; recheck current pipeline composition before use
+reg_070	Production guarded edits	90	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00063704	Guarded edit record; recheck current pipeline composition before use
+reg_071	Production guarded edits	91	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x00063724	Guarded edit record; recheck current pipeline composition before use
+reg_072	Production guarded edits	92	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x000A6FFC..	Guarded edit record; recheck current pipeline composition before use
+reg_073	Production guarded edits	93	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x000A5478	Guarded edit record; recheck current pipeline composition before use
+reg_074	Production guarded edits	94	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x000A5664	Guarded edit record; recheck current pipeline composition before use
+reg_075	Production guarded edits	95	1	ee5f3d64f27981faa94d87927925895d920e89b0	0x000B3364` palette base	Guarded edit record; recheck current pipeline composition before use
+reg_076	Production guarded edits	97	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x00074E68`, `0x00073C98`, `0x000759E0`, `0x00075B88`; retired span `0x00074EB8..0x00074FA7	Guarded edit record; recheck current pipeline composition before use
+reg_077	Power-order proof sites	128	2	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0003D62C` / VA `0x8003CA2C	Proof/historical-only unless current owner explicitly promotes
+reg_078	Power-order proof sites	129	2	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0004B018..0x0004B033` / VA `0x8004A418..0x8004A433	Proof/historical-only unless current owner explicitly promotes
+reg_079	Power-order proof sites	130	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000A6BB0..0x000A6BB7` / RAM `0x800A5FB0..0x800A5FB7	Proof/historical-only unless current owner explicitly promotes
+reg_080	Power-order proof sites	131	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000A78A0..0x000A78A7	Proof/historical-only unless current owner explicitly promotes
+reg_081	Power-order proof sites	137	2	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0003D62C` / VA `0x8003CA2C	Proof/historical-only unless current owner explicitly promotes
+reg_082	Power-order proof sites	138	2	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0004B018..0x0004B033` / VA `0x8004A418..0x8004A433	Proof/historical-only unless current owner explicitly promotes
+reg_083	Power-order proof sites	139	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0004B084` / VA `0x8004A484	Proof/historical-only unless current owner explicitly promotes
+reg_084	Power-order proof sites	140	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0004B0F4` / VA `0x8004A4F4	Proof/historical-only unless current owner explicitly promotes
+reg_085	Power-order proof sites	141	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0004AFBC` / VA `0x8004A3BC	Proof/historical-only unless current owner explicitly promotes
+reg_086	Power-order proof sites	142	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0004AEA8` / VA `0x8004A2A8	Proof/historical-only unless current owner explicitly promotes
+reg_087	Power-order proof sites	143	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000515A0` / VA `0x800509A0	Proof/historical-only unless current owner explicitly promotes
+reg_088	Power-order proof sites	144	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000535C4` / VA `0x800529C4	Proof/historical-only unless current owner explicitly promotes
+reg_089	Power-order proof sites	145	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0003D728` / VA `0x8003CB28	Proof/historical-only unless current owner explicitly promotes
+reg_090	Power-order proof sites	146	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0005B5DC` / VA `0x8005A9DC	Proof/historical-only unless current owner explicitly promotes
+reg_091	Power-order proof sites	147	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0004B2B4` / VA `0x8004A6B4	Proof/historical-only unless current owner explicitly promotes
+reg_092	Power-order proof sites	148	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000A6BB0..0x000A6BD3` / RAM `0x800A5FB0..0x800A5FD3	Proof/historical-only unless current owner explicitly promotes
+reg_093	Power-order proof sites	149	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000A78A0..0x000A78C3	Proof/historical-only unless current owner explicitly promotes
+reg_094	Proof-only sites	157	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000CC540` / VA `0x802EEE60	Proof/historical-only unless current owner explicitly promotes
+reg_095	Proof-only sites	158	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000CC358..0x000CC42B`, `0x000CC53C..0x000CC543` / Temple overlay VA `0x802EEC78..0x802EED4B`, `0x802EEE5C..0x802EEE63	Proof/historical-only unless current owner explicitly promotes
+reg_096	Proof-only sites	159	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x00011C70..0x00011C83` / VA `0x80011070..0x80011083	Proof/historical-only unless current owner explicitly promotes
+reg_097	Proof-only sites	160	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x00039454` / VA `0x80038854	Proof/historical-only unless current owner explicitly promotes
+reg_098	Proof-only sites	161	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000E5C28` / VA `0x802F0ED8	Proof/historical-only unless current owner explicitly promotes
+reg_099	Proof-only sites	162	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000E5C50` / VA `0x802F0F00	Proof/historical-only unless current owner explicitly promotes
+reg_100	Proof-only sites	163	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000D500C` / VA `0x802F2CDC	Proof/historical-only unless current owner explicitly promotes
+reg_101	Proof-only sites	164	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000D5024` / VA `0x802F2CF4	Proof/historical-only unless current owner explicitly promotes
+reg_102	Proof-only sites	165	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000BA60C` / VA `0x802F247C	Proof/historical-only unless current owner explicitly promotes
+reg_103	Proof-only sites	166	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000BA610` / VA `0x802F2480	Proof/historical-only unless current owner explicitly promotes
+reg_104	Proof-only sites	167	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000E1034` / VA `0x802F52D4	Proof/historical-only unless current owner explicitly promotes
+reg_105	Proof-only sites	168	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000E1044` / VA `0x802F52E4	Proof/historical-only unless current owner explicitly promotes
+reg_106	Proof-only sites	169	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0003CB50..0x0003CB57` / VA `0x8003BF50..0x8003BF57	Proof/historical-only unless current owner explicitly promotes
+reg_107	Proof-only sites	170	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x00039AF8` / VA `0x80038EF8	Proof/historical-only unless current owner explicitly promotes
+reg_108	Proof-only sites	171	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x00039BA4` / VA `0x80038FA4	Proof/historical-only unless current owner explicitly promotes
+reg_109	Proof-only sites	172	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `[0x0009AE00,0x0009AE84)` / VA `[0x8009A200,0x8009A284)	Proof/historical-only unless current owner explicitly promotes
+reg_110	Proof-only sites	173	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x00015738` / VA `0x80014B38	Proof/historical-only unless current owner explicitly promotes
+reg_111	Proof-only sites	174	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0002A848` / VA `0x80029C48	Proof/historical-only unless current owner explicitly promotes
+reg_112	Proof-only sites	175	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0004E3AC` / VA `0x8004D7AC	Proof/historical-only unless current owner explicitly promotes
+reg_113	Proof-only sites	176	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `[0x0009AE18,0x0009AE28)`, `[0x000775D0,0x000775DC)`, `[0x00077688,0x00077694)	Proof/historical-only unless current owner explicitly promotes
+reg_114	Proof-only sites	177	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000AF71C`, `0x000AF708	Proof/historical-only unless current owner explicitly promotes
+reg_115	Proof-only sites	178	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0002EB28` / VA `0x8002DF28	Proof/historical-only unless current owner explicitly promotes
+reg_116	Proof-only sites	179	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0xB44AA` / RAM `0x800B38AA	Proof/historical-only unless current owner explicitly promotes
+reg_117	Proof-only sites	180	1	ee5f3d64f27981faa94d87927925895d920e89b0	Fire resource entry ROM `0xA52E0	Proof/historical-only unless current owner explicitly promotes
+reg_118	Proof-only sites	181	1	ee5f3d64f27981faa94d87927925895d920e89b0	VA `0x8008EAEC` / ROM `0x8F6EC	Proof/historical-only unless current owner explicitly promotes
+reg_119	Proof-only sites	182	1	ee5f3d64f27981faa94d87927925895d920e89b0	Fire overlay tail ROM `0xE2148..0xE216B	Proof/historical-only unless current owner explicitly promotes
+reg_120	Proof-only sites	183	1	ee5f3d64f27981faa94d87927925895d920e89b0	Seven Fire type-`0x0A` halfwords	Proof/historical-only unless current owner explicitly promotes
+reg_121	Proof-only sites	184	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x00029FB0` / VA `0x800293B0	Proof/historical-only unless current owner explicitly promotes
+reg_122	Proof-only sites	185	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0002A0DC` / VA `0x800294DC	Proof/historical-only unless current owner explicitly promotes
+reg_123	Proof-only sites	186	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0003E46C` / VA `0x8003D86C	Proof/historical-only unless current owner explicitly promotes
+reg_124	Proof-only sites	187	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000A5148` / global file entry `0x1A	Proof/historical-only unless current owner explicitly promotes
+reg_125	Proof-only sites	188	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0009ADB8` plus `0x0009ADE8..0x0009AEBF	Proof/historical-only unless current owner explicitly promotes
+reg_126	Proof-only sites	189	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x4BBF0`, `0x4BBFC`, `0x4BC00` (v75)	Proof/historical-only unless current owner explicitly promotes
+reg_127	Proof-only sites	190	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x4C484..0x4C488` and `0x9AE90..0x9AF1F` (v75)	Proof/historical-only unless current owner explicitly promotes
+reg_128	Proof-only sites	191	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x9ADEC`, `0x9AE2C..0x9AE54`, `0x4BD14/30/4C/68/84/A0`, `0x4B728`, `0xB0234..0xB0243` (v79)	Proof/historical-only unless current owner explicitly promotes
+reg_129	Proof-only sites	192	1	ee5f3d64f27981faa94d87927925895d920e89b0	Relocated file-`0x87` ROM `0xF40DBC` (v80/v81)	Proof/historical-only unless current owner explicitly promotes
+reg_130	Proof-only sites	193	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x315E8` / VA `0x800309E8` (v81/v82 diagnostic)	Proof/historical-only unless current owner explicitly promotes
+reg_131	Proof-only sites	194	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x315EC..0x31603` / VA `0x800309EC..0x80030A03` (v82 diagnostic)	Proof/historical-only unless current owner explicitly promotes
+reg_132	Proof-only sites	195	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x316C8` / VA `0x80030AC8` plus proof ROM `[0x9AE10,0x9AE90)` (v83)	Proof/historical-only unless current owner explicitly promotes
+reg_133	Proof-only sites	196	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x316C8` / VA `0x80030AC8` plus proof ROM `[0x9AE10,0x9AE90)` (v84)	Proof/historical-only unless current owner explicitly promotes
+reg_134	Proof-only sites	197	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x316C8` / VA `0x80030AC8` and proof ROM `[0x9AE10,0x9AE90)` (v85)	Proof/historical-only unless current owner explicitly promotes
+reg_135	Proof-only sites	198	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x315C8` / VA `0x800309C8` plus proof wrapper interval `[0x9AE10,0x9AE90)` (v86)	Proof/historical-only unless current owner explicitly promotes
+reg_136	Proof-only sites	199	1	ee5f3d64f27981faa94d87927925895d920e89b0	File-`0x87` rocket/palette append + ROM `0x315C8`, `0x316C8`, `0xF40DBC`, `0xF40DC4`, proof `[0x9AE10,0x9AE90)` (v89)	Proof/historical-only unless current owner explicitly promotes
+reg_137	Temple intro seeded audio	232	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000CB274` / VA `0x802EDB94	Guarded edit record; recheck current pipeline composition before use
+reg_138	Temple intro seeded audio	233	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000CB280` / VA `0x802EDBA0	Guarded edit record; recheck current pipeline composition before use
+reg_139	Temple intro seeded audio	234	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000CB2F8` / VA `0x802EDC18	Guarded edit record; recheck current pipeline composition before use
+reg_140	Temple intro seeded audio	235	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0097A200	Guarded edit record; recheck current pipeline composition before use
+reg_141	Temple intro seeded audio	236	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0097A220	Guarded edit record; recheck current pipeline composition before use
+reg_142	Temple intro seeded audio	237	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0097A240	Guarded edit record; recheck current pipeline composition before use
+reg_143	Temple intro seeded audio	238	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x00948450	Guarded edit record; recheck current pipeline composition before use
+reg_144	Temple intro seeded audio	239	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0094A11C	Guarded edit record; recheck current pipeline composition before use
+reg_145	Temple intro seeded audio	240	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x0094DF20	Guarded edit record; recheck current pipeline composition before use
+reg_146	Temple intro seeded audio	241	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x00964D88..0x00964E8F	Guarded edit record; recheck current pipeline composition before use
+reg_147	Temple intro seeded audio	242	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x000A3794`, `0x0097C7D8`, `0x009485C4`, `0x0094A860`, `0x0094E7D8	Guarded edit record; recheck current pipeline composition before use
+reg_148	Temple intro seeded audio	243	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x00F6BDF0..0x00F6D80F	Guarded edit record; recheck current pipeline composition before use
+reg_149	Temple intro seeded audio	251	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x00010E64	Guarded edit record; recheck current pipeline composition before use
+reg_150	Temple intro seeded audio	252	1	ee5f3d64f27981faa94d87927925895d920e89b0	ROM `0x00F6AAF0..0x00F6B0CF` / RDRAM `0x801B2310..0x801B28EF	Guarded edit record; recheck current pipeline composition before use
+reg_151	Temple intro seeded audio	253	1	ee5f3d64f27981faa94d87927925895d920e89b0	Ordinary pickup record `+0x14	Guarded edit record; recheck current pipeline composition before use

@@ -70,3 +70,7 @@ jobs:
         run: |
           python -m py_compile tools/audit_wiki_section_coverage.py
           python tools/audit_wiki_section_coverage.py --self-test
+      - name: Validate canonical patch and type provenance
+        run: |
+          python -m py_compile tools/validate_patch_type_provenance.py
+          python tools/validate_patch_type_provenance.py
