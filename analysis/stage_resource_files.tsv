@@ -1,0 +1,9 @@
+stage	compact_selector	native_stage_id	resource_file_id	file_table_entry_rom	resource_rom_start	resource_rom_end_exclusive	resource_size	file_table_flag	runtime_base	runtime_publication_slot	outer_slots	outer_table_end	ordinary_pickups	evidence_scope	source	source_blob_sha
+Temple	0	0		0x000A5490	0x00513710	0x00523370	0xFC60	0	0x80226E28		17	0x44	4	Static-confirmed map; runtime-confirmed resource base	Stage-Catalog-Temple.md	2cf70d9bcf6ddf8cae5696aa4a332d7775f105fd
+Wind	1	1		0x000A561C	0x00698680	0x0069A820	0x21A0	0	0x80264FC8		12	0x30	6	Static-confirmed map; runtime-confirmed resource base	Stage-Catalog-Wind.md	ea3ff51b6842ea395cb7bf8e8299cd4266fea8d1
+Water	2	2	0x75	0x000A558C	0x00611780	0x00617C60	0x64E0	0	0x802504A8		29	0x74	9	Static-confirmed map; runtime-confirmed resource base	Stage-Catalog-Water.md	cea1cba1450752bed426679d4ce76b1e97e6b789
+Earth	3	3	0x30	0x000A5250	0x00305A30	0x0030AA00	0x4FD0	0		0x802E82B8	21	0x54	20	Static-confirmed resource file and publication slot; fixed allocation base not supplied	Stage-Catalog-Earth.md	44b464641e0db6525abdf43a3832cc51bb359f9b
+Prison	4	4	0x49	0x000A537C	0x0041C680	0x00420F70	0x48F0	0	0x801FB798		12	0x30	10	Static-confirmed map; runtime-confirmed resource base	Stage-Catalog-Prison.md	909810b8e5b06ea97058e2e679dd375921a49d35
+Fire	5	5	0x3C	0x000A52E0	0x00388260	0x0038A790	0x2530	0	0x80224C88		27	0x6C	16	Static-confirmed map; runtime-confirmed resource base	Stage-Catalog-Fire.md	e1dd900748aaa2e09067a21dae2b2df801b80887
+Bridge	6	8	0x27	0x000A51E4	0x00296140	0x0029A470	0x4330	0	0x80243000		25	0x64	10	Static-confirmed map; runtime-confirmed resource base	Stage-Catalog-Bridge.md	688b7fb28b7a7b9b350308c75e3094397f8e52d8
+Fortress	7	9	0x43	0x000A5334	0x003B9700	0x003BCD20	0x3620	0	0x801F4E20		7	0x1C	9	Static-confirmed map; runtime-confirmed resource base	Stage-Catalog-Fortress.md	34b375732b6427ae9b00e9e97967494356645a2b
