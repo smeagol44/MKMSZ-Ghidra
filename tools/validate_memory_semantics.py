@@ -20,7 +20,7 @@ for r in facts:
     c=claims[r["fact_id"]]
     assert c["owner_page"]==r["owner_page"]=="Memory-and-Allocation-Map.md"
     assert c["wiki_source_anchor"]==r["source_anchor"] and c["section"]==r["source_section"]
-    assert int(r["source_line"])>0 and r["source_section"].startswith("## ")
+    assert int(r["source_line"])>0 and r["source_section"].startswith(("## ", "### "))
     assert r["conclusion"] and r["evidence"] and r["scope"] and r["review_caution"]
     if r["disposition"]=="ghidra":
         assert c["migration_status"]=="ghidra-confirmed" and c["target_path"]=="analysis/functions.tsv"
