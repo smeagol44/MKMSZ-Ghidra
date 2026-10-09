@@ -126,4 +126,27 @@ python3 tools/audit_wiki_coverage.py --wiki-dir ../MKMSZ-Randomizer/wiki --outpu
 
 Coverage buckets intentionally mean only **direct-global-manifest**, **not-directly-indexed**, or **scope-ambiguous-review**, with source page/section/line and applicable manifest names in the CSV. No auto-import, automatic semantic parity claims, unverified function creation or overlay VA flattening. Script execution on a complete local Wiki clone remains to be confirmed; static CI validity is a separate check. Absence of a manifest marker is not proof that the binary was never analyzed. This audit is an index to prioritize focused manual/evidence-backed reconciliation, not a scoring system for reverse engineering completeness.
 
-**State:** GitHub metadata additions are implementation/CI level pending checks; **Ghidra local application of these second-pass annotations Pending**. Prior 139/139 function and 35/35 global import remains maintainer-confirmed. The larger cross-domain audit remains incomplete, and PR #3 stays draft.
+**State:** Both second-pass manifest additions and **Ghidra local application of all 34 new annotations are confirmed** by the maintainer's 2026-10-08 console (see below). Prior 139/139 function and 35/35 global import remains confirmed. The larger cross-domain audit remains incomplete, and PR #3 stays draft.
+
+## Second-pass import closure — maintainer Ghidra console (2026-10-08)
+
+```text
+ApplyMkmszExtended.java> Running...
+MKMSZ extended analysis scope: global
+TYPE ALREADY PRESENT: MKMSZ_ItemId (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_BoxBacking (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_PickupRecord (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_PersistenceV2 (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_EnemySpawnRecord (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_AuxTriggerRecord (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_RenderNode (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_DynamicTextureSlot (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_Type5ImageHeader (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_EnemySpawnConditionalRecord (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_Type5ModelTableHeader (existing definition preserved)
+SKIP bookmark 80030974 category MKMSZ/animation: preserving locally owned note
+MKMSZ extended analysis: applied 34, skipped 12 (scope=global)
+ApplyMkmszExtended.java> Finished!
+```
+
+**Ghidra/implementation-confirmed bounded:** exactly 34 new second-pass operations applied, matching 17 comments plus 17 bookmarks. No unexplained skips: 11 preexisting type names and one deliberately preserved local animation bookmark. This does **not** establish strict byte-for-byte field-equivalence for those 11 types. In the preceding pass 38 trace sites were applied; 55 distinct added trace sites are now represented. Imported data in the local project remains distinct from Wiki evidence of stock or production behavior. No ROM tests or edits occurred.
