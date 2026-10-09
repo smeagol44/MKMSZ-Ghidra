@@ -106,3 +106,7 @@ jobs:
         run: |
           python -m py_compile tools/validate_host_action_semantics.py
           python tools/validate_host_action_semantics.py
+      - name: Check final importer handoff safety
+        run: |
+          python -m py_compile tools/validate_importer_readiness.py
+          python tools/validate_importer_readiness.py

@@ -57,6 +57,10 @@ Exact Git blob SHAs, source lines, evidence classifications and nonpromotion cau
 5. Preserve evidence words: Runtime-confirmed, Static-confirmed, Implementation/CI-confirmed, Hypothesis, Rejected/failed and Pending. Do not flatten donor/PS1 addresses, overlay VAs, production aliases, or proof-only ROM caves.
 6. The rich Inventory audio investigation is concurrently active. Its current trigger remains **Pending**. Merge its later changes first or reconcile carefully; **do not** retry AI enqueue on full FIFO as an unapproved production workaround.
 
+### Final importer-readiness audit
+
+The original global importer was found to overwrite names/comments and to permit an unavailable executable SHA. The draft branch now **fails closed on missing/mismatched source hashes**, preserves different user-owned global function names/labels and non-`[MKMSZ]` plate comments, while still refreshing specifically managed `[MKMSZ]` notes. The extended importer already preserves local type/data/comment conflicts. A static CI preflight guards both scripts and the seven pending bookmarks, plus the new exact type/data import; **no local Ghidra execution or semantic-completeness certification is implied**. Current audio owner remains externally active; none of its unresolved mechanics are silently promoted to Ghidra facts.
+
 ## Handoff remaining
 
 - Complete a **semantic** triage of the unlinked Wiki sections: distinguish already-archived historical proof entries from reusable current facts rather than mechanically cloning every old experiment.

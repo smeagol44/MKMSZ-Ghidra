@@ -36,7 +36,7 @@ Ghidra runs natively on Linux. The repository is intended to work on Linux first
 6. Run `ApplyMkmszAnalysis.java`.
 7. Select the root of this cloned repository when prompted.
 
-The script verifies the imported file hash when Ghidra exposes it, then applies the shared function/global names and managed comments from `analysis/`.
+The global importer **requires** the clean USA Rev. 0 executable SHA-256: it refuses missing or mismatched hashes. It applies curated names when no conflicting hand-named symbols exist and updates only unclaimed or `[MKMSZ]`-managed plate comments; user-owned names/comments are preserved. The extended importer similarly preserves local types, typed data and unmanaged comments. Run both scripts against a backed-up existing project after reviewing [the handoff](docs/local-migration-handoff.md).
 
 Unknown functions remain unknown. The goal is not to hide the unfinished analysis; it is to make the same partially-understood program visible to everyone.
 

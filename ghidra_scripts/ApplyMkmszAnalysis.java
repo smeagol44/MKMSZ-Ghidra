@@ -10,6 +10,7 @@ import ghidra.app.script.GhidraScript;
 import ghidra.program.model.address.Address;
 import ghidra.program.model.listing.Function;
 import ghidra.program.model.symbol.SourceType;
+import ghidra.program.model.symbol.Symbol;
 
 public class ApplyMkmszAnalysis extends GhidraScript {
 
@@ -24,8 +25,8 @@ public class ApplyMkmszAnalysis extends GhidraScript {
         }
 
         String sha = currentProgram.getExecutableSHA256();
-        if (sha != null && !sha.equalsIgnoreCase(EXPECTED_SHA256)) {
-            popup("Refusing to apply MKMSZ symbols: unexpected SHA-256:\n" + sha);
+        if (sha == null || !sha.equalsIgnoreCase(EXPECTED_SHA256)) {
+            popup("Refusing to apply MKMSZ symbols: missing or unexpected SHA-256:\n" + sha);
             return;
         }
 
@@ -55,8 +56,17 @@ public class ApplyMkmszAnalysis extends GhidraScript {
                 continue;
             }
 
-            function.setName(name, SourceType.USER_DEFINED);
-            setPlateComment(address, "[MKMSZ] " + evidence + "\n" + comment);
+            if (!name.equals(function.getName())) {
+                // The original importer used USER_DEFINED names. A differing locally
+                // owned name must survive reimport, even if the row changed upstream.
+                if (function.getSymbol().getSource() == SourceType.USER_DEFINED) {
+                    println("Preserving local function name at " + address +
+                        ": " + function.getName() + " != " + name);
+                    continue;
+                }
+                function.setName(name, SourceType.USER_DEFINED);
+            }
+            applyManagedPlateComment(address, evidence, comment);
             count++;
         }
         return count;
@@ -70,11 +80,32 @@ public class ApplyMkmszAnalysis extends GhidraScript {
             String evidence = row[2];
             String comment = row[3];
 
-            createLabel(address, name, true, SourceType.USER_DEFINED);
-            setPlateComment(address, "[MKMSZ] " + evidence + "\n" + comment);
+            Symbol prior = currentProgram.getSymbolTable().getPrimarySymbol(address);
+            if (prior != null && !name.equals(prior.getName())) {
+                // Do not replace a hand-named address or steal its primary symbol.
+                if (prior.getSource() == SourceType.USER_DEFINED) {
+                    println("Preserving local global label at " + address +
+                        ": " + prior.getName() + " != " + name);
+                    continue;
+                }
+            }
+            if (prior == null || !name.equals(prior.getName())) {
+                createLabel(address, name, true, SourceType.USER_DEFINED);
+            }
+            applyManagedPlateComment(address, evidence, comment);
             count++;
         }
         return count;
+    }
+
+    private void applyManagedPlateComment(Address address, String evidence, String text) {
+        String previous = getPlateComment(address);
+        if (previous != null && !previous.startsWith("[MKMSZ]")) {
+            println("Preserving locally owned plate comment at " + address);
+            return;
+        }
+        String managed = "[MKMSZ] " + evidence + "\n" + text;
+        if (!managed.equals(previous)) setPlateComment(address, managed);
     }
 
     private List<String[]> readTsv(File file) throws IOException {

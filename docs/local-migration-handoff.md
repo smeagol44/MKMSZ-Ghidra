@@ -16,14 +16,14 @@ This repository stores ROM-free analysis metadata and native proof catalogs, whi
 
 ## 2. One global update after approval/merge
 
-1. Back up the existing local Ghidra project. Keep the ROM and clean baseline unchanged.
+1. Back up the existing local Ghidra project. Keep the ROM and clean baseline unchanged. **Use a backup** even though the global importer now refuses unknown/missing clean-ROM hashes, preserves different user-owned function/global names, and leaves non-`[MKMSZ]` plate comments intact. Managed `[MKMSZ]` notes may be updated intentionally.
 2. Pull `MKMSZ-Ghidra` once PR #3 is merged (`git pull --ff-only` on `main`). Before it merges, the new files live on branch `research/wiki-ghidra-coverage-reconciliation` and are **not** automatically present on local `main`.
 3. Open the existing **clean N64 global Ghidra program**, not a separately imported stage overlay. Ensure it matches the pinned ROM SHA-256.
 4. In Ghidra Script Manager, with this checkout's `ghidra_scripts/` directory enabled, run `ApplyMkmszAnalysis.java`, select the checkout root, then run `ApplyMkmszExtended.java`, selecting the same root. Save the Ghidra program when satisfied.
 5. Specifically inspect the seven new `MKMSZ/known-stock-navigation` bookmarks at:
    `0x800B1BAC`, `0x800B1BD0`, `0x800B1D18`, `0x800B1D38`, `0x802E82B8`, `0x80038BE4`, `0x80038BFC`.
    These are intentionally **not** standalone function creations or typed-data overlays. The stage resource-base slot is dynamic; code sites are interior instructions.
-6. Report importer `applied / skipped` totals, notable skip diagnostics, and whether those seven markers appear. Do not assume a specific applied count, because the importer preserves local edits and skips unmapped/previously annotated sites. If needed, rerun the read-only `AuditMkmszTypes.java`; do not replace matching local types.
+6. Report importer `applied / skipped` totals, notable skip diagnostics, and whether those seven markers appear. Specifically verify the **new** `/MKMSZ/MKMSZ_SpecialActionDescriptor` size `0x2C`, seven fields and typed Low Kick data at `0x800B0F68` (without touching sentinel `0x800B0F94` or High Kick `0x800B0F98`); if Ghidra reports a conflict, **do not force-clear** local data. Check that hand-renamed functions and non-`[MKMSZ]` notes remain intact. Do not assume an exact applied count. If needed, rerun the read-only `AuditMkmszTypes.java`; do not replace matching local types.
 
 The title palette descriptor at **ROM offset `0x000B3360`** and the following palette at `0x000B3364` are recorded in `analysis/stock_rom_navigation.tsv`, without inventing a Ghidra global virtual address. They require **no global importer operation**.
 
@@ -63,6 +63,8 @@ The nine formerly unreviewed owners already have an immutable 242-heading source
 **Enemy owner:** `analysis/enemy_semantic_contracts.tsv` indexes 30 additional known facts with 11 existing Ghidra-object links. Four native function plates/repeatable notes were revised for the known stream/resource-slot grammar and remain **pending one-pass local importer verification**. No new symbols, type definitions or bookmarks were staged: the seven outstanding bookmarks remain unchanged. Prison overlay0x9F function 0x802F0754 is never loaded into the global program.
 
 **Host player actions:** `analysis/host_action_semantic_contracts.tsv` adds 32 owner-pinned source contracts, 17 previously imported function links, and five upgraded native function notes. **Two distinct new Ghidra import items remain pending**: `MKMSZ_SpecialActionDescriptor` (0x2C bytes; seven nonoverlapping fields) and its typed global Low Kick instance at `0x800B0F68`. Validate that the record ends before sentinel `0x800B0F94` and High Kick `0x800B0F98`; the importer preserves pre-existing typed data rather than overriding it. The earlier 11 locally imported type definitions are unchanged, and seven pending bookmarks remain outstanding.
+
+**Readiness audit (2026-10-09):** The older global `ApplyMkmszAnalysis.java` previously used unconditional `setName` and `setPlateComment` plus a null-hash allowance. Draft PR #3 now guards those operations, refuses missing ROM hashes and protects hand-owned global symbols. A new ROM-free static importer-preflight CI check documents that this is **repository/CI-confirmed only**, not a locally exercised Ghidra update. Final local import remains explicitly deferred until PR approval/merge.
 
 ## 5. Sign-off gates still open
 
