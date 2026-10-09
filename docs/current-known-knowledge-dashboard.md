@@ -61,6 +61,23 @@ Exact Git blob SHAs, source lines, evidence classifications and nonpromotion cau
 
 The original global importer was found to overwrite names/comments and to permit an unavailable executable SHA. The draft branch now **fails closed on missing/mismatched source hashes**, preserves different user-owned global function names/labels and non-`[MKMSZ]` plate comments, while still refreshing specifically managed `[MKMSZ]` notes. The extended importer already preserves local type/data/comment conflicts. A static CI preflight guards both scripts and the seven pending bookmarks, plus the new exact type/data import; **no local Ghidra execution or semantic-completeness certification is implied**. Current audio owner remains externally active; none of its unresolved mechanics are silently promoted to Ghidra facts.
 
+### High-value residual Wiki gap triage — final repository-side pass
+
+The section audit answers **where an indexed first-class claim can navigate**, not whether the underlying game code or the rest of each page is completely reconstructed. The following routing decisions were checked against the current owner pages; they are **not** semantic-exhaustiveness certifications.
+
+| Owner / evidence family | Unique source heading anchors | Migration disposition |
+|---|---:|---|
+| Function Registry | 4/8 headings, **166/166 curated source rows scoped** | Function/label/bookmark crosswalk already covers every curated row; do not count heading-only sections as missing functions |
+| Memory and Allocation Map | 19/20 | Ownership/alias/lifetime contracts and existing 89 intervals are indexed; last heading is references, not a new free-space claim |
+| Player Actions / Special Moves | 22/33 | New stock 0x2C descriptor, one typed instance, 17 existing-function links and five refined native function notes staged; remaining generic donor adapter gaps are Pending, not new native definitions |
+| Enemy Randomization | 23/40 | Existing native constructor, typed spawn records, Prison overlay and bounded resource-lifetime findings routed; unresolved foreign family compatibility stays fail-closed |
+| Global Item and Solvability | 26/50 | Source-qualified native callback, stage-local resource and deterministic solver contracts routed; remainder includes proof history and unsolved scope, not permission to invent stock globals |
+| MKT compatibility overview / adapter | 6/13; 8/34 | Accepted source-level donor/host translation belongs in companion research. Only verified **MKMSZ host** primitives enter global N64 Ghidra metadata; no donor binary address promotion |
+| Sektor takeover history | 2/106 | The long vNN chronology belongs to the evidence/proof owner. Archiving every revision as a stock function/comment would degrade search and imply unsupported current semantics |
+| Rich Inventory music investigation | 0/24 | **Active, changing evidence owner:** preserve already verified audio function notes; upstream trigger and memory/lifecycle causality remain Pending. Reconcile separately when its conclusions stabilize |
+
+**Practical migration decision:** no further blanket Wiki-to-symbol batch is justified by these source-navigation gaps. The next action is review/approval of PR #3 and a one-pass **user-local** importer verification, not claiming 100% of the Wiki, rebuilding Ghidra, or reviving known-failed proofs. The truly open RE/product questions remain with their canonical Wiki owners and may generate future precise metadata changes after verification.
+
 ## Handoff remaining
 
 - Complete a **semantic** triage of the unlinked Wiki sections: distinguish already-archived historical proof entries from reusable current facts rather than mechanically cloning every old experiment.
