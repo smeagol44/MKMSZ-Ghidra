@@ -26,7 +26,7 @@ def count_rule(path, rule):
     if rule == "definitions":
         return sum(r["kind"] in ("struct", "enum") for r in entries)
     if rule == "trace-sites":
-        # A trace-site is an explicitly categorized stock code trace bookmark.
+        # Counts trace-category bookmark sites: 86 new trace locations plus 6 supplemental existing-site bookmarks.
         return len({(r["scope"], r["address"].lower()) for r in entries
                     if r["category"].startswith("trace-")})
     if rule == "retail-data":

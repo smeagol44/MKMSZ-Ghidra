@@ -15,12 +15,12 @@ A 'known finding' is an evidence-qualified, bounded assertion in an authoritativ
 | Stage function identities | 14 | Eight separate Ghidra overlay programs | Ghidra-confirmed |
 | Ordinary pickup records | 84 | Typed Ghidra stage records | Ghidra-confirmed |
 | Named type definitions | 11 | Ghidra struct/enum types | Ghidra-confirmed exact 11/11 definitions |
-| Curated global code trace sites | 86 | Ghidra comments/bookmarks | Ghidra-confirmed via aggregate import |
+| Trace-category bookmarks | 92 | Ghidra comments/bookmarks | 86 newly reconciled trace locations plus 6 supplemental previously indexed sites |
 | Internal branch labels | 2 | Ghidra code labels | Prior import confirmed; not function entries |
 | Retail global table navigation | 2 | Ghidra bookmarks | Fifth batch Ghidra-confirmed |
 | Stage resource slot descriptions | 150 | Versioned `stage_resource_slots.tsv` | Conserved as sidecar; not all independently typed in Ghidra |
 | Guarded ROM patch/proof locations | 151 | Versioned `rom_patch_sites.tsv` | Conserved as sidecar; ROM offsets are NOT stock VA labels |
-| **Total registered structured records** | **674** | **373 Ghidra + 301 intentional sidecar** | **All recorded; doesn't exhaust narrative findings** |
+| **Total registered structured records** | **680** | **379 Ghidra + 301 intentional sidecar** | **All recorded; doesn't exhaust narrative findings** |
 
 These rows have different granularity and are **not** a percentage of all Wiki knowledge. Do not count 81 type fields as new 81 structures or confuse 150 resource-slot entries with 150 loaded functions. Latest local extended import result: **`applied=12, skipped=12`**, all 12 skips explained (11 existing types; one preserved animation note). No additional Ghidra action for this batch.
 
