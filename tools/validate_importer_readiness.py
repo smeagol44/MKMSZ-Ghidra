@@ -27,7 +27,15 @@ assert "applyManagedPlateComment(address, evidence, comment);" in script
 assert 'scope = identifyScope();' in extended and 'if (scope == null)' in extended
 assert 'if (!scope.equals("global")) applyOverlayFunctions();' in extended
 assert 'if (existing != null && !Undefined.isUndefined(existing.getDataType()))' in extended
-assert 'if (!existing.isEquivalent(entry.getValue()))' in extended
+# Managed /MKMSZ types are converged on repeated runs rather than being
+# mistakenly classified as locally edited simply because they already exist.
+assert "if (existing.isEquivalent(incoming)) {" in extended
+assert 'println("TYPE UP TO DATE: " + entry.getKey());' in extended
+assert "manager.replaceDataType(existing, incoming, true)" in extended
+assert "manager.getDataType(expectedPath)" in extended
+assert "existing.getLength() != incoming.getLength()" in extended
+assert "TYPE CONFLICT:" in extended and "TYPE SYNC FAILED:" in extended
+assert 'DataTypePath expectedPath = new DataTypePath(CATEGORY, entry.getKey());' in extended
 assert 'if (previous != null && !previous.startsWith("[MKMSZ]"))' in extended
 assert len(table("functions.tsv"))==139 and len(table("globals.tsv"))==35
 assert len(table("overlay_functions.tsv"))==14 and len(table("rom_pickups.tsv"))==84
@@ -65,5 +73,5 @@ print("PASS: original importer fail-closed identity and local comment/name confl
 print("PASS: extended scoped importer conflict policy and ROM-free manifest handoff (static source check)")
 print("PASS: 139 global functions, 35 globals, 14 overlay functions, 84 pickups; 7 staged bookmarks")
 print("PASS: 11 locally established types separated from 1 staged 0x2C descriptor + 1 data instance")
-print("PASS: automatic curated typed-data naming and read-only 7-family manifest audit statically guarded")
+print("PASS: automatic curated type/data-label convergence and read-only 7-family audit statically guarded")
 print("PENDING: Ghidra compilation, actual import, data type application, and preservation in maintainer project")
