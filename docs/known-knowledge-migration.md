@@ -21,7 +21,9 @@ A 'known finding' is an evidence-qualified, bounded assertion in an authoritativ
 | Stage resource slot descriptions | 150 | Versioned `stage_resource_slots.tsv` | Conserved as sidecar; not all independently typed in Ghidra |
 | Eight stage ordinary resource-file mappings | 8 | Versioned `stage_resource_files.tsv` | File identity separate from code overlays; Earth base left unverified |
 | Guarded ROM patch/proof locations | 151 | Versioned `rom_patch_sites.tsv` | Conserved as sidecar; ROM offsets are NOT stock VA labels |
-| **Total registered structured records** | **688** | **379 Ghidra + 309 intentional sidecar** | **All recorded; doesn't exhaust narrative findings** |
+| Established persistence/lifecycle contracts | 22 | Versioned `lifecycle_contracts.tsv` | Source-anchored bounded ownership and proof/failure limits |
+| Stage-specific resource caveats | 8 | Versioned `stage_resource_caveats.tsv` | Preserves negative controls and stage-scope warnings |
+| **Total registered structured records** | **718** | **379 Ghidra + 339 intentional sidecar** | **All recorded; doesn't exhaust narrative findings** |
 
 These rows have different granularity and are **not** a percentage of all Wiki knowledge. Do not count 81 type fields as new 81 structures or confuse 150 resource-slot entries with 150 loaded functions. Latest local extended import result: **`applied=12, skipped=12`**, all 12 skips explained (11 existing types; one preserved animation note). No additional Ghidra action for this batch.
 

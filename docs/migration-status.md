@@ -142,3 +142,7 @@ Eight verified resource-file identities added without disturbing existing code-o
 ## Structured stage-resource count correction (2026-10-09)
 
 Now **688 curated structured records** (379 locally Ghidra-confirmed; 309 independently versioned companion records), accounting for 8 new resource-file mapping rows without claiming those are stock-code Ghidra objects. Current auditable known-finding subset: **73/150 (48.67%) first-class migrated**, **69 Wiki-only** and **8 unlinked**, based on the exact claim ledger and independently recomputable by `tools/report_known_knowledge.py`. Stage catalog CI passed before this count-only adjustment. No Ghidra importer required.
+
+## Persistence and stage caveat knowledge transfer confirmed (2026-10-09)
+
+**22** canonical persistence/lifecycle contracts and **8** stage-specific resource caveats are now independently indexed, source-qualified sidecar records. They are not new Ghidra functions; no local importer run or ROM proof is necessary. Current living dashboard: **718 structured records** (379 Ghidra-confirmed + 339 independent sidecar). Claim ledger: **172 enumerated established findings**, of which **101/172 = 58.72%** are first-class migrated, **63** remain Wiki-only and **8** remain unlinked. This percentage is for the enumerated subset of known findings, not all current Wiki knowledge. Source anchors, manifest referents, Fire/Prison/Earth negative controls and lifecycle evidence bounds stay preserved. Draft PR #3 remains unmerged; CI validation passed for the preceding lifecycle and stage-caveat commits.
