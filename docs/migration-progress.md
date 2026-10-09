@@ -93,3 +93,7 @@ The source-anchored, claim-level ledger now contains **65 established findings**
 ## Resource/overlay owner audited and first-class migration split (2026-10-09)
 
 Added **42** source-anchored established facts from the ROM/overlay resource owner, with eight matching stage-scoped overlay metadata records. **107** current audited facts across HUD and resource areas: **99/107 (92.52%)** accessible through either native Ghidra mapping or existing routed documentation; more strictly, **37/107 (34.58%)** are first-class Ghidra/independent sidecar representations, **62** are only Wiki-routed, and **8** have no dedicated mapping. Neither measure is total research migration because full-claim enumeration of the other owners is pending. Prefer the **first-class** measure for tracking real transfer into the Ghidra project. See `docs/known-knowledge-migration.md` and the maintained claim ledger for evidence.
+
+## Eight stage-resource files indexed — 2026-10-09
+
+Added 43 known, source-anchored stage facts plus the complete eight-row resource-file sidecar (separate from eight code overlays); CI validates against 84 pickup records and 150 selector slots. Run `tools/report_known_knowledge.py` to recalculate first-class migration % on the growing audited claim subset; the rest of the known Wiki corpus is not yet enumerated. No local importer required.

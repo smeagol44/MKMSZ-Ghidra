@@ -18,3 +18,7 @@ jobs:
         run: |
           python -m py_compile tools/report_known_knowledge.py
           python tools/report_known_knowledge.py
+      - name: Validate stage resource file index
+        run: |
+          python -m py_compile tools/validate_stage_resource_files.py
+          python tools/validate_stage_resource_files.py

@@ -134,3 +134,7 @@ Added **43 source-anchored claims** spanning rich Inventory boundary/evidence, s
 ## Canonical resource and overlay claim audit (2026-10-09)
 
 Added 42 source-anchored claims in `analysis/known_knowledge_claims.tsv`, with verified links to **eight existing stage-specific overlay scopes**, native loader/decoder entries, pickup type field and resource-system safety constraints. Audited subset: 107 known claims; 99 reachable through Ghidra or Wiki/canonical sidecars (92.52%), but only 37 independently represented in Ghidra/sidecars (34.58%). 62 still rely on Wiki-only routes; 8 lack first-class navigation. The **34.58%** is a better direct-migration proxy *only within audited claims* than the earlier 93.85% "already accessible" measure. Known facts have not been rerun as RE. Script now calculates both metrics and validates stage-scoped destinations. PR #3 draft; no importer required.
+
+## Stage-resource knowledge sidecar (2026-10-09)
+
+Eight verified resource-file identities added without disturbing existing code-overlay Ghidra ownership, plus 43 source-anchored stage facts. Explicit runtime-base unknown for Earth and unspecified Temple/Wind resource file IDs are retained as unknown rather than guessed. CI cross-checks end-exclusive ranges, stage pickup/selector counts and stage overlay distinction. This is a repository-only knowledge transfer; no Ghidra import needed. PR #3 remains draft.

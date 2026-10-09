@@ -94,7 +94,21 @@ def main():
             if not target.is_file() or not key:
                 raise ValueError(f"Missing analysis target: {claim['fact_id']}")
             rows = records(target)
-            if path.endswith("overlays.tsv"):
+            if path.endswith("stage_resource_files.tsv"):
+                parts = key.split("|")
+                matched = (any(r.get("stage") == key for r in rows) if len(parts) == 1
+                           else len(parts) == 2 and parts[0] == "ALL" and len(rows) == int(parts[1]))
+            elif path.endswith("rom_pickups.tsv") or path.endswith("stage_resource_slots.tsv"):
+                parts = key.split("|")
+                matched = (len(parts) == 2 and
+                           (len(rows) == int(parts[1]) if parts[0] == "ALL"
+                            else sum(1 for r in rows if r.get("stage") == parts[0]) == int(parts[1])))
+            elif path.endswith("overlay_functions.tsv"):
+                parts = key.split("|")
+                matched = (len(parts) == 2 and
+                           any(r.get("scope", "").lower() == parts[0].lower() and
+                               r.get("address", "").lower() == parts[1].lower() for r in rows))
+            elif path.endswith("overlays.tsv"):
                 matched = any(r.get("scope", "").lower() == key.lower() for r in rows)
             elif path.endswith("types.tsv"):
                 parts = key.split("|")
