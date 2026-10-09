@@ -94,7 +94,9 @@ def main():
             if not target.is_file() or not key:
                 raise ValueError(f"Missing analysis target: {claim['fact_id']}")
             rows = records(target)
-            if path.endswith("lifecycle_contracts.tsv"):
+            if path.endswith("stage_resource_caveats.tsv"):
+                matched = any(r.get("stage") == key for r in rows)
+            elif path.endswith("lifecycle_contracts.tsv"):
                 matched = any(r.get("fact_id") == key for r in rows)
             elif path.endswith("stage_resource_files.tsv"):
                 parts = key.split("|")

@@ -26,3 +26,7 @@ jobs:
         run: |
           python -m py_compile tools/validate_lifecycle_contracts.py
           python tools/validate_lifecycle_contracts.py
+      - name: Validate stage-specific caveat crosswalk
+        run: |
+          python -m py_compile tools/validate_stage_resource_caveats.py
+          python tools/validate_stage_resource_caveats.py
