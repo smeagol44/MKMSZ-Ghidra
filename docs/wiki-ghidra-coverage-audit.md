@@ -151,7 +151,7 @@ ApplyMkmszExtended.java> Finished!
 
 **Ghidra/implementation-confirmed bounded:** exactly 34 new second-pass operations applied, matching 17 comments plus 17 bookmarks. No unexplained skips: 11 preexisting type names and one deliberately preserved local animation bookmark. This does **not** establish strict byte-for-byte field-equivalence for those 11 types. In the preceding pass 38 trace sites were applied; 55 distinct added trace sites are now represented. Imported data in the local project remains distinct from Wiki evidence of stock or production behavior. No ROM tests or edits occurred.
 
-## Read-only Ghidra type-equivalence audit — prepared, local execution Pending
+## Read-only Ghidra type-equivalence audit — Ghidra/implementation-confirmed (2026-10-08)
 
 The user requested field-level confirmation of 11 named types previously preserved by `ApplyMkmszExtended.java` rather than relying only on the log `TYPE ALREADY PRESENT`. Added `ghidra_scripts/AuditMkmszTypes.java` for the **global clean USA Rev0 program**. It reads `analysis/types.tsv`, resolves the 11 curated `/MKMSZ` definitions, and compares the local Ghidra definitions without modifying them:
 
@@ -160,4 +160,27 @@ The user requested field-level confirmation of 11 named types previously preserv
 - Prints `MATCH`, `MISMATCH`, or `MISSING` for every curated type plus final totals. A mismatch means review is required; the script deliberately has **no repair/overwrite path**.
 - Rejects unknown program hashes or non-big-endian programs, requires the repository root to read the checked-in manifest, and performs no filesystem writes.
 
-To run after pulling PR #3 branch: **save your main Ghidra program**, open the global `MKMSZ.z64` clean-ROM program, then run **`AuditMkmszTypes.java`** in Script Manager and select the repository root. Do not run it in stage overlays. Send the complete console output. This script has **not yet been Ghidra 12.1.2 runtime validated**. Repository CI confirms only manifest integrity, not Java compilation or Ghidra semantics.
+To run after pulling PR #3 branch: **save your main Ghidra program**, open the global `MKMSZ.z64` clean-ROM program, then run **`AuditMkmszTypes.java`** in Script Manager and select the repository root. Do not run it in stage overlays. Send the complete console output. The maintainer subsequently ran this script in Ghidra 12.1.2 and confirmed all 11 current definitions match; see exact console below. This is an imported-metadata equivalence check, not proof of exhaustive binary recovery.
+
+### Maintainer type audit validation — exact Ghidra console, 2026-10-08
+
+```text
+AuditMkmszTypes.java> Running...
+MKMSZ read-only type audit: definitions=11, scope=global, category=/MKMSZ
+MATCH MKMSZ_ItemId (0x4 bytes, 8 members)
+MATCH MKMSZ_BoxBacking (0xa8 bytes, 6 fields)
+MATCH MKMSZ_PickupRecord (0x30 bytes, 12 fields)
+MATCH MKMSZ_PersistenceV2 (0x50 bytes, 18 fields)
+MATCH MKMSZ_EnemySpawnRecord (0x1c bytes, 7 fields)
+MATCH MKMSZ_AuxTriggerRecord (0x3c bytes, 7 fields)
+MATCH MKMSZ_RenderNode (0x58 bytes, 12 fields)
+MATCH MKMSZ_DynamicTextureSlot (0x10 bytes, 6 fields)
+MATCH MKMSZ_Type5ImageHeader (0xc bytes, 3 fields)
+MATCH MKMSZ_EnemySpawnConditionalRecord (0x20 bytes, 8 fields)
+MATCH MKMSZ_Type5ModelTableHeader (0x4 bytes, 2 fields)
+MKMSZ read-only type audit: match=11, mismatch=0, missing=0, checked=11, fields=81, enum_members=8
+NO CHANGES MADE: differences require separate review; do not automatically overwrite types.
+AuditMkmszTypes.java> Finished!
+```
+
+**Ghidra/implementation-confirmed:** all **11/11** current `/MKMSZ` definitions match the versioned `analysis/types.tsv` audit's checked dimensions: **81 named/typed fields**, **8 enum name/value pairs**, storage sizes, array lengths, unexpected defined components, and expected structure/enum kinds. **0 mismatches, 0 missing, no Ghidra mutations.** This closes the earlier field-equivalence uncertainty for these 11 declared definitions. It does **not** imply unknown bytes or unmodeled fields are now researched or that interpretations in the Wiki are independently proven correct by type parity.
