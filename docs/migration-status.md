@@ -154,3 +154,7 @@ Added a **166-row source-anchored semantic crosswalk** and CI coverage test. Fou
 ## Canonical Memory Map literal-space ownership transferred (2026-10-09)
 
 Added 89 exact current source-anchored interval records (54 ROM-side, 35 physical RDRAM) to `analysis/memory_ownership_intervals.tsv` without asserting any `confirmed-free` space, creating synthetic continuous spans from proof segments, or counting KSEG aliases as allocations. CI validates bounds, source records and classified safety. **356/427 (83.37%) first-class migration of audited known findings**, 63 Wiki-only, 8 unlinked. Records `973=379 Ghidra+594 sidecar`; no emulator/Ghidra import necessary. PR #3 draft/unmerged.
+
+## Canonical decisions/limitations source index (2026-10-09)
+
+Added 63 source-verified Wiki-only research findings as independent `analysis/known_knowledge_decisions.tsv` entries, retaining source SHA, evidence, rejected and Pending cautions. No new Ghidra functions or validations are claimed. **419/427** source-indexed audited findings (98.13%), **8** missing navigation, **187** of the audited claims directly anchored in Ghidra manifests. The remaining canonical research corpus still requires exhaustive owner/claim enumeration. Curated structured rows **1,036 = 379 Ghidra + 657 sidecar**. PR #3 draft.

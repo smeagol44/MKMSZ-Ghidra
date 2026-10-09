@@ -94,7 +94,9 @@ def main():
             if not target.is_file() or not key:
                 raise ValueError(f"Missing analysis target: {claim['fact_id']}")
             rows = records(target)
-            if path.endswith("memory_ownership_intervals.tsv"):
+            if path.endswith("known_knowledge_decisions.tsv"):
+                matched = any(r.get("fact_id") == key for r in rows)
+            elif path.endswith("memory_ownership_intervals.tsv"):
                 matched = any(r.get("region_id") == key for r in rows)
             elif path.endswith("function_registry_crosswalk.tsv"):
                 matched = any(r.get("registry_id") == key for r in rows)
@@ -176,7 +178,7 @@ def main():
         "audited_directly_migrated_claims": directly_migrated,
         "audited_direct_migration_percent": round(100.0 * directly_migrated / scoped_total, 2),
         "audited_wiki_only_routed_claims": wiki_only,
-        "audited_scope": "Selected explicitly enumerated Native HUD owner findings; not the entire Wiki",
+        "audited_scope": "Selected source-anchored known findings across multiple owners; corpus not fully enumerated",
         "why_no_single_percent": (
             "Structured imports and owner-page review are different unit sizes. "
             "Current Wiki behavioral findings need atomic source-to-Ghidra crosswalk "

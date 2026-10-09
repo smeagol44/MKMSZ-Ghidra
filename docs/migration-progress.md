@@ -119,3 +119,7 @@ Added 166 canonical Function Registry/dispatch rows with **144 fully indexed add
 Transferred 89 current canonical bounded intervals (54 ROM including proofs; 35 RDRAM physical), preserving aliases as views, proof-only lifetimes, production reservation and no-known-confirmed-free conclusion. New validation ensures no illegal new free-space assertions. Audited-finding reuse is now **356/427 (83.37%)** for enumerated already-documented facts, not whole Wiki knowledge. **63 Wiki-only / 8 unlinked.** Structured entries **973 = 379 Ghidra + 594 sidecars**.
 
 The 151 existing patch/proof locations now have an optional read-only coordinate-versus-bounded-ownership audit; it explicitly treats unmatched intervals as **unknown/protected, never free**. This does not inflate the known-claim count.
+
+## 63 source-only claims made versioned and searchable (2026-10-09)
+
+The 427-claim audited subset now has **419 first-class Ghidra-or-sidecar records (98.13%)**, eight known stock-address gaps, **zero Wiki-only unversioned claims in this enumerated subset**. Of these, **187/427 (43.79%) are directly Ghidra-manifest-indexed**. This is not whole-project research completion. Curated heterogeneous structured inventory: **1,036 = 379 Ghidra + 657 sidecar**.

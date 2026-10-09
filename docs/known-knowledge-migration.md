@@ -20,11 +20,12 @@ A 'known finding' is an evidence-qualified, bounded assertion in an authoritativ
 | Retail global table navigation | 2 | Ghidra bookmarks | Fifth batch Ghidra-confirmed |
 | Stage resource slot descriptions | 150 | Versioned `stage_resource_slots.tsv` | Conserved as sidecar; not all independently typed in Ghidra |
 | Eight stage ordinary resource-file mappings | 8 | Versioned `stage_resource_files.tsv` | File identity separate from code overlays; Earth base left unverified |
+| Source-qualified project decisions/constraints | 63 | Versioned `known_knowledge_decisions.tsv` | Bounded proofs, requirements and rejected/historical conclusions; source owner remains canonical |
 | Classified ROM/RDRAM ownership intervals | 89 | Versioned `memory_ownership_intervals.tsv` | Original owned ranges, classes, scopes and negative controls; not free-space claims |
 | Guarded ROM patch/proof locations | 151 | Versioned `rom_patch_sites.tsv` | Conserved as sidecar; ROM offsets are NOT stock VA labels |
 | Established persistence/lifecycle contracts | 22 | Versioned `lifecycle_contracts.tsv` | Source-anchored bounded ownership and proof/failure limits |
 | Stage-specific resource caveats | 8 | Versioned `stage_resource_caveats.tsv` | Preserves negative controls and stage-scope warnings |
-| **Total registered structured records** | **973** | **379 Ghidra + 594 intentional sidecar** | **All recorded; doesn't exhaust narrative findings** |
+| **Total registered structured records** | **1036** | **379 Ghidra + 657 intentional sidecar** | **All recorded; doesn't exhaust narrative findings** |
 
 These rows have different granularity and are **not** a percentage of all Wiki knowledge. Do not count 81 type fields as new 81 structures or confuse 150 resource-slot entries with 150 loaded functions. Latest local extended import result: **`applied=12, skipped=12`**, all 12 skips explained (11 existing types; one preserved animation note). No additional Ghidra action for this batch.
 
@@ -129,3 +130,9 @@ Cumulative audited established-finding coverage **356/427 (83.37%)** first-class
 Reproducible read-only `tools/audit_patch_site_ownership.py` compares all **151** existing guarded patch/proof registry records to the known bounded **ROM interval** entries without editing either source. It accepts only an unambiguous literal offset or one explicitly stated ROM point; ranges, multi-offset and file/overlay coordinate expressions are withheld pending source review. The optional `--csv /tmp/mkmsz-patch-map-audit.csv` writes ID-qualified observations.
 
 **No-match does not imply a free interval.** The Memory Map is intentionally **not** a complete ROM partition; a patch-site may be covered by stock code not cataloged as a standalone continuous interval. Overlaps can be parent/child reservations or mutually exclusive proof artifacts; neither implies that two features can compose. This audit does not verify guards, bytes, allocations, runtime behavior, or generate permissions. No new claim records or Ghidra importer operations are introduced.
+
+## 63 canonical Wiki-only decisions indexed without inventing stock ROM behavior (2026-10-09)
+
+Every previously source-only claim in the **currently audited 427-claim subset** now has an independent `analysis/known_knowledge_decisions.tsv` record. It carries the stable claim ID, original owner and exact checked Wiki text anchor, source blob revision, selected target canonical Wiki owner, evidence/scope, decision and nonpromotion caveat. All 63 original-owner anchors were checked against the current live versioned Wiki before committing. The sidecar is a **research navigation index and bounded claim digest**, *not* a new source of authority, new runtime proof, or native Ghidra code.
+
+**419/427 (98.13%) currently audited claims have first-class source-linked metadata** after this promotion, **8 retain no first-class navigation**. However, only **187 claims point directly to existing imported Ghidra manifest objects**; this is not 98% Ghidra program annotation coverage, and the 40-page owner corpus is not yet completely enumerated. Structured catalog rows rise to **1,036 = 379 curated Ghidra-confirmed + 657 independent companion rows**, which are **not** a count of unique discoveries. The importer needs no new run for this particular sidecar batch. Canonical Wikis remain up-to-date sources for statuses, especially the open rich-Inventory audio failure.
