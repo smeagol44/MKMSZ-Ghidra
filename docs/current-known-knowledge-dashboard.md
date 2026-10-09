@@ -13,8 +13,10 @@
 | Locally confirmed curated Ghidra catalog records | **379** | Prior maintainer-import baseline, not newly proved today |
 | Companion / versioned / Ghidra-pending catalog records | **1,247** | Source-owned semantics and catalog rows, including 242 heading-only navigators |
 | Total heterogeneous structured catalog records | **1,626** | Not distinct discoveries; the types of entries vary and can overlap |
-| Additional global Ghidra bookmarks awaiting maintainer local import | **7** | Explicitly **Pending** until user observes importer results |
+| Additional global Ghidra navigation bookmarks | **7/7 locally verified** | Included in the maintainer's **105/105** matching bookmark records |
 | Known N64 Function Registry records with scoped address navigation | **166/166** | A row may be an interior instruction or dispatch family rather than a standalone function |
+
+**Confirmed 2026-10-09, maintainer-local Ghidra:** After merging PRs #3–#5, `ApplyMkmszExtended.java` reported all 12 types `TYPE UP TO DATE`, refreshed the stale animation bookmark at `0x80030974`, and finished `applied 1, skipped 0`. `AuditMkmszTypes.java` reported **12/12 definitions, 88 fields, 8 enum members, 0 mismatches** including field notes. The independent `AuditMkmszImportedState.java` reported **623/623 exact, 0 mismatches**: 139 global functions, 35 global labels, 2 code labels, 12 type definitions, 8 enum members, 88 type fields, 1 typed data instance and its label, 232 comments, 105 bookmarks. This is **maintainer-observed local Ghidra execution**, not a CI-only or exhaustive Wiki/game-code claim.
 
 **Do not average these axes.** The requested percentage of *all established facts*, as opposed to selected audited facts or reviewed pages, still requires a certified semantic census. The 253/713 heading metric is a transparent triage proxy; it does **not** mean 75.6% of the known game remains to be researched or migrated.
 
@@ -46,7 +48,7 @@ Exact Git blob SHAs, source lines, evidence classifications and nonpromotion cau
 
 ### Native host action/control ABI and newly staged type
 
-`analysis/host_action_semantic_contracts.tsv` indexes **32** bounded MKMSZ host action facts; **17 link previously named native functions**, and **two point to newly staged, not yet locally imported, Ghidra metadata**: a complete 0x2C-byte `MKMSZ_SpecialActionDescriptor` type with seven source-verified fields and its one stock Low Kick instance at 0x800B0F68. The descriptor ends at the 0x800B0F94 sentinel before the separate High Kick table; no MKT donor ABI imported. Five native function plate/repeatable annotations were enriched, notably action callback self-reentry and current vs stale player direction. Unique first-class source headings are now **22/33**; no exhaustive semantic claim. The prior **11 locally verified types** remain pinned as baseline; the new type/data are classed as pending in the knowledge ledger and local handoff.
+`analysis/host_action_semantic_contracts.tsv` indexes **32** bounded MKMSZ host action facts; **17 link previously named native functions**, and **two point to metadata now locally verified in Ghidra**: a complete 0x2C-byte `MKMSZ_SpecialActionDescriptor` type with seven source-verified fields and its one stock Low Kick instance at 0x800B0F68. The descriptor ends at the 0x800B0F94 sentinel before the separate High Kick table; no MKT donor ABI imported. Five native function plate/repeatable annotations were enriched, notably action callback self-reentry and current vs stale player direction. Unique first-class source headings are now **22/33**; no exhaustive semantic claim. The original **11 locally verified types**, the added special descriptor and its typed Low Kick data/primary label now pass the maintainer's local audits. Historical staging classifications in the initial ledger describe the earlier migration phase.
 
 ## Prevent duplicated future investigations
 
@@ -59,7 +61,7 @@ Exact Git blob SHAs, source lines, evidence classifications and nonpromotion cau
 
 ### Final importer-readiness audit
 
-The original global importer was found to overwrite names/comments and to permit an unavailable executable SHA. The draft branch now **fails closed on missing/mismatched source hashes**, preserves different user-owned global function names/labels and non-`[MKMSZ]` plate comments, while still refreshing specifically managed `[MKMSZ]` notes. The extended importer already preserves local type/data/comment conflicts. A static CI preflight guards both scripts and the seven pending bookmarks, plus the new exact type/data import; **no local Ghidra execution or semantic-completeness certification is implied**. Current audio owner remains externally active; none of its unresolved mechanics are silently promoted to Ghidra facts.
+The original global importer was found to overwrite names/comments and to permit an unavailable executable SHA. The merged importer **fails closed on missing/mismatched source hashes**, preserves different user-owned global function names/labels and non-`[MKMSZ]` plate comments, while still refreshing specifically managed `[MKMSZ]` notes. The extended importer already preserves local type/data/comment conflicts. A static CI preflight guards both scripts and the seven pending bookmarks, plus the new exact type/data import; **the maintainer later confirmed local Ghidra execution; no exhaustive semantic-completeness certification is implied**. Current audio owner remains externally active; none of its unresolved mechanics are silently promoted to Ghidra facts.
 
 ### High-value residual Wiki gap triage — final repository-side pass
 
@@ -76,12 +78,12 @@ The section audit answers **where an indexed first-class claim can navigate**, n
 | Sektor takeover history | 2/106 | The long vNN chronology belongs to the evidence/proof owner. Archiving every revision as a stock function/comment would degrade search and imply unsupported current semantics |
 | Rich Inventory music investigation | 0/24 | **Active, changing evidence owner:** preserve already verified audio function notes; upstream trigger and memory/lifecycle causality remain Pending. Reconcile separately when its conclusions stabilize |
 
-**Practical migration decision:** no further blanket Wiki-to-symbol batch is justified by these source-navigation gaps. The next action is review/approval of PR #3 and a one-pass **user-local** importer verification, not claiming 100% of the Wiki, rebuilding Ghidra, or reviving known-failed proofs. The truly open RE/product questions remain with their canonical Wiki owners and may generate future precise metadata changes after verification.
+**Practical migration decision:** the initial curated global metadata migration is now locally verified (623/623 exact checks). No blanket Wiki-to-symbol batch is justified by the remaining source-navigation gaps; future work should target new verified facts rather than implying all game code or Wiki research is reconstructed. The truly open RE/product questions remain with their canonical Wiki owners and may generate future precise metadata changes after verification.
 
 ## Handoff remaining
 
 - Complete a **semantic** triage of the unlinked Wiki sections: distinguish already-archived historical proof entries from reusable current facts rather than mechanically cloning every old experiment.
-- Recheck recent changes to the Wiki audio owner and Ghidra `main` before final PR review. The previously observed `0x8007D4A8` main-branch audio function note has been preserved in draft PR #3.
-- Keep PR #3 **draft/unmerged** until user review and approval. Once merged, use `docs/local-migration-handoff.md` for a single bounded local import and confirmation of seven staged bookmarks.
+- Recheck current Wiki/audio findings before adding new native metadata; the earlier `0x8007D4A8` audio-function note was preserved by the merged migration.
+- PRs #3–#5 are merged, and the maintainer completed the bounded global import with **623/623** exact checks. See `docs/local-migration-handoff.md` for verified results and reimport procedure.
 
 **No clean ROM modification, emulator run, new production patch or new runtime claim was introduced by this dashboard.**

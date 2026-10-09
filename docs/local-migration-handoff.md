@@ -1,23 +1,20 @@
 # Local Ghidra knowledge migration — prepared handoff
 
-**Current status and latest counts:** [Known-knowledge dashboard](current-known-knowledge-dashboard.md). This handoff becomes actionable only after explicit approval and PR merge; the seven new bookmarks are still not local Ghidra-confirmed.
-
-**State: ready to follow after draft PR #3 is finalized and merged, NOT a request for immediate local testing.**
+**Current status and latest counts:** [Known-knowledge dashboard](current-known-knowledge-dashboard.md). **PRs #3–#5 are merged and the curated global metadata is locally verified: 623/623 exact record checks.** This is the repeat-import handoff for future updates.
 
 This repository stores ROM-free analysis metadata and native proof catalogs, while the latest canonical behavioral facts stay in `smeagol44/MKMSZ-Randomizer/wiki/`. This is a handoff checklist, not a claim that the Ghidra database or the entire 40-owner Wiki has been exhaustively migrated.
 
 ## 1. What is already locally confirmed
 
 - Supported global program: USA Rev. 0 clean ROM, 16 MiB, big-endian SHA-256 `9c18254abf6722b95aa782fcd310bd95f6bcf147da66beb77ce32ca90673ffc6`.
-- Maintainer confirmed imported **139/139** curated global functions and **35/35** global symbols. Eleven existing `/MKMSZ` type definitions matched an exact read-only audit (81 fields, eight enum members, zero mismatches).
-- Latest maintainer extended importer returned `applied=12, skipped=12` (11 preserved existing types plus one protected locally edited bookmark at `0x80030974`); that run precedes this branch's seven new `known-stock-navigation` bookmarks.
+- Maintainer confirmed **139/139** curated global functions, **35/35** global labels, **12/12** managed type definitions with **88 fields and 8 enum members**, and **623/623** audited records with zero mismatches. Earlier `applied=12, skipped=12` is superseded by the automatic synchronization.
 - Eight independent stage-overlay programs and their ROM/source hashes are recorded in `analysis/overlays.tsv`; stage-specific VAs are not safe to flatten into the global image.
 - Known Function Registry navigation is **166/166 source rows represented** in scoped functions, internal labels, existing comments/bookmarks. This is *address visibility*, not proof of 166 separate function boundaries.
 
-## 2. One global update after approval/merge
+## 2. Reapply after future repository metadata changes
 
 1. Back up the existing local Ghidra project. Keep the ROM and clean baseline unchanged. **Use a backup** even though the global importer now refuses unknown/missing clean-ROM hashes, preserves different user-owned function/global names, and leaves non-`[MKMSZ]` plate comments intact. Managed `[MKMSZ]` notes may be updated intentionally.
-2. Pull `MKMSZ-Ghidra` once PR #3 is merged (`git pull --ff-only` on `main`). Before it merges, the new files live on branch `research/wiki-ghidra-coverage-reconciliation` and are **not** automatically present on local `main`.
+2. Pull the updated `MKMSZ-Ghidra` `main` using `git switch main` and `git pull --ff-only`.
 3. Open the existing **clean N64 global Ghidra program**, not a separately imported stage overlay. Ensure it matches the pinned ROM SHA-256.
 4. In Ghidra Script Manager, with this checkout's `ghidra_scripts/` directory enabled, run `ApplyMkmszAnalysis.java`, select the checkout root, then run `ApplyMkmszExtended.java`, selecting the same root. Save the Ghidra program when satisfied.
 5. Specifically inspect the seven new `MKMSZ/known-stock-navigation` bookmarks at:
@@ -66,11 +63,10 @@ The nine formerly unreviewed owners already have an immutable 242-heading source
 
 **Readiness audit (2026-10-09):** The older global `ApplyMkmszAnalysis.java` previously used unconditional `setName` and `setPlateComment` plus a null-hash allowance. Draft PR #3 now guards those operations, refuses missing ROM hashes and protects hand-owned global symbols. A new ROM-free static importer-preflight CI check documents that this is **repository/CI-confirmed only**, not a locally exercised Ghidra update. Final local import remains explicitly deferred until PR approval/merge.
 
-## 5. Sign-off gates still open
+## 5. Remaining research scope (not import blockers)
 
 - The **40 tracked Wiki owners now all have a partial first-pass crosswalk**. Complete the deeper section-by-section semantic review and explicitly certify evidence-exhaustive owners before claiming an all-known-facts migration denominator. Use the read-only section census above to find unlinked, ambiguous and stale areas.
-- Apply/verify seven staged navigation bookmarks in the maintainer's local Ghidra program.
-- Review PR #3, merge when approved, then pull and run the importers once. There is **no new ROM, emulator, or production-integration gate** created by this metadata handoff.
+- The seven navigation bookmarks are locally verified within **105/105** matching bookmark records. PRs #3–#5 are merged. No new ROM, emulator, or production-integration gate exists for this metadata handoff.
 
 ## Local import completeness correction (after PR #3)
 
@@ -79,3 +75,9 @@ The maintainer's first pass confirmed the descriptor structure but exposed a mis
 ## Authoritative managed-types follow-up
 
 The maintainer confirmed no intentional local edits and wants the versioned GitHub manifest as the single source of truth for explicitly curated `/MKMSZ` structures and enums. The old `TYPE ALREADY PRESENT` count was expected after prior imports, **not** evidence of local customization. Likewise, the lone `MKMSZ_PersistenceV2` `isEquivalent` mismatch did not establish user edits. The corrective script (PR #4) now reports `TYPE UP TO DATE` for equivalent definitions, `TYPE SYNCED` for compatible same-kind/same-size updates, and explicit `TYPE CONFLICT` for incompatible ones. After the correction merges and a backup is made, run `AuditMkmszTypes.java` read-only first to record the exact pre-sync differences; then run `ApplyMkmszExtended.java`, then repeat the type audit plus `AuditMkmszImportedState.java`. Do not manually edit a missing label, inferred signature, structure or type.
+
+## Final maintainer-local sign-off — 2026-10-09
+
+**Confirmed 2026-10-09, maintainer-local Ghidra:** After merging PRs #3–#5, `ApplyMkmszExtended.java` reported all 12 types `TYPE UP TO DATE`, refreshed the stale animation bookmark at `0x80030974`, and finished `applied 1, skipped 0`. `AuditMkmszTypes.java` reported **12/12 definitions, 88 fields, 8 enum members, 0 mismatches** including field notes. The independent `AuditMkmszImportedState.java` reported **623/623 exact, 0 mismatches**: 139 global functions, 35 global labels, 2 code labels, 12 type definitions, 8 enum members, 88 type fields, 1 typed data instance and its label, 232 comments, 105 bookmarks. This is **maintainer-observed local Ghidra execution**, not a CI-only or exhaustive Wiki/game-code claim.
+
+The earlier wrong generated Low Kick label, out-of-date `MKMSZ_PersistenceV2` description and obsolete `0x80030974` bookmark have all converged through the importers, without manual local edits. Save the current Ghidra project after confirming the audits. Earlier sections record historical pre-correction stages; the results above supersede their Pending labels.
