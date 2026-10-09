@@ -17,3 +17,5 @@ memory_ownership_intervals	analysis/memory_ownership_intervals.tsv	rows	89	versi
 known_decisions	analysis/known_knowledge_decisions.tsv	rows	63	versioned-sidecar	63 source-qualified accepted/bounded/rejected/required project findings; no stock-ROM function invention
 staged_stock_navigation	analysis/bookmarks.tsv	staged-navigation	7	versioned-sidecar	Seven exact known global code/data bookmarks staged pending user-local Ghidra import; not confirmed imported
 stock_rom_navigation	analysis/stock_rom_navigation.tsv	rows	1	versioned-sidecar	Title palette ROM-only descriptor and palette coordinate; no guessed VA
+core_runtime_invariants	analysis/core_runtime_invariants.tsv	rows	18	versioned-sidecar	Canonical verified runtime/allocator/boot/lifecycle invariants, preserving negative controls
+native_xp_thresholds	analysis/xp_thresholds.tsv	rows	9	versioned-sidecar	Nine exact native XP tier thresholds; 7354 is correct ninth value

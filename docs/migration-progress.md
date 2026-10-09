@@ -127,3 +127,7 @@ The 427-claim audited subset now has **419 first-class Ghidra-or-sidecar records
 ## Eight previously unlinked source-qualified targets mapped (2026-10-09)
 
 Seven known stock code/data addresses are now Ghidra-bookmark-manifest entries **pending a future local run**; the stock title palette is indexed by **ROM coordinate only**. The 427 current audited findings all have first-class repository destinations. This is not entire-corpus coverage or local Ghidra confirmation; 7 staged bookmarks still need local import observation. Heterogeneous structured records: **1,044 = 379 local confirmed Ghidra + 665 versioned sidecar/staged**.
+
+## Core runtime and XP native thresholds — 2026-10-09
+
+18 canonical runtime invariants and 9 fixed XP tier thresholds gained independent source-qualified sidecars; Ghidra type field note for MKSV +0x4C synchronized with canonical editor usage. 454 selected audited facts now have versioned targets; 187 Ghidra-addressed claims, 7 new Ghidra bookmarks pending local import. 1,071 heterogeneous records = 379 locally confirmed Ghidra + 692 sidecar/staged. Both new owner pages remain partial.

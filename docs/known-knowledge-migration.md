@@ -25,7 +25,7 @@ A 'known finding' is an evidence-qualified, bounded assertion in an authoritativ
 | Guarded ROM patch/proof locations | 151 | Versioned `rom_patch_sites.tsv` | Conserved as sidecar; ROM offsets are NOT stock VA labels |
 | Established persistence/lifecycle contracts | 22 | Versioned `lifecycle_contracts.tsv` | Source-anchored bounded ownership and proof/failure limits |
 | Stage-specific resource caveats | 8 | Versioned `stage_resource_caveats.tsv` | Preserves negative controls and stage-scope warnings |
-| **Total registered structured records** | **1044** | **379 locally imported Ghidra + 665 sidecar/staged** | **All recorded; doesn't exhaust narrative findings** |
+| **Total registered structured records** | **1071** | **379 locally imported Ghidra + 692 sidecar/staged** | **All recorded; doesn't exhaust narrative findings** |
 
 These rows have different granularity and are **not** a percentage of all Wiki knowledge. Do not count 81 type fields as new 81 structures or confuse 150 resource-slot entries with 150 loaded functions. Latest local extended import result: **`applied=12, skipped=12`**, all 12 skips explained (11 existing types; one preserved animation note). No additional Ghidra action for this batch.
 
@@ -145,3 +145,10 @@ Added **seven source-qualified global navigation bookmarks** to `analysis/bookma
 The 427 audited-known claims now have source-qualified first-class destinations (**427/427 in this explicitly enumerated subset**); this is **not a claim that Ghidra contains all those facts or that all current Wiki owners have been exhausted**. Exactly **7 newly staged bookmarks** require a future maintainer pull + importer run and confirmation. Locally confirmed baseline remains the previous 379 curated Ghidra catalog records. The new seven staged bookmarks and one ROM-coordinate record are counted as **versioned-sidecar/pending** until actual import logs are supplied. Curated heterogeneous structured totals: **1,044 = 379 locally Ghidra-confirmed + 665 versioned-sidecar/pending**.
 
 The next pass must audit additional previously unenumerated known behavior in the other canonical owners; otherwise the high audited-subset percentage is misleading.
+
+
+## Canonical Core Runtime invariants and XP tier table (2026-10-09)
+
+After correcting the canonical `Core-Runtime-and-Address-Database.md` and `Data-Structures-and-Encodings.md` in production source PR #158, **18 exact-anchored runtime invariants** now live in `analysis/core_runtime_invariants.tsv` and **nine exact native tier thresholds** in `analysis/xp_thresholds.tsv` (tier 9 = **7354**, not superseded 7345). Source blob hashes and verified owner anchors are retained. This preserves arena floor/cursor distinctions, no-bounds-check warning, 16 KiB reservation, file-1B bootstrap, pickup manager ABI, correct current-controller slot, and the rejected stage-init tier-evaluator call. No Ghidra signatures or ROM bytes changed. The existing `MKMSZ_PersistenceV2.reserved_tail` type note now describes the established transient GAME SETTINGS editor usage; width/offset remain unchanged.
+
+**The audited subset is now 454 source-anchored findings**, all with a versioned target. That numerator deliberately says only that selected findings are **discoverable**, not that Ghidra imported every fact. Only 187 source-anchored claims currently point to locally/manifest-known Ghidra identities, with 7 new bookmark locations staged for later local importer validation; the rest are canonical proof/ROM/behavior sidecars. Total heterogeneous structured inventory: **1071 = 379 confirmed Ghidra catalog entries + 692 companion/staged records**. Core Runtime and XP owners move from unreviewed to **partial-crosswalk**; not claimed exhaustive, and other owners remain unreviewed.

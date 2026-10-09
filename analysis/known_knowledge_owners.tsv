@@ -1,5 +1,5 @@
 owner_page	domain	reconciliation	evidence_note
-Core-Runtime-and-Address-Database.md	core	unreviewed	Current authoritative known knowledge still needs systematic finding-level reconciliation
+Core-Runtime-and-Address-Database.md	core	partial-crosswalk	Current authoritative known knowledge still needs systematic finding-level reconciliation
 Memory-and-Allocation-Map.md	core	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
 Function-Registry.md	core	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
 Address-and-Patch-Site-Registry.md	core	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
@@ -9,7 +9,7 @@ Stage-Flow-and-Selector.md	randomizer	partial-crosswalk	Subset of verified knowl
 Pickups-and-Item-Randomization.md	randomizer	unreviewed	Current authoritative known knowledge still needs systematic finding-level reconciliation
 Global-Item-Materialization-and-Solvability.md	randomizer	unreviewed	Current authoritative known knowledge still needs systematic finding-level reconciliation
 Persistence-Inventory-and-Lifecycle.md	randomizer	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
-XP-and-Progression.md	randomizer	unreviewed	Current authoritative known knowledge still needs systematic finding-level reconciliation
+XP-and-Progression.md	randomizer	partial-crosswalk	Current authoritative known knowledge still needs systematic finding-level reconciliation
 Native-HUD-and-UI.md	randomizer	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
 Presentation-and-Branding.md	randomizer	unreviewed	Current authoritative known knowledge still needs systematic finding-level reconciliation
 Sounds-and-Music.md	randomizer	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked

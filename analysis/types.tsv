@@ -46,7 +46,7 @@ global	field	MKMSZ_PersistenceV2		fortress_pickups	0x3C	u32		Static-confirmed; p
 global	field	MKMSZ_PersistenceV2		progression_count	0x40	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Progression rewards acquired
 global	field	MKMSZ_PersistenceV2		persistent_xp	0x44	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Current persistent XP
 global	field	MKMSZ_PersistenceV2		rainbow_phase	0x48	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Rainbow option state
-global	field	MKMSZ_PersistenceV2		reserved_tail	0x4C	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Reserved word
+global	field	MKMSZ_PersistenceV2		reserved_tail	0x4C	u32		Static-confirmed; production lifecycle Runtime-confirmed bounded	Reserved persistent-state word temporarily used by GAME SETTINGS editor at 0x801AF81C; not free
 global	struct	MKMSZ_EnemySpawnRecord	0x1C					Static-confirmed	Only common opcodes 0/1/9; opcode 6 uses different 0x20 grammar
 global	field	MKMSZ_EnemySpawnRecord		opcode	0x00	u32		Static-confirmed	Stream opcode 0/1/9 common record
 global	field	MKMSZ_EnemySpawnRecord		raw_x	0x04	s32		Static-confirmed	Stored transformed at process +0x714

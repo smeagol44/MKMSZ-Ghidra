@@ -50,3 +50,7 @@ jobs:
         run: |
           python -m py_compile tools/validate_stock_navigation.py
           python tools/validate_stock_navigation.py
+      - name: Validate core runtime and XP tier invariants
+        run: |
+          python -m py_compile tools/validate_core_xp_knowledge.py
+          python tools/validate_core_xp_knowledge.py
