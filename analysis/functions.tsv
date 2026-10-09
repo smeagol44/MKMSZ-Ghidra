@@ -8,7 +8,7 @@ address	name	evidence	comment
 0x80016008	rand_per_thousand	Static-confirmed	Native random gate: returns true-like 0x8000 when random modulo 1000 is below unsigned argument, else 0x4000.
 0x80016080	stage_callback_reconstruct	Static-confirmed: class teardown, stage dispatch, stage-specific resource/player reconstruction; not a life reload owner	Stage callback reconstruction dispatcher
 0x80016B10	frontend_resource_init	Static-confirmed: configured continues/lives -> current at `0x80016BC0/8`, lives minus one; called from `0x8000D260	Frontend/fresh-flow current-resource initialization
-0x80017F80	actor_motion_integrate	Static-confirmed	Normal actor motion/update integrator; rotates local velocity and updates fixed8 world position.
+0x80017F80	actor_motion_integrate	Static-confirmed	Normal actor integrator reads velocities +0x14/+0x18, shifts >>8, rotates and adds three times integer components into fixed8 world XYZ. MKMSZ host units/cadence differ from MKT donor 16.16 motion. (Player-Actions-and-Special-Moves.md).
 0x8001BDA0	actor_render_descriptor_bind	Static-confirmed	Writes `+0x74/+0x7C` descriptor geometry; initialized `+0x8C bit 0x40` path marks `+0xFA` dirty and resolves `+0x68/+0x80` from texture slot `+0x9C` and palette selector `+0x9E`; both relevant zero-preword entries mark dirty even on same-shape binds
 0x8001BF70	texture_slot_init_sync	Static-confirmed; Runtime-confirmed bounded	Initializes fixed texture-slot metadata, queues source pixels, and synchronously drains upload.
 0x8001C2B4	dynamic_texture_alloc	Static-confirmed	Allocates/reuses dynamic texture records in slot range 0x200..0x2FF.
@@ -24,7 +24,7 @@ address	name	evidence	comment
 0x8002830C	controller_clone_alloc	Static-confirmed	Allocates/links a controller-process and clones current controller context fields.
 0x80028610	process_scheduler_dispatch	Static-confirmed	Main controller/process scheduler and dispatcher.
 0x80028794	process_sleep	Static-confirmed	Stores controller sleep count and context-switches/yields.
-0x80028F3C	player_process	Static-confirmed	Main player locomotion/state process.
+0x80028F3C	player_process	Static-confirmed	Main player locomotion and control. Semantic input controller+0x638 -> 0x800BF2EE; held horizontal direction +0x68C; live direction/facing mismatch +0x704. Locomotion mode +0x6FC can be stale after idle, not live backward intent. (Player-Actions-and-Special-Moves.md).
 0x8002B1EC	player_set_horizontal_velocity	Static-confirmed	Writes player actor horizontal velocity and related movement field.
 0x8002E078	victim_reaction_install	Static-confirmed	Installs an already-resolved reaction callback on the victim controller and marks it reacting.
 0x8002E104	award_xp	Static-confirmed	Central XP award routine.
@@ -44,7 +44,7 @@ address	name	evidence	comment
 0x8003188C	actor_flip_facing	Static-confirmed	Toggles facing and runs native frame/setup helper.
 0x80031D00	find_nearest_opponent	Static-confirmed	Finds nearest opponent controller among player-facing opponent classes.
 0x80031EF0	face_opponent	Static-confirmed	Resolves desired side and flips actor only when needed.
-0x80032CD4	special_action_install	Static-confirmed	Installs top-level special-action callback; installed callback has nonstandard return/lifecycle constraints.
+0x80032CD4	special_action_install	Static-confirmed	Installs top-level special callback as scheduler context; observed callback ra may equal its entry. A normal jr ra self-reenters. Preserve lock 0x800BF308, bounded loops and native exit/restore. (Player-Actions-and-Special-Moves.md).
 0x80034510	anim_resource_actor_create	Static-confirmed	Creates resource-backed secondary actor from animation stream resource entry.
 0x80035578	life_continue_terminal_owner	Static-confirmed: remaining-life branch bypasses configured reload; stock decrement store `0x80035CA0`; accepted Continue reload `0x80035C8C	Life/Continue/terminal presentation owner
 0x80035D34	failure_reconstruction	Static-confirmed: states `0x16/0x1B` preserve carrier-valid; other paths decrement at `0x80035F04` or enter life/Continue owner	Alternate failure or valid-preserving reconstruction
@@ -73,9 +73,9 @@ address	name	evidence	comment
 0x8004B524	ice_parent_action_exit	Static-confirmed	Clears special lock `0x800BF308` and invokes `0x800328FC` on the current owner actor after parent recovery.
 0x8004B584	ice_parent_preflight_check	Static-confirmed	Makes `+0x714` current and calls stock `0x800304C0`, consuming Ice entry `+0xDC4` before child flight on normal mode zero; restores owner before strike/handoff
 0x8004B82C	ice_projectile_flight	Static-confirmed	On straight mode zero loads file-`0x87 +0xFD0 = +0xD90` rocket cursor, calls one-time `0x8004CC14`, then v75 injects initial velocity and flight callback; the parent wrapper is bypassed
-0x8004CBC4	projectile_child_process_create	Static-confirmed	Creates projectile child process/controller from current parent context.
+0x8004CBC4	projectile_child_process_create	Static-confirmed	Projectile child class0x700 binds parent staged actor+0x714 to child+0x6E0, copies parent context, clears parent working pointer+0x648. Those pointers serve distinct lifetime roles. (Player-Actions-and-Special-Moves.md).
 0x8004CC14	projectile_velocity_rate_setup	Static-confirmed	Writes facing-aware projectile actor `+0x14`, then calls `0x80031724` with the supplied rate; suitable as a setup primitive, not player propulsion and not yet established as the generic per-tick acceleration primitive
-0x8004CC50	projectile_loop	Static-confirmed	Generic projectile process loop.
+0x8004CC50	projectile_loop	Static-confirmed	Child flight loop latches +0x70C to +0x680; per tick sleeps, advances/checks lifecycle, optionally invokes callback and resolves contact. Does not rewrite actor+0x14 velocity between callbacks; offscreen/lifetime exit calls 0x8004CDF8. (Player-Actions-and-Special-Moves.md).
 0x8004CDF8	projectile_actor_child_exit	Static-confirmed	Removes actor through `0x80028408/0x80024B00`, then terminates the active projectile process through `0x80028564`; reached on generic flight offscreen/lifetime paths.
 0x8004CE6C	projectile_resolve_strike	Static-confirmed	Resolves fighter-local strike record from projectile strike selector.
 0x8004CF3C	projectile_collision_dispatch	Static-confirmed	Dispatches projectile collision/strike to normal collision core.

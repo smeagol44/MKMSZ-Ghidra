@@ -25,6 +25,10 @@ def count_rule(path, rule):
         return len(entries)
     if rule == "definitions":
         return sum(r["kind"] in ("struct", "enum") for r in entries)
+    if rule == "baseline-definitions":
+        return sum(r["kind"] in ("struct","enum") and r["name"] != "MKMSZ_SpecialActionDescriptor" for r in entries)
+    if rule == "new-special-action-definition":
+        return sum(r["kind"]=="struct" and r["name"]=="MKMSZ_SpecialActionDescriptor" for r in entries)
     if rule == "trace-sites":
         # Counts trace-category bookmark sites: 86 new trace locations plus 6 supplemental existing-site bookmarks.
         return len({(r["scope"], r["address"].lower()) for r in entries
@@ -97,7 +101,7 @@ def main():
             if not target.is_file() or not key:
                 raise ValueError(f"Missing analysis target: {claim['fact_id']}")
             rows = records(target)
-            if path.endswith("audio_testlab_known_contracts.tsv") or path.endswith("xp_progression_contracts.tsv") or path.endswith("memory_semantic_contracts.tsv") or path.endswith("global_item_semantic_contracts.tsv") or path.endswith("enemy_semantic_contracts.tsv"):
+            if path.endswith("audio_testlab_known_contracts.tsv") or path.endswith("xp_progression_contracts.tsv") or path.endswith("memory_semantic_contracts.tsv") or path.endswith("global_item_semantic_contracts.tsv") or path.endswith("enemy_semantic_contracts.tsv") or path.endswith("host_action_semantic_contracts.tsv"):
                 matched = any(r.get("fact_id") == key for r in rows)
             elif path.endswith("stage_flow_contracts.tsv"):
                 matched = any(r.get("fact_id") == key for r in rows)

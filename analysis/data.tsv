@@ -1,1 +1,2 @@
 scope	address	datatype	label	evidence	note
+global	0x800B0F68	MKMSZ_SpecialActionDescriptor	stock_low_kick_special_descriptor	Static-confirmed; local import Pending	Single 0x2C-byte stock Low Kick descriptor; sentinel at 0x800B0F94 and separate HK table at 0x800B0F98. Guarded importer preserves existing typed data.

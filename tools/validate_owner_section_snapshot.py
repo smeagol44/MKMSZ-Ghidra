@@ -11,9 +11,9 @@ claims=read("known_knowledge_claims.tsv")
 owners=read("known_knowledge_owners.tsv")
 assert len(entries)==len(owners)==40
 assert {r["owner_page"] for r in entries}=={r["owner_page"] for r in owners}
-assert len(claims)==sum(int(r["existing_claims"]) for r in entries)==895
+assert len(claims)==sum(int(r["existing_claims"]) for r in entries)==927
 assert sum(int(r["level_2_3_headings"]) for r in entries)==713
-assert sum(int(r["headings_with_unique_anchor"]) for r in entries)==237
+assert sum(int(r["headings_with_unique_anchor"]) for r in entries)==253
 assert sum(int(r["stale_claims"]) for r in entries)==0
 assert sum(int(r["ambiguous_claims"]) for r in entries)==30
 assert sum(int(r["preamble_claims"]) for r in entries)==32
@@ -21,5 +21,5 @@ for entry in entries:
     assert len(entry["wiki_source_blob_sha"])==40
     assert entry["audit_scope"]=="raw anchor scan; not semantic exhaustiveness"
     assert 0<=int(entry["headings_with_unique_anchor"])<=int(entry["level_2_3_headings"])
-print("40 pinned Wiki owners: 237/713 heading anchors, 895 claims, 30 ambiguous, 0 stale.")
+print("40 pinned Wiki owners: 253/713 heading anchors, 927 claims, 30 ambiguous, 0 stale.")
 print("This is source navigation only, NOT percent of all known knowledge.")

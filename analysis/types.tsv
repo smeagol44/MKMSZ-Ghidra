@@ -99,3 +99,11 @@ global	field	MKMSZ_EnemySpawnConditionalRecord		activation_mode	0x1C	s32		Static
 global	struct	MKMSZ_Type5ModelTableHeader	0x04					Static-confirmed	Data-Structures-and-Encodings.md
 global	field	MKMSZ_Type5ModelTableHeader		rows_per_block	0x00	u16		Static-confirmed	Stock Sub-Zero value 2
 global	field	MKMSZ_Type5ModelTableHeader		model_count	0x02	u16		Static-confirmed	Stock Sub-Zero value 4
+global	struct	MKMSZ_SpecialActionDescriptor	0x2C					Static-confirmed	Stock special-action descriptor, one Low Kick record at VA0x800B0F68 before 0x800B0F94 sentinel; Player-Actions-and-Special-Moves.md
+global	field	MKMSZ_SpecialActionDescriptor		legal_button_masks	0x00	u16[2]		Static-confirmed	Two semantic button masks
+global	field	MKMSZ_SpecialActionDescriptor		transfer_selector	0x04	u32		Static-confirmed	Stock selectors 0 and 1; selector 3 is only proof extension
+global	field	MKMSZ_SpecialActionDescriptor		condition_callback	0x08	ptr32		Static-confirmed	Optional no-argument condition callback
+global	field	MKMSZ_SpecialActionDescriptor		action_callback	0x0C	ptr32		Static-confirmed	No-argument action/process callback
+global	field	MKMSZ_SpecialActionDescriptor		history_window	0x10	u16		Static-confirmed	Input history window
+global	field	MKMSZ_SpecialActionDescriptor		facing_right_tokens	0x12	u16[6]		Static-confirmed	Zero-terminated command tokens facing right
+global	field	MKMSZ_SpecialActionDescriptor		facing_left_tokens	0x1E	u16[7]		Static-confirmed	Zero-terminated command tokens facing left

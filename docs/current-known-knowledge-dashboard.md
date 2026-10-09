@@ -7,16 +7,16 @@
 | Independent axis | Current | What it means |
 |---|---:|---|
 | Tracked canonical Wiki owners with an initial research crosswalk | **40/40** | All forty are **partial**, none certified exhaustive |
-| Individually enumerated, already-known findings with an explicit versioned destination | **895/895 currently enumerated** | No remaining unlinked **enumerated** facts. The full Wiki fact denominator remains uncounted |
-| Audited claims directly targeting established Ghidra objects | **246/895** | Curated native function, scoped code and type metadata. Not every knowledge claim belongs in Ghidra |
-| Level-2/3 sections with at least one uniquely located fact anchor | **237/713 (33.2%)** | Source navigation, **not** semantic completion of the section or research |
+| Individually enumerated, already-known findings with an explicit versioned destination | **927/927 currently enumerated** | No remaining unlinked **enumerated** facts. The full Wiki fact denominator remains uncounted |
+| Audited claims directly targeting established Ghidra objects | **263/927** | Curated native function, scoped code and type metadata. Not every knowledge claim belongs in Ghidra |
+| Level-2/3 sections with at least one uniquely located fact anchor | **253/713 (35.5%)** | Source navigation, **not** semantic completion of the section or research |
 | Locally confirmed curated Ghidra catalog records | **379** | Prior maintainer-import baseline, not newly proved today |
-| Companion / versioned / Ghidra-pending catalog records | **1,213** | Source-owned semantics and catalog rows, including 242 heading-only navigators |
-| Total heterogeneous structured catalog records | **1,592** | Not distinct discoveries; the types of entries vary and can overlap |
+| Companion / versioned / Ghidra-pending catalog records | **1,247** | Source-owned semantics and catalog rows, including 242 heading-only navigators |
+| Total heterogeneous structured catalog records | **1,626** | Not distinct discoveries; the types of entries vary and can overlap |
 | Additional global Ghidra bookmarks awaiting maintainer local import | **7** | Explicitly **Pending** until user observes importer results |
 | Known N64 Function Registry records with scoped address navigation | **166/166** | A row may be an interior instruction or dispatch family rather than a standalone function |
 
-**Do not average these axes.** The requested percentage of *all established facts*, as opposed to selected audited facts or reviewed pages, still requires a certified semantic census. The 237/713 heading metric is a transparent triage proxy; it does **not** mean 75.6% of the known game remains to be researched or migrated.
+**Do not average these axes.** The requested percentage of *all established facts*, as opposed to selected audited facts or reviewed pages, still requires a certified semantic census. The 253/713 heading metric is a transparent triage proxy; it does **not** mean 75.6% of the known game remains to be researched or migrated.
 
 ## Latest scoped evidence index (no new ROM discoveries)
 
@@ -43,6 +43,10 @@ Exact Git blob SHAs, source lines, evidence classifications and nonpromotion cau
 ### Enemy resource/lifetime native metadata crosswalk
 
 `analysis/enemy_semantic_contracts.tsv` adds 30 source-pinned enemy facts, including **11 references to existing Ghidra objects** (eight global functions, two typed spawn fields, one file-0x9F Prison overlay function). Four existing function plates and repeatable comments are augmented in repository manifests (`0x80071500`, `0x800719F0`, `0x80071B20`, `0x8002FCDC`); their revised local Ghidra import remains **Pending**. Source navigation for `Enemy-Randomization.md` increases to **23/40** headings; this is not exhaustive. The companion evidence preserves native file/slot bundles, special singleton exclusions, rewind/lifecycle and fixed Prison capture auxiliary, bounded Water proofs and rejected uncontrolled materialization. No new stock function, ROM patch or merged donor address.
+
+### Native host action/control ABI and newly staged type
+
+`analysis/host_action_semantic_contracts.tsv` indexes **32** bounded MKMSZ host action facts; **17 link previously named native functions**, and **two point to newly staged, not yet locally imported, Ghidra metadata**: a complete 0x2C-byte `MKMSZ_SpecialActionDescriptor` type with seven source-verified fields and its one stock Low Kick instance at 0x800B0F68. The descriptor ends at the 0x800B0F94 sentinel before the separate High Kick table; no MKT donor ABI imported. Five native function plate/repeatable annotations were enriched, notably action callback self-reentry and current vs stale player direction. Unique first-class source headings are now **22/33**; no exhaustive semantic claim. The prior **11 locally verified types** remain pinned as baseline; the new type/data are classed as pending in the knowledge ledger and local handoff.
 
 ## Prevent duplicated future investigations
 

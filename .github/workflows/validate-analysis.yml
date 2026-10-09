@@ -102,3 +102,7 @@ jobs:
         run: |
           python -m py_compile tools/validate_enemy_semantics.py
           python tools/validate_enemy_semantics.py
+      - name: Validate native action and special descriptor contracts
+        run: |
+          python -m py_compile tools/validate_host_action_semantics.py
+          python tools/validate_host_action_semantics.py
