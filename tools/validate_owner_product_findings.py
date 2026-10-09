@@ -30,7 +30,7 @@ def main():
     for r in facts:
         id=r["fact_id"]
         assert r["owner_page"] in owners and owners[r["owner_page"]]["reconciliation"]=="partial-crosswalk"
-        assert r["source_blob_sha"] and len(r["source_blob_sha"])==32
+        assert r["source_blob_sha"] and len(r["source_blob_sha"])==40
         assert all(r[k] for k in ("source_anchor","documented_excerpt","scope","source_section","limitations"))
         c=claims[id]
         assert c["target_path"]=="analysis/owner_product_findings.tsv" and c["target_key"]==id
