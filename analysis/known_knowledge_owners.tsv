@@ -6,14 +6,14 @@ Address-and-Patch-Site-Registry.md	core	partial-crosswalk	Subset of verified kno
 Data-Structures-and-Encodings.md	core	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
 ROM-Overlay-and-Resource-Map.md	core	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
 Stage-Flow-and-Selector.md	randomizer	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
-Pickups-and-Item-Randomization.md	randomizer	unreviewed	Current authoritative known knowledge still needs systematic finding-level reconciliation
-Global-Item-Materialization-and-Solvability.md	randomizer	unreviewed	Current authoritative known knowledge still needs systematic finding-level reconciliation
+Pickups-and-Item-Randomization.md	randomizer	partial-crosswalk	Eight verified current-owner excerpts independently indexed, not chapter/claim exhaustive
+Global-Item-Materialization-and-Solvability.md	randomizer	partial-crosswalk	Eight verified current-owner excerpts independently indexed, not chapter/claim exhaustive
 Persistence-Inventory-and-Lifecycle.md	randomizer	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
 XP-and-Progression.md	randomizer	partial-crosswalk	Current authoritative known knowledge still needs systematic finding-level reconciliation
 Native-HUD-and-UI.md	randomizer	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
-Presentation-and-Branding.md	randomizer	unreviewed	Current authoritative known knowledge still needs systematic finding-level reconciliation
+Presentation-and-Branding.md	randomizer	partial-crosswalk	Eight verified current-owner excerpts independently indexed, not chapter/claim exhaustive
 Sounds-and-Music.md	randomizer	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
-Palette-and-Recoloring.md	randomizer	unreviewed	Current authoritative known knowledge still needs systematic finding-level reconciliation
+Palette-and-Recoloring.md	randomizer	partial-crosswalk	Eight verified current-owner excerpts independently indexed, not chapter/claim exhaustive
 Web-Patcher-and-Product.md	randomizer	unreviewed	Current authoritative known knowledge still needs systematic finding-level reconciliation
 Stage-Catalogs.md	stage	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
 Stage-Catalog-Temple.md	stage	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked

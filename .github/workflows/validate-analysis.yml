@@ -58,3 +58,7 @@ jobs:
         run: |
           python -m py_compile tools/validate_owner_research_findings.py
           python tools/validate_owner_research_findings.py
+      - name: Validate product-owner source findings
+        run: |
+          python -m py_compile tools/validate_owner_product_findings.py
+          python tools/validate_owner_product_findings.py

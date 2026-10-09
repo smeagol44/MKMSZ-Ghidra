@@ -168,3 +168,7 @@ Added seven exact known stock navigation bookmarks in manifest without new funct
 ## Concurrent audio-aware focused owner sweep (2026-10-09)
 
 Indexed 40 existing facts over Enemy Randomization, Host Player Actions, MKT compatibility, Donor Adapter, and Fighter Asset Translation; all five advanced to partial-crosswalk. The extra facts retain source and scope, including donor-only evidence and rejected proof limitations. 494 audited source-indexed facts is **not** an exhaustive whole-Wiki count; tracked owner progress 27 partial / 13 unreviewed. Audio Ghidra `main` update `ef0010f61b31` changes `analysis/functions.tsv` and must be preserved when finalizing this draft branch. No ROM/emulator or Ghidra importer activity here.
+
+## Four additional partial canonical owner catalogs (2026-10-09)
+
+Added 32 checked facts across stage-local pickup history, accepted global item model, native title branding and palette. Distinct evidence scopes preserved. All 526 currently selected claims have metadata routes, while 9 canonical owners have no systematic first pass and none is finding-exhaustive. No audio/ROM/local Ghidra changes.

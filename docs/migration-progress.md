@@ -137,3 +137,7 @@ Seven known stock code/data addresses are now Ghidra-bookmark-manifest entries *
 ## Enemy/host/donor owner-focused fact index (2026-10-09)
 
 40 source-verified existing facts transferred as a five-owner, non-exhaustive, versioned crosswalk; 27/40 tracked canonical owner pages now have at least partial review, zero certified exhaustive. Audited selected findings now 494 with metadata targets; full known Wiki corpus has no legitimate denominator yet. Curated heterogeneous records: 1111 = 379 locally confirmed Ghidra + 732 sidecar/staged. Audio investigation's main-branch `analysis/functions.tsv` update remains deliberately untouched.
+
+## Global items, stage-local legacy, branding and palette source index (2026-10-09)
+
+32 exact source-qualified canonical facts added; 31/40 owners at least partially indexed, 9 unreviewed, 0 fully reconciled. Audited facts 526 with metadata destinations; this is *not* a percentage of all established Wiki knowledge. Structured records 1,143 (379 previous local Ghidra + 764 sidecar/staged). Concurrent rich-Inventory audio research remains separately owned and unmodified.
