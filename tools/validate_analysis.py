@@ -59,7 +59,7 @@ for path, fields in HEADERS.items():
             if not HEX.fullmatch(row[0]):
                 errors.append(f"{path}:{n}: invalid address")
         else:
-            if path not in ("overlay_pending.tsv", "rom_patch_sites.tsv", "rom_pickups.tsv", "stage_resource_slots.tsv") and not SCOPE.fullmatch(row[0]):
+            if path not in ("global_function_guards.tsv", "overlay_pending.tsv", "rom_patch_sites.tsv", "rom_pickups.tsv", "stage_resource_slots.tsv") and not SCOPE.fullmatch(row[0]):
                 errors.append(f"{path}:{n}: invalid scope")
             for idx in {
                 "signatures.tsv": (1,), "locals.tsv": (1, 4),
