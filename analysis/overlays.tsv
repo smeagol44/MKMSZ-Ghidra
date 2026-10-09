@@ -3,3 +3,7 @@ overlay_earth	Earth	0x9C	0x000D8B90	0x000E1B80	0x802ECE30	f4152a08069f42890136f6
 overlay_prison	Prison	0x9F	0x000C4C70	0x000CA510	0x802ECE30	a7f5e4999a74e65c576af1e823cfd3f9e68725d2683eba3dd53b9f344e5ff8fd	Static-confirmed
 overlay_bridge	Bridge	0x9B	0x000BAF60	0x000C0330	0x802ECE30	3ab3439c99d5c857599f29657e66a798fa5a347ff949e7be9ea30a20b63438e7	Static-confirmed
 overlay_fortress	Fortress	0x9E	0x000C0330	0x000C4C70	0x802ECE30	bd46bf0ecb461a62fe9d3534f1be127b3dd2597021317c53117311ee5596c6c8	Static-confirmed
+overlay_temple	Temple	0xA0	0x000CA510	0x000CF160	0x802ECE30	eab72de2e8a9104bcb050807bff3cb0ae3ce1640b76857c90d30ec66346b89ce	Static-confirmed: stock file table, stage loader, pickup/callback mapping
+overlay_wind	Wind	0xA2	0x000CF160	0x000D8B90	0x802ECE30	f7339eebe4f44efcafdf6da994f7709e9e21ac3895650f59ad194537c508164b	Static-confirmed: stock file table, stage loader, pickup/callback mapping
+overlay_water	Water	0xA1	0x000B4FC0	0x000BAF60	0x802ECE30	9e1c1491b8665822ade09697abb6dd53f62c7950a4eadbabf34fa6536e3cfac4	Static-confirmed: stock file table, stage loader, pickup/callback mapping
+overlay_fire	Fire	0x9D	0x000E1B80	0x000E6610	0x802ECE30	ee65b26e06694ff36412fdcbb30e20b4ba15ab6fe76e96c1a7c689cac20e36a4	Static-confirmed: stock file table, stage loader, pickup/callback mapping
