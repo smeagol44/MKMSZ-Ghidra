@@ -62,3 +62,7 @@ jobs:
         run: |
           python -m py_compile tools/validate_owner_product_findings.py
           python tools/validate_owner_product_findings.py
+      - name: Validate remaining owner index and sections
+        run: |
+          python -m py_compile tools/validate_remaining_owners.py
+          python tools/validate_remaining_owners.py

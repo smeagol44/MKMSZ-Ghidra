@@ -21,3 +21,5 @@ core_runtime_invariants	analysis/core_runtime_invariants.tsv	rows	18	versioned-s
 native_xp_thresholds	analysis/xp_thresholds.tsv	rows	9	versioned-sidecar	Nine exact native XP tier thresholds; 7354 is correct ninth value
 owner_research_findings	analysis/owner_research_findings.tsv	rows	40	versioned-sidecar	Five owner 8-finding evidence-anchored navigation crosswalks; preserves donor/target distinction, not new Ghidra functions
 owner_product_findings	analysis/owner_product_findings.tsv	rows	32	versioned-sidecar	Eight source-qualified existing facts each across pickups, global item materializer, branding and palette owners; non-exhaustive
+remaining_owner_facts	analysis/remaining_owner_facts.tsv	rows	54	versioned-sidecar	Nine initial owner crosswalks with six current-source excerpts each, not exhaustive
+remaining_owner_sections	analysis/remaining_owner_sections.tsv	rows	242	versioned-sidecar	All documented level-2/3 headings from nine last-unreviewed owners; navigation-only, not a completed finding audit

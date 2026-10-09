@@ -141,3 +141,7 @@ Seven known stock code/data addresses are now Ghidra-bookmark-manifest entries *
 ## Global items, stage-local legacy, branding and palette source index (2026-10-09)
 
 32 exact source-qualified canonical facts added; 31/40 owners at least partially indexed, 9 unreviewed, 0 fully reconciled. Audited facts 526 with metadata destinations; this is *not* a percentage of all established Wiki knowledge. Structured records 1,143 (379 previous local Ghidra + 764 sidecar/staged). Concurrent rich-Inventory audio research remains separately owned and unmodified.
+
+## Remaining owner first-pass and complete heading navigator (2026-10-09)
+
+Nine remaining tracked owners gained 54 source-anchored facts, plus 242 section navigation records. **40/40 tracked Wiki owners partially reviewed, zero certified finding-exhaustive**. The current enumerated claim subset has 580 indexed findings; this is not 580 out of all Wiki facts. Heterogeneous records 1439=379 locally confirmed Ghidra+1060 sidecar/staged (including 242 heading-only pointers). Seven bookmark imports remain unconfirmed; active rich Inventory audio work is independently owned. The next closeout task is heading-level semantic audit (evidence deduplication/supersession), not new unknown-ROM RE.
