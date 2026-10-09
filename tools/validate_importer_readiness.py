@@ -69,9 +69,20 @@ for expected in ('auditFunctions()', 'auditGlobals()', 'auditCodeLabels()',
                  'CLEAN_SHA.equalsIgnoreCase(currentProgram.getExecutableSHA256())'):
     assert expected in audit
 assert "createLabel(" not in audit and "createData(" not in audit and "setBookmark(" not in audit
+# Regression: all manifest-owned MKMSZ/Info bookmark notes refresh on repeat
+# imports. Locally added categories elsewhere in the program are never touched.
+assert 'old.set(category, content);' in extended
+assert 'println("BOOKMARK REFRESHED at " + at + " category " + category);' in extended
+assert 'SKIP bookmark " + at + " category " + category' not in extended
+# A field-description-only change must be visible to type audits; a former
+# 12/12 size/name/field match was insufficient to certify annotation fidelity.
+typeAudit=(ROOT/"ghidra_scripts/AuditMkmszTypes.java").read_text(encoding="utf-8")
+assert "String fieldName = value[0], datatype = value[1], fieldNote = value[2];" in typeAudit
+assert "component.getComment()" in typeAudit
+assert "new String[] {row[4], row[6], row[9]}" in typeAudit
 print("PASS: original importer fail-closed identity and local comment/name conflict policy (static source check)")
 print("PASS: extended scoped importer conflict policy and ROM-free manifest handoff (static source check)")
 print("PASS: 139 global functions, 35 globals, 14 overlay functions, 84 pickups; 7 staged bookmarks")
 print("PASS: 11 locally established types separated from 1 staged 0x2C descriptor + 1 data instance")
-print("PASS: automatic curated type/data-label convergence and read-only 7-family audit statically guarded")
+print("PASS: automatic curated type/data-label/bookmark convergence and deep type-notes audit statically guarded")
 print("PENDING: Ghidra compilation, actual import, data type application, and preservation in maintainer project")
