@@ -9,3 +9,4 @@ global	0x8007D55C	0x8008910C	NOTE		Static-confirmed	Continues synthesis after fa
 global	0x8007DA34	0x80083D38	NOTE		Static-confirmed	Native synthesis player callback services WESS.
 global	0x80073CEC	0x8001C528	NOTE		Static-confirmed	Per-glyph native palette acquisition; hits do not upload.
 global	0x80073DB8	0x8001E578	NOTE		Static-confirmed	Glyph builds native textured render nodes.
+global	0x80000F24	0x80015950	NOTE		Static-confirmed	Configured indirect VI/input callback runs after audio service through 0x800B43C0 when 0x80000300 is enabled; this is not an added operand reference. Source: Production-Rich-Inventory-Music-Static-Investigation.md.
