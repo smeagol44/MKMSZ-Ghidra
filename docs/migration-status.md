@@ -162,3 +162,5 @@ Added 63 source-verified Wiki-only research findings as independent `analysis/kn
 ## Ghidra navigation batch staged, not imported (2026-10-09)
 
 Added seven exact known stock navigation bookmarks in manifest without new function/typed data definitions; local import **Pending** until maintainer pulls and reruns `ApplyMkmszExtended.java`. Title palette remains ROM-only sidecar due unproven global VA. Current 427 audited-known claims all have a versioned target; still **not** complete census of 40 Wiki owners. Previously confirmed 379 Ghidra catalog entries unchanged; **7 additional staged**, one additional ROM-only catalog, 1,044 total heterogeneous records. PR #3 still draft.
+
+**Correction to Function Registry census (2026-10-09):** existing Ghidra bookmark/comment manifests close all 22 formerly misclassified navigation gaps. **166/166 documented N64 registry rows are address-indexed**; many names refer to interior call sites, so not 166 standalone function entries. Source-backed Ghidra-linked claims now **209/454**. No new local import required for this correction.
