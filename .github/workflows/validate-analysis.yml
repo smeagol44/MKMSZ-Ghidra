@@ -90,3 +90,7 @@ jobs:
         run: |
           python -m py_compile tools/validate_xp_progression_contracts.py
           python tools/validate_xp_progression_contracts.py
+      - name: Validate Memory Map interpretation contracts
+        run: |
+          python -m py_compile tools/validate_memory_semantics.py
+          python tools/validate_memory_semantics.py

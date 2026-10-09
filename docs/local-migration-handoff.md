@@ -56,6 +56,8 @@ The nine formerly unreviewed owners already have an immutable 242-heading source
 
 **Native XP follow-on:** `analysis/xp_progression_contracts.tsv` contains 18 additional source-linked facts, including links to three *already imported* global functions. It adds no new Ghidra importer item; the seven staged bookmarks and one-pass local handoff are unchanged. Fortress gate coordinates remain stage-overlay scoped.
 
+**Memory ownership interpretation:** `analysis/memory_semantic_contracts.tsv` provides 24 additional source-pinned safety contracts and three links to already-imported stock allocator functions. These are companion facts, not new code/data import items; the seven staged bookmarks and one-pass local handoff remain unchanged.
+
 ## 5. Sign-off gates still open
 
 - The **40 tracked Wiki owners now all have a partial first-pass crosswalk**. Complete the deeper section-by-section semantic review and explicitly certify evidence-exhaustive owners before claiming an all-known-facts migration denominator. Use the read-only section census above to find unlinked, ambiguous and stale areas.

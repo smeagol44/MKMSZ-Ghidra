@@ -7,16 +7,16 @@
 | Independent axis | Current | What it means |
 |---|---:|---|
 | Tracked canonical Wiki owners with an initial research crosswalk | **40/40** | All forty are **partial**, none certified exhaustive |
-| Individually enumerated, already-known findings with an explicit versioned destination | **813/813 currently enumerated** | No remaining unlinked **enumerated** facts. The full Wiki fact denominator remains uncounted |
-| Audited claims directly targeting established Ghidra objects | **226/813** | Curated native function, scoped code and type metadata. Not every knowledge claim belongs in Ghidra |
-| Level-2/3 sections with at least one uniquely located fact anchor | **183/713 (25.7%)** | Source navigation, **not** semantic completion of the section or research |
+| Individually enumerated, already-known findings with an explicit versioned destination | **837/837 currently enumerated** | No remaining unlinked **enumerated** facts. The full Wiki fact denominator remains uncounted |
+| Audited claims directly targeting established Ghidra objects | **229/837** | Curated native function, scoped code and type metadata. Not every knowledge claim belongs in Ghidra |
+| Level-2/3 sections with at least one uniquely located fact anchor | **199/713 (27.9%)** | Source navigation, **not** semantic completion of the section or research |
 | Locally confirmed curated Ghidra catalog records | **379** | Prior maintainer-import baseline, not newly proved today |
-| Companion / versioned / Ghidra-pending catalog records | **1,131** | Source-owned semantics and catalog rows, including 242 heading-only navigators |
-| Total heterogeneous structured catalog records | **1,510** | Not distinct discoveries; the types of entries vary and can overlap |
+| Companion / versioned / Ghidra-pending catalog records | **1,155** | Source-owned semantics and catalog rows, including 242 heading-only navigators |
+| Total heterogeneous structured catalog records | **1,534** | Not distinct discoveries; the types of entries vary and can overlap |
 | Additional global Ghidra bookmarks awaiting maintainer local import | **7** | Explicitly **Pending** until user observes importer results |
 | Known N64 Function Registry records with scoped address navigation | **166/166** | A row may be an interior instruction or dispatch family rather than a standalone function |
 
-**Do not average these axes.** The requested percentage of *all established facts*, as opposed to selected audited facts or reviewed pages, still requires a certified semantic census. The 183/713 heading metric is a transparent triage proxy; it does **not** mean 75.6% of the known game remains to be researched or migrated.
+**Do not average these axes.** The requested percentage of *all established facts*, as opposed to selected audited facts or reviewed pages, still requires a certified semantic census. The 199/713 heading metric is a transparent triage proxy; it does **not** mean 75.6% of the known game remains to be researched or migrated.
 
 ## Latest scoped evidence index (no new ROM discoveries)
 
@@ -29,6 +29,10 @@ Exact Git blob SHAs, source lines, evidence classifications and nonpromotion cau
 ### XP/progression follow-on (established facts only)
 
 `analysis/xp_progression_contracts.tsv` adds 18 source-pinned XP, native function, power-order, lifecycle and proof-boundary facts, covering 10 of that owner's 14 source headings (not semantic exhaustiveness). Three link already imported functions: `0x8002E104`, `0x80074FBC`, `0x80078A18`. The Fortress 5100-XP gate at `0x802EF49C` belongs to stage-overlay file `0x9E`, **not** the global image. All other rows remain companion metadata; nine-tier runtime coverage is Pending. No new import items.
+
+### Memory Map safety/ownership semantics follow-on
+
+`analysis/memory_semantic_contracts.tsv` adds **24 individually source-pinned contracts**, including three crosslinks to already Ghidra-imported stock allocator routines (`0x80066390`, `0x8006643C`, `0x80066478`). They index half-open intervals, physical aliases, overlay stage identity, reserved ownership and proof/rejected controls, dynamic arena safety and validation rules. The existing **89 ownership interval rows** are not duplicated. **19/20 Memory Map headings are now source-navigable**, but no claim of semantic completeness is made; the remaining heading is only related references. Current audio root cause and dynamic high-water safety remain Pending. No new global bookmark or function imported.
 
 ## Prevent duplicated future investigations
 

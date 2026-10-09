@@ -1,6 +1,6 @@
 owner_page	wiki_source_blob_sha	level_2_3_headings	headings_with_unique_anchor	existing_claims	stale_claims	ambiguous_claims	preamble_claims	audit_scope
 Core-Runtime-and-Address-Database.md	3880a7d0a3a56b4708bd1879b3790582cd5083bf	10	9	18	0	0	0	raw anchor scan; not semantic exhaustiveness
-Memory-and-Allocation-Map.md	baab85791306bdd386d11d5a946753f22081bdc5	20	3	89	0	7	0	raw anchor scan; not semantic exhaustiveness
+Memory-and-Allocation-Map.md	baab85791306bdd386d11d5a946753f22081bdc5	20	19	113	0	7	0	raw anchor scan; not semantic exhaustiveness
 Function-Registry.md	0a808dd6cc840b47ac6d61fe26ecb56c9c4590bd	8	4	166	0	0	0	raw anchor scan; not semantic exhaustiveness
 Address-and-Patch-Site-Registry.md	ee5f3d64f27981faa94d87927925895d920e89b0	10	5	151	0	9	0	raw anchor scan; not semantic exhaustiveness
 Data-Structures-and-Encodings.md	2ec0caca5014dc6dbd788bc656fc86e3d4b3f30f	13	9	11	0	0	0	raw anchor scan; not semantic exhaustiveness

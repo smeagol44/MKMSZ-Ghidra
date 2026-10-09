@@ -1,6 +1,6 @@
 # Migration of established MKMSZR knowledge — living ledger
 
-**Current counts:** [Migration dashboard](current-known-knowledge-dashboard.md) supersedes older numeric checkpoints within this cumulative research log. Current curated total: **1,492** (379 prior locally confirmed Ghidra + 1,113 companion/staged); **795** selected claims, 223 direct Ghidra claim destinations, 40/40 partial owners.
+**Current counts:** [Migration dashboard](current-known-knowledge-dashboard.md) supersedes older numeric checkpoints within this cumulative research log. Current curated total: **1,534** (379 prior locally confirmed Ghidra + 1,155 companion/staged); **837** selected claims, 229 direct Ghidra claim destinations, 40/40 partial owners.
 
 ## Why this exists
 
