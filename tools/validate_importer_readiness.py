@@ -27,7 +27,15 @@ assert "applyManagedPlateComment(address, evidence, comment);" in script
 assert 'scope = identifyScope();' in extended and 'if (scope == null)' in extended
 assert 'if (!scope.equals("global")) applyOverlayFunctions();' in extended
 assert 'if (existing != null && !Undefined.isUndefined(existing.getDataType()))' in extended
-assert 'if (!existing.isEquivalent(entry.getValue()))' in extended
+# Managed /MKMSZ types are converged on repeated runs rather than being
+# mistakenly classified as locally edited simply because they already exist.
+assert "if (existing.isEquivalent(incoming)) {" in extended
+assert 'println("TYPE UP TO DATE: " + entry.getKey());' in extended
+assert "manager.replaceDataType(existing, incoming, true)" in extended
+assert "manager.getDataType(expectedPath)" in extended
+assert "existing.getLength() != incoming.getLength()" in extended
+assert "TYPE CONFLICT:" in extended and "TYPE SYNC FAILED:" in extended
+assert 'DataTypePath expectedPath = new DataTypePath(CATEGORY, entry.getKey());' in extended
 assert 'if (previous != null && !previous.startsWith("[MKMSZ]"))' in extended
 assert len(table("functions.tsv"))==139 and len(table("globals.tsv"))==35
 assert len(table("overlay_functions.tsv"))==14 and len(table("rom_pickups.tsv"))==84
@@ -44,8 +52,26 @@ assert len(typed)==1 and typed[0]["scope"]=="global"
 assert typed[0]["address"]=="0x800B0F68" and typed[0]["datatype"]=="MKMSZ_SpecialActionDescriptor"
 assert "0x800B0F94" in typed[0]["note"] and "0x800B0F98" in typed[0]["note"]
 assert not table("signatures.tsv") and not table("locals.tsv")
+# Regression: a Ghidra-generated dynamic symbol must not suppress an explicit
+# data.tsv label; existing equivalent typed data must still be reconciled.
+assert "applyCuratedDataLabel(at, r[3]);" in extended
+assert "getPrimarySymbol(at)" in extended
+assert "wantedName.equals(primary.getName())" in extended
+assert "primary.getSource() == SourceType.USER_DEFINED" in extended
+assert "createLabel(at, wantedName, true, SourceType.USER_DEFINED)" in extended
+assert "DATA LABEL UNRESOLVED" in extended
+assert 'getSymbolAt(at) == null' not in extended
+assert 'if (!existing.getDataType().isEquivalent(wanted)) {' in extended
+audit=(ROOT/"ghidra_scripts/AuditMkmszImportedState.java").read_text(encoding="utf-8")
+for expected in ('auditFunctions()', 'auditGlobals()', 'auditCodeLabels()',
+                 'auditTypes()', 'auditTypedData()', 'auditComments()', 'auditBookmarks()',
+                 'expected " + r[3] + ", found " + primary(addr)', 'MISMATCH',
+                 'CLEAN_SHA.equalsIgnoreCase(currentProgram.getExecutableSHA256())'):
+    assert expected in audit
+assert "createLabel(" not in audit and "createData(" not in audit and "setBookmark(" not in audit
 print("PASS: original importer fail-closed identity and local comment/name conflict policy (static source check)")
 print("PASS: extended scoped importer conflict policy and ROM-free manifest handoff (static source check)")
 print("PASS: 139 global functions, 35 globals, 14 overlay functions, 84 pickups; 7 staged bookmarks")
 print("PASS: 11 locally established types separated from 1 staged 0x2C descriptor + 1 data instance")
+print("PASS: automatic curated type/data-label convergence and read-only 7-family audit statically guarded")
 print("PENDING: Ghidra compilation, actual import, data type application, and preservation in maintainer project")

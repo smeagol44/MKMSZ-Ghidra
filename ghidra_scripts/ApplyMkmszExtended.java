@@ -209,16 +209,60 @@ public class ApplyMkmszExtended extends GhidraScript {
         }
         pendingTypes = Collections.emptyMap();
         for (Map.Entry<String, DataType> entry : pending.entrySet()) {
-            DataType existing = manager.getDataType(new DataTypePath(CATEGORY, entry.getKey()));
-            if (existing != null) {
-                if (!existing.isEquivalent(entry.getValue()))
-                    println("Existing locally edited type " + entry.getKey() + "; skipped");
-                println("TYPE ALREADY PRESENT: " + entry.getKey() + " (existing definition preserved)");
-                skipped++;
+            DataType incoming = entry.getValue();
+            DataTypePath expectedPath = new DataTypePath(CATEGORY, entry.getKey());
+            DataType existing = manager.getDataType(expectedPath);
+            if (existing == null) {
+                // Names absent from the local /MKMSZ category are added normally.
+                try {
+                    manager.addDataType(incoming, DataTypeConflictHandler.KEEP_HANDLER);
+                    println("TYPE ADDED: " + entry.getKey());
+                    applied++;
+                }
+                catch (Exception ex) {
+                    println("TYPE ADD FAILED: " + entry.getKey() + " (" + ex + ")");
+                    skipped++;
+                }
+                continue;
             }
-            else {
-                manager.addDataType(entry.getValue(), DataTypeConflictHandler.KEEP_HANDLER);
-                applied++;
+            if (existing.isEquivalent(incoming)) {
+                // An existing correct type is success, not a failed import.
+                println("TYPE UP TO DATE: " + entry.getKey());
+                continue;
+            }
+            // The manifest is authoritative only for explicitly named /MKMSZ
+            // structures/enums. Reject incompatible kind/size, rather than
+            // altering live data extents or overwriting unrelated local types.
+            boolean sameKind =
+                (existing instanceof Structure && incoming instanceof Structure) ||
+                (existing instanceof ghidra.program.model.data.Enum &&
+                 incoming instanceof ghidra.program.model.data.Enum);
+            if (!sameKind || existing.getLength() != incoming.getLength()) {
+                println("TYPE CONFLICT: " + entry.getKey() +
+                    " differs in kind or byte size; no replacement performed");
+                skipped++;
+                continue;
+            }
+            try {
+                // Ghidra updates all references/instances to the replacement.
+                // Scope, exact program SHA, category, name, kind and size are
+                // all guarded. No edits outside manifest-owned /MKMSZ types.
+                manager.replaceDataType(existing, incoming, true);
+                DataType resolved = manager.getDataType(expectedPath);
+                if (resolved == null || !resolved.isEquivalent(incoming)) {
+                    println("TYPE SYNC UNVERIFIED: " + entry.getKey() +
+                        "; inspect with AuditMkmszTypes.java");
+                    skipped++;
+                }
+                else {
+                    println("TYPE SYNCED: " + entry.getKey());
+                    applied++;
+                }
+            }
+            catch (Exception ex) {
+                println("TYPE SYNC FAILED: " + entry.getKey() +
+                    " (" + ex + "); inspect with AuditMkmszTypes.java");
+                skipped++;
             }
         }
     }
@@ -313,18 +357,58 @@ public class ApplyMkmszExtended extends GhidraScript {
             DataType wanted = resolveType(r[2]);
             Data existing = getDataAt(at);
             if (existing != null && !Undefined.isUndefined(existing.getDataType())) {
-                if (!existing.getDataType().isEquivalent(wanted))
-                    println("Existing different data at " + at + "; skipped");
-                skipped++; continue;
+                if (!existing.getDataType().isEquivalent(wanted)) {
+                    println("Existing different data at " + at + "; skipped type/label " + r[3]);
+                    skipped++;
+                    continue;
+                }
+                // An equivalent typed instance may have been created during an
+                // earlier run without its manifest label; reconcile it below.
             }
-            // Ghidra rejects overlaps: do not clear instructions or existing data.
-            try {
-                createData(at, wanted);
-                if (!r[3].isEmpty() && getSymbolAt(at) == null)
-                    createLabel(at, r[3], true, SourceType.USER_DEFINED);
-                applied++;
+            else {
+                // Never clear/retype stock code or a conflicting existing structure.
+                try {
+                    createData(at, wanted);
+                    applied++;
+                }
+                catch (Exception ex) {
+                    println("Data at " + at + " skipped: " + ex);
+                    skipped++;
+                    continue;
+                }
             }
-            catch (Exception ex) { println("Data at " + at + " skipped: " + ex); skipped++; }
+            applyCuratedDataLabel(at, r[3]);
+        }
+    }
+
+    private void applyCuratedDataLabel(Address at, String wantedName) {
+        if (wantedName.isEmpty()) return;
+        Symbol primary = currentProgram.getSymbolTable().getPrimarySymbol(at);
+        if (primary != null && wantedName.equals(primary.getName())) return;
+        if (primary != null && primary.getSource() == SourceType.USER_DEFINED) {
+            println("SKIP data label at " + at + ": preserving USER_DEFINED " +
+                primary.getName() + "; expected " + wantedName);
+            skipped++;
+            return;
+        }
+        try {
+            // Ghidra often creates a DEFAULT/dynamic type-based label on
+            // createData(). It must not suppress the curated manifest label.
+            // createLabel(..., true, ...) also promotes an existing secondary
+            // matching label to primary; it does not clear the typed bytes.
+            createLabel(at, wantedName, true, SourceType.USER_DEFINED);
+            Symbol updated = currentProgram.getSymbolTable().getPrimarySymbol(at);
+            if (updated == null || !wantedName.equals(updated.getName())) {
+                println("DATA LABEL UNRESOLVED at " + at + ": expected " + wantedName);
+                skipped++;
+                return;
+            }
+            println("DATA LABEL APPLIED at " + at + ": " + wantedName);
+            applied++;
+        }
+        catch (Exception ex) {
+            println("DATA LABEL SKIPPED at " + at + ": " + wantedName + " (" + ex + ")");
+            skipped++;
         }
     }
 
