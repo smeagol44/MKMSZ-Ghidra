@@ -150,3 +150,14 @@ ApplyMkmszExtended.java> Finished!
 ```
 
 **Ghidra/implementation-confirmed bounded:** exactly 34 new second-pass operations applied, matching 17 comments plus 17 bookmarks. No unexplained skips: 11 preexisting type names and one deliberately preserved local animation bookmark. This does **not** establish strict byte-for-byte field-equivalence for those 11 types. In the preceding pass 38 trace sites were applied; 55 distinct added trace sites are now represented. Imported data in the local project remains distinct from Wiki evidence of stock or production behavior. No ROM tests or edits occurred.
+
+## Read-only Ghidra type-equivalence audit — prepared, local execution Pending
+
+The user requested field-level confirmation of 11 named types previously preserved by `ApplyMkmszExtended.java` rather than relying only on the log `TYPE ALREADY PRESENT`. Added `ghidra_scripts/AuditMkmszTypes.java` for the **global clean USA Rev0 program**. It reads `analysis/types.tsv`, resolves the 11 curated `/MKMSZ` definitions, and compares the local Ghidra definitions without modifying them:
+
+- Structure kind, total byte size, every defined field name/offset, data type (including array length, fixed pointer and signedness), and unexpected extra defined components.
+- Enum kind, storage width, all member names/values, and unexpected extra members.
+- Prints `MATCH`, `MISMATCH`, or `MISSING` for every curated type plus final totals. A mismatch means review is required; the script deliberately has **no repair/overwrite path**.
+- Rejects unknown program hashes or non-big-endian programs, requires the repository root to read the checked-in manifest, and performs no filesystem writes.
+
+To run after pulling PR #3 branch: **save your main Ghidra program**, open the global `MKMSZ.z64` clean-ROM program, then run **`AuditMkmszTypes.java`** in Script Manager and select the repository root. Do not run it in stage overlays. Send the complete console output. This script has **not yet been Ghidra 12.1.2 runtime validated**. Repository CI confirms only manifest integrity, not Java compilation or Ghidra semantics.
