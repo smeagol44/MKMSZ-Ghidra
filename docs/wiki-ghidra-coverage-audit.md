@@ -234,7 +234,7 @@ ApplyMkmszExtended.java> Finished!
 
 **Canonical owners consulted:** `Native-HUD-and-UI.md`, `Persistence-Inventory-and-Lifecycle.md`, `Test-Lab-Inventory-Hang-Static-Diagnosis.md`, `Production-Rich-Inventory-Music-Static-Investigation.md`, its original `Production-Rich-Inventory-Music-Initial-Static-Manifest.md` for historical correction, `Data-Structures-and-Encodings.md`, and `Function-Registry.md`. Inspected existing 139 function entries, curated comments/bookmarks, relationships, and the clean supported USA Rev. 0 N64 ROM (SHA-256 `9c18254abf6722b95aa782fcd310bd95f6bcf147da66beb77ce32ca90673ffc6`). All new stock global sites are MIPS word aligned and have mapped non-empty retail instruction bytes under `ROM=(VA-0x80000000)+0xC00`. No exact function boundary is inferred from a trace location.
 
-**GitHub-staged, local-Ghidra Pending:** 15 newly indexed original-code sites with 15 repeatable comments plus 15 categorized bookmarks; 6 new warning/open bookmarks at already annotated function/code sites; and 4 source-qualified `NOTE` relationships (36 bookmarks/comments + 4 notes = **40 expected new import operations**). The new stock sites bring the discrete Wiki-to-Ghidra trace-site total from **66 confirmed to 81 (66 confirmed + 15 pending)**; the 6 supplemental bookmarks improve existing entries and must not be miscounted as six new locations. This batch does not rename/create functions or add unverified signatures/stack locals/data.
+**Ghidra/implementation-confirmed bounded (see maintainer log below):** 15 newly indexed original-code sites with 15 repeatable comments plus 15 categorized bookmarks; 6 new warning/open bookmarks at already annotated function/code sites; and 4 source-qualified `NOTE` relationships (36 bookmarks/comments + 4 notes = **40 expected new import operations**). The new stock sites bring the discrete Wiki-to-Ghidra trace-site total from **66 confirmed to 81 (66 previously confirmed + 15 now confirmed)**; the 6 supplemental bookmarks improve existing entries and must not be miscounted as six new locations. This batch does not rename/create functions or add unverified signatures/stack locals/data.
 
 | Cluster | Stock trace site(s) | What the annotation makes discoverable | Status / avoid inference |
 |---|---|---|---|
@@ -250,3 +250,30 @@ New relation NOTE-only records, no synthetic operand cross-references: `80073688
 **Important rejected shortcut:** custom rich-module entry `A01B3210`, its pointer slot `A01B2DE0`, and reclaimed generated helpers at `800742B8..800743A8` must not be imported as stock-code functions, labels or production-safe reusable caves. The accepted custom first-load `a0=0x1200` correction is Runtime-confirmed for a bounded TEST LAB proof; its unsafe historical v14-v19 null-path allocator call is not a retail function. The static stale-cache-after-rewind counterexample is independent of audio; no captured Fortress stale write or identified upstream audio cause is claimed. The paired state graphics cursor 180/377 samples are **partial phases**, not measured workload rate.
 
 **Validation gate (one batched run):** maintainer pulls the existing PR #3 branch, saves/backups clean-ROM global Ghidra program, and runs `ApplyMkmszExtended.java` once, selecting checkout root. Expected with no newly owned conflicts: **applied=40, skipped=12**, the 12 unchanged skips being 11 field-equivalent existing types and protected `0x80030974` animation note. Save full console; any additional skip needs inspection. No overlay importer, guarded global function creator, names importer or type audit rerun is required. Keep PR #3 draft.
+
+### Maintainer Ghidra fourth-batch import confirmed — 2026-10-09
+
+The maintainer ran `ApplyMkmszExtended.java` against the global supported clean-ROM program and supplied the complete console:
+
+```text
+ApplyMkmszExtended.java> Running...
+MKMSZ extended analysis scope: global
+TYPE ALREADY PRESENT: MKMSZ_ItemId (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_BoxBacking (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_PickupRecord (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_PersistenceV2 (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_EnemySpawnRecord (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_AuxTriggerRecord (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_RenderNode (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_DynamicTextureSlot (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_Type5ImageHeader (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_EnemySpawnConditionalRecord (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_Type5ModelTableHeader (existing definition preserved)
+SKIP bookmark 80030974 category MKMSZ/animation: preserving locally owned note
+MKMSZ extended analysis: applied 40, skipped 12 (scope=global)
+ApplyMkmszExtended.java> Finished!
+```
+
+**Ghidra/implementation-confirmed bounded:** all 40 newly staged metadata operations were reported applied, matching **15 code comments + 15 bookmarks** for new stock code sites, **6 additional bookmarks** on existing annotated code, and **4 NOTE-only relationships**. All 12 skips are explained: eleven existing `/MKMSZ` types already separately verified as equivalent (11/11) and one protected, locally edited animation bookmark at `0x80030974`. No unexpected skip or collision is reported.
+
+This brings the PR's **81 Wiki-to-Ghidra trace-site entries** to confirmed aggregate local import, in addition to 139 global function names, 35 globals, 14 scoped overlay entries, 84 ordinary pickup record structures, and 11 verified matching types. Import success does **not** prove that every code-unit semantics or function boundary is correct, that all Wiki knowledge is represented, or that stale HUD/palette/graphics operations caused accelerated music. The upstream audio root-cause investigation remains Pending. No further local importer run is needed for unchanged manifests. PR #3 remains draft/unmerged.
