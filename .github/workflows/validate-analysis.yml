@@ -34,3 +34,7 @@ jobs:
         run: |
           python -m py_compile tools/validate_function_registry_crosswalk.py
           python tools/validate_function_registry_crosswalk.py
+      - name: Validate Memory Map ownership intervals
+        run: |
+          python -m py_compile tools/validate_memory_ownership.py
+          python tools/validate_memory_ownership.py

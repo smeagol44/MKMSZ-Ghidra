@@ -94,7 +94,9 @@ def main():
             if not target.is_file() or not key:
                 raise ValueError(f"Missing analysis target: {claim['fact_id']}")
             rows = records(target)
-            if path.endswith("function_registry_crosswalk.tsv"):
+            if path.endswith("memory_ownership_intervals.tsv"):
+                matched = any(r.get("region_id") == key for r in rows)
+            elif path.endswith("function_registry_crosswalk.tsv"):
                 matched = any(r.get("registry_id") == key for r in rows)
             elif path.endswith("stage_resource_caveats.tsv"):
                 matched = any(r.get("stage") == key for r in rows)

@@ -150,3 +150,7 @@ Now **688 curated structured records** (379 locally Ghidra-confirmed; 309 indepe
 ## Function-Registry full bounded N64 row audit (2026-10-09)
 
 Added a **166-row source-anchored semantic crosswalk** and CI coverage test. Found **144 rows fully present** in separately verified global/overlay/internal-label metadata, **4 partially indexed multi-address rows** and **18 with no direct address index**. This leaves **22 address-navigation reviews** without claiming missing true function entries or new signatures. PS1 rows were deliberately excluded. New knowledge records are sidecar only; the maintainer's previous local Ghidra import remains current. The audited-known-claim ledger is **267/338 (78.99%) first-class** for its presently enumerated facts, not the entire Wiki knowledge corpus; all function notes retain canonical Wiki evidence. PR #3 remains draft.
+
+## Canonical Memory Map literal-space ownership transferred (2026-10-09)
+
+Added 89 exact current source-anchored interval records (54 ROM-side, 35 physical RDRAM) to `analysis/memory_ownership_intervals.tsv` without asserting any `confirmed-free` space, creating synthetic continuous spans from proof segments, or counting KSEG aliases as allocations. CI validates bounds, source records and classified safety. **356/427 (83.37%) first-class migration of audited known findings**, 63 Wiki-only, 8 unlinked. Records `973=379 Ghidra+594 sidecar`; no emulator/Ghidra import necessary. PR #3 draft/unmerged.

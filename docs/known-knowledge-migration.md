@@ -20,10 +20,11 @@ A 'known finding' is an evidence-qualified, bounded assertion in an authoritativ
 | Retail global table navigation | 2 | Ghidra bookmarks | Fifth batch Ghidra-confirmed |
 | Stage resource slot descriptions | 150 | Versioned `stage_resource_slots.tsv` | Conserved as sidecar; not all independently typed in Ghidra |
 | Eight stage ordinary resource-file mappings | 8 | Versioned `stage_resource_files.tsv` | File identity separate from code overlays; Earth base left unverified |
+| Classified ROM/RDRAM ownership intervals | 89 | Versioned `memory_ownership_intervals.tsv` | Original owned ranges, classes, scopes and negative controls; not free-space claims |
 | Guarded ROM patch/proof locations | 151 | Versioned `rom_patch_sites.tsv` | Conserved as sidecar; ROM offsets are NOT stock VA labels |
 | Established persistence/lifecycle contracts | 22 | Versioned `lifecycle_contracts.tsv` | Source-anchored bounded ownership and proof/failure limits |
 | Stage-specific resource caveats | 8 | Versioned `stage_resource_caveats.tsv` | Preserves negative controls and stage-scope warnings |
-| **Total registered structured records** | **718** | **379 Ghidra + 339 intentional sidecar** | **All recorded; doesn't exhaust narrative findings** |
+| **Total registered structured records** | **973** | **379 Ghidra + 594 intentional sidecar** | **All recorded; doesn't exhaust narrative findings** |
 
 These rows have different granularity and are **not** a percentage of all Wiki knowledge. Do not count 81 type fields as new 81 structures or confuse 150 resource-slot entries with 150 loaded functions. Latest local extended import result: **`applied=12, skipped=12`**, all 12 skips explained (11 existing types; one preserved animation note). No additional Ghidra action for this batch.
 
@@ -114,3 +115,11 @@ A full **166-row source-anchored** reconciliation of the current N64 function/di
 The new `tools/validate_function_registry_crosswalk.py` checks each row against the current exact manifests, including overlay identity, and ensures the separate claims ledger agrees. **All 166 facts are now independently recorded**, with 144 also directly navigable through imported scoped Ghidra metadata and 22 preserved as verified Wiki-sourced contracts awaiting careful navigation resolution. CI validates the crosswalk; **no local Ghidra import** and no ROM tracing occurred.
 
 **Cumulative audited-scope first-class knowledge transfer:** **267/338 (78.99%)** source-anchored facts; **63** remain Wiki-only and **8** unlinked. The curated structured inventory is now **884 records = 379 previously Ghidra-confirmed entries + 505 independent sidecar entries**. The 166 contracts overlap the existing function-name records semantically, so the structured inventory is **not** a total of unique research discoveries; do not sum heterogeneous rows to claim game-wide RE completion. Audit of additional Wiki owner facts still remains incomplete.
+
+## Canonical memory ownership interval migration (2026-10-09)
+
+Migrated **all 89 explicit row-identified intervals** in the bounded Memory Map tables into independent `analysis/memory_ownership_intervals.tsv` metadata: **54 ROM-side records (including proof footprints)** and **35 physically addressed RDRAM records**. Each retains its exact Wiki region ID, one-or-more original half-open segments, ownership class, original wording on scope/lifecycle/evidence, documented production-safety field, reference, negative-control notes and source provenance. Aliases are kept as display-only; they are NOT additional allocations. The one three-segment proof-only artifact is represented with multiple segments and **no fabricated single encompassing interval**. One Toasty record omits a separate lifecycle table column, so no lifecycle was inferred.
+
+**Zero intervals are promoted to confirmed-free**; this sidecar does not prove new space, compose overlapping proof allocations, or change runtime behavior. `tools/validate_memory_ownership.py` verifies segment bounds, physical 4 MiB RDRAM limits, alias starts, source linkage, and no confirmed-free promotion. Remaining dynamic/unbounded allocator observations in the Wiki are **not** incorrectly folded into this interval catalog; that is a separate audit.
+
+Cumulative audited established-finding coverage **356/427 (83.37%)** first-class via existing Ghidra objects or independent sidecars, with **63 Wiki-only and 8 unlinked**. This tracks only enumerated known facts, not the unknown game. Curated structured records now total **973 = 379 Ghidra + 594 sidecar**; those heterogeneous records are not unique discoveries. No Ghidra importer change.

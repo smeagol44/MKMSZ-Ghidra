@@ -13,3 +13,4 @@ stage_resource_file_maps	analysis/stage_resource_files.tsv	rows	8	versioned-side
 lifecycle_contracts	analysis/lifecycle_contracts.tsv	rows	22	versioned-sidecar	Twenty-two established lifecycle/negative-control contracts, source-anchored; not native Ghidra functions
 stage_resource_caveats	analysis/stage_resource_caveats.tsv	rows	8	versioned-sidecar	Eight stage-specific known negative controls and runtime bounds; no stock-global labels
 function_registry_contracts	analysis/function_registry_crosswalk.tsv	rows	166	versioned-sidecar	Source-qualified 166 registry contract rows; 144 fully address-indexed; 22 partially/not directly indexed; no guessed function creation
+memory_ownership_intervals	analysis/memory_ownership_intervals.tsv	rows	89	versioned-sidecar	54 ROM and 35 physical RDRAM interval ownership records; end-exclusive, no confirmed free; one proof record multisegment
