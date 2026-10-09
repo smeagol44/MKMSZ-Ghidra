@@ -109,3 +109,21 @@ ApplyMkmszExtended.java> Finished!
 **Ghidra/implementation-confirmed bounded:** the source/context-guarded script created the previously missing native VI callback without reported conflicts; global names are now **139/139**, globals **35/35**. The extended script ran and every one of its **12 skips is identified**: 11 previously present named types and one pre-existing locally owned animation bookmark at `0x80030974`. Preserve that bookmark (the address is an internal switch arm, not a standalone function). The importer preserves existing type definitions, but the log does **not** prove the 11 existing type definitions are structurally equivalent to their current manifests; a separate type-equivalence audit would be required for that stronger conclusion. The prior initial extended run had `applied=106`; its follow-up `applied=0` is consistent with all unchanged applicable scoped metadata already being present, not with 106 new operations on each execution. No emulator was used.
 
 **Remaining audit work:** other canonical Wiki domain owners (memory/allocation, Inventory/HUD/lifecycle, native audio, enemies and resource mechanics) still contain useful code-level cross-references not exhaustively reconciled; global function-body completeness, signature/local/data manifests and stable per-finding status/navigation also remain incomplete.
+
+## Domain-owner reconciliation — second bounded pass (2026-10-08)
+
+Compared current Wiki `Native-HUD-and-UI.md`, `Persistence-Inventory-and-Lifecycle.md`, `Production-Rich-Inventory-Music-Static-Investigation.md`, `Memory-and-Allocation-Map.md`, `Stage-Flow-and-Selector.md`, and `Data-Structures-and-Encodings.md` against existing Ghidra metadata.
+
+Added **17 conservative stock-program trace points** to both `analysis/comments.tsv` and `analysis/bookmarks.tsv` (34 records): scheduler setup and SP/DP/VI/pre-NMI event registrations (5); inventory capture/HP/SEALED/live-store routes (5); death/Continue/frontend life ownership, player startup, Fire normal overlay load, and Stage-7 entry (6); and the already rejected caller-saved-register hazard at native draw `0x8001CA88` (1). Three of the 17 are explicit warnings and one records an unresolved Stage-7 question. These are comments/bookmarks only; no code was created, bytes patched or function boundaries inferred.
+
+**Important scope separation:** The Inventory/HUD and Memory Map also describe production-only wrappers at addresses such as `0x800AEE24` and allocator/ROM boundaries. They are not stock program code merely because the address falls into a mapped ROM image. Do not apply those entries as stock function names. Similarly a referenced address might be a data pointer, control-site inside another function, or address *end*, rather than a function beginning.
+
+Added reproducible, **read-only** `tools/audit_wiki_coverage.py` to scan a locally available, versioned MKMSZ-Randomizer `wiki/` and compare addressed sections with Ghidra manifests. Example (from the MKMSZ-Ghidra root):
+
+```bash
+python3 tools/audit_wiki_coverage.py --wiki-dir ../MKMSZ-Randomizer/wiki --output /tmp/mkmsz-wiki-ghidra-coverage.csv
+```
+
+Coverage buckets intentionally mean only **direct-global-manifest**, **not-directly-indexed**, or **scope-ambiguous-review**, with source page/section/line and applicable manifest names in the CSV. No auto-import, automatic semantic parity claims, unverified function creation or overlay VA flattening. Script execution on a complete local Wiki clone remains to be confirmed; static CI validity is a separate check. Absence of a manifest marker is not proof that the binary was never analyzed. This audit is an index to prioritize focused manual/evidence-backed reconciliation, not a scoring system for reverse engineering completeness.
+
+**State:** GitHub metadata additions are implementation/CI level pending checks; **Ghidra local application of these second-pass annotations Pending**. Prior 139/139 function and 35/35 global import remains maintainer-confirmed. The larger cross-domain audit remains incomplete, and PR #3 stays draft.
