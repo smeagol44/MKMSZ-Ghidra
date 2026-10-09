@@ -105,7 +105,7 @@ public class ApplyMkmszExtended extends GhidraScript {
             }
             String prior = getPlateComment(at);
             if (prior == null || prior.startsWith("[MKMSZ]")) {
-                setPlateComment(at, "[MKMSZ] " + row[3] + "\\n" + row[4]);
+                setPlateComment(at, "[MKMSZ] " + row[3] + "\n" + row[4]);
             }
         }
     }
@@ -213,6 +213,7 @@ public class ApplyMkmszExtended extends GhidraScript {
             if (existing != null) {
                 if (!existing.isEquivalent(entry.getValue()))
                     println("Existing locally edited type " + entry.getKey() + "; skipped");
+                println("TYPE ALREADY PRESENT: " + entry.getKey() + " (existing definition preserved)");
                 skipped++;
             }
             else {
@@ -333,7 +334,7 @@ public class ApplyMkmszExtended extends GhidraScript {
             Address at = addr(r[1]);
             if (!mapped(at)) continue;
             CodeUnit unit = currentProgram.getListing().getCodeUnitAt(at);
-            if (unit == null) { skipped++; continue; }
+            if (unit == null) { println("SKIP comment " + at + ": no code unit"); skipped++; continue; }
             int kind;
             if (r[2].equals("plate")) kind = CodeUnit.PLATE_COMMENT;
             else if (r[2].equals("pre")) kind = CodeUnit.PRE_COMMENT;
@@ -343,6 +344,7 @@ public class ApplyMkmszExtended extends GhidraScript {
             else throw new IOException("Invalid comment kind " + r[2]);
             String previous = unit.getComment(kind);
             if (previous != null && !previous.startsWith("[MKMSZ]")) {
+                println("SKIP comment " + at + ": preserving locally owned comment");
                 skipped++; continue;
             }
             String comment = "[MKMSZ] " + r[3] + "\n" + r[4];
@@ -360,6 +362,7 @@ public class ApplyMkmszExtended extends GhidraScript {
             String content = r[3] + ": " + r[4];
             Bookmark old = manager.getBookmark(at, "Info", category);
             if (old != null && !old.getComment().equals(content)) {
+                println("SKIP bookmark " + at + " category " + category + ": preserving locally owned note");
                 skipped++; continue; // Do not replace someone's local note.
             }
             if (old == null) { manager.setBookmark(at, "Info", category, content); applied++; }
