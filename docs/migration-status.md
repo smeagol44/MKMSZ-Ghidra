@@ -130,3 +130,7 @@ Source-anchored claim ledger `analysis/known_knowledge_claims.tsv` now records *
 ## Native HUD known-finding crosswalk v02 (2026-10-09)
 
 Added **43 source-anchored claims** spanning rich Inventory boundary/evidence, stable HUD requirements, frontend controls and rejected/accepted GAME SETTINGS history. **Cumulative 65 audited claims; 61 reusable (93.85%), 4 known-but-unlinked**. This is not a whole-Wiki completion percentage. Reused current Wiki, Ghidra manifest and the protected failure/production distinctions, without ROM re-tracing or touching importer metadata. Tooling now validates every claim's indexed target and optional live Wiki anchor; review of other owner sections remains open. PR #3 stays draft.
+
+## Canonical resource and overlay claim audit (2026-10-09)
+
+Added 42 source-anchored claims in `analysis/known_knowledge_claims.tsv`, with verified links to **eight existing stage-specific overlay scopes**, native loader/decoder entries, pickup type field and resource-system safety constraints. Audited subset: 107 known claims; 99 reachable through Ghidra or Wiki/canonical sidecars (92.52%), but only 37 independently represented in Ghidra/sidecars (34.58%). 62 still rely on Wiki-only routes; 8 lack first-class navigation. The **34.58%** is a better direct-migration proxy *only within audited claims* than the earlier 93.85% "already accessible" measure. Known facts have not been rerun as RE. Script now calculates both metrics and validates stage-scoped destinations. PR #3 draft; no importer required.

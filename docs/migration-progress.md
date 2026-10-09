@@ -6,7 +6,7 @@ The user specifically wants **the percentage of verified/documented research kno
 
 See [Known-knowledge migration ledger](known-knowledge-migration.md), source manifests `analysis/known_knowledge_families.tsv` and `analysis/known_knowledge_owners.tsv`, and `tools/report_known_knowledge.py` for the ongoing, reproducible ledger.
 
-**Measured today: 674 structured known objects preserved**, consisting of **373 locally Ghidra-confirmed records** and **301 companion ROM-only catalog rows** that deliberately should not become Ghidra objects. **20/40 (50.0%) Wiki owner pages have had some targeted reconciliation**, but every such page remains only partially audited; **0/40 fully reconciled**. A single percentage of *all already-established semantic findings* is not yet justified: outstanding narratives/constraints/failures still need an enumerated claim-level denominator. These status counts are not percentages of unknown game code and are not to be averaged.
+**Measured curated inventory: 680 structured known records preserved**, consisting of **379 locally Ghidra-confirmed records** and **301 companion ROM-only catalog rows** that deliberately should not become Ghidra objects. **20/40 (50.0%) Wiki owner pages have had some targeted reconciliation**, but every such page remains only partially audited; **0/40 fully reconciled**. A single percentage of *all already-established semantic findings* is not yet justified: outstanding narratives/constraints/failures still need an enumerated claim-level denominator. These status counts are not percentages of unknown game code and are not to be averaged.
 
 **Fifth batch verified:** maintainer's full console reports `applied 12, skipped 12` in the global Ghidra program; 5 new code trace sites and 2 data-only bookmarks are now Ghidra/implementation-confirmed. All skips were identified and harmless. No further import required for this unchanged metadata.
 
@@ -26,9 +26,9 @@ The most useful answer is a **multi-axis progress dashboard** with exact denomin
 | Stage-qualified function entries | 14 | 14 | **100%** | 8 independently hash-verified overlay programs; not a full stage decompilation |
 | Ordinary pickup records typed | 84 | 84 | **100%** | Current eight-stage ordinary catalog, not all stage objects |
 | Curated structure/enum definitions | 11 | 11 | **100%** | Maintainer audit matched all 81 declared fields and 8 enum members; other unknown structures remain |
-| Individually reconciled Wiki trace locations | 81 | 81 | **100%** | Confirmed through aggregate extended-import logs, not exhaustive per-entry disassembly; new fifth-batch entries below still pending |
+| Individually reconciled Wiki trace locations | 86 | 86 | **100%** | Maintainer aggregate importer logs include fifth batch; distinct from six supplemental warning bookmarks |
 
-**Fifth batch (GitHub-staged; Ghidra pending):** 5 new stock code-location comment/bookmark pairs plus 2 data navigation bookmarks, for **12** additional expected import operations. Do not add these to the confirmed-import numerators until the maintainer supplies the local extended importer log.
+**Fifth batch locally confirmed (2026-10-09):** maintainer reported `applied=12, skipped=12`, with all skips accounted for. Five stock code locations and two data-navigation bookmarks are already in the local Ghidra program.
 
 ## Broader Wiki-to-global-manifest visibility (measurable proxy)
 
@@ -89,3 +89,7 @@ Within the audited Native HUD renderer + descriptor subsection only: **18/22 exi
 ## Audited known-finding expansion — Native HUD current state and controls
 
 The source-anchored, claim-level ledger now contains **65 established findings** across bounded Native HUD/UI subsections. **61/65 (93.85%)** are already reusable through imported Ghidra annotations or explicitly routed Wiki/companion evidence; **4** currently lack direct stock-data navigation. This is a *subset completion* metric and cannot be extrapolated to unreviewed owners or full game knowledge. The audit report script now validates these target links and recalculates the denominator automatically.
+
+## Resource/overlay owner audited and first-class migration split (2026-10-09)
+
+Added **42** source-anchored established facts from the ROM/overlay resource owner, with eight matching stage-scoped overlay metadata records. **107** current audited facts across HUD and resource areas: **99/107 (92.52%)** accessible through either native Ghidra mapping or existing routed documentation; more strictly, **37/107 (34.58%)** are first-class Ghidra/independent sidecar representations, **62** are only Wiki-routed, and **8** have no dedicated mapping. Neither measure is total research migration because full-claim enumeration of the other owners is pending. Prefer the **first-class** measure for tracking real transfer into the Ghidra project. See `docs/known-knowledge-migration.md` and the maintained claim ledger for evidence.

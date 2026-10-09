@@ -94,8 +94,17 @@ def main():
             if not target.is_file() or not key:
                 raise ValueError(f"Missing analysis target: {claim['fact_id']}")
             rows = records(target)
-            keyfield = "record_id" if path.endswith("rom_patch_sites.tsv") else "address"
-            if not any(r.get(keyfield, "").lower() == key.lower() for r in rows):
+            if path.endswith("overlays.tsv"):
+                matched = any(r.get("scope", "").lower() == key.lower() for r in rows)
+            elif path.endswith("types.tsv"):
+                parts = key.split("|")
+                matched = (len(parts) == 2 and
+                           any(r.get("name") == parts[0] and r.get("field") == parts[1]
+                               for r in rows))
+            else:
+                keyfield = "record_id" if path.endswith("rom_patch_sites.tsv") else "address"
+                matched = any(r.get(keyfield, "").lower() == key.lower() for r in rows)
+            if not matched:
                 raise ValueError(f"Unresolved manifest target: {claim['fact_id']}")
         elif path.startswith("wiki/") and not key:
             if args.wiki_dir and not (args.wiki_dir / path[5:]).is_file():
@@ -105,6 +114,17 @@ def main():
         claim_status[status] += 1
     scoped_total = len(audited)
     scoped_reusable = claim_status["ghidra-confirmed"] + claim_status["wiki-or-sidecar-routed"]
+    directly_migrated = sum(
+        claim["migration_status"] == "ghidra-confirmed" or
+        (claim["migration_status"] == "wiki-or-sidecar-routed" and
+         claim["target_path"].startswith("analysis/"))
+        for claim in audited
+    )
+    wiki_only = sum(
+        claim["migration_status"] == "wiki-or-sidecar-routed" and
+        claim["target_path"].startswith("wiki/")
+        for claim in audited
+    )
     n = len(owners)
     started = states["partial-crosswalk"] + states["fully-reconciled"]
     summary = {
@@ -126,6 +146,9 @@ def main():
         "audited_ghidra_claims": claim_status["ghidra-confirmed"],
         "audited_routed_claims": claim_status["wiki-or-sidecar-routed"],
         "audited_known_claim_reuse_percent": round(100.0 * scoped_reusable / scoped_total, 2),
+        "audited_directly_migrated_claims": directly_migrated,
+        "audited_direct_migration_percent": round(100.0 * directly_migrated / scoped_total, 2),
+        "audited_wiki_only_routed_claims": wiki_only,
         "audited_scope": "Selected explicitly enumerated Native HUD owner findings; not the entire Wiki",
         "why_no_single_percent": (
             "Structured imports and owner-page review are different unit sizes. "
@@ -144,6 +167,9 @@ def main():
     print(f"Audited known findings: {scoped_reusable}/{scoped_total} reusable "
           f"({summary['audited_known_claim_reuse_percent']}%); "
           f"{claim_status['known-in-wiki-unlinked']} unlinked")
+    print(f"First-class Ghidra / explicit sidecar migration: {directly_migrated}/{scoped_total} "
+          f"({summary['audited_direct_migration_percent']}%); "
+          f"Wiki-only routed: {wiki_only}. Do not equate Wiki-only with migrated metadata.")
     print("ALL already-documented finding-level coverage: NOT YET MEASURED.")
     if args.json:
         args.json.parent.mkdir(parents=True, exist_ok=True)
