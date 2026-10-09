@@ -12,3 +12,5 @@ jobs:
           python-version: "3.12"
       - name: Validate analysis manifests
         run: python tools/validate_analysis.py
+      - name: Syntax-check Wiki coverage audit
+        run: python -m py_compile tools/audit_wiki_coverage.py

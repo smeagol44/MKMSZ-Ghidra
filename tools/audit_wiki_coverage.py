@@ -7,6 +7,7 @@ stage-overlay virtual addresses are intentionally not treated as global coverage
 """
 import argparse
 import csv
+import json
 from collections import defaultdict
 from pathlib import Path
 import re
@@ -69,24 +70,59 @@ def scan(wiki, found):
                                ",".join(sorted(manifest)), line_no))
     return report
 
+def summarize(report, wiki):
+    """Deterministic raw address-visibility proxy, not RE completion."""
+    counts = defaultdict(int)
+    for _, _, _, status, _, _ in report:
+        counts[status] += 1
+    indexed = counts["direct-global-manifest"]
+    absent = counts["not-directly-indexed"]
+    denominator = indexed + absent
+    return {
+        "metric": "wiki_0x800_direct_global_index_visibility",
+        "wiki_files_scanned": sum(1 for p in wiki.glob("*.md") if p.name not in EXCLUDE),
+        "wiki_files_with_address_occurrences": len({row[0] for row in report}),
+        "unique_page_section_address_occurrences": len(report),
+        "direct_global_manifest": indexed,
+        "not_directly_indexed": absent,
+        "scope_ambiguous_review": counts["scope-ambiguous-review"],
+        "eligible_raw_0x800_occurrences": denominator,
+        "direct_index_percent": round(indexed * 100.0 / denominator, 2) if denominator else None,
+        "not_direct_indexed_percent": round(absent * 100.0 / denominator, 2) if denominator else None,
+        "limitations": (
+            "This is a lexical address-navigation proxy, NOT a percentage of "
+            "reverse-engineering completeness. 0x800 PS1 addresses, stock/production "
+            "aliases and data/inside-function sites may occur; 0x801/0x802 stage/arena "
+            "addresses are withheld from the direct-global denominator. Local Ghidra "
+            "application and semantic fidelity are not checked by this scan."
+        ),
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--wiki-dir", type=Path, required=True,
                         help="Path to versioned MKMSZ-Randomizer/wiki; never modifies it")
     parser.add_argument("--output", type=Path, default=None,
                         help="Optional CSV output path; stdout summary always shown")
+    parser.add_argument("--summary-json", type=Path, default=None,
+                        help="Optional machine-readable visibility summary output")
     args = parser.parse_args()
     if not args.wiki_dir.is_dir():
         parser.error("wiki directory does not exist")
     root = Path(__file__).resolve().parents[1]
     report = scan(args.wiki_dir, load(root))
-    counts = defaultdict(int)
-    for _, _, _, status, _, _ in report:
-        counts[status] += 1
-    print(f"Pages sampled: {len(set(row[0] for row in report))}")
-    print(f"Unique page/section/address occurrences: {len(report)}")
-    for status in sorted(counts):
-        print(f"{status}: {counts[status]}")
+    summary = summarize(report, args.wiki_dir)
+    print(f"Wiki files scanned: {summary['wiki_files_scanned']}")
+    print(f"Files with address occurrences: {summary['wiki_files_with_address_occurrences']}")
+    print(f"Unique page/section/address occurrences: {summary['unique_page_section_address_occurrences']}")
+    print(f"direct-global-manifest: {summary['direct_global_manifest']}")
+    print(f"not-directly-indexed: {summary['not_directly_indexed']}")
+    print(f"scope-ambiguous-review: {summary['scope_ambiguous_review']}")
+    print(f"Raw 0x800 direct index coverage: {summary['direct_index_percent']}% "
+          f"({summary['direct_global_manifest']}/{summary['eligible_raw_0x800_occurrences']}); "
+          f"not directly indexed: {summary['not_direct_indexed_percent']}%")
+    print("THIS IS AN ADDRESS VISIBILITY PROXY, NOT WHOLE-MIGRATION COMPLETENESS.")
     print("DISCLAIMER: absence of direct manifest index does not imply unknown code;")
     print("a direct index does not prove semantics, boundaries, or local application.")
     if args.output:
@@ -97,6 +133,12 @@ def main():
                              "direct_manifest_files", "first_occurrence_line"))
             writer.writerows(report)
         print(f"Wrote {args.output}")
+    if args.summary_json:
+        args.summary_json.parent.mkdir(parents=True, exist_ok=True)
+        with args.summary_json.open("w", encoding="utf-8") as out:
+            json.dump(summary, out, indent=2, sort_keys=True)
+            out.write("\n")
+        print(f"Wrote summary {args.summary_json}")
 
 if __name__ == "__main__":
     main()
