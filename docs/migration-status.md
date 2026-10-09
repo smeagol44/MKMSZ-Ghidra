@@ -68,6 +68,10 @@ The new, stock-SHA-guarded Fire raw program `0x9D` at `0x802ECE30` passed three 
 
 The separate raw Water overlay `0xA1` passed all three guarded Ghidra importers. Pickup import reported `expected=9, typed=9, already typed=0, conflicts=0`; function import recognized `overlay_water`, created/disassembled/named `water_icon_award` at `0x802F2448` (`created=1, renamed=1, unchanged=0, disassembled=1, review=0`); extended importer reported `applied 0, skipped 0`. **Ghidra/implementation-confirmed bounded** for Water's known entries. Cumulative counts are **74/84 ordinary pickup records, 11/14 cataloged overlay functions, six stage programs**. Wind (6 + 2) and Temple (4 + 1) are the remaining Ghidra import gates. No end-to-end function semantics, runtime coverage or full function boundary claims follow from this test; exact logs in `docs/remaining-four-stage-overlays.md`.
 
+## Eight-stage extension — Wind maintainer confirmation, 2026-10-08
+
+Wind raw overlay `0xA2` passed all three scoped importers in the maintainer's Ghidra program: pickups `expected=6, typed=6, already typed=0, conflicts=0`; functions `created=2, renamed=2, unchanged=0, disassembled=2, review=0`, defining `wind_spatial_trigger_dispatch` (`0x802EE9FC`) and `wind_mixed_icon_award` (`0x802F2CB4`); extended `applied 0, skipped 0`. **Ghidra/implementation-confirmed bounded** for six Wind records and two known function entries. Cumulative status **80/84 pickups, 13/14 cataloged overlay functions, seven distinct stage programs**. Temple is the last unvalidated stage of this migration. Entry creation does not independently prove complete body bounds, exact semantics, or runtime behavior. Console log is preserved in `docs/remaining-four-stage-overlays.md`.
+
 ## Future work
 
 Populate grounded full signatures/locals and expanded data types during focused RE; map and import remaining stage overlays independently; add safe ROM-space navigation for patch sites and stage catalogs; consider a direct cross-referenced ROM offset view rather than conflating RAM and ROM.
