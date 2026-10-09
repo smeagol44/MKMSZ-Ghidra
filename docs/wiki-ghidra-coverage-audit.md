@@ -47,7 +47,7 @@ After pulling this branch, save/back up the Ghidra project and run, in the **glo
 
 ### Evidence and non-goals
 
-**Implementation/CI-confirmed:** 38 new manifest comments and 38 bookmarks once CI passes. **Ghidra runtime Pending** for their local application. **Static-confirmed:** existing Wiki-researched meanings on their bounded routes only. **Ghidra/implementation-confirmed** for the previously applied eight-stage cataloged pickup/known function imports only. Unknown function bodies remain unknown; no ROM modifications or emulator testing were performed.
+**Implementation/CI-confirmed:** 38 new manifest comments and 38 bookmarks once CI passes. **Ghidra/implementation-confirmed bounded** for the combined extended import execution; a full manual per-entry visual audit is not claimed. **Static-confirmed:** existing Wiki-researched meanings on their bounded routes only. **Ghidra/implementation-confirmed** for the previously applied eight-stage cataloged pickup/known function imports only. Unknown function bodies remain unknown; no ROM modifications or emulator testing were performed.
 
 Current Wiki provenance: `Function-Registry.md`, `Production-Rich-Inventory-Music-Static-Investigation.md`, `Native-HUD-and-UI.md`, `Persistence-Inventory-and-Lifecycle.md`, `Memory-and-Allocation-Map.md`, `Data-Structures-and-Encodings.md`.
 
@@ -75,3 +75,37 @@ The clean supported ROM has at VA `0x80015950` / ROM `0x16550` the first 16 orig
 `analysis/global_function_guards.tsv` records those exact three context checks, and `ApplyMkmszGuardedGlobalFunctions.java` performs a **single-entry** MIPS32 disassembly and function creation, bounded to `0x80015B80`. It refuses unsupported source hashes, wrong processor/endian, byte mismatches, typed entry data, MIPS16 entry, or overlap with an existing function. It preserves local custom names and other analysis. The script has not yet been run in the maintainer's Ghidra: **Ghidra/implementation Pending**.
 
 **Local order after pulling the feature branch:** save/back up current clean-ROM Ghidra program; run `ApplyMkmszGuardedGlobalFunctions.java`, then `ApplyMkmszAnalysis.java` to verify **139/139 function entries, 35/35 globals**. Rerun `ApplyMkmszExtended.java`: enhanced console messages now attribute locally existing-type, comment, and bookmark skips so they can be distinguished from genuine failures. Capture full console output rather than interpreting `skipped=10` by itself. Do not manually disassemble the missing function or reimport the eight stage overlays.
+
+## Maintainer global gap closure — 2026-10-08
+
+The maintainer reran all three guarded/global scripts on the same clean N64 program after the diagnostic change:
+
+```text
+ApplyMkmszGuardedGlobalFunctions.java> Running...
+OK vi_input_callback at 80015950
+Guarded global function import: created=1, already=0, review=0
+ApplyMkmszGuardedGlobalFunctions.java> Finished!
+ApplyMkmszAnalysis.java> Running...
+MKMSZ analysis applied: 139 function entries, 35 global entries.
+ApplyMkmszAnalysis.java> Finished!
+ApplyMkmszExtended.java> Running...
+MKMSZ extended analysis scope: global
+TYPE ALREADY PRESENT: MKMSZ_ItemId (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_BoxBacking (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_PickupRecord (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_PersistenceV2 (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_EnemySpawnRecord (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_AuxTriggerRecord (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_RenderNode (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_DynamicTextureSlot (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_Type5ImageHeader (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_EnemySpawnConditionalRecord (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_Type5ModelTableHeader (existing definition preserved)
+SKIP bookmark 80030974 category MKMSZ/animation: preserving locally owned note
+MKMSZ extended analysis: applied 0, skipped 12 (scope=global)
+ApplyMkmszExtended.java> Finished!
+```
+
+**Ghidra/implementation-confirmed bounded:** the source/context-guarded script created the previously missing native VI callback without reported conflicts; global names are now **139/139**, globals **35/35**. The extended script ran and every one of its **12 skips is identified**: 11 previously present named types and one pre-existing locally owned animation bookmark at `0x80030974`. Preserve that bookmark (the address is an internal switch arm, not a standalone function). The importer preserves existing type definitions, but the log does **not** prove the 11 existing type definitions are structurally equivalent to their current manifests; a separate type-equivalence audit would be required for that stronger conclusion. The prior initial extended run had `applied=106`; its follow-up `applied=0` is consistent with all unchanged applicable scoped metadata already being present, not with 106 new operations on each execution. No emulator was used.
+
+**Remaining audit work:** other canonical Wiki domain owners (memory/allocation, Inventory/HUD/lifecycle, native audio, enemies and resource mechanics) still contain useful code-level cross-references not exhaustively reconciled; global function-body completeness, signature/local/data manifests and stable per-finding status/navigation also remain incomplete.
