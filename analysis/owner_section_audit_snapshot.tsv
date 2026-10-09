@@ -12,7 +12,7 @@ Persistence-Inventory-and-Lifecycle.md	54a70762796dc0970510ae6e1cd28220173e711a	
 XP-and-Progression.md	817b1ed3efd1b83fa142cb929b976763f94a6f46	14	1	9	0	0	0	raw anchor scan; not semantic exhaustiveness
 Native-HUD-and-UI.md	d285ce6554ef77e4036f71fe08c224a3b9f1ccb1	12	11	65	0	1	15	raw anchor scan; not semantic exhaustiveness
 Presentation-and-Branding.md	6368b502b77d756c41ff4f1193431abd397bd98d	14	5	8	0	0	0	raw anchor scan; not semantic exhaustiveness
-Sounds-and-Music.md	a268267ddd6e4133b8702c4b9c639e0da682c387	12	0	0	0	0	0	raw anchor scan; not semantic exhaustiveness
+Sounds-and-Music.md	a268267ddd6e4133b8702c4b9c639e0da682c387	12	8	18	0	0	0	raw anchor scan; not semantic exhaustiveness
 Palette-and-Recoloring.md	aa6ebaca2b564fe7e02e3684c917f513cfb542d8	6	4	8	0	1	0	raw anchor scan; not semantic exhaustiveness
 Web-Patcher-and-Product.md	03a1736a7cee2d0f777ec13ed64a8657d14972fd	6	3	6	0	0	0	raw anchor scan; not semantic exhaustiveness
 Stage-Catalogs.md	f19d3d7399065db587f8100652acd328350c98da	9	1	3	0	0	0	raw anchor scan; not semantic exhaustiveness
@@ -36,6 +36,6 @@ Toasty-Visual-Research.md	6248c7784824198e3f2d79c5ed69aec21289565b	55	3	6	0	1	0	
 PS1-Research.md	ccbfa10263daf0be202c65377f52c2b4d10bea7a	8	4	6	0	0	1	raw anchor scan; not semantic exhaustiveness
 N64-PS1-Comparison.md	2c3f86a5051d88e2e07721d94a485b4fd9f91371	4	2	6	0	1	1	raw anchor scan; not semantic exhaustiveness
 Production-Rich-Inventory-Music-Static-Investigation.md	e9fe7512a0bf9274b2486b13afc81e6dd8c99d04	24	0	0	0	0	0	raw anchor scan; not semantic exhaustiveness
-Test-Lab-Inventory-Hang-Static-Diagnosis.md	6f2d7452e7a84d98ab656c57d464bf4635f1d2a4	8	0	0	0	0	0	raw anchor scan; not semantic exhaustiveness
+Test-Lab-Inventory-Hang-Static-Diagnosis.md	6f2d7452e7a84d98ab656c57d464bf4635f1d2a4	8	6	18	0	0	0	raw anchor scan; not semantic exhaustiveness
 Lifecycle-Static-Closure-v05.md	012e2d13f1dd25872ac61f3ac781fbf55d3b157c	7	3	6	0	0	1	raw anchor scan; not semantic exhaustiveness
 Experiments-Failures-and-Superseded-Findings.md	9bea08b7f4851440ab143bf6da0b891affe2ca6c	11	2	6	0	0	3	raw anchor scan; not semantic exhaustiveness

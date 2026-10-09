@@ -82,3 +82,7 @@ jobs:
         run: |
           python -m py_compile tools/validate_owner_section_snapshot.py
           python tools/validate_owner_section_snapshot.py
+      - name: Validate known audio and TEST LAB source contracts
+        run: |
+          python -m py_compile tools/validate_audio_testlab_contracts.py
+          python tools/validate_audio_testlab_contracts.py
