@@ -112,6 +112,8 @@ The current MKMSZR Wiki remains the owner of project conclusions and evidence sc
 
 ## Canonical Wiki migration
 
+The eventual maintainer one-pass local update is documented in [Local Ghidra knowledge handoff](docs/local-migration-handoff.md). PR #3 is still draft; do not assume the latest staged bookmarks are on `main` or applied locally.
+
 The current [migration status](docs/migration-status.md) documents the one-time transfer of reviewed Wiki information into global function metadata, native structures, stage catalog records, patch-site provenance, and verified overlay-source manifests. Not every ROM offset can be annotated as a runtime VA. The direct import scripts act only on matching Ghidra program spaces.
 
 For all eight verified raw overlays, use the exact-hash [local overlay extractor](tools/extract_overlays.py) with your own clean ROM, then import each as a **separate** MIPS big-endian Ghidra program at the established runtime base. Never add extracted ROM bytes to Git. Four additional raw overlays (Temple 0xA0, Wind 0xA2, Water 0xA1, Fire 0x9D) now have clean-ROM SHA/file-table/loader cross-confirmed mappings. **All four new stages have now passed their guarded Ghidra import runs (35 ordinary pickup records and five cataloged function entries). Together with the previous stages, all 84/84 cataloged pickup records and 14/14 known overlay-function entries have been imported across eight separate Ghidra programs.** See [remaining stage overlay proof and instructions](docs/remaining-four-stage-overlays.md).
