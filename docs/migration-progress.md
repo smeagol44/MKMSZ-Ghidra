@@ -84,3 +84,8 @@ The script prints both numerator/denominator and percentages and writes a struct
 ## First source-anchored known-finding progress score (2026-10-09)
 
 Within the audited Native HUD renderer + descriptor subsection only: **18/22 existing known findings are reusable (81.82%)**, with **4/22 known-but-unlinked stock descriptor addresses (18.18%)**. The scope and exact evidence anchors are versioned in `analysis/known_knowledge_claims.tsv`. This is the correct kind of metric requested, but **the global known-research completion percentage remains not measured** until the other owner findings are enumerated. No user import action is required for this docs-only pass.
+
+
+## Audited known-finding expansion — Native HUD current state and controls
+
+The source-anchored, claim-level ledger now contains **65 established findings** across bounded Native HUD/UI subsections. **61/65 (93.85%)** are already reusable through imported Ghidra annotations or explicitly routed Wiki/companion evidence; **4** currently lack direct stock-data navigation. This is a *subset completion* metric and cannot be extrapolated to unreviewed owners or full game knowledge. The audit report script now validates these target links and recalculates the denominator automatically.

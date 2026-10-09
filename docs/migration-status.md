@@ -125,3 +125,8 @@ Reproduce counts with `python3 tools/report_known_knowledge.py` from the checkou
 ## Known-finding audit: Native HUD renderer subsection (2026-10-09)
 
 Source-anchored claim ledger `analysis/known_knowledge_claims.tsv` now records **22 established facts** from `Native-HUD-and-UI.md` renderer + descriptor subsections: **12 already Ghidra-confirmed**, **6 already Wiki/sidecar-routed**, **4 known stock presentation descriptors unlinked**. **18/22 = 81.82%** appropriate reuse *inside this bounded audited subsection*; this is not a percentage of all documented Wiki knowledge. No new Ghidra import required. See `docs/known-knowledge-migration.md`.
+
+
+## Native HUD known-finding crosswalk v02 (2026-10-09)
+
+Added **43 source-anchored claims** spanning rich Inventory boundary/evidence, stable HUD requirements, frontend controls and rejected/accepted GAME SETTINGS history. **Cumulative 65 audited claims; 61 reusable (93.85%), 4 known-but-unlinked**. This is not a whole-Wiki completion percentage. Reused current Wiki, Ghidra manifest and the protected failure/production distinctions, without ROM re-tracing or touching importer metadata. Tooling now validates every claim's indexed target and optional live Wiki anchor; review of other owner sections remains open. PR #3 stays draft.
