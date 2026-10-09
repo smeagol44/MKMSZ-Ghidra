@@ -52,3 +52,12 @@ The tool validates that the recorded structured counts still match versioned man
 ## Next accounting step
 
 For each current owner, generate a claim-level crosswalk with `owner + section + stable fact ID + evidence + N64 scope + current Wiki conclusion + Ghidra/sidecar representation + import proof + review status`. Deduplicate repeated facts across multiple Wiki pages by canonical owner. Don't invent missing signatures/locals or try to type production-only code into a clean-ROM program. Only then calculate **verified facts represented / total current verified facts**, with *unknown ROM knowledge explicitly excluded*. This is the user's desired whole-known-knowledge percentage, and it can grow as claims are reviewed without causing repeated RE.
+
+
+## Known-finding claim crosswalk v01 — Native HUD rendering (2026-10-09)
+
+**First fully enumerated *bounded subsection*, not an entire-page review.** Audited all established findings in current `Native-HUD-and-UI.md` from `Confirmed gameplay HUD path` through `Rejected or bounded renderer approaches`, retaining source anchors and unique `HUD-RENDER-001..022` IDs in `analysis/known_knowledge_claims.tsv`. Source revision for this pass: Wiki blob `d285ce6554ef77e4036f71fe08c224a3b9f1ccb1`. Historical/production-only facts are routed to their existing Wiki or guarded patch-site sidecar, never invented as retail native functions.
+
+**Measured audited-scope reuse:** 22 known facts, **12** mapped to locally confirmed Ghidra metadata, **6** correctly routed to existing Wiki or versioned sidecars, **4** known but lacking direct reusable navigation metadata. Thus **18/22 = 81.82%** of *this explicit established-finding set* is already appropriately represented; **4/22 = 18.18%** is migration work remaining for this set. The four gaps are original pickup presentation descriptors `0x800B1BAC`, `0x800B1BD0`, `0x800B1D18`, and `0x800B1D38`. All four already have confirmed meanings in the Wiki; **do not re-trace the ROM to rediscover them**. A future batched safe stock-data bookmark import can make them navigable.
+
+Other sections of `Native-HUD-and-UI.md` (including rich Inventory, controls frontend, and full proof chronology) are **not counted** in this denominator and the owner stays `partial-crosswalk`. The 40-owner global research percentage remains Pending until the rest of the established findings have an atomic crosswalk. **No ROM, emulator or new Ghidra annotations** in this pass; no user import action needed. PR #3 stays draft.

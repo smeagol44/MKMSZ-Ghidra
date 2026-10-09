@@ -80,3 +80,7 @@ The script prints both numerator/denominator and percentages and writes a struct
 5. Continue only within accepted release and research requirements. The production rich Inventory audio trigger and stale-HUD lifecycle risk remain open; this metadata transfer is not a substitute for their root-cause analysis.
 
 **Current overall migration completion percentage: unknown / not yet legitimately quantifiable.** The two defensible progress signals are **100% of currently curated, maintainer-validated import batches** and **44.24% direct raw Wiki `0x800...` address visibility in the pre-fifth-batch snapshot**. They answer different questions and must never be averaged.
+
+## First source-anchored known-finding progress score (2026-10-09)
+
+Within the audited Native HUD renderer + descriptor subsection only: **18/22 existing known findings are reusable (81.82%)**, with **4/22 known-but-unlinked stock descriptor addresses (18.18%)**. The scope and exact evidence anchors are versioned in `analysis/known_knowledge_claims.tsv`. This is the correct kind of metric requested, but **the global known-research completion percentage remains not measured** until the other owner findings are enumerated. No user import action is required for this docs-only pass.

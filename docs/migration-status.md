@@ -121,3 +121,7 @@ A versioned [known-knowledge ledger](known-knowledge-migration.md) now distingui
 **Fifth batch maintainer-local Ghidra import confirmed:** `ApplyMkmszExtended.java` completed `applied=12, skipped=12 (scope=global)`. The 12 new operations match **5 comments + 5 bookmarks** for native process/scheduler code and **2 table-navigation bookmarks**. All 12 skips are explained: 11 already-existing types (separately proven 11/11 equivalent) and the protected locally owned `0x80030974` animation bookmark. No additional skip. Ghidra/implementation-confirmed bounded for this import; it does not independently validate each semantic note or make new function boundaries. No more local import is needed until future metadata changes.
 
 Reproduce counts with `python3 tools/report_known_knowledge.py` from the checkout; optionally supply `--wiki-dir ../MKMSZ-Randomizer/wiki --json /tmp/mkmsz-known-knowledge.json`. PR #3 stays draft/unmerged; this is a documentation/metadata update only.
+
+## Known-finding audit: Native HUD renderer subsection (2026-10-09)
+
+Source-anchored claim ledger `analysis/known_knowledge_claims.tsv` now records **22 established facts** from `Native-HUD-and-UI.md` renderer + descriptor subsections: **12 already Ghidra-confirmed**, **6 already Wiki/sidecar-routed**, **4 known stock presentation descriptors unlinked**. **18/22 = 81.82%** appropriate reuse *inside this bounded audited subsection*; this is not a percentage of all documented Wiki knowledge. No new Ghidra import required. See `docs/known-knowledge-migration.md`.
