@@ -74,3 +74,7 @@ jobs:
         run: |
           python -m py_compile tools/validate_patch_type_provenance.py
           python tools/validate_patch_type_provenance.py
+      - name: Verify stage-flow contracts
+        run: |
+          python -m py_compile tools/validate_stage_flow_contracts.py
+          python tools/validate_stage_flow_contracts.py

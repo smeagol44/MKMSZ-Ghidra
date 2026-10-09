@@ -149,3 +149,7 @@ Nine remaining tracked owners gained 54 source-anchored facts, plus 242 section 
 ## Whole-40-owner live section census tooling (2026-10-09)
 
 Added `tools/audit_wiki_section_coverage.py` with a self-test in CI. Given a current local checkout of the canonical Wiki, it builds a live level-2/3 heading denominator and reports uniquely anchored claims, stale/ambiguous addresses in Wiki text, and source-section navigation % while **explicitly prohibiting a semantic-exhaustiveness interpretation**. No extra guessed finding count was added. The self-test exercises ambiguity, missing anchors and unique attribution. This is the next-step instrument for finishing after all 40 owners have a partial first pass.
+
+## Existing owner attribution and Stage Flow contracts (2026-10-09)
+
+Crosslinked 151 existing guarded edit/proof records and 11 already imported types to their canonical Wiki owners without double counting those records, and added 17 source-line anchored Stage Flow behavior entries (including narrow save suppression, v03a selector evidence, unbuilt Stage-7 experiment). Audited 759 known claim IDs, all first-class; no globally exhaustive known-denominator assertion. 1456 heterogeneous records, 40/40 owners still partial, seven staged Ghidra bookmarks pending local validation.

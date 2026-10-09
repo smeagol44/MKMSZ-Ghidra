@@ -23,3 +23,4 @@ owner_research_findings	analysis/owner_research_findings.tsv	rows	40	versioned-s
 owner_product_findings	analysis/owner_product_findings.tsv	rows	32	versioned-sidecar	Eight source-qualified existing facts each across pickups, global item materializer, branding and palette owners; non-exhaustive
 remaining_owner_facts	analysis/remaining_owner_facts.tsv	rows	54	versioned-sidecar	Nine initial owner crosswalks with six current-source excerpts each, not exhaustive
 remaining_owner_sections	analysis/remaining_owner_sections.tsv	rows	242	versioned-sidecar	All documented level-2/3 headings from nine last-unreviewed owners; navigation-only, not a completed finding audit
+stage_flow_contracts	analysis/stage_flow_contracts.tsv	rows	17	versioned-sidecar	Current scoped stage selector and TEST LAB research contracts; includes rejected/unbuilt path caveats
