@@ -112,6 +112,8 @@ The current MKMSZR Wiki remains the owner of project conclusions and evidence sc
 
 ## Canonical Wiki migration
 
+**Latest status:** [Current known-knowledge migration dashboard](docs/current-known-knowledge-dashboard.md). It supersedes dated percentage/count summaries below and separates source-navigation progress from exhaustive semantic review.
+
 The eventual maintainer one-pass local update is documented in [Local Ghidra knowledge handoff](docs/local-migration-handoff.md). PR #3 is still draft; do not assume the latest staged bookmarks are on `main` or applied locally.
 
 The current [migration status](docs/migration-status.md) documents the one-time transfer of reviewed Wiki information into global function metadata, native structures, stage catalog records, patch-site provenance, and verified overlay-source manifests. Not every ROM offset can be annotated as a runtime VA. The direct import scripts act only on matching Ghidra program spaces.

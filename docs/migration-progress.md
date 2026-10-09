@@ -1,5 +1,8 @@
 # MKMSZ-Ghidra migration progress — 2026-10-09
 
+**Current authoritative counts (supersedes historical snapshots below):** [Current known-knowledge migration dashboard](current-known-knowledge-dashboard.md). The explicit 2026-10-09 audio/TEST LAB update reaches **795** audited known claims, **223** Ghidra-direct links and **174/713** source headings with a unique claim anchor. See the dashboard for scope limitations.
+
+
 ## The intended metric: migration of what we ALREADY know (2026-10-09)
 
 The user specifically wants **the percentage of verified/documented research knowledge transferred into a reusable Ghidra + companion repository**, to stop agents repeating Ghidra/ROM traces. The unknown portion of the game is excluded by definition. The earlier **44.24% raw-address index** is **not** the requested answer; it is retained below only as a triage aid.

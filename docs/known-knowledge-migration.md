@@ -1,5 +1,7 @@
 # Migration of established MKMSZR knowledge — living ledger
 
+**Current counts:** [Migration dashboard](current-known-knowledge-dashboard.md) supersedes older numeric checkpoints within this cumulative research log. Current curated total: **1,492** (379 prior locally confirmed Ghidra + 1,113 companion/staged); **795** selected claims, 223 direct Ghidra claim destinations, 40/40 partial owners.
+
 ## Why this exists
 
 **Goal:** avoid paying for the same reverse engineering twice. The source-of-truth for known behavior is current `MKMSZ-Randomizer/wiki/`; the living Ghidra repository mirrors verified names, shapes, code comments, addresses, scoped relationships, and reusable ROM/stage catalogs. A future research chat should consult **Project-Status first, then the appropriate current Wiki owner, then these manifests**, and re-trace only when a documented gap or contradiction justifies it. We are **not** trying to measure how much of the unknown retail ROM has been solved.

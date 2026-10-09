@@ -1,5 +1,7 @@
 # Local Ghidra knowledge migration — prepared handoff
 
+**Current status and latest counts:** [Known-knowledge dashboard](current-known-knowledge-dashboard.md). This handoff becomes actionable only after explicit approval and PR merge; the seven new bookmarks are still not local Ghidra-confirmed.
+
 **State: ready to follow after draft PR #3 is finalized and merged, NOT a request for immediate local testing.**
 
 This repository stores ROM-free analysis metadata and native proof catalogs, while the latest canonical behavioral facts stay in `smeagol44/MKMSZ-Randomizer/wiki/`. This is a handoff checklist, not a claim that the Ghidra database or the entire 40-owner Wiki has been exhaustively migrated.
