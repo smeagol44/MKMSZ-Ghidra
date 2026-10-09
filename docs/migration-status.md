@@ -84,6 +84,10 @@ After the initial 138/139 name application, the clean-ROM byte/context-guarded g
 
 The global extended importer reported **`applied=34, skipped=12`** after the 17-comment/17-bookmark domain-owner trace pass. The 34 operations match the prepared stock-code annotations covering scheduler event registration, Inventory/lifecycle state, stage flows and rejected UI register usage. All 12 skips are explained and deliberately preserved: 11 named Ghidra types already present (without claiming full field-equivalence) and a locally edited `0x80030974` animation bookmark. **Ghidra/implementation-confirmed bounded** for the import. The first 38 site annotations and the newer 17 site annotations total **55 newly indexed trace locations**, not 55 newly discovered functions. Full console and evidence restrictions in `docs/wiki-ghidra-coverage-audit.md`.
 
+## Imported Ghidra type equivalence — maintainer confirmation, 2026-10-08
+
+The maintainer executed the **read-only** `AuditMkmszTypes.java` on the global clean-ROM Ghidra program. Result: **`match=11, mismatch=0, missing=0, checked=11, fields=81, enum_members=8`**, with each type individually reported as `MATCH`. Structures were compared by type/byte size plus named offsets, data types, array lengths and extra components; enum members were compared by names and values. The script made no changes. **Ghidra/implementation-confirmed** for exact parity of the 11 existing `/MKMSZ` definitions with checked-in `analysis/types.tsv`. This does not establish completeness of undocumented structures or correctness of all semantic interpretations. Exact Ghidra log is preserved in `docs/wiki-ghidra-coverage-audit.md`.
+
 ## Future work
 
 Populate grounded full signatures/locals and expanded data types during focused RE; map and import remaining stage overlays independently; add safe ROM-space navigation for patch sites and stage catalogs; consider a direct cross-referenced ROM offset view rather than conflating RAM and ROM.
