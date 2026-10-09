@@ -7,16 +7,16 @@
 | Independent axis | Current | What it means |
 |---|---:|---|
 | Tracked canonical Wiki owners with an initial research crosswalk | **40/40** | All forty are **partial**, none certified exhaustive |
-| Individually enumerated, already-known findings with an explicit versioned destination | **795/795 currently enumerated** | No remaining unlinked **enumerated** facts. The full Wiki fact denominator remains uncounted |
-| Audited claims directly targeting established Ghidra objects | **223/795** | Curated native function, scoped code and type metadata. Not every knowledge claim belongs in Ghidra |
-| Level-2/3 sections with at least one uniquely located fact anchor | **174/713 (24.4%)** | Source navigation, **not** semantic completion of the section or research |
+| Individually enumerated, already-known findings with an explicit versioned destination | **813/813 currently enumerated** | No remaining unlinked **enumerated** facts. The full Wiki fact denominator remains uncounted |
+| Audited claims directly targeting established Ghidra objects | **226/813** | Curated native function, scoped code and type metadata. Not every knowledge claim belongs in Ghidra |
+| Level-2/3 sections with at least one uniquely located fact anchor | **183/713 (25.7%)** | Source navigation, **not** semantic completion of the section or research |
 | Locally confirmed curated Ghidra catalog records | **379** | Prior maintainer-import baseline, not newly proved today |
-| Companion / versioned / Ghidra-pending catalog records | **1,113** | Source-owned semantics and catalog rows, including 242 heading-only navigators |
-| Total heterogeneous structured catalog records | **1,492** | Not distinct discoveries; the types of entries vary and can overlap |
+| Companion / versioned / Ghidra-pending catalog records | **1,131** | Source-owned semantics and catalog rows, including 242 heading-only navigators |
+| Total heterogeneous structured catalog records | **1,510** | Not distinct discoveries; the types of entries vary and can overlap |
 | Additional global Ghidra bookmarks awaiting maintainer local import | **7** | Explicitly **Pending** until user observes importer results |
 | Known N64 Function Registry records with scoped address navigation | **166/166** | A row may be an interior instruction or dispatch family rather than a standalone function |
 
-**Do not average these axes.** The requested percentage of *all established facts*, as opposed to selected audited facts or reviewed pages, still requires a certified semantic census. The 174/713 heading metric is a transparent triage proxy; it does **not** mean 75.6% of the known game remains to be researched or migrated.
+**Do not average these axes.** The requested percentage of *all established facts*, as opposed to selected audited facts or reviewed pages, still requires a certified semantic census. The 183/713 heading metric is a transparent triage proxy; it does **not** mean 75.6% of the known game remains to be researched or migrated.
 
 ## Latest scoped evidence index (no new ROM discoveries)
 
@@ -25,6 +25,10 @@
 - `Test-Lab-Inventory-Hang-Static-Diagnosis.md`: v14 first-load `a0` bug in the disposable rich HUD, observed v16-v19 failures and bounded v20 correction, live process-pointer semantics, KSEG alias caution, signed resource-base pointer `0x802E82B8`, and the independent unforwarded fifth font argument. **Do not claim this is the cause of current rich-Inventory music acceleration.**
 
 Exact Git blob SHAs, source lines, evidence classifications and nonpromotion cautions are preserved in the TSV. `tools/validate_audio_testlab_contracts.py` and `tools/validate_owner_section_snapshot.py` run in CI.
+
+### XP/progression follow-on (established facts only)
+
+`analysis/xp_progression_contracts.tsv` adds 18 source-pinned XP, native function, power-order, lifecycle and proof-boundary facts, covering 10 of that owner's 14 source headings (not semantic exhaustiveness). Three link already imported functions: `0x8002E104`, `0x80074FBC`, `0x80078A18`. The Fortress 5100-XP gate at `0x802EF49C` belongs to stage-overlay file `0x9E`, **not** the global image. All other rows remain companion metadata; nine-tier runtime coverage is Pending. No new import items.
 
 ## Prevent duplicated future investigations
 

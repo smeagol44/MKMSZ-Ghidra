@@ -25,3 +25,4 @@ remaining_owner_facts	analysis/remaining_owner_facts.tsv	rows	54	versioned-sidec
 remaining_owner_sections	analysis/remaining_owner_sections.tsv	rows	242	versioned-sidecar	All documented level-2/3 headings from nine last-unreviewed owners; navigation-only, not a completed finding audit
 stage_flow_contracts	analysis/stage_flow_contracts.tsv	rows	17	versioned-sidecar	Current scoped stage selector and TEST LAB research contracts; includes rejected/unbuilt path caveats
 audio_testlab_owner_contracts	analysis/audio_testlab_known_contracts.tsv	rows	36	versioned-sidecar	18 stock SFX and Temple audio plus 18 TEST LAB native HUD failure/lifecycle contracts; three rows crosslink existing imported global functions
+xp_progression_owner_contracts	analysis/xp_progression_contracts.tsv	rows	18	versioned-sidecar	Eighteen established native XP and power-order facts; three reuse existing imported N64 functions

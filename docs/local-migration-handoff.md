@@ -54,6 +54,8 @@ It reads only the current Wiki, `analysis/known_knowledge_owners.tsv`, and the f
 
 The nine formerly unreviewed owners already have an immutable 242-heading source snapshot in `analysis/remaining_owner_sections.tsv`. The live census deliberately reconstructs **all** owner headings from the current source rather than copying/versioning the full Wiki again. If the current Wiki changes, update it first, rerun the census, and distinguish stale anchors from newly established findings.
 
+**Native XP follow-on:** `analysis/xp_progression_contracts.tsv` contains 18 additional source-linked facts, including links to three *already imported* global functions. It adds no new Ghidra importer item; the seven staged bookmarks and one-pass local handoff are unchanged. Fortress gate coordinates remain stage-overlay scoped.
+
 ## 5. Sign-off gates still open
 
 - The **40 tracked Wiki owners now all have a partial first-pass crosswalk**. Complete the deeper section-by-section semantic review and explicitly certify evidence-exhaustive owners before claiming an all-known-facts migration denominator. Use the read-only section census above to find unlinked, ambiguous and stale areas.

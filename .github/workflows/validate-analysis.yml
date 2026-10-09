@@ -86,3 +86,7 @@ jobs:
         run: |
           python -m py_compile tools/validate_audio_testlab_contracts.py
           python tools/validate_audio_testlab_contracts.py
+      - name: Validate native XP and power-order knowledge
+        run: |
+          python -m py_compile tools/validate_xp_progression_contracts.py
+          python tools/validate_xp_progression_contracts.py
