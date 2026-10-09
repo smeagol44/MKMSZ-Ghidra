@@ -189,7 +189,7 @@ AuditMkmszTypes.java> Finished!
 
 **Source:** canonical `Production-Rich-Inventory-Music-Static-Investigation.md`, compared against the existing function/global manifests, previous 55 trace annotations, and `relations.tsv`. Supported clean USA Rev. 0 ROM SHA-256 verified as `9c18254abf6722b95aa782fcd310bd95f6bcf147da66beb77ce32ca90673ffc6`. Each added global site is MIPS word-aligned and original instruction bytes were inspected under stock global mapping `ROM=(VA-0x80000000)+0xC00`; this does not establish entire function boundaries.
 
-**GitHub-staged only; local Ghidra application Pending:** **11 distinct code sites**, 11 repeatable comments, 11 Info bookmarks, and **one new NOTE-only indirect callback relationship** `0x80000F24→0x80015950`. Existing `0x80000EF4→0x8007D3FC`, `0x8007D4E8→0x8008A500`, and `0x8007D55C→0x8008910C` relationships were deliberately not duplicated. This batch yields **23 expected new metadata operations** if no local conflicts. There are now **66 reconciled new trace locations across PR #3: 55 maintainer-imported + 11 not yet imported**, not 66 newly discovered functions.
+**Ghidra/implementation-confirmed bounded (maintainer local import recorded below):** **11 distinct code sites**, 11 repeatable comments, 11 Info bookmarks, and **one new NOTE-only indirect callback relationship** `0x80000F24→0x80015950`. Existing `0x80000EF4→0x8007D3FC`, `0x8007D4E8→0x8008A500`, and `0x8007D55C→0x8008910C` relationships were deliberately not duplicated. This batch yields **23 expected new metadata operations** if no local conflicts. There are now **66 reconciled new trace locations across PR #3: 55 previously maintainer-imported + 11 newly maintainer-imported**, not 66 newly discovered functions.
 
 | Code points | Verified meaning | Explicit uncertainty |
 |---|---|---|
@@ -201,4 +201,31 @@ AuditMkmszTypes.java> Finished!
 
 **Scope:** stock instruction behavior is Static-confirmed; the diagnostic audio rejection is runtime-observed on the bounded supplied route. No particular rich Inventory renderer/resource operation is causally identified. The first producer/consumer phase violation, task generation ownership and complete audible loss budget remain **Pending**. No functions, signatures, locals, types, real cross-reference operands, byte patches, emulator tests or root-cause changes were introduced.
 
-**Batched local validation:** after `git pull` (maintainer is already on this branch), back up/save the global clean-ROM Ghidra program and run `ApplyMkmszExtended.java` **once** from Script Manager with the checkout root. Without local conflicts, expect 23 new operations and the 12 already explained skips (11 existing types; one preserved locally owned `0x80030974` bookmark). Record the full console, inspect any additional skips, and spot-check queued handoff/PCM bookmarks. Do not rerun overlay imports, global names, guarded function creation or the 11-type audit for this annotation-only batch. PR #3 stays draft/unmerged.
+**Batched local validation procedure (completed successfully; exact console below):** after `git pull` (maintainer is already on this branch), back up/save the global clean-ROM Ghidra program and run `ApplyMkmszExtended.java` **once** from Script Manager with the checkout root. Without local conflicts, expect 23 new operations and the 12 already explained skips (11 existing types; one preserved locally owned `0x80030974` bookmark). Record the full console, inspect any additional skips, and spot-check queued handoff/PCM bookmarks. Do not rerun overlay imports, global names, guarded function creation or the 11-type audit for this annotation-only batch. PR #3 stays draft/unmerged.
+
+### Maintainer Ghidra extended import — successful third batch (2026-10-08)
+
+The maintainer ran `ApplyMkmszExtended.java` in the supported global program after pulling the third audio chronology batch and supplied this exact Script Manager console:
+
+```text
+ApplyMkmszExtended.java> Running...
+MKMSZ extended analysis scope: global
+TYPE ALREADY PRESENT: MKMSZ_ItemId (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_BoxBacking (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_PickupRecord (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_PersistenceV2 (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_EnemySpawnRecord (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_AuxTriggerRecord (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_RenderNode (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_DynamicTextureSlot (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_Type5ImageHeader (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_EnemySpawnConditionalRecord (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_Type5ModelTableHeader (existing definition preserved)
+SKIP bookmark 80030974 category MKMSZ/animation: preserving locally owned note
+MKMSZ extended analysis: applied 23, skipped 12 (scope=global)
+ApplyMkmszExtended.java> Finished!
+```
+
+**Ghidra/implementation-confirmed bounded:** `applied=23` exactly matches 11 new scoped repeatable comments, 11 new categorized bookmarks, and one NOTE relationship. No new unexplained skips. All 12 skips are 11 preexisting `/MKMSZ` types (already separately field-equivalent in the earlier 11/11 read-only type audit) plus the intentionally preserved locally owned `0x80030974` animation bookmark. This confirms successful batched import into the maintainer's global Ghidra program; it does not independently audit each visual annotation, validate complete function-body boundaries, or resolve the root cause of rich Inventory audio acceleration.
+
+**Coverage after local import:** 66 distinct Wiki-reconciled trace locations are now Ghidra/implementation-confirmed at the aggregate import-operation level, in addition to the separately confirmed 139 global function names, 35 globals, 14 cataloged overlay function entries, 84 typed pickup records, and 11 type definitions. No rerun is needed for unchanged metadata; continue domain-owner coverage analysis and preserve draft PR #3.
