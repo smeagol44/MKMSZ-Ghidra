@@ -133,3 +133,7 @@ Seven known stock code/data addresses are now Ghidra-bookmark-manifest entries *
 18 canonical runtime invariants and 9 fixed XP tier thresholds gained independent source-qualified sidecars; Ghidra type field note for MKSV +0x4C synchronized with canonical editor usage. 454 selected audited facts now have versioned targets; 187 Ghidra-addressed claims, 7 new Ghidra bookmarks pending local import. 1,071 heterogeneous records = 379 locally confirmed Ghidra + 692 sidecar/staged. Both new owner pages remain partial.
 
 **Function Registry navigation correction (2026-10-09): 166/166** known N64 registry rows are address-navigable via scoped functions, internal labels, bookmarks or comments, NOT 144/166. The earlier 22 navigation-gap count omitted existing annotations. No new Ghidra importer operations. Audited selected-claim Ghidra-linked count **209/454**, first-class source-index count unchanged.
+
+## Enemy/host/donor owner-focused fact index (2026-10-09)
+
+40 source-verified existing facts transferred as a five-owner, non-exhaustive, versioned crosswalk; 27/40 tracked canonical owner pages now have at least partial review, zero certified exhaustive. Audited selected findings now 494 with metadata targets; full known Wiki corpus has no legitimate denominator yet. Curated heterogeneous records: 1111 = 379 locally confirmed Ghidra + 732 sidecar/staged. Audio investigation's main-branch `analysis/functions.tsv` update remains deliberately untouched.

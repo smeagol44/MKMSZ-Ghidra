@@ -24,11 +24,11 @@ Stage-Catalog-Prison.md	stage	partial-crosswalk	Subset of verified knowledge map
 Stage-Catalog-Fire.md	stage	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
 Stage-Catalog-Bridge.md	stage	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
 Stage-Catalog-Fortress.md	stage	partial-crosswalk	Subset of verified knowledge mapped; remaining owner claims NOT exhaustively checked
-Enemy-Randomization.md	enemy-donor	unreviewed	Current authoritative known knowledge still needs systematic finding-level reconciliation
-Player-Actions-and-Special-Moves.md	enemy-donor	unreviewed	Current authoritative known knowledge still needs systematic finding-level reconciliation
-MKT-to-MKMSZ-Compatibility-Layer.md	enemy-donor	unreviewed	Current authoritative known knowledge still needs systematic finding-level reconciliation
-MKT-Adapter-Primitives.md	enemy-donor	unreviewed	Current authoritative known knowledge still needs systematic finding-level reconciliation
-MKT-Fighter-Asset-Translation.md	enemy-donor	unreviewed	Current authoritative known knowledge still needs systematic finding-level reconciliation
+Enemy-Randomization.md	enemy-donor	partial-crosswalk	Eight source-verified existing findings indexed; additional sections/evidence remain; NOT exhaustive
+Player-Actions-and-Special-Moves.md	enemy-donor	partial-crosswalk	Eight source-verified existing findings indexed; additional sections/evidence remain; NOT exhaustive
+MKT-to-MKMSZ-Compatibility-Layer.md	enemy-donor	partial-crosswalk	Eight source-verified existing findings indexed; additional sections/evidence remain; NOT exhaustive
+MKT-Adapter-Primitives.md	enemy-donor	partial-crosswalk	Eight source-verified existing findings indexed; additional sections/evidence remain; NOT exhaustive
+MKT-Fighter-Asset-Translation.md	enemy-donor	partial-crosswalk	Eight source-verified existing findings indexed; additional sections/evidence remain; NOT exhaustive
 Sub-Zero-to-Sektor-Animation-Mapping.md	enemy-donor	unreviewed	Current authoritative known knowledge still needs systematic finding-level reconciliation
 Sektor-Takeover-Proof-History.md	enemy-donor	unreviewed	Current authoritative known knowledge still needs systematic finding-level reconciliation
 Toasty-Audio-Research.md	enemy-donor	unreviewed	Current authoritative known knowledge still needs systematic finding-level reconciliation

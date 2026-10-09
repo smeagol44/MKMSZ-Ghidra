@@ -19,3 +19,4 @@ staged_stock_navigation	analysis/bookmarks.tsv	staged-navigation	7	versioned-sid
 stock_rom_navigation	analysis/stock_rom_navigation.tsv	rows	1	versioned-sidecar	Title palette ROM-only descriptor and palette coordinate; no guessed VA
 core_runtime_invariants	analysis/core_runtime_invariants.tsv	rows	18	versioned-sidecar	Canonical verified runtime/allocator/boot/lifecycle invariants, preserving negative controls
 native_xp_thresholds	analysis/xp_thresholds.tsv	rows	9	versioned-sidecar	Nine exact native XP tier thresholds; 7354 is correct ninth value
+owner_research_findings	analysis/owner_research_findings.tsv	rows	40	versioned-sidecar	Five owner 8-finding evidence-anchored navigation crosswalks; preserves donor/target distinction, not new Ghidra functions
