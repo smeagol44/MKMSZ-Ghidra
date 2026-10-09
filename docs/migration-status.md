@@ -138,3 +138,7 @@ Added 42 source-anchored claims in `analysis/known_knowledge_claims.tsv`, with v
 ## Stage-resource knowledge sidecar (2026-10-09)
 
 Eight verified resource-file identities added without disturbing existing code-overlay Ghidra ownership, plus 43 source-anchored stage facts. Explicit runtime-base unknown for Earth and unspecified Temple/Wind resource file IDs are retained as unknown rather than guessed. CI cross-checks end-exclusive ranges, stage pickup/selector counts and stage overlay distinction. This is a repository-only knowledge transfer; no Ghidra import needed. PR #3 remains draft.
+
+## Structured stage-resource count correction (2026-10-09)
+
+Now **688 curated structured records** (379 locally Ghidra-confirmed; 309 independently versioned companion records), accounting for 8 new resource-file mapping rows without claiming those are stock-code Ghidra objects. Current auditable known-finding subset: **73/150 (48.67%) first-class migrated**, **69 Wiki-only** and **8 unlinked**, based on the exact claim ledger and independently recomputable by `tools/report_known_knowledge.py`. Stage catalog CI passed before this count-only adjustment. No Ghidra importer required.

@@ -19,8 +19,9 @@ A 'known finding' is an evidence-qualified, bounded assertion in an authoritativ
 | Internal branch labels | 2 | Ghidra code labels | Prior import confirmed; not function entries |
 | Retail global table navigation | 2 | Ghidra bookmarks | Fifth batch Ghidra-confirmed |
 | Stage resource slot descriptions | 150 | Versioned `stage_resource_slots.tsv` | Conserved as sidecar; not all independently typed in Ghidra |
+| Eight stage ordinary resource-file mappings | 8 | Versioned `stage_resource_files.tsv` | File identity separate from code overlays; Earth base left unverified |
 | Guarded ROM patch/proof locations | 151 | Versioned `rom_patch_sites.tsv` | Conserved as sidecar; ROM offsets are NOT stock VA labels |
-| **Total registered structured records** | **680** | **379 Ghidra + 301 intentional sidecar** | **All recorded; doesn't exhaust narrative findings** |
+| **Total registered structured records** | **688** | **379 Ghidra + 309 intentional sidecar** | **All recorded; doesn't exhaust narrative findings** |
 
 These rows have different granularity and are **not** a percentage of all Wiki knowledge. Do not count 81 type fields as new 81 structures or confuse 150 resource-slot entries with 150 loaded functions. Latest local extended import result: **`applied=12, skipped=12`**, all 12 skips explained (11 existing types; one preserved animation note). No additional Ghidra action for this batch.
 
@@ -87,3 +88,5 @@ Audited the **current canonical** `ROM-Overlay-and-Resource-Map.md` (Wiki blob `
 Added `analysis/stage_resource_files.tsv` containing **8 already established ordinary-pickup resource-file mappings**, separate from the eight code overlays in `analysis/overlays.tsv`. Each row retains the stage's native selector identity, retail table entry, ROM range (converted to end-exclusive, arithmetic checked), size, runtime-base confirmation only where known, picker/outer-slot counts, stage Wiki owner and SHA revision. **Earth's publication slot at `0x802E82B8` is not a verified numerical runtime allocation base**; Temple/Wind file IDs stay blank where the canonical stage file does not name them. Prison file `0x49` is its *resource file*; the code overlay remains `0x9F`. The source remains the current stage Wiki; the sidecar is a searchable, versioned research index, not newly reverse-engineered data.
 
 **43 source-anchored known-finding claims**: for each stage, resource file, pickup count, selector table, code overlay scope and one notable stage-specific limit; three shared stage-index rules. The existing 84 pickup and 150 selector records are counted as preserved structured data, not recounted as 234 new discoveries. A new CI validator checks all eight resource-file intervals, selector IDs/counts, distinct stage overlay scopes, and Earth/Prison identity. `tools/report_known_knowledge.py` now checks composite stage|count and scoped callback targets. No ROM/emulator run or new Ghidra importer required; draft PR #3 is unchanged in state.
+
+**Current auditable total after stage-resource batch:** 150 known findings; 73 first-class represented in verified Ghidra or an independent sidecar (48.67%), 69 still Wiki-only, 8 unlinked. Structured totals updated to 688 including 8 separately versioned resource-file identities. See the live report script; no new Ghidra import.
