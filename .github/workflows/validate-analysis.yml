@@ -38,3 +38,7 @@ jobs:
         run: |
           python -m py_compile tools/validate_memory_ownership.py
           python tools/validate_memory_ownership.py
+      - name: Audit patch-site coordinates against bounded memory intervals
+        run: |
+          python -m py_compile tools/audit_patch_site_ownership.py
+          python tools/audit_patch_site_ownership.py
