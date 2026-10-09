@@ -1,0 +1,11 @@
+family	manifest	count_rule	expected	disposition	evidence_note
+global_functions	analysis/functions.tsv	rows	139	ghidra-confirmed	Named global function entries; user importer confirmed 139/139
+global_symbols	analysis/globals.tsv	rows	35	ghidra-confirmed	Named global symbols; user importer confirmed 35/35
+scoped_stage_functions	analysis/overlay_functions.tsv	rows	14	ghidra-confirmed	Known entries across eight separate validated stage overlays
+ordinary_pickup_records	analysis/rom_pickups.tsv	rows	84	ghidra-confirmed	Ordinary stage pickup structures typed in eight programs
+type_definitions	analysis/types.tsv	definitions	11	ghidra-confirmed	11/11 exact type equivalence; 81 fields and 8 enum members
+reconciled_trace_sites	analysis/bookmarks.tsv	trace-sites	86	ghidra-confirmed	81 prior + fifth-batch 5 stock-code trace sites; aggregate local import logs
+internal_code_labels	analysis/code_labels.tsv	rows	2	ghidra-confirmed	Two internal switch arms; never claim separate functions
+retail_data_bookmarks	analysis/bookmarks.tsv	retail-data	2	ghidra-confirmed	Fifth batch: native item label table and global file table; only bookmarks
+stage_resource_slot_catalog	analysis/stage_resource_slots.tsv	rows	150	versioned-sidecar	ROM/stage resource slot grammar; not 150 typed Ghidra objects
+guarded_patch_site_catalog	analysis/rom_patch_sites.tsv	rows	151	versioned-sidecar	ROM edit-site provenance; preserve offset/VA ownership distinction

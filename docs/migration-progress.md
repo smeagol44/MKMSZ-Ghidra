@@ -1,5 +1,16 @@
 # MKMSZ-Ghidra migration progress — 2026-10-09
 
+## The intended metric: migration of what we ALREADY know (2026-10-09)
+
+The user specifically wants **the percentage of verified/documented research knowledge transferred into a reusable Ghidra + companion repository**, to stop agents repeating Ghidra/ROM traces. The unknown portion of the game is excluded by definition. The earlier **44.24% raw-address index** is **not** the requested answer; it is retained below only as a triage aid.
+
+See [Known-knowledge migration ledger](known-knowledge-migration.md), source manifests `analysis/known_knowledge_families.tsv` and `analysis/known_knowledge_owners.tsv`, and `tools/report_known_knowledge.py` for the ongoing, reproducible ledger.
+
+**Measured today: 674 structured known objects preserved**, consisting of **373 locally Ghidra-confirmed records** and **301 companion ROM-only catalog rows** that deliberately should not become Ghidra objects. **20/40 (50.0%) Wiki owner pages have had some targeted reconciliation**, but every such page remains only partially audited; **0/40 fully reconciled**. A single percentage of *all already-established semantic findings* is not yet justified: outstanding narratives/constraints/failures still need an enumerated claim-level denominator. These status counts are not percentages of unknown game code and are not to be averaged.
+
+**Fifth batch verified:** maintainer's full console reports `applied 12, skipped 12` in the global Ghidra program; 5 new code trace sites and 2 data-only bookmarks are now Ghidra/implementation-confirmed. All skips were identified and harmless. No further import required for this unchanged metadata.
+
+
 ## What does a migration percentage actually mean?
 
 The migration is **not** synonymous with decompiling or fully reversing the N64 game. The task here is to transfer *already established, scoped, evidence-qualified project knowledge* from the authoritative MKMSZR Wiki into a living, ROM-free Ghidra workspace. Complete reverse engineering has an **unknown denominator**, so a single genuine percentage of all possible functions, types, semantics or game code cannot currently be calculated.

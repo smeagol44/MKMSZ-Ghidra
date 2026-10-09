@@ -14,3 +14,7 @@ jobs:
         run: python tools/validate_analysis.py
       - name: Syntax-check Wiki coverage audit
         run: python -m py_compile tools/audit_wiki_coverage.py
+      - name: Verify known-knowledge inventory and code
+        run: |
+          python -m py_compile tools/report_known_knowledge.py
+          python tools/report_known_knowledge.py

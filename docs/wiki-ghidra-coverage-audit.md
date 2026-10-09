@@ -287,3 +287,27 @@ The canonical versioned Wiki was enumerated at main and read across **64 Markdow
 **Fifth batch staging:** added 5 paired stock-code comments + search bookmarks at `80028870`, `800288A8`, `8002867C`, `8002877C`, `8007CAF8`, and separate **data-only bookmarks** at `800A633C` (item-label pointer table) and `800A4410` (12-byte global file-descriptor table). Their stock coordinates were checked against the supported clean ROM; SHA-256 `9c18254abf6722b95aa782fcd310bd95f6bcf147da66beb77ce32ca90673ffc6`, 16,777,216 bytes, big-endian `.z64`. The five code positions map to ROM offsets `0x29470`, `0x294A8`, `0x2927C`, `0x2937C`, `0x7D6F8`. The data tables map to `0xA6F3C` and `0xA5010`. The research evidence is on current Wiki `Test-Lab-Inventory-Hang-Static-Diagnosis.md`, `Function-Registry.md` and `ROM-Overlay-and-Resource-Map.md`.
 
 **Local application Pending** for precisely **12** new extended metadata operations if Ghidra has no local conflicts. This changes **known-location navigation only**; neither the 139 globally named functions, 11 type definitions nor the stage overlay imports require rerunning. After `git pull`, run `ApplyMkmszExtended.java` once in the verified global program; the expected no-conflict summary is `applied=12, skipped=12` (11 existing matching types plus the protected `0x80030974` bookmark). Record any extra skip. The upstream Inventory audio root cause and the independent stale-HUD lifetime correction remain Pending. PR #3 remains draft.
+### Fifth-batch local import closure (2026-10-09)
+
+Exact user-supplied final Script Manager output:
+
+```text
+ApplyMkmszExtended.java> Running...
+MKMSZ extended analysis scope: global
+TYPE ALREADY PRESENT: MKMSZ_ItemId (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_BoxBacking (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_PickupRecord (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_PersistenceV2 (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_EnemySpawnRecord (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_AuxTriggerRecord (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_RenderNode (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_DynamicTextureSlot (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_Type5ImageHeader (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_EnemySpawnConditionalRecord (existing definition preserved)
+TYPE ALREADY PRESENT: MKMSZ_Type5ModelTableHeader (existing definition preserved)
+SKIP bookmark 80030974 category MKMSZ/animation: preserving locally owned note
+MKMSZ extended analysis: applied 12, skipped 12 (scope=global)
+ApplyMkmszExtended.java> Finished!
+```
+
+**Ghidra/implementation-confirmed bounded:** fifth batch fully imported, no unexpected skips. 81 prior reconciled code trace sites plus 5 new stock process-trace sites = **86 locally represented**, and the two additional original-game data-navigation bookmarks are also locally confirmed. The semantic scope is unchanged; generated production code was not imported as retail functions. For the user's requested *already-known research* migration metric, see `docs/known-knowledge-migration.md` and the checked, versioned family/owner ledgers; do not equate the earlier 44.24% raw-prefix address metric with migration of known knowledge.
