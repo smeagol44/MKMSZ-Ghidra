@@ -22,3 +22,7 @@ jobs:
         run: |
           python -m py_compile tools/validate_stage_resource_files.py
           python tools/validate_stage_resource_files.py
+      - name: Validate lifecycle knowledge contracts
+        run: |
+          python -m py_compile tools/validate_lifecycle_contracts.py
+          python tools/validate_lifecycle_contracts.py

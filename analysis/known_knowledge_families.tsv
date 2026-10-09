@@ -10,3 +10,4 @@ retail_data_bookmarks	analysis/bookmarks.tsv	retail-data	2	ghidra-confirmed	Fift
 stage_resource_slot_catalog	analysis/stage_resource_slots.tsv	rows	150	versioned-sidecar	ROM/stage resource slot grammar; not 150 typed Ghidra objects
 guarded_patch_site_catalog	analysis/rom_patch_sites.tsv	rows	151	versioned-sidecar	ROM edit-site provenance; preserve offset/VA ownership distinction
 stage_resource_file_maps	analysis/stage_resource_files.tsv	rows	8	versioned-sidecar	Eight canonical ordinary-pickup resource-file identities; distinct from code overlay files; Earth runtime base unconfirmed
+lifecycle_contracts	analysis/lifecycle_contracts.tsv	rows	22	versioned-sidecar	Twenty-two established lifecycle/negative-control contracts, source-anchored; not native Ghidra functions

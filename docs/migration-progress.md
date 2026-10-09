@@ -6,7 +6,7 @@ The user specifically wants **the percentage of verified/documented research kno
 
 See [Known-knowledge migration ledger](known-knowledge-migration.md), source manifests `analysis/known_knowledge_families.tsv` and `analysis/known_knowledge_owners.tsv`, and `tools/report_known_knowledge.py` for the ongoing, reproducible ledger.
 
-**Measured curated inventory: 688 structured known records preserved**, consisting of **379 locally Ghidra-confirmed records** and **309 companion ROM-only catalog rows** that deliberately should not become Ghidra objects. **20/40 (50.0%) Wiki owner pages have had some targeted reconciliation**, but every such page remains only partially audited; **0/40 fully reconciled**. A single percentage of *all already-established semantic findings* is not yet justified: outstanding narratives/constraints/failures still need an enumerated claim-level denominator. These status counts are not percentages of unknown game code and are not to be averaged.
+**Measured curated inventory: 710 structured known records preserved**, consisting of **379 locally Ghidra-confirmed records** and **331 companion/versioned catalog rows** that deliberately should not become Ghidra objects. **20/40 (50.0%) Wiki owner pages have had some targeted reconciliation**, but every such page remains only partially audited; **0/40 fully reconciled**. A single percentage of *all already-established semantic findings* is not yet justified: outstanding narratives/constraints/failures still need an enumerated claim-level denominator. These status counts are not percentages of unknown game code and are not to be averaged.
 
 **Fifth batch verified:** maintainer's full console reports `applied 12, skipped 12` in the global Ghidra program; 5 new code trace sites and 2 data-only bookmarks are now Ghidra/implementation-confirmed. All skips were identified and harmless. No further import required for this unchanged metadata.
 
@@ -101,3 +101,7 @@ Added 43 known, source-anchored stage facts plus the complete eight-row resource
 ## Validated stage-resource migration dashboard (2026-10-09)
 
 **73/150 (48.67%) first-class imported or sidecar-migrated findings** in the current *audited* owner subset; **69/150 Wiki-only routed findings** and **8/150 known but not directly linked**. **142/150 (94.67%)** accessible through either metadata or existing Wiki. The newly preserved eight stage-resource mapping records bring the independently curated structured-record inventory to **688 = 379 Ghidra + 309 sidecar**. Coverage outside this audited subset remains unmeasured, not assumed complete. These percentages exclude unknown game content.
+
+## Lifecycle contracts as independent knowledge, 2026-10-09
+
+Added 22 established, evidence-qualified lifecycle contract records in `analysis/lifecycle_contracts.tsv`, with exact Wiki source anchors and bounded exceptions. The audited-claim first-class migration metric is now **95/172 = 55.23%**; **69** Wiki-only and **8** unlinked. The curated structured inventory becomes **710 = 379 Ghidra + 331 sidecar**. All counts describe audited **known** facts only; whole-Wiki claim enumeration remains incomplete.
