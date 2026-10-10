@@ -14,3 +14,7 @@ global	0x80073688	0x80028870	NOTE		Static-confirmed	Inventory open suspends game
 global	0x80073BC8	0x800288A8	NOTE		Static-confirmed	Inventory exit restores saved gameplay process links via this original stock jal; no per-frame reinitialization. Source: native rendering/Inventory canonical Wiki owners.
 global	0x8001C64C	0x8001C898	NOTE		Static-confirmed	Conditional native palette free on original handle reference count reaching zero. NOT evidence of a failing rich glyph release. Source: native rendering/Inventory canonical Wiki owners.
 global	0x8001EC20	0x8001ED00	NOTE		Static-confirmed	Native render-bucket builder dispatches kind-2 textured/glyph nodes; not a measured audio stall. Source: native rendering/Inventory canonical Wiki owners.
+global	0x800008B8	0x800012EC	NOTE		Static-confirmed	Boot scheduler/system setup invokes native boot audio setup.
+global	0x800013F4	0x8007CCEC	NOTE		Static-confirmed	Boot audio setup invokes manager initialization.
+global	0x8007CD7C	0x8008A3D0	NOTE		Static-confirmed	Manager obtains realized AI rate for target/buffer initialization.
+global	0x800797CC	0x800014B8	NOTE		Static-confirmed	Legal-screen exit enables audio before the two logos.
