@@ -1,6 +1,6 @@
 family	manifest	count_rule	expected	disposition	evidence_note
-global_functions	analysis/functions.tsv	rows	139	ghidra-confirmed	Named global function entries; user importer confirmed 139/139
-global_symbols	analysis/globals.tsv	rows	35	ghidra-confirmed	Named global symbols; user importer confirmed 35/35
+global_functions	analysis/functions.tsv	pre-audio-phase-functions	139	ghidra-confirmed	Previously imported global function entries; user confirmed 139/139. Six verified 2026-10-10 audio-phase names are counted separately pending local import.
+global_symbols	analysis/globals.tsv	pre-audio-phase-symbols	35	ghidra-confirmed	Previously imported global symbols; user confirmed 35/35. Two verified 2026-10-10 audio-phase globals are counted separately pending local import.
 scoped_stage_functions	analysis/overlay_functions.tsv	rows	14	ghidra-confirmed	Known entries across eight separate validated stage overlays
 ordinary_pickup_records	analysis/rom_pickups.tsv	rows	84	ghidra-confirmed	Ordinary stage pickup structures typed in eight programs
 type_definitions	analysis/types.tsv	baseline-definitions	11	ghidra-confirmed	11/11 exact type equivalence; 81 fields and 8 enum members
@@ -32,3 +32,5 @@ enemy_semantic_owner_contracts	analysis/enemy_semantic_contracts.tsv	rows	30	ver
 host_action_semantic_contracts	analysis/host_action_semantic_contracts.tsv	rows	32	versioned-sidecar	32 source-pinned stock MKMSZ host action and control ABI facts; 17 existing native function links, two new pending type/data links
 staged_stock_special_descriptor	analysis/types.tsv	new-special-action-definition	1	versioned-sidecar	One 0x2C native special descriptor type staged; not among prior 11 Ghidra-confirmed definitions
 staged_stock_low_kick_data	analysis/data.tsv	rows	1	versioned-sidecar	Known Low Kick descriptor global typed instance 0x800B0F68 staged pending guarded local Ghidra import
+staged_audio_phase_functions	analysis/functions.tsv	audio-phase-functions	6	versioned-sidecar	Six Static-confirmed audio boot/enable/manager/buffer/frequency/interrupt-restore entries; maintainer-local Ghidra import Pending.
+staged_audio_phase_symbols	analysis/globals.tsv	audio-phase-symbols	2	versioned-sidecar	Two Static-confirmed manager-ready and native DAC-crystal globals; maintainer-local Ghidra import Pending.

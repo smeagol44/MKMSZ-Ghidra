@@ -15,12 +15,30 @@ ROOT = Path(__file__).resolve().parents[1]
 REVIEWS = {"partial-crosswalk", "unreviewed", "fully-reconciled"}
 DISPOSITIONS = {"ghidra-confirmed", "versioned-sidecar"}
 
+# Preserve the previously validated import denominator; new research is staged
+# until a maintainer-local import is actually observed.
+AUDIO_PHASE_FUNCTIONS = {
+    "boot_audio_setup", "audio_work_enable", "audio_manager_initialize",
+    "audio_target_buffers_initialize", "ai_frequency_configure",
+    "native_interrupt_restore",
+}
+AUDIO_PHASE_SYMBOLS = {"g_audio_manager_ready", "g_audio_dac_crystal_hz"}
+
 def records(path):
     with path.open(encoding="utf-8", newline="") as stream:
         return list(csv.DictReader(stream, delimiter="\t"))
 
 def count_rule(path, rule):
     entries = records(path)
+    phase_rules = {
+        "audio-phase-functions": (AUDIO_PHASE_FUNCTIONS, True),
+        "pre-audio-phase-functions": (AUDIO_PHASE_FUNCTIONS, False),
+        "audio-phase-symbols": (AUDIO_PHASE_SYMBOLS, True),
+        "pre-audio-phase-symbols": (AUDIO_PHASE_SYMBOLS, False),
+    }
+    if rule in phase_rules:
+        names, staged = phase_rules[rule]
+        return sum((r["name"] in names) == staged for r in entries)
     if rule == "rows":
         return len(entries)
     if rule == "definitions":
