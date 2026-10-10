@@ -37,7 +37,7 @@ assert "existing.getLength() != incoming.getLength()" in extended
 assert "TYPE CONFLICT:" in extended and "TYPE SYNC FAILED:" in extended
 assert 'DataTypePath expectedPath = new DataTypePath(CATEGORY, entry.getKey());' in extended
 assert 'if (previous != null && !previous.startsWith("[MKMSZ]"))' in extended
-assert len(table("functions.tsv"))==139 and len(table("globals.tsv"))==35
+assert len(table("functions.tsv"))==145 and len(table("globals.tsv"))==37
 assert len(table("overlay_functions.tsv"))==14 and len(table("rom_pickups.tsv"))==84
 bookmark=[r for r in table("bookmarks.tsv") if r["scope"]=="global" and r["category"]=="known-stock-navigation"]
 assert len(bookmark)==7 and {r["address"] for r in bookmark}=={
@@ -82,7 +82,7 @@ assert "component.getComment()" in typeAudit
 assert "new String[] {row[4], row[6], row[9]}" in typeAudit
 print("PASS: original importer fail-closed identity and local comment/name conflict policy (static source check)")
 print("PASS: extended scoped importer conflict policy and ROM-free manifest handoff (static source check)")
-print("PASS: 139 global functions, 35 globals, 14 overlay functions, 84 pickups; 7 staged bookmarks")
+print("PASS: 145 global functions, 37 globals, 14 overlay functions, 84 pickups; 7 staged bookmarks")
 print("PASS: 11 locally established types separated from 1 staged 0x2C descriptor + 1 data instance")
 print("PASS: automatic curated type/data-label/bookmark convergence and deep type-notes audit statically guarded")
 print("PENDING: Ghidra compilation, actual import, data type application, and preservation in maintainer project")

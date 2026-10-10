@@ -138,3 +138,9 @@ address	name	evidence	comment
 0x8008A3C0	ai_remaining_bytes	Static-confirmed	Reads AI_LEN remaining DMA bytes; emulator backend may deliver host fragments during this existing register read.
 0x8008A500	ai_pcm_enqueue	Static-confirmed	Full predicate 0x80092E90; full returns -1 without AI writes; success writes AI_DRAM/AI_LEN at 0x8008A57C/580. Caller ignores error. Enqueue retry remains untested and rejected for upstream investigation.
 0x80092E90	ai_fifo_full	Static-confirmed	Reads AI_STATUS FIFO-full predicate used by native enqueue.
+0x800012EC	boot_audio_setup	Static-confirmed	Sole resident direct caller 0x800008B8; supplies captured NTSC 60-Hz cadence, 22050-Hz request and reserve 320 before manager/bank setup. No upstream cause established.
+0x800014B8	audio_work_enable	Static-confirmed	Called at 0x800797CC after legal screen; stores work gate 0x8009A530=1 at 0x80001510 before logos. Separate from manager-ready; inspected later transitions inherit output history.
+0x8007CCEC	audio_manager_initialize	Static-confirmed	Clears record index/lastInfo at 0x8007CD20/28, calls frequency setup at 0x8007CD7C, sets ready 0x800A7F74 at 0x8007CED4. Sole resident direct caller 0x800013F4.
+0x8007CEE0	audio_target_buffers_initialize	Static-confirmed	Realized frequency/video cadence round up and align to 16; captured NTSC gives target 368, minimum 352 and PCM capacity 704 with reserve 320. Sole resident direct caller 0x8007CEA4.
+0x8008A3D0	ai_frequency_configure	Static-confirmed	Programs DAC, bit rate, control at 0x8008A4A4/B8/C0; NTSC crystal 48681812 and request 22050 yield divisor 2208 and returned integer 22047. Sole resident direct caller 0x8007CD7C.
+0x8008EAD0	native_interrupt_restore	Static-confirmed	ORs argument into CP0 Status at 0x8008EAD8, returns at 0x8008EAE4. Return delay slot 0x8008EAE8 is shared with production four-box helper start; only first LUI executes, without helper fallthrough. No audio defect established.

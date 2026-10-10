@@ -34,3 +34,5 @@ address	name	evidence	comment
 0x800BA4D0	g_audio_player_sample_time	Static-confirmed	Player callback sample time; paired snapshots equal WESS ticks times 184.
 0x802C1970	g_scheduler_message_queue	Static-confirmed	OSMesgQueue capacity 32, buffer 0x801AE4C8; no endpoint backlog in paired states.
 0x802E7DC0	g_vi_callback_count	Static-confirmed	Native input/VI callback counter; do not equate endpoint difference with wall time.
+0x800A7F74	g_audio_manager_ready	Static-confirmed	Set at end of audio_manager_initialize (0x8007CED4), distinct from VI work-enable 0x8009A530; initialized to zero in clean ROM. No later constant-address clear identified in bounded resident-code audit.
+0x800A8FC8	g_audio_dac_crystal_hz	Static-confirmed	Native TV-crystal value used by ai_frequency_configure; OS initialization selects TV-dependent value at 0x8008F050. Captured NTSC uses 48681812 Hz, yielding divisor 2208 for requested 22050 Hz.
