@@ -37,7 +37,8 @@ assert "existing.getLength() != incoming.getLength()" in extended
 assert "TYPE CONFLICT:" in extended and "TYPE SYNC FAILED:" in extended
 assert 'DataTypePath expectedPath = new DataTypePath(CATEGORY, entry.getKey());' in extended
 assert 'if (previous != null && !previous.startsWith("[MKMSZ]"))' in extended
-assert len(table("functions.tsv"))==139 and len(table("globals.tsv"))==35
+# 139/35 importer-confirmed 2026-10-09; +4/+3 added 2026-11-06 pending maintainer import.
+assert len(table("functions.tsv"))==143 and len(table("globals.tsv"))==38
 assert len(table("overlay_functions.tsv"))==14 and len(table("rom_pickups.tsv"))==84
 bookmark=[r for r in table("bookmarks.tsv") if r["scope"]=="global" and r["category"]=="known-stock-navigation"]
 assert len(bookmark)==7 and {r["address"] for r in bookmark}=={

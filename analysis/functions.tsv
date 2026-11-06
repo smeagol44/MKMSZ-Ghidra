@@ -88,7 +88,7 @@ address	name	evidence	comment
 0x80062D60	pickup_presentation_spawn	Static-confirmed	Generic pickup/checkpoint presentation spawn call used by multiple stage callbacks.
 0x8006352C	auxiliary_trigger_spawn	Static-confirmed	Hardcodes fighter type `7
 0x80064C18	gameplay_sfx_wrapper	Static-confirmed	Indexes 10-byte descriptor table at `0x800A1730`; resolves raw sound ID and variation parameters, then calls `0x80080A88
-0x80065D64	raw_file_load	Static-confirmed	Synchronous raw-file loader used by MKMSZR runtime bootstrap.
+0x80065D64	raw_file_load	Static-confirmed	Synchronous raw-file loader used by MKMSZR runtime bootstrap. No `cache` instruction in it or its callees within three call levels (Static-confirmed 2026-11-06): raw-loaded code/state must use uncached KSEG1 aliases. See Wiki Memory-and-Allocation-Map.
 0x80065E00	type5_decode	Static-confirmed	Native fighter image Type-5 decoder.
 0x80066360	arena_cold_init	Static-confirmed	Initializes both arena base/floor `0x800EECD0` and live bump cursor `0x80111ECC` to the stock hardcoded arena start, with initial boundary bookkeeping
 0x80066390	arena_cursor_reset	Static-confirmed	Copies persistent/reset arena base `0x800EECD0` into live bump cursor `0x80111ECC`; production bootstrap uses this after relocating the arena floor
@@ -117,7 +117,7 @@ address	name	evidence	comment
 0x80078C40	frontend_title_handoff	Static-confirmed	Called after fade normalization
 0x80079510	frontend_legal_logo_title	Static-confirmed	Contains two logo presentations
 0x800798A8	automatic_stage_save	Static/runtime-confirmed	Generic routine remains intact
-0x8007AD00	stock_inventory_sanitizer	Runtime-confirmed/replaced	Production stage-key masking copy replacing stock sanitizer. Clean-ROM implementation; production randomizer replaces it.
+0x8007AD00	stock_inventory_sanitizer	Runtime-confirmed/replaced	Production stage-key masking copy replacing stock sanitizer. Clean-ROM implementation; production randomizer replaces it. Since 2026-11-06 the production routine reads its key-to-stage table uncached at 0xA01B0970 (formerly the stock template 0x800A5FE4).
 0x8007AD4C	stock_default_inventory_loader	Runtime-confirmed/replaced	Production live-to-backing filtered save wrapper. Clean-ROM implementation; production randomizer replaces it.
 0x8007EC4C	sound_voice_alloc	Static-confirmed	Consumes resolved runtime sound definition and allocates/starts native audio voices
 0x80080A88	raw_sound_id_play	Static-confirmed	Selects a 16-byte runtime sound definition by raw ID and dispatches through `0x8007EC4C
@@ -138,3 +138,7 @@ address	name	evidence	comment
 0x8008A3C0	ai_remaining_bytes	Static-confirmed	Reads AI_LEN remaining DMA bytes; emulator backend may deliver host fragments during this existing register read.
 0x8008A500	ai_pcm_enqueue	Static-confirmed	Full predicate 0x80092E90; full returns -1 without AI writes; success writes AI_DRAM/AI_LEN at 0x8008A57C/580. Caller ignores error. Enqueue retry remains untested and rejected for upstream investigation.
 0x80092E90	ai_fifo_full	Static-confirmed	Reads AI_STATUS FIFO-full predicate used by native enqueue.
+0x8007550C	password_screen_handler	Static-confirmed	Options password screen and password-effect handler (Options entry 3). Password `NXCVSZ` writes word 5 into 0x800A5FE4..0x800A6008; stage passwords write current stage 0x8009A910 and current XP 0x8011200C. Unpatched by MKMSZR. See Wiki Persistence-Inventory-and-Lifecycle.
+0x800762C4	options_menu_dispatcher	Static-confirmed	Five-entry Options menu; jump table 0x800AEAB8 targets 0x8007739C, 0x80076D74, 0x8007816C, 0x8007550C (password), 0x800766BC (GAME SETTINGS editor). Labels of entries 0-2 not individually confirmed.
+0x800766BC	game_settings_editor	Static-confirmed	GAME SETTINGS editor (Options entry 4); extended by MKMSZR's TURN/ATTACK/SPECIALS/JUMP/RUN frontend. See Wiki Native-HUD-and-UI.
+0x80095DE0	os_exception_handler	Static-confirmed	libultra-pattern exception entry. Overwrites k1 with Status at 0x80095DEC; the return path restores at/t8/t9 from the thread context (0x800965E4, 0x80096640, 0x80096644) but leaves k0 = 0xA430000C and k1 = RCP mask before eret at 0x8009670C. Injected code must not carry state in k0/k1. See Wiki Persistence-Inventory-and-Lifecycle.
