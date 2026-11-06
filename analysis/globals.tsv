@@ -34,3 +34,6 @@ address	name	evidence	comment
 0x800BA4D0	g_audio_player_sample_time	Static-confirmed	Player callback sample time; paired snapshots equal WESS ticks times 184.
 0x802C1970	g_scheduler_message_queue	Static-confirmed	OSMesgQueue capacity 32, buffer 0x801AE4C8; no endpoint backlog in paired states.
 0x802E7DC0	g_vi_callback_count	Static-confirmed	Native input/VI callback counter; do not equate endpoint difference with wall time.
+0x800A5FE4	g_default_inventory_template	Static-confirmed	Stock ten-word default-inventory template, obsolete under MKMSZR after the default loader is replaced. Still written by password `NXCVSZ` (0x8007550C). Former MKMSZR key-to-stage table location until 2026-11-06; do not reuse.
+0x800AE940	g_password_buffer	Static-confirmed	Six-character password entry buffer (default `BCDFGH`) used by 0x8007550C; the legacy Lua randomizer used it for seed entry.
+0x800AEAB8	g_options_menu_jump_table	Static-confirmed	Five-word jump table used by the Options dispatcher 0x800762C4.
