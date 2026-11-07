@@ -36,7 +36,7 @@ address	name	evidence	comment
 0x8002FE54	fighter_select_animation	Static-confirmed	Selects fighter animation-table entry and stores current animation cursor.
 0x80030178	forward_locomotion_setup	Static-confirmed	Initializes forward locomotion and selects primary animation slot 1.
 0x80030208	backward_locomotion_setup	Static-confirmed	Initializes backward locomotion and selects primary animation slot 2.
-0x800304C0	animation_advance	Static-confirmed	Advances the current animation script/cursor.
+0x800304C0	animation_advance	Static-confirmed	Fighter animation script interpreter: advances the current script/cursor; tokens 1..16 via 0x800AD450. See Wiki Data-Structures-and-Encodings (Fighter animation script grammar).
 0x80031208	actor_adjust_local_xy	Static-confirmed	Applies facing-aware local X/Y offset to actor world position.
 0x80031394	actor_align_to_owner	Static-confirmed; unsafe proof usage Runtime-confirmed	Aligns child actor origin/facing/render anchor to owner; requires valid descriptor state.
 0x80031724	animation_rate_init	Static-confirmed	Stores animation period and primes countdown.
@@ -142,3 +142,13 @@ address	name	evidence	comment
 0x800762C4	options_menu_dispatcher	Static-confirmed	Five-entry Options menu; jump table 0x800AEAB8 targets 0x8007739C, 0x80076D74, 0x8007816C, 0x8007550C (password), 0x800766BC (GAME SETTINGS editor). Labels of entries 0-2 not individually confirmed.
 0x800766BC	game_settings_editor	Static-confirmed	GAME SETTINGS editor (Options entry 4); extended by MKMSZR's TURN/ATTACK/SPECIALS/JUMP/RUN frontend. See Wiki Native-HUD-and-UI.
 0x80095DE0	os_exception_handler	Static-confirmed	libultra-pattern exception entry. Overwrites k1 with Status at 0x80095DEC; the return path restores at/t8/t9 from the thread context (0x800965E4, 0x80096640, 0x80096644) but leaves k0 = 0xA430000C and k1 = RCP mask before eret at 0x8009670C. Injected code must not carry state in k0/k1. See Wiki Persistence-Inventory-and-Lifecycle.
+0x800318B8	actor_flip_vertical	Static-confirmed	Toggles actor +0x8C bit 0x20 and runs 0x8001BDA0; animation token 9.
+0x80028BF4	anim_cb_set_rate	Static-confirmed	Animation callback 1 (table 0x8009F95C, token 6): consumes one script word; low halfword -> period +0x6A6 and countdown +0x6A8. See Wiki Data-Structures-and-Encodings (Fighter animation script grammar).
+0x80028C18	anim_cb_play_sfx	Static-confirmed	Animation callback 2: consumes one script word and plays that gameplay SFX descriptor via 0x80064C18 with facing-dependent pan. See Wiki Data-Structures-and-Encodings (Fighter animation script grammar).
+0x800288E0	anim_cb_set_actor_flag_2000	Static-confirmed	Animation callback 3: actor +0x64 |= 0x2000.
+0x800288FC	anim_cb_clear_actor_flag_2000	Static-confirmed	Animation callback 4: actor +0x64 &= ~0x2000.
+0x8002891C	anim_cb_set_actor_flag_20	Static-confirmed	Animation callback 5: actor +0x64 |= 0x20.
+0x80028938	anim_cb_clear_actor_flag_20	Static-confirmed	Animation callback 6: actor +0x64 &= ~0x20.
+0x80028958	anim_cb_adjust_position	Static-confirmed	Animation callback 7: actor +0x2C -= 0x19000; for actor type 0x0B wraps by +/-0x32000 into [0x5D00,0x333CB].
+0x800289E0	anim_cb_set_actor_flag_100	Static-confirmed	Animation callback 9: actor +0x64 |= 0x100.
+0x800289FC	anim_cb_spawn_effect_process	Static-confirmed	Animation callback 8: spawns class-0x100 process 0x80028A24, which builds a resource actor with a randomly chosen variant; effect identity Pending.

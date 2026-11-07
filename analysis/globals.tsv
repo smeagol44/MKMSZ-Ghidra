@@ -37,3 +37,5 @@ address	name	evidence	comment
 0x800A5FE4	g_default_inventory_template	Static-confirmed	Stock ten-word default-inventory template, obsolete under MKMSZR after the default loader is replaced. Still written by password `NXCVSZ` (0x8007550C). Former MKMSZR key-to-stage table location until 2026-11-06; do not reuse.
 0x800AE940	g_password_buffer	Static-confirmed	Six-character password entry buffer (default `BCDFGH`) used by 0x8007550C; the legacy Lua randomizer used it for seed entry.
 0x800AEAB8	g_options_menu_jump_table	Static-confirmed	Five-word jump table used by the Options dispatcher 0x800762C4.
+0x800AD450	g_anim_token_jump_table	Static-confirmed	Sixteen-word jump table for animation interpreter 0x800304C0 tokens 1..16 (dispatch at 0x80030584). See Wiki Data-Structures-and-Encodings (Fighter animation script grammar).
+0x8009F95C	g_anim_callback_table	Static-confirmed	Ten-word animation callback table for token 6; index 0 is null (no-op), 1..9 are the anim_cb_* functions. See Wiki Data-Structures-and-Encodings (Fighter animation script grammar).
