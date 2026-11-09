@@ -1,3 +1,4 @@
 scope	address	name	evidence	comment
 global	0x80003314	image_dispatch_type5_case	Static-confirmed; Ghidra listing-confirmed	Switch case 5 within the existing image decode dispatcher. Native Type-5 decoder call at 0x8000332C targets 0x80065E00; not a separate function.
 global	0x80030974	anim_token_0b_case	Static-confirmed; Ghidra listing-confirmed	Switch arm inside animation_advance 0x800304C0; original ROM jump-table entry 0x800AD478 equals 0x80030974 and dispatch 0x80030584 is jr v0. Not a standalone function.
+global	0x800185B8	render_frame_decode_upload	Static-confirmed	Inside the per-actor render pass: when actor +0xFA is set, decodes frame record +0x7C through 0x8000322C, writes the decoded pointer back into the record, sets slot +0x08/+0x0A and queues the upload via 0x8001D6EC. Inside actor_motion_integrate 0x80017F80 (the per-frame actor pass); not a separate function.

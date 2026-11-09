@@ -40,6 +40,7 @@ for r in registry:
         annotation_rows+=1
     assert claims[key]["migration_status"]=="ghidra-confirmed"
     assert claims[key]["target_path"].startswith("analysis/")
-assert annotation_rows>=22
+# 22 at the 2026-10 reconciliation; FUNC-075 and FUNC-079 were promoted from bookmarks to function/label definitions on 2026-11-09.
+assert annotation_rows>=20
 print(f"166/166 known Function Registry rows have full scoped address navigation; "
       f"{annotation_rows} rows use existing bookmarks/comments. No function identities inferred.")
