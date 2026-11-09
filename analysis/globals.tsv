@@ -57,3 +57,5 @@ address	name	evidence	comment
 0x800A2EC8	g_player_voice_table	Static-confirmed	Player (type 4) voice table: 12 category halfwords -> SFX descriptors 0x20..0x2C; category 11 is the grab.
 0x802C11C0	g_texture_upload_queue	Static-confirmed	Texture upload queue (20-byte entries) filled by 0x8001D6EC; top index at 0x802C16C0 (-1 idle).
 0x800A9FB8	g_image_type_jump_table	Static-confirmed	Six-word jump table of 0x8000322C for image types 0..5.
+0x80111DB8	g_ice_spawn_x_offset	Static-confirmed	Ice root spawn x offset: set per mode (0x7000 for mode 0 at 0x8004AD40), then overwritten by the staging block with the computed x (0x8004AE18); a second creation must re-run 0x8004AD40 (Sektor Double Missile, proof v46).
+0x802E7E08	g_ice_spawn_y_offset	Static-confirmed	Ice root spawn y offset: 0x55F0 for mode 0 (0x8004AD50), then overwritten by the staging block with the computed y (0x8004AE54).
