@@ -39,3 +39,21 @@ address	name	evidence	comment
 0x800AEAB8	g_options_menu_jump_table	Static-confirmed	Five-word jump table used by the Options dispatcher 0x800762C4.
 0x800AD450	g_anim_token_jump_table	Static-confirmed	Sixteen-word jump table for animation interpreter 0x800304C0 tokens 1..16 (dispatch at 0x80030584). See Wiki Data-Structures-and-Encodings (Fighter animation script grammar).
 0x8009F95C	g_anim_callback_table	Static-confirmed	Ten-word animation callback table for token 6; index 0 is null (no-op), 1..9 are the anim_cb_* functions. See Wiki Data-Structures-and-Encodings (Fighter animation script grammar).
+0x802E83F0	g_texture_slot_records	Static-confirmed	16-byte dynamic texture-slot records (IDs 0x200..0x2FF). See Wiki Data-Structures-and-Encodings (Dynamic gameplay texture-slot record).
+0x800ED940	g_texture_slot_storage	Static-confirmed	Per-slot storage pointers, indexed by slot ID.
+0x800BF2FC	g_texture_stack_top	Static-confirmed	Lowest live dynamic-slot storage address (top-down; reset to 0x80400000).
+0x801AE478	g_texture_bump	Static-confirmed	Texture-storage bump pointer advanced by 0x8001BF70 without a bound check (reset to 0x8034B000).
+0x8009A5F0	g_texture_slot_mode	Static-confirmed	Render-mode index for the next fresh dynamic slot (header bits 0x60); reset to 0 every frame; the Ice helper sets 1.
+0x8009F6F4	g_slot_render_modes	Static-confirmed	Four render-mode words indexed by slot header bits 0x60 (all 0x404240).
+0x8009F704	g_slot_render_alpha	Static-confirmed	Four alpha bytes indexed by slot header bits 0x60: 0x80, 0xC0, 0x40, 0x20.
+0x800EEB8C	g_image_decode_cursor	Static-confirmed	Per-frame decode scratch cursor used by 0x8000322C; reset each frame from *0x80112014.
+0x80112014	g_frame_scratch_base	Static-confirmed	Per-frame scratch base (0x802C1C00 in the gameplay setters).
+0x802E7E20	g_type4_ring	Static-confirmed	1024-byte ring of the type-4 decoder 0x80003428; not cleared between images (output byte k at index (1+k) & 0x3FF).
+0x80111DC8	g_process_free_list	Static-confirmed	Free-list head of the 64 process controllers (0x720 bytes each).
+0x802D0E34	g_object_free_list	Static-confirmed	Free-list head of the 79 objects (0x118 bytes each).
+0x80291C10	g_fighter_file_87_base	Static-confirmed	Resident fighter file 0x87 base (written at stage load 0x8000D34C).
+0x800A1190	g_reaction_table	Static-confirmed	Victim reaction routine table indexed by strike reaction byte; entry 0x23 is the unused endless-sleep 0x8004E0C0.
+0x800AF484	g_projectile_strike_table	Static-confirmed	Per-type projectile strike-record pointer table read by 0x8004CE6C; player type 4 selector 0x13 = straight projectile.
+0x800A2EC8	g_player_voice_table	Static-confirmed	Player (type 4) voice table: 12 category halfwords -> SFX descriptors 0x20..0x2C; category 11 is the grab.
+0x802C11C0	g_texture_upload_queue	Static-confirmed	Texture upload queue (20-byte entries) filled by 0x8001D6EC; top index at 0x802C16C0 (-1 idle).
+0x800A9FB8	g_image_type_jump_table	Static-confirmed	Six-word jump table of 0x8000322C for image types 0..5.
