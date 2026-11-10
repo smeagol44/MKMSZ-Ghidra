@@ -59,3 +59,8 @@ address	name	evidence	comment
 0x800A9FB8	g_image_type_jump_table	Static-confirmed	Six-word jump table of 0x8000322C for image types 0..5.
 0x80111DB8	g_ice_spawn_x_offset	Static-confirmed	Ice root spawn x offset: set per mode (0x7000 for mode 0 at 0x8004AD40), then overwritten by the staging block with the computed x (0x8004AE18); a second creation must re-run 0x8004AD40 (Sektor Double Missile, proof v46).
 0x802E7E08	g_ice_spawn_y_offset	Static-confirmed	Ice root spawn y offset: 0x55F0 for mode 0 (0x8004AD50), then overwritten by the staging block with the computed y (0x8004AE54).
+0x80290998	g_floor_region_count	Static-confirmed	Number of stock floor regions (word), read by floor_region_test 0x80025ED4; first fixed state after the arena bump bound 0x80290990.
+0x800C2568	g_floor_region_table	Static-confirmed	Pointer to the floor-region records, stride 0xB8: base x/y/z words +0/+4/+8 (world units), point count +0x0C, points from +0x10 (dx, dy signed halfwords, stride 8), flags +0x94 (0x300 shaping modes, 0x800 ledge). Applies when abs(z - base z) <= 0x80 and x lies between the first and last point; floor = base y + dy of the first point whose x exceeds the actor's. Modelled read-only by the Sektor teleport floor probe (composition v03/v04).
+0x801AE580	g_floor_region_enabled	Static-confirmed	One enable byte per floor region (index as g_floor_region_table).
+0x802C1BA4	g_xp_level_value	Static-confirmed	Level value stored by xp_tier_evaluate 0x80074FBC from current XP (curve sum >> 8); read by the Power Ups strip builder 0x800750F0.
+0x800C1248	g_power_ups_count	Static-confirmed	Power Ups strip count: the tier count from xp_tier_evaluate, stored (capped at 9) by the strip builder 0x800750F0.
